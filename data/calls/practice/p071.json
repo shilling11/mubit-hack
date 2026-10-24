@@ -1,0 +1,146 @@
+{
+ "id": "p071",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p071",
+  "split": "practice",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Niamh Varga",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Niamh Varga. There’s a card payment I don’t recognise, and I’m really unhappy with how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 12.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating. I can see a payment for £186.40 to Northstar Travel on 22 October, and your current balance is £742.18. Is that the one you mean?",
+   "start_s": 12.9,
+   "end_s": 24.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s it. I’ve never used Northstar Travel.",
+   "start_s": 25.3,
+   "end_s": 28.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why that would concern you. Before I look at the payment any further, can I take your full date of birth and the first line of your address?",
+   "start_s": 28.9,
+   "end_s": 40.5
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 March 1988, and 26 Alder Road, Leeds.",
+   "start_s": 41.0,
+   "end_s": 44.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. I’m not able to complete the identity checks from those details, so I can’t make any changes to the account or discuss further account information.",
+   "start_s": 44.9,
+   "end_s": 55.3
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s disappointing. I’ve already had to call twice, and I still don’t know what’s happening with the payment.",
+   "start_s": 55.8,
+   "end_s": 62.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had to contact us more than once, Niamh. I’ll log this as a complaint about the handling of the unrecognised card payment and your experience contacting us.",
+   "start_s": 63.2,
+   "end_s": 74.8
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 75.3,
+   "end_s": 77.2
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaint will be reviewed, including the concerns you’ve raised about the payment and your previous calls. You’ll receive a full written response within 15 business days.",
+   "start_s": 77.7,
+   "end_s": 88.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Will you be able to tell me whether the payment is going to be refunded?",
+   "start_s": 88.6,
+   "end_s": 94.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise an outcome. The written response will explain what we found and any decision made; I can’t discuss the account further today because the identity checks weren’t completed.",
+   "start_s": 94.8,
+   "end_s": 106.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. So it’s logged as a complaint, and I’ll get a full written response within 15 business days, but you can’t say whether I’ll get the money back.",
+   "start_s": 106.9,
+   "end_s": 117.7
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. To summarise, the complaint is about the unrecognised Northstar Travel payment and your previous contact with us, and a full written response will be sent within 15 business days. Does that make sense?",
+   "start_s": 118.2,
+   "end_s": 131.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 132.1,
+   "end_s": 133.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you for your patience, Niamh. Is there anything else I can help with today?",
+   "start_s": 134.2,
+   "end_s": 139.9
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s all.",
+   "start_s": 140.4,
+   "end_s": 141.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for calling Thistle Bank. Goodbye.",
+   "start_s": 142.1,
+   "end_s": 144.4
+  }
+ ]
+}

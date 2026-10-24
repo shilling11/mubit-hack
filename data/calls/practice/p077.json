@@ -1,0 +1,146 @@
+{
+ "id": "p077",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "p077",
+  "split": "practice",
+  "situation": "lost_card",
+  "situation_desc": "needs a replacement for a lost card",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they're already behind on a couple of bills",
+  "customer": "Carys Ellingham",
+  "agent": "Marcus",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Carys Ellingham. I’ve lost my debit card and need a replacement.",
+   "start_s": 4.3,
+   "end_s": 9.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that. I can help with that. Before we discuss anything on your account, could you tell me your full name and date of birth, please?",
+   "start_s": 9.8,
+   "end_s": 21.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Carys Ellingham, 14th of June 1991.",
+   "start_s": 21.5,
+   "end_s": 23.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 24.3,
+   "end_s": 27.8
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Willow Lane.",
+   "start_s": 28.3,
+   "end_s": 29.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. When did you last have the card?",
+   "start_s": 30.0,
+   "end_s": 33.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yesterday afternoon, I think. I’ve checked everywhere, so I’d like to get it stopped and replaced.",
+   "start_s": 34.3,
+   "end_s": 40.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll block the lost card so it can’t be used, then arrange a replacement to be sent to your address. It usually arrives within five to seven working days.",
+   "start_s": 41.0,
+   "end_s": 52.9
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s fine. I’m already behind on a couple of bills, so I’m a bit worried about anything else going wrong.",
+   "start_s": 53.4,
+   "end_s": 61.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve got that to deal with, Carys. We can put you in touch with our Financial Support team, who can talk through your circumstances, or I can explain how to ask a bill provider for extra time. Would either be helpful?",
+   "start_s": 61.6,
+   "end_s": 78.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Maybe the Financial Support team, please. I’m not unhappy with the bank or anything; I’ve just had a tight month.",
+   "start_s": 78.6,
+   "end_s": 86.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Absolutely, and thanks for clarifying. I can give you their number, or arrange for them to contact you. I can’t say what support may be available until they’ve spoken with you.",
+   "start_s": 86.8,
+   "end_s": 98.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Could you give me the number?",
+   "start_s": 99.2,
+   "end_s": 101.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Certainly. It’s 0800 555 0148. For your card, I’ll block the lost one now and order the replacement to 22 Willow Lane; you’ll need to use your PIN when the new card arrives to activate it.",
+   "start_s": 102.0,
+   "end_s": 115.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay.",
+   "start_s": 116.4,
+   "end_s": 117.6
+  },
+  {
+   "speaker": "agent",
+   "text": "So, to summarise, the old card will be blocked and a replacement sent out, usually within five to seven working days. You’ve also got the Financial Support team’s number if you want to discuss the bills. Does that all make sense?",
+   "start_s": 118.1,
+   "end_s": 133.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks for your help.",
+   "start_s": 134.4,
+   "end_s": 137.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Carys. Take care.",
+   "start_s": 137.6,
+   "end_s": 139.5
+  }
+ ]
+}

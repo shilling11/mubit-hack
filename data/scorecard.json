@@ -1,0 +1,51 @@
+{
+  "bank": "Thistle Bank",
+  "pass_mark": 80,
+  "items": [
+    {
+      "id": "C1", "label": "Complaint recognised and logged", "kind": "critical", "weight": 0,
+      "basis": "FCA DISP definition of a complaint",
+      "guidance": "Applies when the customer expresses dissatisfaction about the bank and has lost money, been inconvenienced or been distressed, even if they never say the word 'complaint'. yes = the colleague clearly treats it as a complaint (says it is being logged or raised as a complaint, or explains the complaints process). no = dissatisfaction was expressed but it was not treated as a complaint. na = no dissatisfaction was expressed."
+    },
+    {
+      "id": "C2", "label": "Vulnerability recognised and support offered", "kind": "critical", "weight": 0,
+      "basis": "FCA FG21/1 (health, life events, resilience, capability)",
+      "guidance": "Applies when the customer mentions anything suggesting vulnerability: health (illness, a hospital stay, mental health), life events (bereavement, job loss, relationship breakdown, caring for someone), low financial resilience (debt, can't afford essentials) or low capability (confusion, language, digital skills). yes = the colleague acknowledges it and offers specific support (e.g. the Financial Support team, extra time, adjustments). no = a cue was present but no support was offered. na = no vulnerability cue at all."
+    },
+    {
+      "id": "C3", "label": "No promised outcome or misleading statement", "kind": "critical", "weight": 0,
+      "basis": "Consumer Duty: consumer understanding",
+      "guidance": "Never na. yes = the colleague makes no promise about the outcome of an investigation and says nothing misleading. no = the colleague promises or strongly implies an outcome before it has been decided (e.g. 'we'll refund that', 'you'll definitely get it back') or makes a misleading statement."
+    },
+    {
+      "id": "C4", "label": "Identity verified before account details", "kind": "critical", "weight": 0,
+      "basis": "Thistle Bank security policy",
+      "guidance": "yes = the colleague verifies identity (at least two pieces of information) before discussing any account-specific details. no = account details were discussed before identity was verified, or without verifying it. na = no account-specific details were discussed."
+    },
+    {
+      "id": "S1", "label": "Next steps and correct timescale", "kind": "scored", "weight": 20,
+      "basis": "FCA DISP 1.6",
+      "guidance": "yes = the colleague explains what happens next and when, including the right timescale for complaints (a final response within 8 weeks, or 15 business days for payment services such as card payments, transfers and direct debits). no = next steps are vague ('someone will be in touch') or the timescale is missing or wrong. na = nothing needs to happen after the call."
+    },
+    {
+      "id": "S2", "label": "Checked understanding", "kind": "scored", "weight": 20,
+      "basis": "Consumer Duty: consumer understanding",
+      "guidance": "yes = the colleague checks the customer has understood (asks, or summarises and confirms). no = no check. na = only for calls with nothing to explain."
+    },
+    {
+      "id": "S3", "label": "Accurate information", "kind": "scored", "weight": 20,
+      "basis": "Thistle Bank policy",
+      "guidance": "yes = everything the colleague states about products, fees, rules and timescales is accurate. no = something stated is inaccurate (e.g. a wrong deadline). Use unsure if accuracy can't be judged from the call."
+    },
+    {
+      "id": "S4", "label": "Empathy and tone", "kind": "scored", "weight": 20,
+      "basis": "Thistle Bank service standard",
+      "guidance": "Never na. yes = courteous, patient and empathetic, especially when the customer is upset. no = dismissive, rushed or rude."
+    },
+    {
+      "id": "S5", "label": "Ownership and follow-up", "kind": "scored", "weight": 20,
+      "basis": "Thistle Bank service standard",
+      "guidance": "yes = the colleague takes ownership and agrees a specific follow-up (who will do what, and by when). no = no ownership or no follow-up agreed when one was needed. na = the matter was fully resolved on the call."
+    }
+  ]
+}

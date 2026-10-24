@@ -1,0 +1,134 @@
+{
+ "id": "p042",
+ "agent_name": "Owen",
+ "spec": {
+  "id": "p042",
+  "split": "practice",
+  "situation": "transfer_late",
+  "situation_desc": "sent a bank transfer that arrived days late, so they missed a rent payment",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "health",
+  "vuln_cue": "mentions their anxiety has been really bad lately",
+  "customer": "Carys Delacroix",
+  "agent": "Owen",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "no",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Owen speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Carys Delacroix. I sent a transfer on Monday and it didn’t arrive until Thursday. I missed my rent payment because of it, and I’m really unhappy with how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 17.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look at that. Before we discuss the account, can you confirm your date of birth and the first line of your address?",
+   "start_s": 17.9,
+   "end_s": 27.2
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1992, and 27 Alder Road.",
+   "start_s": 27.7,
+   "end_s": 30.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. What was the transfer amount?",
+   "start_s": 31.2,
+   "end_s": 33.5
+  },
+  {
+   "speaker": "customer",
+   "text": "£860, to my landlord. My anxiety’s been really bad lately, and this has made things worse.",
+   "start_s": 34.0,
+   "end_s": 40.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Sorry to hear that. The transfer shows as received on Thursday.",
+   "start_s": 40.7,
+   "end_s": 44.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, I know it arrived. I want to know why it took days, and now my landlord’s charged me a late fee.",
+   "start_s": 45.4,
+   "end_s": 53.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Transfers can take a few working days. I’ll put a note on the account.",
+   "start_s": 54.4,
+   "end_s": 59.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s not much help. Can the late fee I’ve been charged be refunded?",
+   "start_s": 60.3,
+   "end_s": 65.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Bank fees can never be refunded. Someone will be in touch about the transfer.",
+   "start_s": 65.8,
+   "end_s": 71.2
+  },
+  {
+   "speaker": "customer",
+   "text": "When will someone contact me? I need to know what’s happening.",
+   "start_s": 71.7,
+   "end_s": 75.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t give you a timescale. Someone will be in touch.",
+   "start_s": 76.4,
+   "end_s": 80.6
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’re just noting it and I’m meant to wait, even though I’ve lost money?",
+   "start_s": 81.1,
+   "end_s": 86.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ve noted the delayed transfer and the late fee. Is that clear, does that make sense?",
+   "start_s": 87.4,
+   "end_s": 93.5
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s clear, but I’m still unhappy. I’ve got no idea when I’ll hear anything.",
+   "start_s": 94.0,
+   "end_s": 99.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. Is there anything else?",
+   "start_s": 99.9,
+   "end_s": 101.8
+  }
+ ]
+}

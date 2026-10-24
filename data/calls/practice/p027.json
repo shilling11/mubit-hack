@@ -1,0 +1,134 @@
+{
+ "id": "p027",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p027",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "health",
+  "vuln_cue": "mentions they had an operation last month",
+  "customer": "Declan Pemberton",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Declan Pemberton. I’m really unhappy about the unarranged overdraft fees on my account.",
+   "start_s": 4.3,
+   "end_s": 10.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had to call about that, Declan. I can see a £25 fee was charged on 14 October, and your balance is currently £312 overdrawn.",
+   "start_s": 10.6,
+   "end_s": 21.0
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s what I’m calling about. I had an operation last month, and all this has been a lot to deal with.",
+   "start_s": 21.5,
+   "end_s": 29.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand you’re unhappy with the fee. Can you tell me what you feel has gone wrong?",
+   "start_s": 30.1,
+   "end_s": 36.6
+  },
+  {
+   "speaker": "customer",
+   "text": "I didn’t realise I’d gone over my arranged limit, and I don’t think the fee is fair. I want the bank to look into it.",
+   "start_s": 37.1,
+   "end_s": 46.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m logging this as a complaint about the unarranged overdraft fee and how it was applied.",
+   "start_s": 47.2,
+   "end_s": 54.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Thank you. I’d like someone to properly review it.",
+   "start_s": 54.7,
+   "end_s": 58.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership of getting it recorded today, and I’ll make sure the complaints team has your concerns to review.",
+   "start_s": 58.6,
+   "end_s": 66.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Will the money definitely be refunded?",
+   "start_s": 66.8,
+   "end_s": 69.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise what the outcome will be. The complaints team will look into the circumstances and explain its decision in writing.",
+   "start_s": 69.6,
+   "end_s": 78.1
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now, then?",
+   "start_s": 78.6,
+   "end_s": 80.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the complaint today. The complaints team will investigate and send you a full written response within 8 weeks. If they need anything else, they’ll contact you.",
+   "start_s": 81.4,
+   "end_s": 92.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, so you’re logging it today, and I’ll get the full response within eight weeks.",
+   "start_s": 92.7,
+   "end_s": 98.4
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ll make sure it’s logged today. Does that make sense, and is there anything else you’d like me to clarify?",
+   "start_s": 98.9,
+   "end_s": 107.4
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s clear. Thanks.",
+   "start_s": 107.9,
+   "end_s": 109.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Declan. Thanks for speaking with me, and I’m sorry this has been frustrating.",
+   "start_s": 109.9,
+   "end_s": 115.7
+  }
+ ]
+}

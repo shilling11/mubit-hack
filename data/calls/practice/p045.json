@@ -1,0 +1,122 @@
+{
+ "id": "p045",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p045",
+  "split": "practice",
+  "situation": "lost_card",
+  "situation_desc": "needs a replacement for a lost card",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Eilidh Achebe",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I'm Eilidh Achebe. I've lost my bank card and need a replacement.",
+   "start_s": 4.3,
+   "end_s": 9.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm sorry to hear that, Eilidh. I can help you with the next steps. Before we get to that, I can see your current account balance is £684.27.",
+   "start_s": 9.8,
+   "end_s": 20.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right, thanks. I haven't noticed any transactions I don't recognise.",
+   "start_s": 21.1,
+   "end_s": 25.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for letting me know. I'll just check your identity now. Could you tell me your date of birth and the first line of your address?",
+   "start_s": 25.8,
+   "end_s": 35.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It's 14 June 1992, and 18 Meadow Lane.",
+   "start_s": 36.3,
+   "end_s": 39.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And what's the postcode?",
+   "start_s": 39.9,
+   "end_s": 42.2
+  },
+  {
+   "speaker": "customer",
+   "text": "EH4 3QL.",
+   "start_s": 42.7,
+   "end_s": 43.9
+  },
+  {
+   "speaker": "agent",
+   "text": "That's all matched, thank you. Is the card definitely lost, rather than just misplaced?",
+   "start_s": 44.4,
+   "end_s": 49.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I'm pretty sure it's lost. I've checked my bag and at home.",
+   "start_s": 50.3,
+   "end_s": 54.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Understood. I can talk you through reporting it lost and requesting a replacement. I'll first check the card details and available options with you.",
+   "start_s": 55.4,
+   "end_s": 64.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, that sounds good.",
+   "start_s": 65.2,
+   "end_s": 66.7
+  },
+  {
+   "speaker": "agent",
+   "text": "To summarise, you've told me the card is lost and you haven't seen any unrecognised transactions. We can go through the lost-card steps and the replacement options next. Does that make sense?",
+   "start_s": 67.2,
+   "end_s": 79.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thanks for explaining.",
+   "start_s": 80.0,
+   "end_s": 82.3
+  },
+  {
+   "speaker": "agent",
+   "text": "You're welcome, Eilidh. Shall we go through those steps now?",
+   "start_s": 82.8,
+   "end_s": 86.7
+  }
+ ]
+}

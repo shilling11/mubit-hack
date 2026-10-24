@@ -1,0 +1,134 @@
+{
+ "id": "p069",
+ "agent_name": "Owen",
+ "spec": {
+  "id": "p069",
+  "split": "practice",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Carys Whitlock",
+  "agent": "Owen",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Owen speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Carys Whitlock. Your app was down yesterday, so I couldn’t pay my electricity bill on time. I’m really unhappy with the bank—it’s caused me a late-payment charge.",
+   "start_s": 4.3,
+   "end_s": 15.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that happened, Carys. I’ll do my best to sort it out. Before I look at your account, could you confirm your full name and date of birth, please?",
+   "start_s": 16.0,
+   "end_s": 27.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Carys Ellen Whitlock, 14 June 1988.",
+   "start_s": 28.0,
+   "end_s": 30.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 30.8,
+   "end_s": 34.3
+  },
+  {
+   "speaker": "customer",
+   "text": "27 Willow Crescent.",
+   "start_s": 34.8,
+   "end_s": 36.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s all verified. I’m sorry the app let you down. The late fee should be refunded, and we’ll get that put right for you.",
+   "start_s": 36.5,
+   "end_s": 46.1
+  },
+  {
+   "speaker": "customer",
+   "text": "I’ve already paid the bill today, but the supplier charged me £18 because it was late.",
+   "start_s": 46.6,
+   "end_s": 52.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. Could you tell me which supplier it was and when the payment went through?",
+   "start_s": 53.3,
+   "end_s": 59.4
+  },
+  {
+   "speaker": "customer",
+   "text": "North Vale Energy. I paid it at about nine this morning.",
+   "start_s": 59.9,
+   "end_s": 64.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Right, thanks. I’ll ask our payments team to check what happened with the app and the charge. We’ll get back to you within five working days.",
+   "start_s": 64.7,
+   "end_s": 74.7
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t think I should have to chase this when your app was the problem.",
+   "start_s": 75.2,
+   "end_s": 80.9
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re right that it shouldn’t have been left to you to sort out. I’ll take ownership: I’ll send the details to our payments team today, and I’ll call you by 4 pm next Wednesday with an update on the £18 charge.",
+   "start_s": 81.4,
+   "end_s": 97.2
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I’d like to know what you’re doing about it, not just be told to wait.",
+   "start_s": 97.7,
+   "end_s": 104.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. Just to summarise, I’m asking the payments team to review the app issue and your £18 late fee, and I’ll call by 4 pm next Wednesday with an update. Does that make sense?",
+   "start_s": 104.7,
+   "end_s": 118.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear.",
+   "start_s": 118.7,
+   "end_s": 119.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Carys. I’m sorry for the trouble this has caused, and I’ll make sure you hear from me by then.",
+   "start_s": 120.4,
+   "end_s": 128.5
+  }
+ ]
+}

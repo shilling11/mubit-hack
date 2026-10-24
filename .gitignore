@@ -14,7 +14,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+/lib/
+!web/lib/
 lib64/
 parts/
 sdist/
@@ -219,10 +220,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Redline local state
-redline.db
-redline.db-*
-data/rfps/uploads/
-exports/
+# Redress local state
+redress.db
+redress.db-*
+data/audio/
 web/node_modules/
 web/.next/

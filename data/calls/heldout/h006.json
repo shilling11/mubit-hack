@@ -1,0 +1,146 @@
+{
+ "id": "h006",
+ "agent_name": "Owen",
+ "spec": {
+  "id": "h006",
+  "split": "heldout",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they can't afford this, they've got nothing left until payday",
+  "customer": "Femi Pemberton",
+  "agent": "Owen",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Owen speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Femi Pemberton. There’s a card payment I don’t recognise, and I’m really unhappy with you lot. It’s been a nightmare trying to sort things out.",
+   "start_s": 4.3,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had such a frustrating time, Femi. I can see a payment of £186.40 to Northstar Travel on your account from yesterday. I’ll look into what’s happened.",
+   "start_s": 14.8,
+   "end_s": 26.0
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s the one. I didn’t make it. And I can’t afford this—I’ve got nothing left until payday.",
+   "start_s": 26.5,
+   "end_s": 33.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, that’s a lot to be dealing with. I can’t say what the outcome will be, but I can raise the payment for investigation. We also have a Financial Support team who can talk through options, including extra time with payments.",
+   "start_s": 33.5,
+   "end_s": 49.7
+  },
+  {
+   "speaker": "customer",
+   "text": "I need someone to actually take responsibility for this. I’ve already had to explain it twice.",
+   "start_s": 50.2,
+   "end_s": 56.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll take ownership of getting this started, and I’m logging this as a complaint about your experience as well. The complaints team will review that separately.",
+   "start_s": 56.8,
+   "end_s": 67.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What do you need from me?",
+   "start_s": 68.1,
+   "end_s": 71.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Before I go further, can you confirm your full name, date of birth and the first line of your address?",
+   "start_s": 71.7,
+   "end_s": 79.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Femi Pemberton, 14 June 1988, and 27 Birch Lane, Leeds.",
+   "start_s": 79.9,
+   "end_s": 83.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. That matches our records. I’ll submit the card payment for investigation and pass your request for support to the Financial Support team.",
+   "start_s": 84.2,
+   "end_s": 93.5
+  },
+  {
+   "speaker": "customer",
+   "text": "When will I hear anything?",
+   "start_s": 94.0,
+   "end_s": 95.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Someone will be in touch about it. I can’t give you a timescale for their response, but I’ll make sure the case is sent through today.",
+   "start_s": 96.4,
+   "end_s": 106.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, but I don’t want to have to chase again.",
+   "start_s": 106.9,
+   "end_s": 110.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll follow up myself by the end of tomorrow to confirm it’s been sent to the investigation team and that the Financial Support referral is in place. I can’t promise what they’ll decide, but I’ll make sure those steps happen.",
+   "start_s": 111.2,
+   "end_s": 126.6
+  },
+  {
+   "speaker": "customer",
+   "text": "And the complaint?",
+   "start_s": 127.1,
+   "end_s": 128.3
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s logged too, and the complaints team will review your concerns about the service. So, to summarise: I’m submitting the payment for investigation today, referring you to Financial Support, and I’ll follow up by the end of tomorrow. Does that make sense?",
+   "start_s": 128.8,
+   "end_s": 145.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks for listening.",
+   "start_s": 145.5,
+   "end_s": 148.2
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Femi. I’m sorry again you’ve been left dealing with this, and I’ll follow up as agreed.",
+   "start_s": 148.7,
+   "end_s": 155.6
+  }
+ ]
+}

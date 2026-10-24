@@ -1,0 +1,146 @@
+{
+ "id": "p059",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p059",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "health",
+  "vuln_cue": "mentions they're having chemotherapy at the moment",
+  "customer": "Morag Pemberton",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Morag Pemberton. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that, Morag. I can look into it for you. Before we discuss the account, could you confirm your full name and date of birth, please?",
+   "start_s": 11.0,
+   "end_s": 22.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Morag Pemberton, 14 March 1962.",
+   "start_s": 22.7,
+   "end_s": 24.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 25.1,
+   "end_s": 28.5
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Rowan Drive, Dundee.",
+   "start_s": 29.0,
+   "end_s": 30.6
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s lovely, thank you. I can see the fees you mean. We’ll get that money refunded, don’t worry.",
+   "start_s": 31.1,
+   "end_s": 38.0
+  },
+  {
+   "speaker": "customer",
+   "text": "I hope so. It’s been a lot to deal with, and I’m having chemotherapy at the moment.",
+   "start_s": 38.5,
+   "end_s": 45.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m really sorry you’re going through that, Morag. We can put you in touch with our Financial Support team, and I can also make sure you’re given extra time if you need it. Would either of those help?",
+   "start_s": 45.5,
+   "end_s": 60.2
+  },
+  {
+   "speaker": "customer",
+   "text": "The extra time would help, thanks. I just want someone to take this seriously.",
+   "start_s": 60.7,
+   "end_s": 66.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m logging this as a complaint now, and I’ll make sure it’s reviewed properly. Just so you know, our unarranged overdraft fees can never be refunded.",
+   "start_s": 66.5,
+   "end_s": 77.3
+  },
+  {
+   "speaker": "customer",
+   "text": "But you just said you’d refund them.",
+   "start_s": 77.8,
+   "end_s": 80.5
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re right, I did say that, and I’m sorry—I shouldn’t have promised an outcome before it’s been investigated. I’ll take ownership and make sure the complaint is looked at.",
+   "start_s": 81.0,
+   "end_s": 92.2
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens next?",
+   "start_s": 92.7,
+   "end_s": 94.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send this to our complaints team today. They’ll investigate the fees and send you a full written response within eight weeks. I’ll also call you by 30 October with an update, even if there’s no decision yet.",
+   "start_s": 95.1,
+   "end_s": 109.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, that sounds fair.",
+   "start_s": 110.2,
+   "end_s": 111.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise, I’ve logged your complaint about the overdraft fees, noted that extra time would help, and I’ll call by 30 October. The complaints team will send a full written response within eight weeks. Does that all make sense?",
+   "start_s": 112.2,
+   "end_s": 127.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thank you for listening.",
+   "start_s": 128.1,
+   "end_s": 130.8
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Morag. I’m sorry this has added to what you’re already dealing with. Take care.",
+   "start_s": 131.3,
+   "end_s": 137.8
+  }
+ ]
+}

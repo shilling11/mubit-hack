@@ -1,0 +1,146 @@
+{
+ "id": "p040",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p040",
+  "split": "practice",
+  "situation": "mortgage_date",
+  "situation_desc": "had a mortgage payment taken on the wrong date",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions they're caring for their mum full time",
+  "customer": "Femi Thornbury",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, Sam at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Femi Thornbury. My mortgage payment’s come out on the wrong date, and I’m really unhappy about it.",
+   "start_s": 4.0,
+   "end_s": 11.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into it. Before we discuss the account, can you confirm your full name and date of birth?",
+   "start_s": 11.8,
+   "end_s": 19.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Femi Thornbury, 14 March 1982.",
+   "start_s": 20.0,
+   "end_s": 21.9
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 22.4,
+   "end_s": 25.1
+  },
+  {
+   "speaker": "customer",
+   "text": "27 Hazel Road.",
+   "start_s": 25.6,
+   "end_s": 26.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I can see a payment of £1,246 was taken on the 18th, not the 25th. Is that the one?",
+   "start_s": 27.3,
+   "end_s": 35.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes. It’s caused problems with my bills. I’m caring for my mum full time as well, so I’ve got enough to deal with.",
+   "start_s": 35.5,
+   "end_s": 44.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. What date did you expect it to come out?",
+   "start_s": 44.8,
+   "end_s": 48.7
+  },
+  {
+   "speaker": "customer",
+   "text": "The 25th. That’s what I’ve always had it set to.",
+   "start_s": 49.2,
+   "end_s": 53.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m logging this as a complaint about the payment date. The reference is TB-684219.",
+   "start_s": 53.5,
+   "end_s": 58.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I want to know why it happened.",
+   "start_s": 59.4,
+   "end_s": 62.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership. I’ll review the payment history and send the details to our complaints team by tomorrow, 25 October.",
+   "start_s": 63.0,
+   "end_s": 70.7
+  },
+  {
+   "speaker": "customer",
+   "text": "And what happens after that?",
+   "start_s": 71.2,
+   "end_s": 73.1
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaints team will investigate and send you a full written response within 8 weeks. I can’t say what the outcome will be.",
+   "start_s": 73.6,
+   "end_s": 82.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right.",
+   "start_s": 82.9,
+   "end_s": 84.1
+  },
+  {
+   "speaker": "agent",
+   "text": "So I’ll review the history and pass it on by tomorrow, and you’ll get the full written response within 8 weeks. Does that make sense?",
+   "start_s": 84.6,
+   "end_s": 94.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does.",
+   "start_s": 94.7,
+   "end_s": 95.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Fine. Is there anything else?",
+   "start_s": 96.4,
+   "end_s": 98.4
+  }
+ ]
+}

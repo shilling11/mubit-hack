@@ -1,0 +1,134 @@
+{
+ "id": "p022",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p022",
+  "split": "practice",
+  "situation": "dd_twice",
+  "situation_desc": "had a direct debit taken twice",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they can't afford this, they've got nothing left until payday",
+  "customer": "Eilidh Carmichael",
+  "agent": "Jordan",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I'm Eilidh Carmichael. My direct debit's been taken twice and I'm really unhappy about it.",
+   "start_s": 3.6,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into that. Before we discuss the account, can you confirm your full name and date of birth?",
+   "start_s": 10.2,
+   "end_s": 17.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Eilidh Carmichael, 14th of March 1988.",
+   "start_s": 18.4,
+   "end_s": 20.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. And the first line of your address?",
+   "start_s": 21.2,
+   "end_s": 24.3
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Rose Street, Dundee.",
+   "start_s": 24.8,
+   "end_s": 26.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Right, verified. Which payment was duplicated?",
+   "start_s": 26.8,
+   "end_s": 29.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Highland Energy, £86.40. It went out twice on the 22nd of October. I can't afford this, I've got nothing left until payday.",
+   "start_s": 29.7,
+   "end_s": 38.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. We'll get that money refunded, don't worry. I'll check the payment now.",
+   "start_s": 38.6,
+   "end_s": 43.6
+  },
+  {
+   "speaker": "customer",
+   "text": "You haven't even checked it yet. I need to know why it's happened.",
+   "start_s": 44.1,
+   "end_s": 49.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm logging this as a complaint. The reference is TB-741903.",
+   "start_s": 49.6,
+   "end_s": 53.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Fine. What happens now?",
+   "start_s": 54.0,
+   "end_s": 55.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I'll own this and review the payments myself. I'll call you by 5 pm tomorrow with an update.",
+   "start_s": 56.0,
+   "end_s": 62.9
+  },
+  {
+   "speaker": "agent",
+   "text": "We'll also send you a full written response within 15 business days, explaining what we've found and what we're doing about it.",
+   "start_s": 63.4,
+   "end_s": 71.9
+  },
+  {
+   "speaker": "agent",
+   "text": "So, I've logged the complaint, I'll call by 5 tomorrow, and you'll get the full response within 15 business days. Does that make sense?",
+   "start_s": 72.4,
+   "end_s": 81.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, but I still want the money back.",
+   "start_s": 82.1,
+   "end_s": 85.2
+  },
+  {
+   "speaker": "agent",
+   "text": "As I said, we'll get it refunded. Anything else?",
+   "start_s": 85.7,
+   "end_s": 89.2
+  }
+ ]
+}

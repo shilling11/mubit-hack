@@ -1,0 +1,134 @@
+{
+ "id": "p031",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p031",
+  "split": "practice",
+  "situation": "address_change",
+  "situation_desc": "wants to update their address",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Callum Achebe",
+  "agent": "Liam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, you’re through to Liam at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 5.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Callum Achebe. I’d like to update the address on my account.",
+   "start_s": 5.5,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Callum. I can help with that. Before we discuss your account, could you tell me your full name and date of birth, please?",
+   "start_s": 11.0,
+   "end_s": 20.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Callum Achebe, 14th of June 1988.",
+   "start_s": 21.1,
+   "end_s": 23.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And could you confirm the first line of your current address?",
+   "start_s": 23.9,
+   "end_s": 28.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 3, 18 Willow Road.",
+   "start_s": 29.4,
+   "end_s": 31.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s all verified. What’s the new address you’d like us to use?",
+   "start_s": 31.8,
+   "end_s": 36.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 42 Brook Lane, Leeds, LS6 2QH.",
+   "start_s": 37.3,
+   "end_s": 40.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. Just to check, that’s 42 Brook Lane, Leeds, postcode LS6 2QH?",
+   "start_s": 40.5,
+   "end_s": 45.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s right.",
+   "start_s": 45.7,
+   "end_s": 46.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the address change now. Once it’s submitted, we’ll send confirmation to your existing address, and you can check the new address in online banking after the change has been processed.",
+   "start_s": 47.4,
+   "end_s": 59.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, that sounds fine.",
+   "start_s": 60.2,
+   "end_s": 61.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: you’ve asked us to change your address to 42 Brook Lane, Leeds, LS6 2QH. I’ll submit the request, and you’ll receive confirmation at your current address. Does that make sense?",
+   "start_s": 62.2,
+   "end_s": 74.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thanks for your help.",
+   "start_s": 75.4,
+   "end_s": 78.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Callum. Is there anything else I can help with today?",
+   "start_s": 78.6,
+   "end_s": 83.2
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s everything.",
+   "start_s": 83.7,
+   "end_s": 84.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for calling Thistle Bank. Have a good day.",
+   "start_s": 85.4,
+   "end_s": 88.9
+  }
+ ]
+}

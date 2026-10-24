@@ -1,0 +1,134 @@
+{
+ "id": "p044",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p044",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": "capability",
+  "vuln_cue": "seems confused and asks the colleague to repeat things",
+  "customer": "Bartek Quigley",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Bartek Quigley. Could you tell me what time the Clifton branch opens?",
+   "start_s": 4.3,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. The Clifton branch opens at nine on weekdays, and at nine on Saturday. It’s closed on Sundays.",
+   "start_s": 10.2,
+   "end_s": 17.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Sorry, could you repeat that? I didn’t quite catch the Saturday bit.",
+   "start_s": 18.0,
+   "end_s": 22.7
+  },
+  {
+   "speaker": "agent",
+   "text": "No problem at all. It opens at nine on Saturdays too, and closes at one. Take your time, there’s no rush.",
+   "start_s": 23.2,
+   "end_s": 31.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, nine until one. And weekdays, did you say it shuts at five?",
+   "start_s": 31.7,
+   "end_s": 36.7
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right, Monday to Friday it’s open from nine until five. Saturday is nine until one.",
+   "start_s": 37.2,
+   "end_s": 43.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks. Is there a charge for getting help in the branch? I’m just asking generally.",
+   "start_s": 43.9,
+   "end_s": 49.7
+  },
+  {
+   "speaker": "agent",
+   "text": "There’s no charge for general help. And just so you know, any fee the bank charges can never be refunded.",
+   "start_s": 50.2,
+   "end_s": 57.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Sorry, can you say that last part again? I’m a bit muddled.",
+   "start_s": 58.3,
+   "end_s": 63.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I said any fee the bank charges can never be refunded. If you’d like, I can give you extra time to go over anything, or put you in touch with our Financial Support team for more support.",
+   "start_s": 63.5,
+   "end_s": 78.5
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t think I need that, thanks. So I can just turn up at nine tomorrow?",
+   "start_s": 79.0,
+   "end_s": 85.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, tomorrow’s a weekday, so the branch is open from nine until five. I’d suggest checking our branch finder before you travel, in case the hours change for a particular date.",
+   "start_s": 85.6,
+   "end_s": 97.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, so weekdays nine to five, Saturday nine to one, and check the branch finder before I go. Have I got that right?",
+   "start_s": 98.0,
+   "end_s": 106.9
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s exactly right. Does that make sense, or would you like me to repeat any of it?",
+   "start_s": 107.4,
+   "end_s": 113.9
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that makes sense now. Thanks for your help.",
+   "start_s": 114.4,
+   "end_s": 117.9
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Bartek. Have a lovely day.",
+   "start_s": 118.4,
+   "end_s": 121.5
+  }
+ ]
+}

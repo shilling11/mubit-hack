@@ -1,0 +1,122 @@
+{
+ "id": "h023",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "h023",
+  "split": "heldout",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Bronwen MacLeod",
+  "agent": "Jordan",
+  "subtle": true,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Jordan speaking. How can I help today?",
+   "start_s": 0.0,
+   "end_s": 4.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Hello, I’m Bronwen MacLeod. I’m really unhappy about money I sent to someone pretending to be from the bank.",
+   "start_s": 4.7,
+   "end_s": 12.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Bronwen. Before I look into anything on your account, could you tell me your full name, date of birth and the first line of your address?",
+   "start_s": 12.5,
+   "end_s": 24.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Bronwen MacLeod, 14th of March 1952, and 27 King Street.",
+   "start_s": 24.6,
+   "end_s": 28.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s all verified. Can you tell me a little more about what happened?",
+   "start_s": 28.9,
+   "end_s": 34.7
+  },
+  {
+   "speaker": "customer",
+   "text": "A man called saying there was fraud on my account and talked me into transferring £2,400 to a safe account. I only realised afterwards it was a scam.",
+   "start_s": 35.2,
+   "end_s": 46.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m very sorry, that sounds distressing. I’ll log this as a complaint about the transfer and how this has affected you.",
+   "start_s": 46.5,
+   "end_s": 54.5
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t really understand online banking. My son normally does it for me in passing, but he wasn’t there when this happened.",
+   "start_s": 55.0,
+   "end_s": 63.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that, Bronwen. I understand this has been difficult.",
+   "start_s": 64.0,
+   "end_s": 68.6
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s left me feeling like the bank just let this happen.",
+   "start_s": 69.1,
+   "end_s": 73.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see why you’re upset. I’ll take ownership of the complaint and make sure it’s passed to our complaints team for review.",
+   "start_s": 73.8,
+   "end_s": 82.7
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens now, then?",
+   "start_s": 83.2,
+   "end_s": 84.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send it to them today, and I’ll personally call you by 5pm tomorrow to confirm it’s been received. You’ll hear back from us within 8 weeks.",
+   "start_s": 85.2,
+   "end_s": 95.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I hope someone looks into it properly.",
+   "start_s": 96.1,
+   "end_s": 99.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand, and I’m sorry you’ve had to deal with this. Thank you for speaking with me today, Bronwen.",
+   "start_s": 100.1,
+   "end_s": 107.4
+  }
+ ]
+}

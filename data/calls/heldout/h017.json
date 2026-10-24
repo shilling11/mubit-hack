@@ -1,0 +1,134 @@
+{
+ "id": "h017",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "h017",
+  "split": "heldout",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Yasmin Delacroix",
+  "agent": "Marcus",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m Yasmin Delacroix. I transferred money to someone who pretended to be from your fraud team, and I’m really unhappy with how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has happened, Yasmin. Before I discuss anything about your account, could you confirm your full name and date of birth, please?",
+   "start_s": 14.8,
+   "end_s": 24.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Yasmin Delacroix, 14th of February 1988.",
+   "start_s": 24.6,
+   "end_s": 26.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 27.4,
+   "end_s": 30.8
+  },
+  {
+   "speaker": "customer",
+   "text": "26 Ashfield Road.",
+   "start_s": 31.3,
+   "end_s": 32.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s matched. I’m sorry you’ve been left feeling unhappy about this.",
+   "start_s": 33.0,
+   "end_s": 37.7
+  },
+  {
+   "speaker": "customer",
+   "text": "They called saying there was suspicious activity and told me to move £2,450 to a safe account. I did it, and then I realised it was a scam.",
+   "start_s": 38.2,
+   "end_s": 48.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I can see why you’d be upset about that.",
+   "start_s": 49.4,
+   "end_s": 53.7
+  },
+  {
+   "speaker": "customer",
+   "text": "I contacted the bank afterwards, but I don’t feel like anyone took it seriously.",
+   "start_s": 54.2,
+   "end_s": 59.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had that experience. I’m logging this as a complaint about the way the matter has been handled.",
+   "start_s": 60.0,
+   "end_s": 67.7
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens now?",
+   "start_s": 68.2,
+   "end_s": 69.4
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaint will be reviewed, and someone will be in touch about it. I can’t say what the outcome will be.",
+   "start_s": 69.9,
+   "end_s": 78.0
+  },
+  {
+   "speaker": "customer",
+   "text": "So there’s no decision yet?",
+   "start_s": 78.5,
+   "end_s": 80.4
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right, there’s no decision I can give you today. The complaint process will look at what you’ve raised.",
+   "start_s": 80.9,
+   "end_s": 88.2
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I just want the bank to understand how serious this is.",
+   "start_s": 88.7,
+   "end_s": 93.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I do understand, Yasmin, and I’m sorry this has been so frustrating.",
+   "start_s": 94.2,
+   "end_s": 98.9
+  }
+ ]
+}

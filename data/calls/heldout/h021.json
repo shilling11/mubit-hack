@@ -1,0 +1,134 @@
+{
+ "id": "h021",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "h021",
+  "split": "heldout",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they're already behind on a couple of bills",
+  "customer": "Leanne Kowalski",
+  "agent": "Sam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, you’re speaking with Sam. How can I help?",
+   "start_s": 0.0,
+   "end_s": 4.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I’m Leanne Kowalski. There’s a card payment I don’t recognise, and honestly, I’m really unhappy with how hard it’s been to get anyone to sort this out.",
+   "start_s": 5.1,
+   "end_s": 15.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been such a frustrating experience, Leanne. I’ll take ownership of it and look into what we can do. Before I discuss any account details, could you confirm your full name and date of birth, please?",
+   "start_s": 16.4,
+   "end_s": 31.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Leanne Kowalski, 14th of May 1988.",
+   "start_s": 31.9,
+   "end_s": 34.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 34.7,
+   "end_s": 38.2
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Alder Road.",
+   "start_s": 38.7,
+   "end_s": 39.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I can see the card payment you mean. Could you tell me the amount and the date you noticed?",
+   "start_s": 40.4,
+   "end_s": 48.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s £186.40 to Northstar Gadgets on the 22nd of October. I’ve never bought anything from them.",
+   "start_s": 49.3,
+   "end_s": 55.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll record this as a disputed card payment, and I’m also logging this as a complaint about your experience with us. Your complaint reference is TB-740216.",
+   "start_s": 56.0,
+   "end_s": 66.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Good, because I’ve spent ages on this already. I’m already behind on a couple of bills, and this is making things worse.",
+   "start_s": 67.2,
+   "end_s": 75.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’re dealing with that on top of this, Leanne. I can refer you to our Financial Support team, who can talk through your circumstances and options, including whether extra time with payments may be available.",
+   "start_s": 76.2,
+   "end_s": 90.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, please. I’d appreciate that.",
+   "start_s": 90.9,
+   "end_s": 92.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll make that referral today. I’ll also send the disputed payment details to our card disputes team for review. I can’t promise what the outcome will be, but I’ll keep track of both actions.",
+   "start_s": 93.4,
+   "end_s": 106.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 106.9,
+   "end_s": 108.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the complaint and the card payment information today, and I’ll send your Financial Support referral as well. Our complaints team will send you a full written response within 15 business days. I’ll personally call you by 5pm tomorrow to confirm the referrals have been sent and update you on the next steps.",
+   "start_s": 109.4,
+   "end_s": 130.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, thank you.",
+   "start_s": 130.6,
+   "end_s": 131.8
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Leanne. I’m sorry again for the trouble, and I’ll be in touch tomorrow as agreed. Goodbye.",
+   "start_s": 132.3,
+   "end_s": 139.2
+  }
+ ]
+}

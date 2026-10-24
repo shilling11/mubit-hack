@@ -1,0 +1,146 @@
+{
+ "id": "p036",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p036",
+  "split": "practice",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Jasper MacLeod",
+  "agent": "Jordan",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Jasper MacLeod. I’ve just noticed you’ve cut the interest rate on my savings account. I haven’t seen any letter about it, and I’m really unhappy with the way the bank’s handled this.",
+   "start_s": 4.3,
+   "end_s": 17.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Jasper. I’ll take a look at the account for you. First, could you confirm your full name and date of birth, please?",
+   "start_s": 17.9,
+   "end_s": 28.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Jasper MacLeod, 14th of June 1982.",
+   "start_s": 29.2,
+   "end_s": 31.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 32.0,
+   "end_s": 35.5
+  },
+  {
+   "speaker": "customer",
+   "text": "27 Willow Lane.",
+   "start_s": 36.0,
+   "end_s": 37.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I’m sorry you’ve had to chase this. We’ll get the interest you’ve missed returned to you, and I’ll check what’s happened.",
+   "start_s": 37.7,
+   "end_s": 46.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Well, I want to know why the rate went down and why nobody told me.",
+   "start_s": 47.4,
+   "end_s": 53.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. Which savings account is it, and roughly when did you notice the rate change?",
+   "start_s": 53.7,
+   "end_s": 59.8
+  },
+  {
+   "speaker": "customer",
+   "text": "The Easy Access Saver. I noticed today, but the rate looks like it changed around the start of September.",
+   "start_s": 60.3,
+   "end_s": 67.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Right, thanks. I can see the rate changed on 2 September. I can’t see a letter recorded here at the moment, but the team will review the notification and the interest calculation.",
+   "start_s": 68.1,
+   "end_s": 80.4
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s exactly the problem. I shouldn’t have to find it out by checking the account myself.",
+   "start_s": 80.9,
+   "end_s": 87.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re unhappy, and I’m sorry about that. I’ll put a note on the account that you’re unhappy about the rate change and not receiving a letter.",
+   "start_s": 87.6,
+   "end_s": 98.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, but I do expect the interest to be put right.",
+   "start_s": 99.2,
+   "end_s": 103.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. The review will confirm the amount due, and as I said, we’ll get any missed interest returned to you.",
+   "start_s": 104.0,
+   "end_s": 112.0
+  },
+  {
+   "speaker": "customer",
+   "text": "And what happens now?",
+   "start_s": 112.5,
+   "end_s": 114.1
+  },
+  {
+   "speaker": "agent",
+   "text": "The team will review the rate change, the notification record and the interest calculation, then send you a full written response within 8 weeks. That’s what happens next.",
+   "start_s": 114.6,
+   "end_s": 125.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. Thank you.",
+   "start_s": 125.9,
+   "end_s": 127.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Jasper. Thanks for calling Thistle Bank.",
+   "start_s": 127.9,
+   "end_s": 131.0
+  }
+ ]
+}

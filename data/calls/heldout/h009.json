@@ -1,0 +1,134 @@
+{
+ "id": "h009",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "h009",
+  "split": "heldout",
+  "situation": "mortgage_date",
+  "situation_desc": "had a mortgage payment taken on the wrong date",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Oskar Fitzgerald",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Oskar Fitzgerald. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Oskar. I’ll look into it with you. Before we discuss the account, could you confirm your full name and date of birth, please?",
+   "start_s": 12.2,
+   "end_s": 22.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Oskar Fitzgerald, 14 June 1986.",
+   "start_s": 23.0,
+   "end_s": 25.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 25.5,
+   "end_s": 28.9
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Linden Road.",
+   "start_s": 29.4,
+   "end_s": 30.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s all verified. I can see the payment was taken on the 18th rather than the 25th. I understand why that’s frustrating.",
+   "start_s": 31.1,
+   "end_s": 40.0
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s happened without warning. I arranged for it to come out on the 25th.",
+   "start_s": 40.5,
+   "end_s": 45.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry. I’ll take ownership of this and check what happened. I should also mention that mortgage fees can never be refunded, under our rules.",
+   "start_s": 46.4,
+   "end_s": 56.0
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s not really reassuring. I want to know why it was taken early.",
+   "start_s": 56.5,
+   "end_s": 61.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I can’t promise what the outcome will be, but I am logging this as a complaint so the payment date can be investigated.",
+   "start_s": 62.0,
+   "end_s": 71.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 72.1,
+   "end_s": 74.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the details to our mortgage complaints team today, and I’ll call you by 30 October with an update. They’ll investigate and send you a full written response within 8 weeks of today.",
+   "start_s": 74.5,
+   "end_s": 87.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, so you’re passing it to the complaints team today, calling me by the 30th, and I’ll get a full response within eight weeks?",
+   "start_s": 88.1,
+   "end_s": 97.3
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ll make sure the referral and your preferred contact number are recorded. Does that make sense, and is there anything else you’d like me to note?",
+   "start_s": 97.8,
+   "end_s": 108.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Please note that I expected the payment on the 25th.",
+   "start_s": 109.1,
+   "end_s": 114.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I will. Thanks for explaining it, Oskar, and I’m sorry for the frustration this has caused.",
+   "start_s": 115.0,
+   "end_s": 121.1
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "id": "h010",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "h010",
+  "split": "heldout",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Aoife Rahman",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Aoife Rahman. There’s a card payment I don’t recognise, and honestly I’m fed up with how difficult it is to get help from the bank.",
+   "start_s": 4.3,
+   "end_s": 14.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Aoife. I’ll look into the payment with you. First, could you tell me your full date of birth and the first line of your address?",
+   "start_s": 15.2,
+   "end_s": 27.2
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1991, and 27 Rowan Close.",
+   "start_s": 27.7,
+   "end_s": 30.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And can you confirm your full name, please?",
+   "start_s": 31.2,
+   "end_s": 35.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Aoife Rahman.",
+   "start_s": 35.6,
+   "end_s": 36.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s all verified. Which payment are you concerned about?",
+   "start_s": 37.3,
+   "end_s": 41.1
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s £86.40 to Northstar Media on the 22nd of October. I’ve never used them.",
+   "start_s": 41.6,
+   "end_s": 47.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the payment you mean. I understand why you’re unhappy, especially after having trouble getting help. I can explain how to query it.",
+   "start_s": 47.5,
+   "end_s": 57.1
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens now? I don’t want to be passed around again.",
+   "start_s": 57.6,
+   "end_s": 61.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership of this. I’ll send the payment details to our card team today, and I’ll call you by 3 pm tomorrow to tell you what the next update is. Someone may be in touch about the review, but I can’t give you a timescale for that.",
+   "start_s": 62.4,
+   "end_s": 80.8
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’ll call me tomorrow, but you can’t say when the review itself will be finished?",
+   "start_s": 81.3,
+   "end_s": 87.5
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ll call by 3 pm tomorrow with an update, but I can’t promise an outcome or when the review will finish.",
+   "start_s": 88.0,
+   "end_s": 96.8
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I just want to know someone’s actually dealing with it.",
+   "start_s": 97.3,
+   "end_s": 101.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I will send it to the card team today and make that call tomorrow. Just to check, have I made the follow-up and the uncertainty around the review clear? Does that make sense?",
+   "start_s": 102.4,
+   "end_s": 115.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 115.6,
+   "end_s": 117.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, Aoife. I’m sorry again this has been such a frustrating experience. Is there anything else I can help with today?",
+   "start_s": 117.7,
+   "end_s": 125.7
+  }
+ ]
+}

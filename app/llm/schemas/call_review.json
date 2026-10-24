@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "enum": ["C1", "C2", "C3", "C4", "S1", "S2", "S3", "S4", "S5"] },
+          "answer": { "type": "string", "enum": ["yes", "no", "na", "unsure"] },
+          "reasoning": { "type": "string" },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "quote": { "type": "string" },
+                "start_s": { "type": "number" }
+              },
+              "required": ["quote", "start_s"],
+              "additionalProperties": false
+            }
+          },
+          "confidence": { "type": "number" }
+        },
+        "required": ["id", "answer", "reasoning", "evidence", "confidence"],
+        "additionalProperties": false
+      }
+    },
+    "complaint": {
+      "type": "object",
+      "properties": {
+        "expressed": { "type": "boolean" },
+        "category": { "type": "string" },
+        "quote": { "type": "string" }
+      },
+      "required": ["expressed", "category", "quote"],
+      "additionalProperties": false
+    },
+    "vulnerability": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "driver": { "type": "string", "enum": ["health", "life_event", "resilience", "capability"] },
+          "quote": { "type": "string" }
+        },
+        "required": ["driver", "quote"],
+        "additionalProperties": false
+      }
+    },
+    "summary": { "type": "string" }
+  },
+  "required": ["items", "complaint", "vulnerability", "summary"],
+  "additionalProperties": false
+}

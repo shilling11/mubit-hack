@@ -1,0 +1,134 @@
+{
+ "id": "p029",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p029",
+  "split": "practice",
+  "situation": "branch_waits",
+  "situation_desc": "is frustrated that their branch closed and phone waits are long",
+  "payment": false,
+  "account": false,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions they're going through a divorce",
+  "customer": "Carys Thornbury",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I’m Carys Thornbury. I’m really fed up that you closed our branch, and then I’m left waiting ages when I phone. It’s not good enough.",
+   "start_s": 4.3,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Carys. I can understand why that’s frustrating, especially when the branch has closed and you’re having trouble getting through.",
+   "start_s": 14.8,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "customer",
+   "text": "It was the branch I’d used for years. Now every time I need to ask something, I’m stuck on hold.",
+   "start_s": 23.4,
+   "end_s": 31.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I hear you. I’ll take ownership of raising this feedback, and I can log it as a complaint so the bank can respond to what you’ve experienced.",
+   "start_s": 31.6,
+   "end_s": 42.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, please. I’m already dealing with a divorce, and this is just one more thing to sort out.",
+   "start_s": 42.5,
+   "end_s": 49.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that. Would you like me to log the complaint about the branch closure and the phone waiting times?",
+   "start_s": 49.9,
+   "end_s": 58.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s exactly what I want.",
+   "start_s": 58.9,
+   "end_s": 61.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m logging this as a complaint now, covering the branch closure and the long waits on the phone. I can’t say what the outcome will be.",
+   "start_s": 61.7,
+   "end_s": 72.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 73.0,
+   "end_s": 74.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit it today for our complaints team to review. They’ll look into the points you’ve raised and send you a full written response within 8 weeks.",
+   "start_s": 75.4,
+   "end_s": 85.8
+  },
+  {
+   "speaker": "customer",
+   "text": "And if I don’t hear anything by then?",
+   "start_s": 86.3,
+   "end_s": 89.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll make sure it’s submitted today, and I’ll call you by 4 pm tomorrow to confirm it’s been passed on and give you the complaint reference. The complaints team will then send the full written response within 8 weeks.",
+   "start_s": 89.8,
+   "end_s": 104.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, so you’re logging it today, you’ll call me tomorrow with the reference, and I’ll get the written response within 8 weeks?",
+   "start_s": 105.3,
+   "end_s": 113.8
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’m logging your complaint about the branch closure and phone waits today, I’ll call by 4 pm tomorrow with the reference, and the complaints team will send a full written response within 8 weeks. Does that make sense?",
+   "start_s": 114.3,
+   "end_s": 129.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thank you.",
+   "start_s": 130.2,
+   "end_s": 132.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Carys. I’m sorry again for the frustration, and I’ll make that call tomorrow.",
+   "start_s": 132.6,
+   "end_s": 138.4
+  }
+ ]
+}

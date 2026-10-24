@@ -1,0 +1,122 @@
+{
+ "id": "p074",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p074",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Lucia Okonkwo",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi Sam, I’m Lucia Okonkwo. Could you tell me what time your High Street branch in Bristol opens on Saturdays?",
+   "start_s": 4.3,
+   "end_s": 12.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Lucia. I’ll check the latest branch information for you. Just a moment, please.",
+   "start_s": 12.5,
+   "end_s": 18.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks, no rush.",
+   "start_s": 18.8,
+   "end_s": 20.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for waiting. The information I can see says the branch is open on Saturdays from nine until one.",
+   "start_s": 20.5,
+   "end_s": 27.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s helpful. Is that definitely the opening time for this coming Saturday?",
+   "start_s": 28.3,
+   "end_s": 32.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t confirm the latest hours for a particular date from the information in front of me, so I don’t want to guess.",
+   "start_s": 33.4,
+   "end_s": 42.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. What’s the best way to check?",
+   "start_s": 42.8,
+   "end_s": 45.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll check with the branch team and get back to you by 3 pm today with the hours they’ve confirmed for this Saturday.",
+   "start_s": 46.0,
+   "end_s": 54.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That would be great, thank you.",
+   "start_s": 55.3,
+   "end_s": 57.6
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome. I’ll use the contact details you’ve already provided to us to follow up. Is that all right?",
+   "start_s": 58.1,
+   "end_s": 65.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s fine.",
+   "start_s": 65.9,
+   "end_s": 67.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to recap, the general information I’ve found is nine till one on Saturdays, and I’ll confirm this coming Saturday’s hours with the branch team and contact you by 3 pm today. Does that make sense?",
+   "start_s": 67.6,
+   "end_s": 81.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thanks for checking.",
+   "start_s": 82.0,
+   "end_s": 84.3
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Lucia. Thanks for calling Thistle Bank, and enjoy the rest of your day.",
+   "start_s": 84.8,
+   "end_s": 90.9
+  }
+ ]
+}

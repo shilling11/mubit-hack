@@ -1,388 +1,501 @@
-# Redline — RFP responses that learn from every correction
+# Redress: QA on every regulated call, with a model that learns from your analysts
 
-> **Night Shift: $65K Mubit Hackathon, London** · 23–25 October 2026
-> Event page: <https://luma.com/nightshift-london>
+> **Night Shift: $65K Mubit Hackathon, London** · 23–25 October 2026 · <https://luma.com/nightshift-london>
 >
-> **One-liner:** Every LLM call in the bid workflow goes through Mubit. When a bid manager fixes a draft, Mubit turns the fix into a model update, so the next RFP's first draft is already better.
+> **One-liner:** Banks check about 5% of customer calls by hand against a compliance scorecard, and the other 95% go unchecked. Redress scores **every** call through Mubit. Analysts stop filling in scorecards and instead **review and correct the AI's scorecard** on the calls they already sample. Every correction becomes a rule straight away and a Mubit model update over time, so the unreviewed calls get scored more accurately each week. Anything that might be a breach goes to a human: we'd rather ask than miss.
+>
+> **This README is the final architecture.** §3 is the Mubit knowledge we verified building our first prototype. Read it before touching any model call. The HTML files in [`design/`](design/) are visual references only (animated theme and graphics); their content predates this architecture.
 
 ---
 
-## 0. How to use this README (for Claude / coding agents)
+## 0. How to use this README (teammates and coding agents)
 
-This file is the **single source of truth** for building the repo. When prompting Claude:
-
-- Build in the order in [§9 Build Plan](#9-build-plan-ruthlessly-prioritised). Don't start P2 work until the P0 golden path runs end to end.
-- **Hard rule: every LLM call in the app goes through the Mubit client (`app/llm/mubit_client.py`).** Don't add direct OpenAI/Anthropic calls anywhere else.
-- The Mubit integration in §3 was verified against <https://docs.mubit.ai> and live calls on 24 Oct 2026. Anything still marked `TODO(mubit)` needs confirming with the Mubit team. **Don't invent Mubit endpoints, SDK methods or parameters.**
-- All data is **synthetic**. Never add real client, Accenture or third-party RFP content to this repo.
+- Build in the order in [§11 Build plan](#11-build-plan).
+- **Hard rule: every LLM call goes through `app/llm/mubit_client.py`.** Speech-to-text (Deepgram) isn't an LLM task and calls Deepgram directly.
+- **Freeze the system prompts and JSON schemas early.** Mubit identifies a task by its system prompt, model and output format; changing any of them starts a new task at zero training examples (§3.4).
+- **Scores, pass/fail, routing and safety nets are plain code**, never the model. That keeps them deterministic and auditable.
+- `TODO(verify)` marks things we haven't tested. Don't invent API details for Mubit, Deepgram or LiveKit. Check their docs.
+- All customers, calls and bank data are **synthetic**. The two live demo callers are actors reading a script.
 
 ---
 
-## 1. Problem overview and narrative
+## 1. Vision
 
 ### The problem
-Consulting firms, systems integrators and SaaS vendors answer hundreds of RFPs a year. Every RFP comes as a **package**: a narrative Word/PDF document plus Excel exhibits (requirements matrix, security questionnaire, pricing, plan, risks, clarifications).
+Every regulated customer call (complaints, collections, fees, vulnerable customers) should meet the bank's compliance standards: identity checked, mandatory disclosures made, complaints recognised, vulnerability spotted and supported, no promises the bank can't keep, correct next steps. Today QA works like this:
 
-Each row of the requirements and security tabs asks for the same thing:
+1. Calls are recorded by the contact-centre system.
+2. A **small random sample** goes to QA analysts. Team research (sources in the `bank` branch's `docs/QA_RESEARCH.md`; verify before quoting) found 1–2% to under 5% is typical in UK contact centres, and the FCA doesn't prescribe a percentage. We use **~5%** as our example.
+3. An analyst **listens to the whole call** and fills in a **scorecard**: weighted items plus **critical (auto-fail) items**, with comments.
+4. Analysts **calibrate** with each other regularly, because they disagree.
+5. Failures lead to coaching, urgent remediation (a missed complaint must still be handled) and board reporting under Consumer Duty.
 
-> *Read the requirement → decide Comply / Partially Comply / Do Not Comply → write a defensible response → cite evidence → flag gaps.*
-
-That's a **recurring task**, done thousands of times a year by expensive people. Today's options:
-
-| Option | Failure mode |
-|---|---|
-| Humans copy-paste from old bids | Slow, inconsistent, outdated answers |
-| Generic LLM / company chatbot | Fluent but over-confident. It says "Fully comply" to things the company can't deliver |
-| Content-library tools | Retrieve old text but don't learn the bid team's judgement |
-
-The most expensive failure is **an unsupported commitment** made in a binding bid. For example, the bid claims 99.99% availability when the company's standard service is 99.9%.
+**What's wrong with it:** it's slow (an analyst can spend as long as the call itself on one review), it's inconsistent between analysts, and **~95% of calls are never checked**, so most breaches are never found.
 
 ### The insight
-Bid managers already **correct** AI drafts all day. Those corrections hold the organisation's real judgement:
-
-- "We never claim full compliance on SLAs above our managed-service standard."
-- "Data residency answers must name the UK region and cite the security policy."
-- "Pricing assumptions must reference the volumes tab."
-
-Today those corrections are lost once the bid ships.
+Analysts already make the judgement calls that matter: "that *was* a complaint even though she never said the word", "he mentioned his wife died, so that's vulnerability", "'I'm sure we'll refund it' is a promised outcome". Those judgements are the bank's real compliance standard, and today they live only in analysts' heads and calibration meetings.
 
 ### The solution
-**Redline** is a company bid agent that sends **every LLM call through Mubit**. Each correction a bid manager makes is captured as feedback, and **Mubit turns it into a lightweight model update** for the recurring task. Next time, the first draft already reflects the team's judgement. The base model stays fixed and only the task-specific update refreshes.
+1. **Every call** is transcribed and scored against the bank's scorecard by a Mubit-routed model.
+2. On the calls analysts would have sampled anyway, they **review the AI's scorecard** instead of starting from blank: confirm, or change an answer and give a one-line reason. That's faster than scoring from scratch.
+3. Each correction becomes a **rule** (a playbook version), which every later review includes straight away. Over time the corrected reviews become **Mubit training examples**, so a small task model learns the bank's standard.
+4. The other ~95% of calls are scored by the improving model. **Anything that might be a breach goes to a human**; confident breaches are flagged straight away.
 
-### Narrative for the judges (30-second version)
-> "RFPs are the same task repeated thousands of times. Generic agents write fluent answers that over-promise. We route every call through Mubit. When our bid manager corrects the agent on RFP #1, Mubit turns that correction into a model update, and on a brand-new RFP the agent gets it right first time. It's cheaper and faster too, because it runs on a task-adapted open model."
+**What stays human:** every escalated call, every audit-sample call, and every decision about a colleague. Redress drafts scores; people decide.
 
-**Money line:** *Without Mubit, the agent drafts. With Mubit, the agent learns how **your** company bids.*
+### Narrative for the judges (30 seconds)
+> "Banks check one call in twenty. We check all of them. Two of us make a real phone call: one plays a Thistle Bank colleague, one a customer. Redress records it, transcribes it, and scores it against the bank's compliance scorecard through Mubit. The analyst corrects one thing the AI missed, in one line. A second, similar call comes in, and this time Redress catches it. Those corrections train a small Mubit model, so the 95% of calls nobody listens to are scored the way your best analyst would score them."
+
+**Money line:** *Without Mubit, AI scores calls. With Mubit, it learns how your QA team scores them.*
 
 ---
 
-## 2. Hackathon info
+## 2. Hackathon fit
 
 | Item | Detail |
 |---|---|
-| Event | Night Shift: $65K Mubit Hackathon in London |
-| Link | <https://luma.com/nightshift-london> |
-| Format | 42-hour overnight hackathon, around 500 builders |
-| Dates | Fri 23 Oct 2026, 17:00 → Sun 25 Oct 2026, 14:00 (clocks go back on Sunday, so there's an extra hour) |
-| Prizes | 1st $15,000 · 2nd $10,000 · 3rd $5,000 · $35,000 in AI credits · $1.5M in Mubit credits for accepted hackers |
+| Event | Night Shift: $65K Mubit Hackathon, London · Fri 23 Oct 17:00 → Sun 25 Oct 14:00 |
+| Brief | Route LLM calls through Mubit; turn corrections into model updates for a recurring task |
+| Freeze | **Sun 10:00** code freeze · 10:30 expo judging · 12:30 finalist demos · 13:30 awards |
 
-### The brief
-Build a product that **routes its LLM calls through Mubit** (one base URL change) and **turns your corrections into model updates for a recurring task**.
-
-### Tracks (top 3 prizes judged across all tracks)
-1. **Recurring tasks** – a task run again and again (extraction, triage, support replies, review, routing). Show corrections becoming model updates. ← **our primary track**
-2. **Own your intelligence layer** – move a closed-model workload onto a task-adapted open model. Show quality, cost and latency side by side. ← **we show this as a panel**
-3. **Fast refresh** – a workload that keeps changing. Show model updates keeping pace. ← **we show this with a second client/domain RFP**
-
-### Judging (four criteria, weighted equally)
-| Criterion | How Redline scores |
+| Track | How Redress fits |
 |---|---|
-| **Use of Mubit** – show a correction turning into a model update | Live correction on RFP #1 → model update → improved draft on unseen RFP #2. Every call is visibly routed through Mubit |
-| **Usefulness** – a real recurring task | RFP requirement responses are a high-volume, high-cost, high-risk recurring task in consulting and enterprise sales |
-| **Technical execution** – works and holds up under questions | Deterministic parsing, structured JSON outputs, held-out eval set, before/after metrics, no hard-coded results |
-| **Demo** – clear, live, under the time limit | 3-minute scripted golden path (see §8) |
+| **1. Recurring tasks** (primary) | Scoring a call against a scorecard is the same job on every call, at contact-centre volume |
+| **2. Own your intelligence layer** | Reviewing 100% of calls on a frontier model is expensive; a Mubit adapter does it cheaply. Shown as quality, latency and £ per 1,000 calls |
+| **3. Fast refresh** | A new rule (e.g. a new mandatory disclosure from Monday) is taught with one correction and applies to the next call |
 
-### Key schedule
-| When | What |
+| Judging criterion | How Redress scores |
 |---|---|
-| Fri 19:30 | Hacking starts |
-| Sat all day | Office hours with the Mubit team. **Use them to confirm API and feedback/update mechanics** |
-| **Sun 10:00** | **Code freeze, submissions close** |
-| Sun 10:30 | Judging round 1 (expo) |
-| Sun 12:30 | Finalist demos on stage |
-| Sun 13:30 | Awards |
+| **Use of Mubit** | A live correction becomes a rule and changes the next call's score; corrected reviews train a Mubit adapter (Try models). Every call visibly goes through Mubit |
+| **Usefulness** | Regulated, high-volume, mostly unchecked today, with a real cost to missed breaches |
+| **Technical execution** | Real-call transcription, evidence quotes with timestamps checked against the transcript, conservative routing, held-out gold labels, fixed-rule scoring, averaged runs |
+| **Demo** | Two real people on a real call, live, then a second call showing the improvement (§10) |
 
 ---
 
-## 3. How Mubit is used throughout
+## 3. Mubit: what we know, what we learned, and the traps
 
-Mubit sits **between Redline and every model call**. Nothing calls a model directly: `app/llm/mubit_client.py` is the only module that does.
+This section is everything we verified while building our first prototype, an RFP-response tool (24 Oct 2026), so nobody has to rediscover it. Sources: <https://docs.mubit.ai/llms-full.txt>, live calls with our key, and written answers from the Mubit team.
 
-```text
-                ┌────────────────────────────────────────────┐
-  RFP package → │                Redline app                 │
- (DOCX + XLSX)  │  Ingest (no LLM) → Retrieve (BM25, no LLM) │
-                │  Extract · Draft · Verify · Induce · Summ. │
-                │                     ▼                      │
-                │          app/llm/mubit_client.py           │
-                └─────────────────────┬──────────────────────┘
-                                      ▼  OpenAI-compatible, one base-URL change
-                    ┌──────────────────────────────────┐
-                    │  MUBIT  api.mubit.ai/openai/v1   │
-                    │  records calls · groups tasks    │
-                    │  keeps examples · trains adapter │
-                    │  routes to a passing adapter     │
-                    └────────────────┬─────────────────┘
-                                     ▼
-                     Provider model (starter credit) or task adapter
-```
+### 3.1 What Mubit is
+Mubit is a **proxy** between your app and the model provider (OpenAI, Anthropic, Gemini, OpenRouter, Groq, Together, Mistral). You change the base URL and use a Mubit key, and nothing else in your code changes. Mubit:
+1. passes each call to the provider and **records** it (request and reply, by default);
+2. groups similar calls into **tasks**;
+3. keeps some calls as **kept examples** (not every call is kept);
+4. once a task has **25 kept examples**, trains an **adapter**: a small open model for that one task. It grades each version on how closely it matches **your provider model's answers**;
+5. lets you compare a passing adapter with the provider model in the console's **Try models**.
 
-### What Mubit actually does (verified)
+The adapter learns to **copy the provider model on your inputs**. That's why our corrections reach the model: the playbook rules are part of the input, so the provider's corrected answers are what the adapter learns.
 
-| Fact | How Redline uses it |
+### 3.2 Verified API facts
+
+| Fact | Detail |
 |---|---|
-| Base URL `https://api.mubit.ai/openai/v1`, Mubit key (`mbt_…`) as the API key | `MUBIT_BASE_URL`, `MUBIT_API_KEY` in `.env` |
-| A **task** is the set of calls sharing model + system prompt + tools + output format. There is no task-tag parameter | One fixed system prompt (`app/llm/prompts/*.md`) and one JSON schema per task. Everything that varies (requirement, evidence, playbook) goes in the **user** message |
-| Every answer carries `x-middleware-request-id` (`mreq_…`); `response.model` shows what served it | Logged per call in SQLite and shown in the trace panel |
-| `x-middleware-record: full / metadata / off` controls what Mubit keeps | Base (v0) runs use `metadata`, so the uncorrected answers never become training examples |
-| Mubit trains an **adapter** for a task once it has 25 kept examples, tests it against the provider model, and (per the Mubit team) routes to a passing version | `scripts/warm_mubit.py` sends corrected-behaviour calls to reach the threshold; the trace panel highlights calls served by a model other than the one asked |
-| `metadata.session_id` needs OpenAI `store=true` | Not sent. We don't want OpenAI storing calls |
-| The Mubit docs describe **no feedback/correction API**. `mubit-sdk` (`remember`, `record_outcome`) exists on PyPI but its endpoints returned `unknown_route` on our gateway key | Corrections are captured by Redline (below). `TODO(mubit)`: ask whether a memory/outcome endpoint is available for our project |
-| Starter credit serves: gpt-6-sol, gpt-6.1-sol, gpt-6-luna, gpt-6-astra, gpt-5.5, gpt-4o-mini, gpt-4.1-mini; claude-opus-5-5, claude-sonnet-5-5, claude-haiku-4-5 | `MUBIT_MODEL` / `BASELINE_MODEL` |
+| Base URLs | OpenAI SDK `https://api.mubit.ai/openai/v1` · Anthropic SDK `https://api.mubit.ai/anthropic` (no `/v1`) · Gemini `https://api.mubit.ai/gemini` |
+| Key | Mubit key (`mbt_…`) passed as the SDK's API key. Send **only** the Mubit key: a provider key or an extra credential (e.g. a stray `ANTHROPIC_AUTH_TOKEN`) gets a `401` |
+| Paths on starter credit | OpenAI: `/chat/completions`, `/responses`, `/embeddings`, `/models`. Anthropic: `/v1/messages`, `/v1/messages/count_tokens`, `/v1/models`. Anything else → `403 starter_credit_route` |
+| Starter-credit models (our project) | OpenAI: `gpt-6-sol`, `gpt-6.1-sol`, `gpt-6-luna`, `gpt-6-astra`, `gpt-5.5`, `gpt-4o-mini`, `gpt-4.1-mini`. Anthropic: `claude-opus-5-5`, `claude-sonnet-5-5`, `claude-haiku-4-5`. Others → `400 starter_credit_model` (the error message lists the allowed ones) |
+| Structured outputs | `response_format: {type: "json_schema", strict: true}` works through Mubit |
+| Streaming | `stream: true` works, and Mubit passes the stream through |
+| Request ID | Every response has header `x-middleware-request-id` (`mreq_…`). Read it with `client.chat.completions.with_raw_response.create(...)` |
+| Who served it | `response.model` |
+| What Mubit keeps | Header `x-middleware-record: full` (default; can become a training example) · `metadata` (logged without content, **never trained on, not listed in Requests**) · `off` |
+| Sessions | Mubit takes `metadata.session_id` if sent, but **OpenAI rejects `metadata` unless `store=true`**, and we don't want OpenAI storing calls. Without it, Mubit derives the session from the instructions plus the first user message, so a multi-turn conversation that resends history stays one session |
+| CORS | None. Call Mubit from the server, never from the browser |
+| Limits | 10s to connect, 610s to first byte, 60 min total per call. The SDK owns retries |
 
-### Every pipeline stage goes through Mubit
+### 3.3 What Mubit does **not** do (confirmed by the Mubit team)
+- **No API for corrections or feedback.** Corrections are made in the Mubit console. A **Bad** rating does **not** remove a call from training; only `x-middleware-record: metadata` keeps a call out.
+- **No way to call an adapter.** Adapters have no model ID, and the only place to run one is **Try models** in the console (a daily quota, about 3 adapter starts a day, and the first start can take minutes). "Mubit routes your live calls to the adapter" is **not** how it works today.
+- **No custom grading.** A version is graded on how closely it matches the provider model's answers.
+- A read-only key can read records but can't make calls. The console's "Figures unavailable … needs manager" message is a role permission on metrics, not an error in your calls.
 
-| Stage | Mubit task (system prompt) | Module |
-|---|---|---|
-| Extract implicit requirements from DOCX prose | `rfp.extract_requirements` | `app/pipeline/extract.py` |
-| **Draft status + response per requirement** | **`rfp.draft_response`** (core task) | `app/pipeline/draft.py` |
-| Verify claims against evidence | `rfp.verify_claims` | `app/pipeline/verify.py` |
-| Turn a correction into a reusable rule | `rfp.induce_rule` | `app/learning/playbook.py` |
-| Executive summary + win risks | `rfp.exec_summary` | `app/pipeline/summarise.py` |
+### 3.4 How tasks form (this decides whether you ever get an adapter)
+Calls are one task when they share **model + system prompt + tools + tool choice + output format**. Whitespace, numbers, dates and IDs in the system prompt don't split a task; other changing words do. Messages after the system prompt, `temperature` and `max_tokens` don't count.
 
-File/tab classification and SME routing are done with plain code (no LLM), because the workbook structure is fixed.
+Consequences we hit:
+- **Same prompt, two models = two tasks.** Our draft task split into "Bid response writer" (`gpt-4o-mini`) and "Bid response writer 2" (`gpt-6-luna`). Pick **one model per task** and stick to it.
+- **Editing a system prompt creates a new task** at 0 of 25. Freeze prompts by Saturday night, or the adapter never trains.
+- **Put everything that varies in the user message** (case facts, transcript, policy passages, playbook rules), never in the system prompt.
+- If a task uses tools, the **tool definitions** are part of the fingerprint. Keep the tool list fixed.
+- **The scorecard is in the `review.call` system prompt**, so each bank's scorecard is its own task and its own adapter. Editing the scorecard starts a new task.
 
-### The correction → model update loop
+### 3.5 Kept examples, and why the count was slow
+- Training starts at **25 kept examples**, and the console shows `Collecting examples` → `Reviewing examples` → `Training` → `Testing`.
+- **Duplicates don't count.** Re-sending identical calls added nothing. We sent about 150 draft calls on one task and it sat at 23 kept for hours. New, varied inputs (a fresh practice RFP) got it to 25 and training started.
+- The count updates **after** Mubit reviews examples, which can lag. Calls show up in the task's call count first.
+- Waits are normal: daily training limit (resets 00:00 UTC), a pause between trainings, "too few examples" for test cases.
+- Practical rule: **generate at least 40 varied synthetic cases per task early**, and send them with the final prompt and playbook.
 
+### 3.6 Our integration pattern (reuse this)
+```python
+# app/llm/mubit_client.py: the only module that calls a model
+client = OpenAI(base_url=MUBIT_BASE_URL, api_key=MUBIT_API_KEY, max_retries=3, timeout=180)
+
+def call(task, user, schema, *, run_id=None, record="full", model=None) -> dict:
+    raw = client.chat.completions.with_raw_response.create(
+        model=model or MUBIT_MODEL,
+        messages=[{"role": "system", "content": system_prompt(task)},   # fixed per task
+                  {"role": "user", "content": user}],                    # everything that varies
+        response_format={"type": "json_schema",
+                         "json_schema": {"name": task.replace(".", "_"), "strict": True, "schema": schema}},
+        extra_headers={"x-middleware-record": record},                   # "metadata" = never trained on
+    )
+    resp = raw.parse()
+    # log a trace: task, raw.headers["x-middleware-request-id"], resp.model, latency, tokens
+    return {"output": json.loads(resp.choices[0].message.content), "request_id": ..., "served_by": resp.model, ...}
+```
+Add trace logging (task, request ID, model, latency, tokens, record mode) and error handling around it.
+
+### 3.7 The learning loop that works with Mubit as it really is
 ```text
- Draft v0 (Mubit, not trained on) → Bid manager corrects + gives a reason → Correction record
-        ▲                                                                       │
-        │                                                       rfp.induce_rule (Mubit)
-        │                                                                       ▼
- Draft on unseen RFP with playbook vN  ←────────── Playbook vN: generalised rules + worked examples
+Handler corrects a case + says why ──► correction record (our DB)
         │
-        └─► corrected-behaviour calls = Mubit kept examples → adapter trains (25) → Mubit routes to it
+        ├─► rule.induce (Mubit call) turns the reason into a general rule ──► playbook vN
+        │
+        ├─► IMMEDIATE: every later call includes playbook vN in the *user* message
+        │              → the next complaint is handled with the rule
+        │
+        └─► MODEL UPDATE: practice-case calls with playbook vN are sent with record=full
+                       → Mubit keeps them → 25 kept → adapter trains → shown in Try models
+Base (v0) and held-out calls are sent with record=metadata → never training data
 ```
 
-1. **Immediate update.** Building a playbook version induces one generalised rule per correction through Mubit. Draft calls carry the playbook in the user message, so the next RFP's first draft changes straight away, on the same Mubit task.
-2. **Model update.** Those corrected calls are kept examples for `rfp.draft_response`. Mubit trains a task adapter from them, so a cheap open model learns the team's judgement. Before the demo, run `python -m scripts.warm_mubit` and check the Mubit console (Tasks → Adapters).
-
-A **correction record** (SQLite `corrections` table):
-```json
-{
-  "req_id": "S-001", "package": "northstar", "run_id": "run_…", "request_id": "mreq_…",
-  "requirement": "...",
-  "model_output": {"status": "Partially Comply", "response": "...", "evidence_ids": ["..."], "gaps": "..."},
-  "corrected_output": {"status": "Comply", "response": "...", "evidence_ids": ["..."], "gaps": ""},
-  "correction_type": ["status_change"],
-  "rationale": "We meet this with the standard service: answer Comply and put ordinary qualifiers in the response.",
-  "rule": {"rule": "...", "applies_when": "...", "keywords": ["..."]}
-}
-```
-
-**Never fake the after result.** Every number on the Compare tab comes from real Mubit calls scored against hand-written gold labels, with no LLM judge.
+### 3.8 Lessons from our first prototype (measured, not guessed)
+- **Don't trust chatbot answers about Mubit.** We were told about `record_outcome()`, `remember()`, `MINIMA_REFLECT_EVERY_N` and automatic adapter routing. The `mubit-sdk` package exists on PyPI, but its endpoints returned `unknown_route` on our gateway key, and the Mubit team confirmed there's no correction API and no adapter routing. Check the docs, then test with one call.
+- **Current models rarely over-promise when the evidence is clear; they hedge.** `gpt-6-luna` got all the obvious traps right with no rules. Its real failure was answering "Partial" to things fully covered. Don't assume where the model fails: score the practice calls at base first, then write corrections and synthetic hard cases around the errors it actually makes.
+- **A narrow rule set can make things worse** (80.8% vs base 86.6%), and a broad "don't hedge" rule once flipped "auto-approve payments" to Comply. **Guardrail rules** (seeded corrections for the non-negotiables) fixed it: 86.6% → **94.9%** averaged over 3 runs.
+- **Single runs are noisy** (±1–2 rows out of 26). Quote averages over 3 runs with min–max ranges.
+- **Held-out hygiene:** we accidentally sent our "held-out" set to Mubit with full recording and had to replace it. Make held-out cases `metadata`-only **in code**, not by remembering.
+- **Latency (measured through Mubit, JSON output):** `gpt-6-luna` about 3–4s p50 per call; `gpt-4o-mini` and `gpt-4.1-mini` about 1.4s. Fine for post-call review (target: scorecard within 20s of hang-up). Longer transcripts mean longer calls: measure on a 90-second call.
+- **Ops gotchas:** `uvicorn --reload` restarts kill in-flight background work, so demo without `--reload`. npm was broken under Git Bash on our Windows machine but works in PowerShell. Next.js versions before 16.4.1 had critical advisories, so we use 16.4.3.
 
 ---
 
-## 4. Synthetic data
+## 4. How it works
 
-All data is fictional and safe to publish.
+### 4.1 The flow
+```text
+ Customer ⇄ Bank colleague          (demo: two people on a real call; production: the contact-centre recorder)
+        │ recording (ideally one track per speaker)
+        ▼
+ ┌──────────────────────────────── Redress API (FastAPI, SQLite) ────────────────────────────────┐
+ │ 1 CAPTURE     call audio saved locally · optional live captions (streaming STT)                │
+ │ 2 TRANSCRIBE  Deepgram pre-recorded → utterances [agent | customer, start_s, end_s, confidence] │
+ │ 3 SCRUB       PII redaction (plain code) before anything leaves the laptop for Mubit           │
+ │ 4 REVIEW      review.call via Mubit → per-item answer + evidence quote + confidence            │
+ │               evidence check (plain code): every quote must exist in the transcript            │
+ │ 5 SCORE       plain code: weighted score, critical fails, pass/fail, risk tier                 │
+ │ 6 ROUTE       plain code: breach → escalate · uncertain / safety net → analyst · 5% → audit    │
+ │               · rest → auto-scored                                                              │
+ │ 7 CORRECT     analyst confirms or changes each item + one-line reason → corrections             │
+ │ 8 LEARN       rule.induce via Mubit → playbook vN → every later review includes the rules      │
+ │               corrected-behaviour reviews (record=full) → Mubit kept examples → adapter         │
+ │ app/llm/mubit_client.py ──────────────────────────────────► Mubit gateway ─► provider model    │
+ └──────────────────────────────────────────────────────────────────────────────────────────────┘
+        ▲ REST, polled every 1–2s (no WebSockets on venue Wi-Fi)
+ Web app (Next.js): Wall · Live call · Queue · Evaluation form · Learning · Compare · Mubit panel
+```
 
-| File | Role | Status |
-|---|---|---|
-| `data/rfps/northstar/*.docx + *.xlsx` | RFP #1 (retail), 24 requirements + 12 security questions, including the 4 trap rows | ✅ |
-| `data/rfps/meridian/*.docx + *.xlsx` | **RFP #2, held out** (health insurer), 18 requirements + 8 security questions | ✅ generated |
-| `data/rfps/kestrel/*.docx + *.xlsx` | RFP #3 (county council), practice/warm-up + fast refresh | ✅ generated |
-| `data/company_kb/*.md` | Fictional supplier **Ashgrove Digital**: capabilities, SLA standard (**99.9%**), security, data protection, AI governance, pricing guardrails, integrations, delivery, case studies, SMEs (48 passages) | ✅ |
-| `data/corrections/seed.jsonl` | 2 pre-recorded corrections (AI-004, C-003) | ✅ |
-| `data/eval/gold_*.jsonl` | Hand-written gold labels for all three RFPs: status (+ acceptable alternatives), trap flag, key facts, valid evidence | ✅ |
+### 4.2 Call capture and transcription
+**Assumption we can't work around: the audio is high-fidelity.** Every score depends on the transcript, and a misheard "I was in hospital" is a missed vulnerability. Real contact centres record calls cleanly, usually with **one track per speaker** (stereo). We design for that and say so openly.
 
-`python scripts/generate_synthetic.py` rebuilds the Meridian and Kestrel packages and adds the Northstar trap rows (safe to re-run).
+| | Demo setup | Fidelity | Speaker labels |
+|---|---|---|---|
+| **A (recommended)** | Two people on two laptops (or a laptop and a phone browser) in a **call room** (LiveKit, WebRTC). Redress joins as a silent recorder and records **each track separately** | Best: each voice on its own clean track, headsets recommended | Exact, from the track |
+| **B** | An ordinary phone call on **speaker next to the laptop mic** | Lower: one mixed track, room noise | Deepgram diarisation + a **Swap speakers** button |
+| **Fallback** | A pre-recorded file of the same script, uploaded | Same as recorded | As recorded |
 
-### Deliberate traps (these make the demo work)
-Add these rows to the RFP #1 Requirements tab, with matching rows in RFP #2:
+- **Transcription:** Deepgram **pre-recorded** API after hang-up is the source of truth (more accurate than streaming): punctuation, smart formatting, utterances with timestamps and confidence. Streaming captions during the call are a nice-to-have for the audience. `TODO(verify)`: current model name (Nova-3 or newer), `en-GB`, and whether Deepgram's own redaction options are available on our plan.
+- **Low-confidence transcription is a routing signal.** If any utterance's STT confidence is below a threshold, or audio quality is poor, the call goes to an analyst: we don't score what we couldn't hear.
+- Speech-to-text isn't an LLM call, so it goes to Deepgram directly. `TODO(verify)` with the Mubit team that this is acceptable under the brief.
 
-| ID | RFP #1 requirement | KB truth | Correct answer | RFP #2 variant |
+### 4.3 PII scrubbing (before anything reaches Mubit)
+Mubit **records request and reply content by default** (§3.2). Data is synthetic, but we build as a bank would:
+
+1. **Redact in plain code before any model call:** card numbers (13–19 digits, with a Luhn check), sort codes, account numbers, dates of birth, postcodes, phone numbers, email addresses, and the customer's name and address from the (synthetic) customer record. Replace with typed tokens: `[CARD]`, `[DOB]`, `[NAME]` and so on. The review never needs the values: it needs to know that *an identity check happened*, not what the date of birth was.
+2. **Keep raw audio and the raw transcript on the laptop only**, in the local store. Only redacted text is sent to Mubit.
+3. **Show it:** the evaluation form can toggle "what Mubit saw" (the redacted transcript), and the Mubit console's Requests page shows the same.
+4. **Record modes:** held-out and base runs use `x-middleware-record: metadata` (no content kept at Mubit). Production would add a provider key under the bank's own account and a data-processing agreement.
+5. **ACL-gated memory:** our Mubit gateway key has **no memory endpoints**. The `mubit-sdk` memory calls returned `unknown_route` (§3.3), so we don't depend on memory or ACLs. Mubit does scope keys to one project, and read-only keys can read records but not make calls. `TODO(verify)`: ask the Mubit team whether access-controlled memory or per-client data isolation exists for our project.
+
+### 4.4 The review (one Mubit task)
+- **Task `review.call`:** the system prompt holds the reviewer instructions **and the bank's scorecard**, so it's fixed per bank. That makes one Mubit task, and one adapter, per bank (§3.4).
+- **User message (varies):** the playbook rules (vN) + the redacted transcript as `[start_s] AGENT|CUSTOMER: text`.
+- **Output (strict JSON):** for every scorecard item: `answer` (`yes` / `no` / `na` / `unsure`), short `reasoning`, `evidence` quotes with timestamps, and `confidence` (0–1). Plus `complaint {expressed, category, evidence}`, `vulnerability [{driver, evidence}]` and a short `summary`.
+- **Plain code afterwards:** every quote is checked against the transcript (quotes that don't exist are dropped, and the item is re-marked `unsure`). Then the weighted score, critical fails, pass/fail and risk tier are computed.
+
+### 4.5 Conservative by design: false negatives are the danger
+A missed breach (scored as compliant when it wasn't) is far worse than an extra human review. So the system leans conservative, **on critical items only**, and budgets human time so it stays useful.
+
+| Mechanism | Rule (plain code) |
+|---|---|
+| **Pass needs positive evidence** | A critical item can only be `yes` (compliant) with a quote showing the compliant behaviour, e.g. the identity check *before* account details. No quote → `unsure` |
+| **`unsure` is allowed and routed** | The prompt tells the model to say `unsure` rather than guess on critical items. Any critical `unsure` → analyst |
+| **Confidence threshold** | Any critical item with confidence < **0.8**, or any scored item < **0.6** → analyst |
+| **Keyword safety net** | Independent of the model: vulnerability cues ("hospital", "passed away", "can't afford", "lost my job", "carer"…) and complaint cues ("not happy", "unacceptable", "want to complain"…). If a cue fires and the model says no vulnerability or no complaint → analyst |
+| **STT quality** | Low transcription confidence or poor audio → analyst |
+| **Confident breach** | A critical item `no` with evidence and confidence ≥ 0.8 → **flagged as a breach**, escalated immediately (it still gets a human check, but it's surfaced first) |
+| **Audit sample** | A random **5%** of calls go to an analyst whatever the model says. This is the sample banks already take, and it keeps our accuracy figures honest (it's not chosen by the model) |
+| **Everything else** | Auto-scored, counted in coverage and reporting |
+
+**Not obnoxiously conservative:** we track the **human queue rate** (the share of calls sent to analysts) next to **critical recall**. The target is to catch every breach in the held-out set while sending well under a third of calls to humans. Thresholds are tuned on practice calls, never on the held-out set. Per-item agreement is tracked; an item whose AI-vs-analyst agreement stays high over many audited calls can earn auto-accept for that item only.
+
+### 4.6 The analyst's job: review the AI, don't redo it
+1. Open a call from the queue: the transcript (with audio playback from any timestamp), and the AI scorecard pre-filled with answers, quotes and confidence. Critical items are pinned to the top.
+2. For each item: **✓ agree**, or **change the answer** and give a one-line reason (a dropdown of common reasons, or free text).
+3. Submit. Each changed item becomes a **correction**; agreements count towards per-item agreement.
+
+### 4.7 The learning loop (how corrections become model updates)
+See §3.7 for why it works this way with Mubit.
+```text
+Analyst correction (before, after, reason)
+   ├─► rule.induce (Mubit) → a general rule → playbook vN
+   ├─► IMMEDIATE: every later review.call includes playbook vN in the user message → the next call is scored with the rule
+   └─► MODEL UPDATE: reviews made with vN on practice and live calls are sent with record=full
+                     → Mubit keeps them → 25 kept → adapter trains → compare in Try models
+Base (v0) reviews and held-out calls are sent with record=metadata → never training data
+```
+- **The 5% audited calls** are where corrections come from: the analysts' existing workload, now faster.
+- **The 95% unreviewed calls** benefit from every rule straight away, and from the adapter once it passes.
+- **"Test on archive":** when a rule is added, re-score the archived calls it plausibly affects and show what changed (before → after). This is how a QA lead checks a rule before trusting it.
+- **Guardrail rules:** seed a few non-negotiables (e.g. "a promised refund before investigation is always a C3 fail") so a broad rule can't loosen a critical item. On our first prototype, a broad rule without guardrails made results worse (§3.8).
+
+---
+
+## 5. The scorecard (Thistle Bank, fictional)
+Adapted from the team's QA research (scorecard structure: weighted items plus critical auto-fails).
+
+| # | Item | Type | Basis |
+|---|---|---|---|
+| C1 | Complaint recognised and logged, even if the word "complaint" wasn't used | **Critical** | FCA DISP definition of a complaint |
+| C2 | Vulnerability recognised and support offered | **Critical** | FCA FG21/1 (health, life events, resilience, capability) |
+| C3 | No promise of an outcome and no misleading statement | **Critical** | Consumer Duty: consumer understanding |
+| C4 | Identity verified before account details were discussed | **Critical** | Bank security policy |
+| S1 | Next steps and the right timescale explained (8 weeks, or 15 business days for payment services) | 20 pts | FCA DISP 1.6 |
+| S2 | Checked the customer understood | 20 pts | Consumer Duty: consumer understanding |
+| S3 | Information given was accurate | 20 pts | Bank policy |
+| S4 | Empathy and tone | 20 pts | Service standard |
+| S5 | Took ownership and agreed a follow-up | 20 pts | Service standard |
+
+**Pass** = no critical fail and a score of 80 or more. The scorecard lives in `data/scorecard.json` and is written into the `review.call` system prompt (so editing it starts a new Mubit task: freeze it early). Regulatory references are summaries: verify before quoting on stage.
+
+---
+
+## 6. Mubit tasks
+| Task | System prompt (fixed) | User message (varies) | Output (strict JSON) | Record mode |
 |---|---|---|---|---|
-| S-003 | 99.99% monthly availability | Standard is 99.9% | Partially Comply + gap | "Four-nines uptime for member portal" |
-| D-003 | Data must never leave the UK, including support access | Follow-the-sun support from India | Partially Comply + mitigation | "No offshore access to patient data" |
-| AI-004 | Fully autonomous refunds of any value | Human approval above threshold | Do Not Comply (by design) | "Auto-approve claims without review" |
-| C-003 | Fixed price for unlimited use cases | Pricing guardrail forbids it | Partially Comply + assumption | "Fixed fee, uncapped scope" |
+| `review.call` | Reviewer instructions + the bank's scorecard (`app/llm/prompts/review_call.md`) | Playbook vN + redacted transcript | Per-item answer, reasoning, evidence, confidence; complaint; vulnerability; summary | Practice + live calls with vN ≥ 1: `full` · base v0 and held-out: `metadata` |
+| `rule.induce` | Rule writer (`app/llm/prompts/rule_induce.md`) | Correction: item, before, after, reason, transcript excerpt | `{rule, applies_when, keywords}` | `full` |
+| `data.generate` (offline, optional) | Synthetic call writer | A scenario spec (§9) | A transcript | `metadata` (not a product task) |
 
-The base model will tend to say "Comply" to these. The corrections teach the company's rules. RFP #2 tests whether the rules **generalise** to new wording and domains, rather than being memorised.
-
----
-
-## 5. Features to add
-
-### P0 – Golden path (must ship)
-1. **RFP package upload** – drag in one DOCX and one XLSX; detect the shared RFP reference.
-2. **Deterministic parsing** – `python-docx` for sections, `openpyxl` for tabs and rows (requirement IDs come straight from the sheet; no LLM needed for the table).
-3. **Requirement extraction via Mubit** – pull extra implicit requirements from DOCX prose (`rfp.extract_requirements`).
-4. **Evidence retrieval** (our own layer) – BM25 or embeddings over `data/company_kb`; top-k passages per requirement, passed into the Mubit call.
-5. **Draft responses via Mubit** (`rfp.draft_response`) – strict JSON: `status`, `response`, `evidence_ids`, `gaps`, `confidence`.
-6. **Correction UI** – edit status/response inline, add a rationale, click **"Teach"** → `submit_correction()` sends it to Mubit.
-7. **Model update + re-run** – trigger/poll the Mubit update; re-run RFP #2 with the updated task model.
-8. **Before/after scoreboard** – accuracy on held-out RFP #2 (status match, unsupported-claim count, citation coverage), from real runs.
-9. **Mubit trace panel** – every call listed with task, request ID, model/update version, latency and tokens.
-
-### P1 – Makes it a winner
-10. **Quality / cost / latency comparison** – the same RFP #2 run on a closed frontier model vs the Mubit task-adapted open model (Track 2).
-11. **Over-promise detector** (`rfp.verify_claims`) – red-flags any "Comply" without supporting evidence.
-12. **Correction analytics** – correction types over time, plus "corrections per bid" trending down.
-13. **Update timeline** – v0 → v1 → v2 of the task update, with the corrections that went into each.
-14. **Export** – write the completed Requirements and Security tabs back into the XLSX, plus a DOCX response pack.
-
-### P2 – Nice to have
-15. **SME routing** (`rfp.route_owner`) from the fictional SME directory.
-16. **Win-risk summary** – "What are we most likely to lose this bid on?"
-17. **Fast-refresh demo** – a third domain RFP and a quick update cycle (Track 3).
-18. **Evidence graph view** – requirement → KB passage → past project → SME.
-
-### Explicitly out of scope
-Real client data · authentication · multi-tenant · full proposal-management workflow · fine-tuning outside Mubit.
+One fixed model for `review.call` and `rule.induce` (`MUBIT_MODEL`); never mix models within a task (§3.4).
 
 ---
 
-## 6. Architecture and repo layout
+## 7. Data model and API
+
+### SQLite tables
+```text
+calls(id, source:"live"|"upload"|"synthetic", split:"practice"|"heldout"|"live", agent_name, audio_path, duration_s,
+      stt_confidence, created_at)
+utterances(call_id, idx, speaker:"agent"|"customer", text_raw, text_redacted, start_s, end_s, confidence)
+reviews(id, call_id, playbook_version, request_id, model, record_mode, latency_ms, tokens_in, tokens_out,
+        output_json, score, pass, critical_fails, risk_tier, created_at)
+queue(call_id, kind:"breach"|"analyst"|"audit"|"auto", reasons_json, due_at, done)
+evaluations(id, call_id, review_id, analyst, items_json, comments, submitted_at)
+corrections(id, call_id, review_id, item_id, before, after, reason, created_at)
+playbook_versions(version, created_at, correction_ids, rules_json)
+agreement(item_id, n, agreed, pct, updated_at)
+eval_runs(id, label, playbook_version, model, metrics_json, per_call_json, created_at)
+traces(ts, task, call_id, request_id, model, served_by, record_mode, latency_ms, tokens_in, tokens_out, ok, error)
+```
+
+### API (FastAPI, `app/main.py`)
+```text
+GET  /api/status                    Mubit/Deepgram config, playbook version, pending corrections, trace counts
+GET  /api/scorecard                 the scorecard (data/scorecard.json)
+POST /api/calls                     multipart {audio, agent_name} → {call_id}   (background: Deepgram → redact → review → route)
+POST /api/calls/import              {split, review, calls:[{id?, agent_name, utterances:[{speaker, text, start_s, end_s?}]}]}
+POST /api/demo/scripts/{id}         load demo_call1 / demo_call2 as a text call and review it (rehearsal and fallback)
+GET  /api/calls?split=              list with queue kind, score, risk tier
+GET  /api/calls/{id}                call + utterances (raw and redacted) + latest review (items with labels) + queue + evaluation
+GET  /api/calls/{id}/audio          the recording, for playback from a timestamp
+POST /api/calls/{id}/review?playbook_version=   re-score now (e.g. the same call at an older version, side by side)
+POST /api/calls/{id}/swap-speakers  fix speaker labels, then re-review
+POST /api/calls/{id}/evaluation     {items:[{id, answer, reason}], comments} → corrections + new playbook version + rules
+GET  /api/wall                      coverage stats + one tile per call
+GET  /api/queue                     open breach / analyst / audit items, most urgent first
+GET  /api/learning                  playbook versions, rules, corrections, per-item agreement
+POST /api/corrections/seed          load guardrail seeds and build a playbook version
+POST /api/rules/{correction_id}/test?limit=   test on archive: re-score affected calls, before vs after
+POST /api/eval                      {repeats, versions?} → held-out runs (always metadata)
+GET  /api/runs · GET /api/compare   run progress · averaged metrics per playbook version
+GET  /api/traces?limit=             Mubit trace panel
+POST /api/demo/reset                clear live calls and analyst corrections (keeps synthetic calls and seed playbook)
+```
+
+---
+
+## 8. Technology and repo layout
+
+| Layer | Choice | Notes |
+|---|---|---|
+| LLM gateway | **Mubit**, OpenAI SDK, one base URL | `review.call`, `rule.induce`; strict JSON; one fixed model |
+| Speech-to-text | **Deepgram** pre-recorded (+ optional streaming captions) | Timestamps, confidence, diarisation for setup B |
+| Call room (demo setup A) | **LiveKit** (Cloud free tier), WebRTC | A silent recorder participant records each track. `TODO(verify)`: LiveKit Agents API for a non-publishing participant and track recording |
+| Backend | Python 3.11, FastAPI, Pydantic, SQLite, httpx | Single laptop; polled by the UI |
+| Frontend | Next.js 16.4.3, React 19, Tailwind 4 | Styled after `design/` (dark, lime accent, Inter Tight, animated background) |
 
 ```text
 mubit-hack/
-├── README.md
-├── .env.example              # MUBIT_BASE_URL, MUBIT_API_KEY, MUBIT_MODEL, BASELINE_MODEL
-├── requirements.txt
-├── app/
-│   ├── main.py               # FastAPI entrypoint (all /api routes)
-│   ├── config.py · db.py · models.py
-│   ├── llm/
-│   │   ├── mubit_client.py   # ONLY model gateway: call() + trace logging
-│   │   └── prompts/          # one fixed system prompt per Mubit task
-│   ├── ingest/               # docx_parser.py, xlsx_parser.py, packages.py (registry + gold)
-│   ├── pipeline/             # retrieve.py (BM25), draft.py, verify.py, extract.py, summarise.py, runner.py
-│   ├── learning/             # corrections.py, playbook.py (versioned rules via rfp.induce_rule)
-│   ├── eval/score.py         # deterministic scoring vs gold
-│   └── export/writeback.py   # fill the client XLSX
-├── web/                      # Next.js 16 + Tailwind 4 (Overview, Matrix, Learning, Compare, trace panel)
-├── data/                     # synthetic only (see §4)
-└── scripts/
-    ├── generate_synthetic.py # build RFP packages
-    ├── run_eval.py           # CLI scoreboard: base vs latest playbook
-    ├── warm_mubit.py         # send corrected calls so Mubit trains the adapter
-    └── reset_demo.py         # clear runs/corrections/traces
+├── README.md                     # this file (final architecture)
+├── design/                       # HTML prototypes: visual reference only (theme, graphics, motion)
+├── .env.example · requirements.txt
+├── app/                          # FastAPI (to build)
+│   ├── main.py · config.py · db.py
+│   ├── llm/mubit_client.py       # ONLY model gateway (pattern in §3.6)
+│   ├── llm/prompts/              # review_call.md, rule_induce.md (frozen early)
+│   ├── llm/schemas/              # call_review.json (strict)
+│   ├── capture/                  # upload, LiveKit recorder hook, Deepgram transcription, speaker labelling
+│   ├── privacy/redact.py         # PII scrubbing
+│   ├── review/                   # spec.py (user message, evidence check, score), route.py (§4.5), safety_net.py
+│   ├── learning/                 # corrections.py, playbook.py, test_on_archive.py
+│   └── eval/                     # score.py (vs gold), compare.py
+├── data/
+│   ├── scorecard.json            # Thistle's scorecard
+│   ├── customers.json            # synthetic customer records (used for redaction and the demo script)
+│   ├── calls/practice/*.json     # synthetic transcripts for corrections and Mubit warm-up
+│   ├── calls/heldout/*.json      # never trained on (record=metadata)
+│   ├── eval/gold.jsonl           # held-out labels, written before any run
+│   ├── corrections/seed.jsonl    # guardrail corrections
+│   └── demo/                     # the two live-call scripts + a fallback recording
+├── scripts/                      # generate_calls.py, import_calls.py, warm_mubit.py, run_eval.py, smoke_mubit.py, reset_demo.py
+└── web/                          # Next.js app
 ```
-
-**Stack:** Python 3.11, FastAPI, Pydantic, python-docx, openpyxl, rank-bm25, SQLite (`redline.db`) for runs, corrections and traces; Next.js 16, Tailwind 4, lucide-react.
-
-**Data model (Pydantic):** `Requirement`, `Evidence`, `Draft`, `Correction`, `MubitTrace`, `EvalResult`.
 
 ---
 
-## 7. UI/UX
+## 9. Synthetic data and evaluation
 
-**Design principle:** the audience should *see* learning happen. Every screen shows the Mubit update version.
+### Synthetic transcripts (to train and to test)
+- **Label-first generation:** write a **scenario spec** per call (customer situation, what the colleague does right or wrong per scorecard item), then generate the transcript from it. The spec *is* the gold label. Spot-check every held-out call by hand.
+- **Mix:** ~80 practice calls (Mubit warm-up, corrections, the wall) + ~25 held-out calls (gold, `metadata` only). About 40% contain a hard case: a complaint without the word "complaint", vulnerability mentioned in passing, a promised refund, the wrong deadline, account details before the identity check, or a clean call that *looks* risky (to measure over-flagging).
+- **Variety matters for Mubit:** duplicates aren't kept as training examples (§3.5), so vary customers, wording, products and length.
 
-### Layout
-```text
-┌──────────────────────────────────────────────────────────────────────┐
-│ Redline   RFP: NSR-2026-AI-014 ▾      Mubit ● task update v1  ⓘ      │
-├────────────┬──────────────────────────────────────┬──────────────────┤
-│ Package    │  REQUIREMENTS MATRIX                 │  MUBIT PANEL     │
-│ ▸ RFP.docx │  ID     Status        Conf  Evidence │  Live traces     │
-│ ▸ Exhibits │  F-001  ● Comply      0.94  3        │  draft_response  │
-│            │  S-003  ● Partial ⚠   0.88  2        │  412ms · v1      │
-│ Tabs       │  D-003  ● Partial     0.81  2        │  …               │
-│ Overview   │  …                                   │  Corrections: 7  │
-│ Matrix     │                                      │  Update: v0→v1 ✓ │
-│ Learning   │  [ Selected row: draft | evidence |  │  [Teach Mubit]   │
-│ Compare    │    edit + rationale | Teach ▶ ]      │                  │
-└────────────┴──────────────────────────────────────┴──────────────────┘
-```
-
-### Screens
-1. **Overview** – requirement count, status split (🟢 / 🟡 / 🔴), evidence coverage, flagged over-promises.
-2. **Matrix** – sortable table. Click a row to open the drawer with the draft, cited evidence (click to view the passage), an edit box, a rationale field and the **Teach** button.
-3. **Learning** – correction feed, update timeline (v0 → v1), "what changed" per correction type.
-4. **Compare** – side-by-side on held-out RFP #2:
-   - Left: **Base (no update)**. Right: **Mubit task update**.
-   - Scores: status accuracy, unsupported claims, citation coverage.
-   - Cost per RFP, latency p50, closed model vs Mubit open model.
-
-### Micro-interactions that sell it
-- **Teach** button → toast "Correction sent to Mubit" → update badge pulses "building…" → "v1 ready".
-- Changed rows on re-run get a highlight, with a diff of old vs new status.
-- Trap rows show a red shield icon when the base model over-promises, and turn green after the update.
+### Metrics (fixed rules vs gold, averaged over 3 runs with min–max)
+| Metric | Why |
+|---|---|
+| **Critical recall** (and the false negative count) | The headline. A missed breach is the worst outcome |
+| Critical precision | Over-flagging costs analyst time |
+| **Human queue rate** | Conservatism has a price; keep it bounded |
+| Per-item accuracy and agreement | Where the model and analysts differ |
+| Complaint recall, vulnerability recall | The two items most often missed by people |
+| Latency per call, £ per 1,000 calls | Track 2: provider model vs adapter |
 
 ---
 
-## 8. Demo script (3 minutes, live)
+## 10. Demo (3 minutes, live)
 
+**Cast:** Abdul plays **Sam**, a Thistle Bank colleague, and answers on his phone **on speaker next to the laptop**. Sultan plays the customer and rings him. The laptop records the room (setup B) and runs Redress on the projector. Scripts: [`data/demo/call1.json`](data/demo/call1.json) (Abdul's) and [`data/demo/call2.json`](data/demo/call2.json) (draft, to check).
+
+### Before going on stage
+1. `python -m scripts.reset_demo`, then start the API **without** `--reload` and the web app; Mubit console open on Try models in another tab.
+2. Practice calls scored and the wall populated (done: 80 calls at playbook v1); guardrail seeds in the playbook (done).
+3. Held-out set run 3× at base and 3× at the latest playbook: `python -m scripts.run_eval --repeats 3`.
+4. Mubit adapter: Tasks → Adapters shows **Passed**; start it once in Try models beforehand.
+5. Rehearse both calls 3× in the venue; record the best takes as fallback files (upload them with `POST /api/calls`, or use `POST /api/demo/scripts/{id}` for the text version).
+
+### What the rehearsal showed (text versions, 24–25 Oct)
+The base model **catches every planted lapse** in both calls, including the subtle ones. Where it differs from an analyst, it **over-flags**: it fails **S3 (accurate information)** on call 1 because of the refund promise that C3 already counts, and at times fails C3 on call 2 for the wrong timescale. So the demo correction is about **scoring like the bank's analysts**, not about a missed breach:
+
+> *"Score each mistake under the one item it belongs to. A promised refund is a C3 fail, not inaccurate information: S3 is only for factually wrong statements about fees, rules or timescales."*
+
+`rule.induce` turned this into: *"For S3 Accurate information, score only whether statements about products, fees, rules, or timescales are factually accurate; do not score a promise or service commitment here when it belongs under another item."* Call 2 at the new version: C3 passes and S3 fails (the 8 weeks should be 15 business days), which is what an analyst would score.
+
+### On stage
 | Time | Beat | On screen |
 |---|---|---|
-| 0:00–0:20 | **Problem.** "Every RFP is the same task, repeated thousands of times. Generic agents over-promise." | Title + RFP package |
-| 0:20–0:50 | **Upload RFP #1.** Parse DOCX + XLSX. Drafts stream in. Mubit trace panel fills: every call goes through Mubit. | Matrix + traces |
-| 0:50–1:20 | **The trap.** S-003 99.99% → base model says "Comply". "That's a contractual commitment we can't meet." | Red shield on S-003 |
-| 1:20–1:50 | **Correct it.** Change to Partially Comply, cite the 99.9% SLA standard, add a rationale, **Teach**. Fix one or two more (D-003). | Correction → Mubit |
-| 1:50–2:10 | **Model update.** Mubit update v0 → v1 (live, or pre-built with its version/timestamp shown). | Learning tab |
-| 2:10–2:40 | **Unseen RFP #2** (health insurer, different wording). Base vs v1 side by side: four-nines and offshore-access traps are now handled correctly. | Compare tab |
-| 2:40–3:00 | **Scoreboard + money line.** Held-out accuracy up, unsupported claims down, cost and latency vs the closed model. "Without Mubit, the agent drafts. With Mubit, it learns how your company bids." | Scoreboard |
+| 0:00–0:15 | **Problem.** "Banks check one call in twenty. The other nineteen are never heard." The wall: 80 calls, 4 in the random sample. | Wall |
+| 0:15–0:55 | **Call 1 (live).** Ellen: overdraft fees while she was in hospital. Sam checks identity, then *"Don't worry, I'm sure we'll refund all of that"*, then *"Someone will be in touch."* | Live call (recording timer) |
+| 0:55–1:15 | **Scored in ~15s.** Transcript, then the scorecard: C1, C2, C3 failed with quotes and timestamps, routed as a breach. | Evaluation form |
+| 1:15–1:40 | **The analyst corrects one thing:** S3 → pass, with the one-line reason above. Mubit induces a rule; playbook v2. | Learning |
+| 1:40–2:15 | **Call 2 (live), similar but different:** Daniel, recently bereaved, disputes a card payment. Sam is kind but offers no support, puts "a note on the account" and quotes 8 weeks. Scored at v2: C1 and C2 fail, **C3 correctly passes**, S3 correctly fails. Show the same call at v1 beside it. | Evaluation form |
+| 2:15–2:40 | **Scale.** All calls scored; held-out Compare: critical recall and false negatives (0 at base and v1), precision, human queue rate. | Wall + Compare |
+| 2:40–2:55 | **Model update.** Mubit Try models: the adapter vs the provider on a held-out transcript. | Mubit console |
+| 2:55–3:00 | **Money line.** | Title |
 
-**Backup plan:** a recorded video of the golden path, plus a cached run of RFP #2 (labelled as cached) in case venue Wi-Fi fails.
-
-**Likely judge questions – prepare answers for:**
-- *Isn't this just RAG?* → Retrieval supplies the facts. Mubit learns the **judgement**: when to say Partial, how to phrase gaps and what never to claim. RFP #2 shows that judgement generalising to new wording.
-- *Did you overfit to the demo?* → RFP #2 is held out, from a different domain and with different wording. The gold labels were written before training.
-- *Why open models?* → Cost and latency per RFP at scale, shown on the Compare tab. The company also owns its bid-judgement layer.
-- *Real data?* → Synthetic only. In a real firm, corrections are generated naturally in every bid review.
+**Judge questions to prepare:**
+- *What if the transcript is wrong?* → We assume high-fidelity recordings (contact centres record per speaker); low STT confidence routes the call to a human instead of scoring it.
+- *What about false negatives?* → 0 on the held-out set so far. Critical items need positive evidence to pass; `unsure` goes to a human; an independent keyword safety net (it would have caught a run where the model missed call 2's "fed up" complaint); a 5% random audit; critical recall is the headline metric.
+- *Isn't this an LLM judging people?* → It drafts scores; analysts decide. Coaching and any action on a colleague stay human.
+- *PII?* → Redacted in code before Mubit; raw audio never leaves the laptop; held-out runs aren't stored at Mubit.
+- *Isn't this just a prompt?* → The playbook applies corrections immediately; Mubit distils the corrected reviews into a task adapter (Try models).
 
 ---
 
-## 9. Build plan (ruthlessly prioritised)
+## 11. Build plan
+Code freeze is **Sun 10:00**.
 
-| Order | Task | Status |
+| # | Task | Status |
 |---|---|---|
-| 1 | Confirm the Mubit API | ✅ verified (§3); feedback API still `TODO(mubit)` |
-| 2 | Parsers for DOCX + XLSX | ✅ |
-| 3 | Synthetic KB + trap rows + RFP #2/#3 + gold labels | ✅ |
-| 4 | `draft_response` via Mubit with strict JSON + retrieval | ✅ |
-| 5 | Correction capture + playbook versions | ✅ |
-| 6 | Re-run on RFP #2 + scoring | ✅ |
-| 7 | UI: Overview, Matrix + Teach, Learning, Compare | ✅ built; needs a click-through in the browser |
-| 8 | Trace panel + model comparison | ✅ (closed-baseline run button on Compare) |
-| 9 | Warm Mubit to 25 kept examples, confirm adapter + "Served by" | 🔲 run `scripts/warm_mubit.py`, check console |
-| 10 | Decide demo narrative (§12), polish, record backup video, rehearse | 🔲 **before Sun 10:00 code freeze** |
+| 1 | Mubit client (§3.6), config, SQLite, traces | ✅ |
+| 2 | `scorecard.json`, `review_call.md`, `call_review.json`, `spec.py` (**frozen**) | ✅ |
+| 3 | Redaction + evidence check + score + routing + safety net | ✅ |
+| 4 | Synthetic practice (80) + held-out (25) calls and gold; import | ✅ gold labels need a human check (`data/eval/gold.jsonl`) |
+| 5 | Evaluation → corrections → `rule.induce` → playbook; test on archive | ✅ |
+| 6 | Deepgram upload path (setup B) | ✅ ~9s for a 26s recording |
+| 7 | Mubit warm-up: 80 practice reviews at v1 (`record=full`) | ✅ sent; check Tasks → Adapters |
+| 8 | Held-out eval 3× base and 3× latest | 🔲 `python -m scripts.run_eval --repeats 3` |
+| 9 | UI: wall, live call (recorder), queue, evaluation form, learning, compare, Mubit panel | 🔲 against the API in §7 |
+| 10 | Rehearse both calls 3×, record fallbacks, tune thresholds on practice calls | 🔲 **Before Sun 10:00** |
 
 ---
 
-## 10. Setup
-
+## 12. Setup
 ```powershell
-# Backend (Python 3.11+)
 python -m venv .venv
 .\.venv\Scripts\python -m pip install -r requirements.txt
-copy .env.example .env          # set MUBIT_API_KEY (mbt_…)
-.\.venv\Scripts\python -m uvicorn app.main:app --port 8000   # no --reload when demoing: a reload kills in-flight runs
-
-# Frontend (from PowerShell)
-cd web; npm install; npm run dev   # http://localhost:3000
-
-# Optional
-.\.venv\Scripts\python scripts\generate_synthetic.py
-.\.venv\Scripts\python -m scripts.run_eval --rfp meridian --compare base,latest
-.\.venv\Scripts\python -m scripts.warm_mubit
-.\.venv\Scripts\python -m scripts.reset_demo
+copy .env.example .env                                         # MUBIT_API_KEY, DEEPGRAM_API_KEY
+.\.venv\Scripts\python -m scripts.smoke_mubit                 # Mubit + Deepgram reachable?
+.\.venv\Scripts\python -m uvicorn app.main:app --port 8000     # no --reload when demoing
+cd web; npm install; npm run dev                               # http://localhost:3000 (PowerShell)
+start design\prototype.html                                    # visual reference
 ```
 
+**Data and evaluation scripts** (the generated transcripts are in the repo; a fresh database needs steps 2–3):
+```powershell
+.\.venv\Scripts\python -m scripts.generate_calls --only-missing   # 1. synthetic transcripts via Mubit (data.generate, metadata)
+.\.venv\Scripts\python -m scripts.seed_playbook                   # 2. guardrail seeds → playbook v1
+.\.venv\Scripts\python -m scripts.import_calls                    # 3. import all calls; score practice calls at the latest playbook
+.\.venv\Scripts\python -m scripts.warm_mubit                      # re-score practice calls at a new playbook version (training examples)
+.\.venv\Scripts\python -m scripts.run_eval --repeats 3            # held-out: base vs latest, averaged
+.\.venv\Scripts\python -m scripts.reset_demo                      # before a demo run
+```
+Keys go in `.env` only. Provider keys (OpenAI or Anthropic) never go in the app: they live in the Mubit console under **Provider keys**. `REVIEW_REASONING_EFFORT` (default `low`) trades latency for depth: measured ~18.6s per review at the default effort, ~13.5s at `low`, ~10s at `none`.
+
 ---
 
-## 11. Ethics and data
+## 13. Caveats and risks
+| Caveat | How we handle it |
+|---|---|
+| **High-fidelity audio is assumed** | Stated openly; per-speaker tracks in the demo; low STT confidence → human |
+| **False negatives** | §4.5: positive evidence to pass, `unsure`, thresholds, safety net, random audit, critical recall as the headline |
+| **Over-flagging** | Queue rate tracked; thresholds tuned on practice calls; per-item auto-accept only after sustained agreement |
+| **PII** | §4.3: redaction before Mubit, raw data local, `metadata` for held-out |
+| **Mubit limits** | No correction API; adapters only in Try models; prompt edits reset tasks; kept-example lag (§3.3–3.5) |
+| **LLM judging people** | Scores are drafts; humans decide; quotes and timestamps make every score auditable |
+| **Regulatory summaries** | Our DISP / Consumer Duty / FG21/1 summaries are simplified; verify before quoting |
 
-- 100% synthetic organisations, people, numbers and documents.
-- No real RFPs or internal company material in the repo, prompts, demo or screenshots.
-- Human-in-the-loop by design: the agent drafts and flags; a bid manager approves.
+## 14. Ethics and data
+- 100% synthetic customers and calls; live demo callers are actors reading a script.
+- Redress assists QA; it never takes action on a colleague or a customer by itself.
+- Recording notice: "this call is recorded for quality and training".
 
 ---
 
-## 12. Findings so far (real runs, 24 Oct 2026)
-
-Held-out Meridian pack, 26 rows, one run per cell, scored against the gold labels:
-
-| Model | Base v0 | Playbook v1 (4 corrections) |
-|---|---|---|
-| gpt-6-luna | 84.6% status accuracy, 0 over-promises, 4 hedged | **92.3%** |
-| gpt-4o-mini | 92.3% | 88.5% |
-| gpt-4.1-mini | 92.3% (1 over-promise) | not run |
-
-- Grounded in a clean knowledge base, current models rarely **over-promise**: `gpt-6-luna` got all four trap rows right with no playbook. Its main failure is **under-claiming**: answering "Partially Comply" to requirements the company fully meets. On a mandatory row that can eliminate the bid (Northstar §8).
-- Two hedging corrections on Northstar fixed hedging on *different* Meridian rows (REQ-01, REQ-16, SEC-07): real generalisation. The strict seed rules (AI-004, C-003) nudged some partials to "Do Not Comply", which the scoreboard catches.
-- n is small and runs vary by a row or two, so rehearse with the numbers from the day.
-- **Decision needed:** pitch "calibration" (agents both over-promise and hedge; corrections teach the team's judgement both ways) rather than the pure over-promise story in §1 and §8.
+## 15. Status and measured results (25 Oct 2026, ~01:00)
+- **Held-out (25 calls, one run each):** critical recall **100%** with **0 false negatives** at both base and playbook v1; critical precision 88%; item accuracy 91.6%; complaint and vulnerability recall 100%; human queue rate 84% → 76%; review latency p50 ~12s. The synthetic set is lapse-dense on purpose, so most calls genuinely need a human.
+- **Where the model is wrong:** mostly **over-flagging**: S3 failed for a mistake already counted elsewhere, and C3 failed for a wrong timescale. That's what analyst corrections should teach.
+- **Mubit:** `review.call` has 80 full-record practice reviews at v1 (training examples), plus metadata-only base and held-out runs. `data.generate` and `rule.induce` are separate tasks.
+- **To check by hand:** the 25 held-out gold labels in `data/eval/gold.jsonl` (spec-derived) and the call 2 script.

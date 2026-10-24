@@ -1,0 +1,146 @@
+{
+ "id": "p002",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p002",
+  "split": "practice",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Carys Lindqvist",
+  "agent": "Priya",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Carys Lindqvist. Someone pretending to be from your bank talked me into transferring £2,400 last Thursday. I’m really unhappy with how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 14.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m very sorry this has happened, Carys. I’d like to look into it, but first I need to verify you. Can you tell me your full name and date of birth, please?",
+   "start_s": 15.2,
+   "end_s": 27.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Carys Lindqvist, 14th of May 1988.",
+   "start_s": 28.0,
+   "end_s": 30.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 30.8,
+   "end_s": 34.3
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Willow Road.",
+   "start_s": 34.8,
+   "end_s": 36.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I can see the transfer you mean, but I appreciate this is about more than the payment itself and the way we’ve dealt with it.",
+   "start_s": 36.5,
+   "end_s": 47.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Exactly. I reported it on Friday and I’ve heard nothing useful. I feel like the bank just left me to sort it out.",
+   "start_s": 47.8,
+   "end_s": 56.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left feeling that way. I’m logging this as a complaint about the scam transfer and the service you received. The reference is TB-641928.",
+   "start_s": 57.1,
+   "end_s": 67.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. Does that mean I’ll get the money back?",
+   "start_s": 68.0,
+   "end_s": 71.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise an outcome. The complaint team will review what happened and the information available, then explain their decision in writing.",
+   "start_s": 72.4,
+   "end_s": 80.8
+  },
+  {
+   "speaker": "customer",
+   "text": "And what about the £15 fee that came out as well?",
+   "start_s": 81.3,
+   "end_s": 85.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I should mention that our fees can never be refunded, even when there’s a complaint.",
+   "start_s": 86.0,
+   "end_s": 91.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That doesn’t sound fair, but okay.",
+   "start_s": 92.3,
+   "end_s": 94.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’d question it. I’ll make sure the complaint team considers that fee as part of the review. I’ll send them the details and the notes from your call today, and I’ll check that the case has been allocated by tomorrow afternoon.",
+   "start_s": 95.1,
+   "end_s": 112.0
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens after that?",
+   "start_s": 112.5,
+   "end_s": 114.1
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaint team will investigate and send you a full written response within 15 business days. I’ll make sure the case is passed on today, and I’ll contact you by tomorrow afternoon if it hasn’t been allocated. So, we’ve logged your complaint, they’ll review the transfer, service and fee, and you’ll get that written response within 15 business days. Does that make sense?",
+   "start_s": 114.6,
+   "end_s": 138.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks for explaining it.",
+   "start_s": 139.3,
+   "end_s": 142.0
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Carys. I’m sorry again for the experience, and I’ll make sure those details are sent through today.",
+   "start_s": 142.5,
+   "end_s": 149.8
+  }
+ ]
+}

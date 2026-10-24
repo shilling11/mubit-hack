@@ -1,0 +1,110 @@
+{
+ "id": "p080",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p080",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Tariq Thornbury",
+  "agent": "Jordan",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi Jordan, could you tell me what time your High Street branch in York opens on Saturdays?",
+   "start_s": 4.3,
+   "end_s": 10.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. The York High Street branch opens at nine on Saturdays and closes at one.",
+   "start_s": 11.4,
+   "end_s": 17.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks. Is that the same on weekdays?",
+   "start_s": 18.0,
+   "end_s": 20.7
+  },
+  {
+   "speaker": "agent",
+   "text": "On weekdays, it’s open from nine until four. It’s closed on Sundays.",
+   "start_s": 21.2,
+   "end_s": 25.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, that’s helpful. Do I need to book an appointment just to visit?",
+   "start_s": 26.3,
+   "end_s": 31.3
+  },
+  {
+   "speaker": "agent",
+   "text": "For general enquiries, you can visit without booking. Some services may need an appointment, so it’s worth checking before you go if you have something specific in mind.",
+   "start_s": 31.8,
+   "end_s": 42.6
+  },
+  {
+   "speaker": "customer",
+   "text": "I just want to ask about a service, so I’ll check first. Thanks for explaining.",
+   "start_s": 43.1,
+   "end_s": 48.9
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome. Just to summarise: Saturday hours are nine until one, and weekday hours are nine until four. For a specific service, check whether you need an appointment. Does that make sense?",
+   "start_s": 49.4,
+   "end_s": 61.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks, Jordan.",
+   "start_s": 62.2,
+   "end_s": 64.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Tariq. Is there anything else I can help with today?",
+   "start_s": 64.6,
+   "end_s": 69.6
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s all. Have a good day.",
+   "start_s": 70.1,
+   "end_s": 72.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, you too. Goodbye.",
+   "start_s": 73.3,
+   "end_s": 74.8
+  }
+ ]
+}

@@ -1,0 +1,152 @@
+{
+ "id": "p046",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p046",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Oskar MacLeod",
+  "agent": "Liam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m Oskar MacLeod. My loan application was declined and nobody’s explained why. I’m really unhappy with how the bank’s handled this.",
+   "start_s": 4.3,
+   "end_s": 12.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to verify you first. Full name, please.",
+   "start_s": 12.9,
+   "end_s": 16.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Oskar MacLeod.",
+   "start_s": 16.9,
+   "end_s": 18.1
+  },
+  {
+   "speaker": "agent",
+   "text": "And your date of birth and first line of address?",
+   "start_s": 18.6,
+   "end_s": 22.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Nineteenth of August 1988, and 14 Birch Road.",
+   "start_s": 22.9,
+   "end_s": 26.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. What’s the issue with the application?",
+   "start_s": 26.5,
+   "end_s": 29.2
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s it. I applied last week, got a rejection, and was just left with no explanation. It’s not good enough.",
+   "start_s": 29.7,
+   "end_s": 37.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see it was declined on 12 October. I can’t give you a reason from here.",
+   "start_s": 37.9,
+   "end_s": 44.4
+  },
+  {
+   "speaker": "customer",
+   "text": "So the bank can just say no and leave me to guess?",
+   "start_s": 44.9,
+   "end_s": 49.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I can put a note on the account that you’ve asked about it.",
+   "start_s": 50.0,
+   "end_s": 55.0
+  },
+  {
+   "speaker": "customer",
+   "text": "That doesn’t really address how frustrating this is.",
+   "start_s": 55.5,
+   "end_s": 58.6
+  },
+  {
+   "speaker": "agent",
+   "text": "The next step is that you’ll receive a full written response within 8 weeks.",
+   "start_s": 59.1,
+   "end_s": 64.5
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens in the meantime?",
+   "start_s": 65.0,
+   "end_s": 66.9
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s the process. I can’t say what the response will be, or make any promises about the outcome.",
+   "start_s": 67.4,
+   "end_s": 74.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. So I wait for a letter, then.",
+   "start_s": 74.9,
+   "end_s": 78.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. To summarise, I’ve noted your query and you’ll get a full written response within 8 weeks. Does that make sense?",
+   "start_s": 78.8,
+   "end_s": 86.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, I understand.",
+   "start_s": 87.4,
+   "end_s": 88.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. Anything else?",
+   "start_s": 89.1,
+   "end_s": 90.3
+  },
+  {
+   "speaker": "customer",
+   "text": "No.",
+   "start_s": 90.8,
+   "end_s": 92.0
+  }
+ ]
+}

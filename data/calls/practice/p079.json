@@ -1,0 +1,128 @@
+{
+ "id": "p079",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p079",
+  "split": "practice",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Callum Okonkwo",
+  "agent": "Priya",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I'm Callum Okonkwo. I transferred money to someone pretending to be from your bank, and I'm really unhappy with how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 14.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm sorry this has happened, Callum. I can hear how frustrating it is. Before we discuss anything about your account, could you confirm your full name and date of birth, please?",
+   "start_s": 14.5,
+   "end_s": 26.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Callum Okonkwo, 14 February 1989.",
+   "start_s": 26.9,
+   "end_s": 28.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 29.3,
+   "end_s": 32.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 4, 28 Alder Road.",
+   "start_s": 33.3,
+   "end_s": 35.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that's verified. Can you tell me a little about what happened?",
+   "start_s": 35.7,
+   "end_s": 40.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Someone called saying they were from Thistle's fraud team and told me to move my money to a safe account. I sent £2,400. I contacted the bank afterwards, but I don't feel anyone's taken responsibility.",
+   "start_s": 40.8,
+   "end_s": 54.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm sorry you've been left feeling that way. I'll take ownership of this and I'm logging it as a complaint about the scam and how we've handled your report. The reference is TB-64182.",
+   "start_s": 54.8,
+   "end_s": 67.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 68.0,
+   "end_s": 69.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I'll make sure the complaint team has the details you've given me, and I'll personally contact you by Wednesday 28 October with an update on the review. I can't promise what the outcome will be.",
+   "start_s": 70.4,
+   "end_s": 83.8
+  },
+  {
+   "speaker": "agent",
+   "text": "You'll also receive a full written response within 15 business days. That response will explain what we've looked into and our decision.",
+   "start_s": 84.3,
+   "end_s": 92.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, so you'll call me by Wednesday with an update, and I'll get the full response within 15 business days?",
+   "start_s": 93.3,
+   "end_s": 101.0
+  },
+  {
+   "speaker": "agent",
+   "text": "That's right. I'll contact you by Wednesday 28 October, and the complaint team will send the full written response within 15 business days. Does that make sense?",
+   "start_s": 101.5,
+   "end_s": 111.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks.",
+   "start_s": 112.4,
+   "end_s": 114.3
+  },
+  {
+   "speaker": "agent",
+   "text": "You're welcome, Callum. I'm sorry you've had to deal with this, and I'll make sure the follow-up happens.",
+   "start_s": 114.8,
+   "end_s": 121.7
+  }
+ ]
+}

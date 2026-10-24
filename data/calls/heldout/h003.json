@@ -1,0 +1,122 @@
+{
+ "id": "h003",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "h003",
+  "split": "heldout",
+  "situation": "branch_waits",
+  "situation_desc": "is frustrated that their branch closed and phone waits are long",
+  "payment": false,
+  "account": false,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Bartek Pemberton",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Bartek Pemberton. I’m really fed up that my branch has closed, and every time I ring I’m stuck waiting ages. It feels like the bank just doesn’t care.",
+   "start_s": 4.3,
+   "end_s": 15.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left feeling that way, Bartek. I can understand why the closure and the long waits are frustrating.",
+   "start_s": 16.4,
+   "end_s": 24.5
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s just not good enough. I want someone at the bank to know how unhappy I am.",
+   "start_s": 25.0,
+   "end_s": 31.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll log this as a complaint about the branch closure and the time you’ve had to wait on the phone.",
+   "start_s": 32.0,
+   "end_s": 40.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens once you’ve done that?",
+   "start_s": 41.0,
+   "end_s": 44.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit it to our complaints team today. They’ll look into the points you’ve raised and send you a full written response within eight weeks.",
+   "start_s": 44.5,
+   "end_s": 54.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Can you tell me now whether anything’s going to change?",
+   "start_s": 54.7,
+   "end_s": 58.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise what the outcome will be, but I’ll make sure your concerns are included for the team to review.",
+   "start_s": 59.0,
+   "end_s": 67.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I don’t want this to just disappear, though.",
+   "start_s": 67.6,
+   "end_s": 71.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll take ownership of getting the complaint submitted today, and I’ll call you by 5 pm tomorrow to confirm it’s been logged and give you the reference.",
+   "start_s": 71.5,
+   "end_s": 82.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks, I appreciate you following up.",
+   "start_s": 83.2,
+   "end_s": 85.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to check I’ve explained it clearly: I’m logging this as a complaint today, I’ll call by 5 pm tomorrow with the reference, and the complaints team will send a full written response within eight weeks. Does that make sense?",
+   "start_s": 86.0,
+   "end_s": 101.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 101.9,
+   "end_s": 103.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, Bartek. I’m sorry again about the experience, and I’ll make sure this is passed on.",
+   "start_s": 103.9,
+   "end_s": 110.1
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "id": "p061",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p061",
+  "split": "practice",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions they're going through a divorce",
+  "customer": "Rhys Oyelaran",
+  "agent": "Jordan",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I sent money to someone pretending to be from your bank. I’m really unhappy with how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 12.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had to deal with that, Rhys. Before we discuss anything about your account, could you tell me your full name and date of birth, please?",
+   "start_s": 12.5,
+   "end_s": 23.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Rhys Oyelaran, 14th of February 1987.",
+   "start_s": 23.8,
+   "end_s": 26.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 26.6,
+   "end_s": 30.1
+  },
+  {
+   "speaker": "customer",
+   "text": "26 Willow Road.",
+   "start_s": 30.6,
+   "end_s": 31.8
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s fine, thank you. I’m sorry someone impersonated the bank and that this has left you feeling let down. I’ll take ownership of this from here.",
+   "start_s": 32.3,
+   "end_s": 42.3
+  },
+  {
+   "speaker": "customer",
+   "text": "I transferred £2,400 on Monday. I thought it was the fraud team calling.",
+   "start_s": 42.8,
+   "end_s": 47.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Rhys. I can see why you’re upset. I’m logging this as a complaint about the transfer and how it’s been handled. The reference is TB-418672.",
+   "start_s": 48.3,
+   "end_s": 58.7
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m going through a divorce as well, and this is the last thing I needed.",
+   "start_s": 59.2,
+   "end_s": 64.9
+  },
+  {
+   "speaker": "agent",
+   "text": "That sounds like a lot to manage at once. We can put you in touch with our Financial Support team, and I can ask them to allow extra time for any information they need from you.",
+   "start_s": 65.4,
+   "end_s": 79.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, please. I don’t want to keep repeating everything.",
+   "start_s": 79.8,
+   "end_s": 83.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll include what you’ve told me so you don’t have to start again. I’ll send the complaint and request for Financial Support to the relevant teams today.",
+   "start_s": 83.7,
+   "end_s": 94.9
+  },
+  {
+   "speaker": "customer",
+   "text": "So what happens now?",
+   "start_s": 95.4,
+   "end_s": 96.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Someone will be in touch about the complaint and the Financial Support referral. I can’t say what the outcome will be, but I’ll make sure both requests are passed on.",
+   "start_s": 97.4,
+   "end_s": 109.0
+  },
+  {
+   "speaker": "customer",
+   "text": "All right.",
+   "start_s": 109.5,
+   "end_s": 110.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll call you by 3 pm tomorrow to confirm that both have been referred. I’m sorry again that this has happened, Rhys.",
+   "start_s": 111.2,
+   "end_s": 119.6
+  }
+ ]
+}

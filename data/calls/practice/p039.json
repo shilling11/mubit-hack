@@ -1,0 +1,146 @@
+{
+ "id": "p039",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p039",
+  "split": "practice",
+  "situation": "lost_card",
+  "situation_desc": "needs a replacement for a lost card",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Yasmin Kowalski",
+  "agent": "Sam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, Sam at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Yasmin Kowalski. I’ve lost my debit card and need a replacement.",
+   "start_s": 4.0,
+   "end_s": 9.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can help. Before we discuss your account, what’s your full name and date of birth?",
+   "start_s": 9.5,
+   "end_s": 15.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Yasmin Kowalski, 14 March 1992.",
+   "start_s": 16.1,
+   "end_s": 18.0
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 18.5,
+   "end_s": 21.2
+  },
+  {
+   "speaker": "customer",
+   "text": "28 Alder Road.",
+   "start_s": 21.7,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. When did you last have the card?",
+   "start_s": 23.4,
+   "end_s": 27.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yesterday afternoon, I think. I’ve checked at home and in my bag, but it’s not there.",
+   "start_s": 27.8,
+   "end_s": 33.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’ll block it and arrange a replacement. You’ll need to activate the new one when it arrives.",
+   "start_s": 34.4,
+   "end_s": 41.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. Is there a fee for replacing it?",
+   "start_s": 41.9,
+   "end_s": 44.9
+  },
+  {
+   "speaker": "agent",
+   "text": "There’s a £5 fee, and fees can never be refunded.",
+   "start_s": 45.4,
+   "end_s": 49.3
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I’m not unhappy with the bank or anything; I just need the new card.",
+   "start_s": 49.8,
+   "end_s": 55.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Understood. I’ll submit the replacement request now. I can’t confirm the delivery date here.",
+   "start_s": 56.4,
+   "end_s": 61.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s fine. What happens next?",
+   "start_s": 62.3,
+   "end_s": 64.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll check the request has gone through and call you by 3 pm tomorrow with an update. If it hasn’t, I’ll tell you what’s needed.",
+   "start_s": 64.7,
+   "end_s": 74.4
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’re checking the request and calling by 3 pm tomorrow, and I’ll activate the card once it arrives. Have I got that right?",
+   "start_s": 74.9,
+   "end_s": 84.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. The request is being submitted; I’ll call by 3 pm tomorrow with an update. Does that make sense?",
+   "start_s": 84.6,
+   "end_s": 91.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks.",
+   "start_s": 92.4,
+   "end_s": 94.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. Goodbye.",
+   "start_s": 94.8,
+   "end_s": 96.0
+  }
+ ]
+}

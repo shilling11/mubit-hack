@@ -1,0 +1,140 @@
+{
+ "id": "p037",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p037",
+  "split": "practice",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Callum Pemberton",
+  "agent": "Liam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Callum Pemberton. There’s a card payment I don’t recognise, and honestly I’m fed up with the bank. It’s £186.40 to Northstar Media.",
+   "start_s": 4.3,
+   "end_s": 13.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into it. Before we discuss the account, please confirm your full name and date of birth.",
+   "start_s": 13.7,
+   "end_s": 21.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Callum James Pemberton, 14 March 1958.",
+   "start_s": 21.5,
+   "end_s": 23.8
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 24.3,
+   "end_s": 27.0
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Willow Lane.",
+   "start_s": 27.5,
+   "end_s": 28.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I can see the payment from 19 October. I’m logging this as a complaint as well as a disputed card payment. The complaint reference is TB-641927.",
+   "start_s": 29.2,
+   "end_s": 39.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Good. I’ve tried to sort it online, but I don’t really understand online banking. My son normally does it for me, and he’s away.",
+   "start_s": 40.1,
+   "end_s": 49.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. The Financial Support team can help you with online banking, or we can allow extra time while you do things by phone. I’ll note that.",
+   "start_s": 49.8,
+   "end_s": 59.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I just want to know if I’ll get the money back.",
+   "start_s": 60.3,
+   "end_s": 64.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise an outcome. We’ll investigate the payment and tell you what we find. And any bank fees can never be refunded.",
+   "start_s": 65.0,
+   "end_s": 73.9
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s not very reassuring. I’ve already spent ages trying to get an answer.",
+   "start_s": 74.4,
+   "end_s": 79.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll take ownership of this: I’ll send the disputed payment details to our card investigations team today and call you by 3 November with an update.",
+   "start_s": 79.9,
+   "end_s": 90.7
+  },
+  {
+   "speaker": "customer",
+   "text": "And the complaint?",
+   "start_s": 91.2,
+   "end_s": 92.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response to the complaint within 15 business days. I’ll make sure it’s sent to your address.",
+   "start_s": 92.9,
+   "end_s": 100.9
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’re investigating the payment, you’ll call me by the third of November, and I’ll get the written complaint response within 15 business days?",
+   "start_s": 101.4,
+   "end_s": 110.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ve noted your support needs too. Does that make sense?",
+   "start_s": 111.2,
+   "end_s": 115.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks.",
+   "start_s": 115.9,
+   "end_s": 117.8
+  }
+ ]
+}

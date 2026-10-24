@@ -1,0 +1,134 @@
+{
+ "id": "h016",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "h016",
+  "split": "heldout",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Declan Varga",
+  "agent": "Hannah",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hello. I’ve just noticed the interest rate on my savings account has been cut. I never saw a letter about it, and frankly I’m fed up with the bank changing things without making it clear.",
+   "start_s": 4.3,
+   "end_s": 17.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Declan. I can look into the rate and the notification. Before I discuss the account, could you tell me your full name and date of birth, please?",
+   "start_s": 18.3,
+   "end_s": 31.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Declan Varga, 14 March 1981.",
+   "start_s": 31.5,
+   "end_s": 33.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 33.9,
+   "end_s": 37.4
+  },
+  {
+   "speaker": "customer",
+   "text": "28 Alder Road.",
+   "start_s": 37.9,
+   "end_s": 39.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I can see the rate changed from 3.2% to 2.6% on your Thistle Easy Saver on 2 September.",
+   "start_s": 39.6,
+   "end_s": 47.7
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s a big drop. I’ve checked the post and my emails, and there’s nothing from you. It’s really poor service.",
+   "start_s": 48.2,
+   "end_s": 55.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re annoyed, and I’m sorry you’ve had to chase this. I’ll check what notification was sent and where it went.",
+   "start_s": 56.4,
+   "end_s": 65.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Can you tell me why I wasn’t told?",
+   "start_s": 65.7,
+   "end_s": 68.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t see a clear reason on the account notes, so I don’t want to guess. I’ll ask our savings team to review the notification record.",
+   "start_s": 69.3,
+   "end_s": 79.3
+  },
+  {
+   "speaker": "customer",
+   "text": "And what happens after that?",
+   "start_s": 79.8,
+   "end_s": 81.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Someone will be in touch with you once they’ve looked into it.",
+   "start_s": 82.2,
+   "end_s": 86.8
+  },
+  {
+   "speaker": "customer",
+   "text": "When will you get back to me?",
+   "start_s": 87.3,
+   "end_s": 90.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the request to the savings team today, and I’ll personally call you by Friday afternoon with an update, even if they haven’t finished their review.",
+   "start_s": 90.5,
+   "end_s": 100.9
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I just want a proper explanation of how this was missed.",
+   "start_s": 101.4,
+   "end_s": 106.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Declan. I’ll make sure the request asks them to check both the rate change and the notification, and I’ll call you by Friday.",
+   "start_s": 106.9,
+   "end_s": 116.5
+  }
+ ]
+}

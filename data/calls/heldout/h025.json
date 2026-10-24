@@ -1,0 +1,134 @@
+{
+ "id": "h025",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "h025",
+  "split": "heldout",
+  "situation": "transfer_late",
+  "situation_desc": "sent a bank transfer that arrived days late, so they missed a rent payment",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Declan Lindqvist",
+  "agent": "Liam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, Liam at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Declan Lindqvist. My bank transfer arrived days late and I missed my rent payment. I’m really unhappy about it.",
+   "start_s": 4.0,
+   "end_s": 12.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the £860 transfer from your account ending 4412 was sent on 7 October and reached the other bank on 11 October. What happened?",
+   "start_s": 12.5,
+   "end_s": 22.5
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s the one. I sent it in time for the rent due date, but it didn’t get there. My landlord charged me a late fee.",
+   "start_s": 23.0,
+   "end_s": 32.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’ll log this as a complaint. I’m sorry it’s taken time to get this sorted.",
+   "start_s": 33.2,
+   "end_s": 39.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Can you tell me why it was delayed, and what you’re going to do about it?",
+   "start_s": 39.8,
+   "end_s": 46.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to look into the transfer records and what caused the delay. I can’t say what the outcome will be.",
+   "start_s": 46.5,
+   "end_s": 54.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I don’t want to have to keep chasing this.",
+   "start_s": 55.0,
+   "end_s": 58.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership. I’ll review the transfer and the delay, and I’ll call you by Friday 30 October with an update.",
+   "start_s": 59.4,
+   "end_s": 67.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get a proper response?",
+   "start_s": 68.0,
+   "end_s": 71.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Next, I’ll investigate the payment records, then we’ll send you a full written response within 15 business days. I’ll also call you by Friday with an update.",
+   "start_s": 71.5,
+   "end_s": 81.9
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. Will that response cover the late fee as well?",
+   "start_s": 82.4,
+   "end_s": 86.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll include the late fee you’ve mentioned in the complaint for review. I can’t promise any particular outcome.",
+   "start_s": 87.2,
+   "end_s": 94.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Fine. So you’re looking into the delay and the fee, and you’ll call me by Friday, then send the written response within 15 business days. Is that right?",
+   "start_s": 94.6,
+   "end_s": 105.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. That’s right. Does that make sense?",
+   "start_s": 105.8,
+   "end_s": 108.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does.",
+   "start_s": 109.0,
+   "end_s": 110.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. I’ve logged it as a complaint, and I’ll be in touch by Friday.",
+   "start_s": 110.7,
+   "end_s": 116.1
+  }
+ ]
+}

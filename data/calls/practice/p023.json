@@ -1,0 +1,134 @@
+{
+ "id": "p023",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p023",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Oskar Fitzgerald",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Oskar Fitzgerald. My loan application’s been declined and nobody’s explained why. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left without an explanation, Oskar. I’ll do what I can to help. Before I discuss the application, could I check your full name and date of birth, please?",
+   "start_s": 11.8,
+   "end_s": 24.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Oskar Fitzgerald, 14th of June 1987.",
+   "start_s": 24.6,
+   "end_s": 26.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 27.4,
+   "end_s": 30.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 3, 18 Willow Road, Bristol.",
+   "start_s": 31.3,
+   "end_s": 33.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I can see the decision was made on Tuesday. I appreciate how frustrating it is not to know more.",
+   "start_s": 34.2,
+   "end_s": 42.6
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s not good enough. I’ve been a customer for years and just got a rejection with no reason.",
+   "start_s": 43.1,
+   "end_s": 50.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re upset. I’m logging this as a complaint about the decline and the lack of explanation.",
+   "start_s": 50.5,
+   "end_s": 57.8
+  },
+  {
+   "speaker": "customer",
+   "text": "So what happens now?",
+   "start_s": 58.3,
+   "end_s": 59.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership of it. I’ll send the complaint to our lending review team today and ask them to look at the decision and what explanation we can provide.",
+   "start_s": 60.4,
+   "end_s": 71.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I hear something?",
+   "start_s": 72.0,
+   "end_s": 74.3
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll hear back from us within 5 working days. I’ll also make sure the team has your preferred contact number ending 4821.",
+   "start_s": 74.8,
+   "end_s": 83.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Will someone actually call me?",
+   "start_s": 83.8,
+   "end_s": 85.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll request a call from the lending review team, and I’ll check that your complaint has been passed on today. I can’t promise what their review will conclude, but I’ll make sure it’s followed up.",
+   "start_s": 86.2,
+   "end_s": 99.7
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I expect a proper explanation this time.",
+   "start_s": 100.2,
+   "end_s": 103.7
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s understandable, Oskar. I’ve recorded that you want a clear explanation of the decision, and the team will contact you within 5 working days.",
+   "start_s": 104.2,
+   "end_s": 113.4
+  }
+ ]
+}

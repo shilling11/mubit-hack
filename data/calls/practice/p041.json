@@ -1,0 +1,134 @@
+{
+ "id": "p041",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "p041",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Yasmin MacLeod",
+  "agent": "Marcus",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hello. I’m Yasmin MacLeod. My loan application was declined and nobody’s explained why. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has left you feeling that way, Yasmin. Before I discuss anything about the application, could you tell me your full name and date of birth, please?",
+   "start_s": 11.8,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yasmin MacLeod, 14th of June 1962.",
+   "start_s": 23.4,
+   "end_s": 25.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address, please?",
+   "start_s": 26.2,
+   "end_s": 30.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 2, 18 Rosebank Road, Dundee.",
+   "start_s": 30.6,
+   "end_s": 32.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s all verified. I can hear how frustrating it is to be declined without an explanation.",
+   "start_s": 33.4,
+   "end_s": 40.3
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s not right. I’ve been with you for years, and I don’t understand what I’m meant to do now.",
+   "start_s": 40.8,
+   "end_s": 48.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll log this as a complaint about the loan decision and the lack of explanation.",
+   "start_s": 48.6,
+   "end_s": 55.2
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t really understand online banking either. My son normally does it for me, and I’m worried I’ll miss something.",
+   "start_s": 55.7,
+   "end_s": 63.3
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s understandable. We have a Financial Support team who can talk you through ways to access information, and we can allow extra time if you need support with the process.",
+   "start_s": 63.8,
+   "end_s": 75.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I just want someone to look at what happened.",
+   "start_s": 75.9,
+   "end_s": 80.1
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaint will be reviewed, but I can’t promise what the outcome will be. I’m not able to agree a particular follow-up here.",
+   "start_s": 80.6,
+   "end_s": 89.5
+  },
+  {
+   "speaker": "customer",
+   "text": "So what happens next, then?",
+   "start_s": 90.0,
+   "end_s": 91.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Your complaint will be recorded and reviewed by our complaints team. They’ll send you a full written response within eight weeks. If they need anything further, they may contact you during that time.",
+   "start_s": 92.4,
+   "end_s": 105.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. Thank you for explaining.",
+   "start_s": 105.6,
+   "end_s": 107.5
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Yasmin. I’m sorry this has been upsetting, and thank you for speaking with me today.",
+   "start_s": 108.0,
+   "end_s": 114.5
+  }
+ ]
+}

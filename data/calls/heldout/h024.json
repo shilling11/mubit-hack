@@ -1,0 +1,128 @@
+{
+ "id": "h024",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "h024",
+  "split": "heldout",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Amira Varga",
+  "agent": "Liam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Amira Varga. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Amira. I can see there’s a £30 unarranged overdraft fee on your account from 14 October, and your balance is £42 overdrawn.",
+   "start_s": 11.0,
+   "end_s": 20.2
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s right. I don’t think those fees are fair, and nobody explained them to me.",
+   "start_s": 20.7,
+   "end_s": 26.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re upset. I’ll get that £30 refunded for you, and I’ll make sure we look into what happened.",
+   "start_s": 27.0,
+   "end_s": 35.1
+  },
+  {
+   "speaker": "customer",
+   "text": "I’d appreciate that. I’ve already called once and didn’t get a clear answer.",
+   "start_s": 35.6,
+   "end_s": 40.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you had to chase us. Before I take this further, could you confirm your full name, date of birth and first line of address?",
+   "start_s": 41.1,
+   "end_s": 51.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Amira Varga, 12 March 1991, 18 Willow Lane, Bristol.",
+   "start_s": 51.6,
+   "end_s": 55.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. That matches our records. I’m logging this as a complaint about the unarranged overdraft fee and the explanation you received. Your reference is TB-684217.",
+   "start_s": 55.5,
+   "end_s": 65.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. What happens now?",
+   "start_s": 66.0,
+   "end_s": 67.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send this to our complaints team today and include the fee and your previous call. I’ll personally check that it’s been passed on by Friday, 25 October, and let you know if anything’s delayed.",
+   "start_s": 68.1,
+   "end_s": 81.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get an answer?",
+   "start_s": 82.0,
+   "end_s": 84.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response within eight weeks of today. It’ll explain what we found and what we’re doing about it.",
+   "start_s": 85.2,
+   "end_s": 93.7
+  },
+  {
+   "speaker": "agent",
+   "text": "So, I’ve logged your complaint, I’m passing it to the complaints team today, and I’ll check the handover by 25 October. You’ll have the full written response within eight weeks. Does that make sense?",
+   "start_s": 94.2,
+   "end_s": 107.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks for taking it seriously.",
+   "start_s": 107.8,
+   "end_s": 110.8
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Amira. I’m sorry again about the frustration, and I’ll make sure that follow-up is done.",
+   "start_s": 111.3,
+   "end_s": 117.9
+  }
+ ]
+}

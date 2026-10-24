@@ -1,0 +1,128 @@
+{
+ "id": "p067",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p067",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Kwame Oyelaran",
+  "agent": "Liam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It's Kwame Oyelaran. I've had these unarranged overdraft fees taken and I'm really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into that. Before we discuss the account, can you give me your date of birth and the first line of your address?",
+   "start_s": 11.0,
+   "end_s": 20.6
+  },
+  {
+   "speaker": "customer",
+   "text": "It's 14th June 1962, and 28 Willow Road.",
+   "start_s": 21.1,
+   "end_s": 24.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’ve verified you. How much have the fees been?",
+   "start_s": 24.7,
+   "end_s": 28.5
+  },
+  {
+   "speaker": "customer",
+   "text": "It's £90 over the last couple of months. I don't understand online banking, really. My son normally does it for me.",
+   "start_s": 29.0,
+   "end_s": 37.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’ll log this as a complaint. And don’t worry, we’ll get that £90 refunded.",
+   "start_s": 37.6,
+   "end_s": 43.4
+  },
+  {
+   "speaker": "customer",
+   "text": "You can do that, then? I don't want any more taken.",
+   "start_s": 43.9,
+   "end_s": 48.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t confirm what happens with future fees yet. I’m logging your complaint about the £90. We have a Financial Support team who can help with banking, or we can allow extra time if you need it.",
+   "start_s": 48.6,
+   "end_s": 62.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Extra time would help. I don't want to have to rely on my son for everything.",
+   "start_s": 63.3,
+   "end_s": 69.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. I’ll note that. I’ll own this complaint and review the fees myself, then call you by Thursday, 29 October, with an update.",
+   "start_s": 70.0,
+   "end_s": 78.8
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens after that?",
+   "start_s": 79.3,
+   "end_s": 81.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll investigate and contact you with that update. We’ll send you a full written response within 8 weeks of today. If you’re unhappy with that response, it’ll explain what you can do next.",
+   "start_s": 82.2,
+   "end_s": 94.8
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’ll look into the fees, call me by Thursday, and send the full response within eight weeks?",
+   "start_s": 95.3,
+   "end_s": 102.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ll review it and call by Thursday, and the full written response will be within 8 weeks. Does that make sense?",
+   "start_s": 102.8,
+   "end_s": 111.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thank you.",
+   "start_s": 111.7,
+   "end_s": 114.0
+  }
+ ]
+}

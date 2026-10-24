@@ -1,0 +1,140 @@
+{
+ "id": "h012",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "h012",
+  "split": "heldout",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Leanne Whitlock",
+  "agent": "Liam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Leanne Whitlock. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 13.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that happened, Leanne. I can understand how frustrating that must be. Before I look at anything on your account, could you confirm your full name and date of birth, please?",
+   "start_s": 13.7,
+   "end_s": 26.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Leanne Whitlock, 14th March 1988.",
+   "start_s": 26.5,
+   "end_s": 28.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 28.9,
+   "end_s": 32.4
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Ashfield Road.",
+   "start_s": 32.9,
+   "end_s": 34.1
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s all verified, thanks. I’m sure we’ll get that late payment charge refunded for you.",
+   "start_s": 34.6,
+   "end_s": 40.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Well, the electricity company charged me £25 because the app wouldn’t let me make the payment on the 18th.",
+   "start_s": 40.9,
+   "end_s": 48.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left with that charge. Which bill was it, and how much was the payment?",
+   "start_s": 48.7,
+   "end_s": 55.6
+  },
+  {
+   "speaker": "customer",
+   "text": "BrightSpark Energy, £86.40. I paid it the next morning when the app worked again.",
+   "start_s": 56.1,
+   "end_s": 61.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Right, I can see that payment on the 19th. I’ll put a note on your account about the app being unavailable and the charge you’ve incurred.",
+   "start_s": 62.0,
+   "end_s": 72.0
+  },
+  {
+   "speaker": "customer",
+   "text": "That doesn’t really make up for the trouble. I shouldn’t have been charged because your app was down.",
+   "start_s": 72.5,
+   "end_s": 79.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I do understand why you’re unhappy, Leanne, and I’m sorry for the inconvenience. I’ll note what you’ve told me here.",
+   "start_s": 79.9,
+   "end_s": 87.6
+  },
+  {
+   "speaker": "customer",
+   "text": "So what happens now?",
+   "start_s": 88.1,
+   "end_s": 89.6
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response within 8 weeks. That will explain the outcome and what, if anything, can be done about the charge.",
+   "start_s": 90.1,
+   "end_s": 99.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise, I’ve noted the app outage and the £25 charge, and you’ll get that full written response within 8 weeks. Does that make sense?",
+   "start_s": 99.9,
+   "end_s": 109.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does.",
+   "start_s": 110.4,
+   "end_s": 111.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. Is there anything else I can help with today?",
+   "start_s": 112.1,
+   "end_s": 116.3
+  }
+ ]
+}

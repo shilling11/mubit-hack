@@ -1,0 +1,140 @@
+{
+ "id": "p018",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "p018",
+  "split": "practice",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Bronwen Kowalski",
+  "agent": "Marcus",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Bronwen Kowalski. I’ve just noticed the interest rate on my savings account has been cut, and I never saw any letter about it. I’m really unhappy with the way you’ve handled this.",
+   "start_s": 4.3,
+   "end_s": 17.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Bronwen. I can see your Everyday Saver has a balance of £12,460.18, and the rate changed from 3.1% to 2.4% on 1 September.",
+   "start_s": 17.5,
+   "end_s": 28.7
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s exactly what I mean. You’ve taken a fair bit off the interest and I wasn’t told.",
+   "start_s": 29.2,
+   "end_s": 35.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re upset. Before I go further, can you tell me your date of birth and the first line of your address?",
+   "start_s": 36.2,
+   "end_s": 45.5
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 March 1982, and 28 Alder Road.",
+   "start_s": 46.0,
+   "end_s": 49.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’ll have a look at the information we have about the rate change. I can’t see a copy of a letter on this screen.",
+   "start_s": 49.5,
+   "end_s": 59.2
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’ve changed the rate and can’t even show me that you told me. That’s not good enough.",
+   "start_s": 59.7,
+   "end_s": 66.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Bronwen. The account information says the new rate took effect on 1 September, but I can’t confirm from here what was sent or when.",
+   "start_s": 67.1,
+   "end_s": 77.1
+  },
+  {
+   "speaker": "customer",
+   "text": "What are you going to do about it, then?",
+   "start_s": 77.6,
+   "end_s": 81.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can explain the process. I’ll record the details of your query, and it will be reviewed. You’ll receive a full written response within 8 weeks.",
+   "start_s": 81.5,
+   "end_s": 91.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And that’s all I can expect? I still think the bank’s treated me badly.",
+   "start_s": 92.0,
+   "end_s": 97.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t say what the review will conclude, and I don’t want to give you the wrong impression about the outcome. The next step is that the details are reviewed and a full written response is sent within 8 weeks.",
+   "start_s": 97.9,
+   "end_s": 113.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to check, I’ve understood that you’re unhappy because the savings rate fell from 3.1% to 2.4% on 1 September and you didn’t notice a letter, and the details will be reviewed with a full written response within 8 weeks. Does that make sense?",
+   "start_s": 113.8,
+   "end_s": 130.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, I understand the process. I’m still not happy about it.",
+   "start_s": 131.2,
+   "end_s": 135.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. Is there anything else I can explain about the rate or the response process?",
+   "start_s": 136.0,
+   "end_s": 142.1
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s it.",
+   "start_s": 142.6,
+   "end_s": 143.8
+  },
+  {
+   "speaker": "agent",
+   "text": "All right, Bronwen. Thank you for calling Thistle Bank, and I’m sorry this has been frustrating.",
+   "start_s": 144.3,
+   "end_s": 150.5
+  }
+ ]
+}

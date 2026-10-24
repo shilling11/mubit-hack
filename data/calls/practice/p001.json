@@ -1,0 +1,134 @@
+{
+ "id": "p001",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p001",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Isla Rahman",
+  "agent": "Jordan",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Isla Rahman. Could you tell me what time your branches are open?",
+   "start_s": 4.3,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Isla. It varies by branch. Which one are you looking to visit?",
+   "start_s": 10.2,
+   "end_s": 15.6
+  },
+  {
+   "speaker": "customer",
+   "text": "The one on Market Street in Leeds, please.",
+   "start_s": 16.1,
+   "end_s": 19.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I don’t have the latest hours in front of me, so I’ll check the branch information rather than risk giving you the wrong times.",
+   "start_s": 19.7,
+   "end_s": 29.3
+  },
+  {
+   "speaker": "customer",
+   "text": "That’d be great, thank you.",
+   "start_s": 29.8,
+   "end_s": 31.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome. I’ll look it up now. The current listing says the Market Street branch is open Monday to Friday, nine till five, and Saturday, nine till one. It’s closed on Sundays.",
+   "start_s": 32.2,
+   "end_s": 44.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, and is that the same for this Saturday?",
+   "start_s": 45.0,
+   "end_s": 48.5
+  },
+  {
+   "speaker": "agent",
+   "text": "The listing I’ve checked shows those Saturday hours, but I can’t verify whether there’s a one-off change for this particular weekend.",
+   "start_s": 49.0,
+   "end_s": 57.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, could you check that for me?",
+   "start_s": 57.6,
+   "end_s": 60.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Certainly. I’ll contact the branch team today to confirm this Saturday’s hours, then I’ll call you back by 3pm tomorrow. Is the number you’re calling from a suitable one to reach you on?",
+   "start_s": 60.8,
+   "end_s": 73.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s fine.",
+   "start_s": 74.0,
+   "end_s": 75.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. Just to recap, the usual listed hours are nine to five on weekdays and nine to one on Saturdays, and I’ll check whether this Saturday is different and call you by 3pm tomorrow. Does that make sense?",
+   "start_s": 75.7,
+   "end_s": 90.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks for checking.",
+   "start_s": 90.8,
+   "end_s": 93.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Isla. I’ll take care of that follow-up. Is there anything else I can help with today?",
+   "start_s": 93.6,
+   "end_s": 100.9
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s all, thank you.",
+   "start_s": 101.4,
+   "end_s": 103.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for calling Thistle Bank. Goodbye.",
+   "start_s": 103.8,
+   "end_s": 106.1
+  }
+ ]
+}

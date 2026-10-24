@@ -1,0 +1,134 @@
+{
+ "id": "p072",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p072",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Amira Quigley",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, you’re through to Zara at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 5.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I’m Amira Quigley. My loan application was declined, and nobody’s told me why. I’m really unhappy about it.",
+   "start_s": 5.5,
+   "end_s": 12.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left without an explanation, Amira. I’ll look into what I can. Before we discuss your application, could you confirm your full name and date of birth, please?",
+   "start_s": 13.3,
+   "end_s": 25.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Amira Quigley, and it’s the 14th of June 1989.",
+   "start_s": 25.7,
+   "end_s": 29.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 29.7,
+   "end_s": 33.2
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Alder Road.",
+   "start_s": 33.7,
+   "end_s": 34.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I understand why you’re frustrated. I’m logging this as a complaint about the declined loan application and the lack of explanation.",
+   "start_s": 35.4,
+   "end_s": 44.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Good. I just want someone to tell me what’s happened.",
+   "start_s": 45.1,
+   "end_s": 48.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership of making sure your complaint is recorded properly. I can’t promise what the outcome will be, but I’ll make sure the concerns you’ve raised are included.",
+   "start_s": 49.4,
+   "end_s": 60.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 61.1,
+   "end_s": 63.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the complaint today and send you a written acknowledgement within five working days. Our complaints team will review it, and you’ll receive a full written response within eight weeks.",
+   "start_s": 63.5,
+   "end_s": 75.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Will that response explain the decision?",
+   "start_s": 75.9,
+   "end_s": 78.2
+  },
+  {
+   "speaker": "agent",
+   "text": "The team will address your complaint about the decision and the lack of explanation. I’ll check that your application details are attached to the complaint before I submit it today.",
+   "start_s": 78.7,
+   "end_s": 90.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, thanks.",
+   "start_s": 90.8,
+   "end_s": 92.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: I’m logging this as a complaint today, I’ll check the application details are included before submitting it, and the complaints team will send you a full written response within eight weeks. Does that make sense?",
+   "start_s": 92.5,
+   "end_s": 107.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does.",
+   "start_s": 107.6,
+   "end_s": 108.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Amira. I’m sorry again that you had to chase for an explanation, and I appreciate you speaking with me today.",
+   "start_s": 109.3,
+   "end_s": 117.8
+  }
+ ]
+}

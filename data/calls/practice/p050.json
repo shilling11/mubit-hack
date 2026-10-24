@@ -1,0 +1,128 @@
+{
+ "id": "p050",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p050",
+  "split": "practice",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Imran Ellingham",
+  "agent": "Liam",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Imran Ellingham. The app was down yesterday and I couldn’t pay my electricity bill on time. I’m really fed up with the bank letting me down like this.",
+   "start_s": 4.3,
+   "end_s": 15.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that happened, Imran. I’ll do my best to help. Before we discuss your account, could you tell me your full name and date of birth, please?",
+   "start_s": 16.4,
+   "end_s": 27.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Imran Ellingham, 14th February 1988.",
+   "start_s": 27.7,
+   "end_s": 29.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 30.1,
+   "end_s": 33.5
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Beech Road, Leeds.",
+   "start_s": 34.0,
+   "end_s": 35.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I understand you couldn’t make the payment because the app wasn’t working. Don’t worry, we’ll get that charge refunded for you.",
+   "start_s": 36.1,
+   "end_s": 45.3
+  },
+  {
+   "speaker": "customer",
+   "text": "I’ve already had a late-payment fee from the electricity company. I shouldn’t have to deal with this because your app failed.",
+   "start_s": 45.8,
+   "end_s": 53.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see why you’re annoyed, and I’m sorry for the hassle. I’ll check what happened with the payment and make sure the fee is returned.",
+   "start_s": 54.4,
+   "end_s": 64.4
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’ll look into it and get back to me?",
+   "start_s": 64.9,
+   "end_s": 68.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ll send this to our payments team today, and I’ll call you by Friday, 30th October, with an update. You’ll hear back within five working days.",
+   "start_s": 69.2,
+   "end_s": 79.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I just want to know what’s happening and not have to chase it.",
+   "start_s": 80.1,
+   "end_s": 85.9
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s fair. I’ll take ownership of it, and I’ll make the call myself by Friday, even if the team hasn’t finished looking into it.",
+   "start_s": 86.4,
+   "end_s": 95.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to check I’ve explained it clearly: I’ll ask the payments team to investigate the failed payment and fee, then I’ll call you by Friday with an update. Does that make sense?",
+   "start_s": 96.1,
+   "end_s": 108.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks.",
+   "start_s": 108.9,
+   "end_s": 110.8
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Imran. I’m sorry again for the trouble, and I’ll be in touch by Friday.",
+   "start_s": 111.3,
+   "end_s": 117.5
+  }
+ ]
+}

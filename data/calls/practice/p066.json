@@ -1,0 +1,134 @@
+{
+ "id": "p066",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p066",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Niamh Whitlock",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Niamh Whitlock. My loan application was declined and nobody’s explained why. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left without an explanation, Niamh. I’ll do my best to help. Before we discuss any account details, could you confirm your full name and date of birth, please?",
+   "start_s": 11.8,
+   "end_s": 24.1
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Niamh Whitlock, and my date of birth is 14 June 1991.",
+   "start_s": 24.6,
+   "end_s": 29.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 29.7,
+   "end_s": 33.2
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Fern Road.",
+   "start_s": 33.7,
+   "end_s": 34.9
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s verified, thank you. I can see why you’re frustrated. I’m sure we’ll get the loan money returned to you once I’ve looked into this.",
+   "start_s": 35.4,
+   "end_s": 45.0
+  },
+  {
+   "speaker": "customer",
+   "text": "But I didn’t receive any money. I just want to know why you turned me down.",
+   "start_s": 45.5,
+   "end_s": 51.6
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re right, I’m sorry—I shouldn’t have assumed that. I’ll take ownership and log this as a complaint about the decision and the lack of explanation.",
+   "start_s": 52.1,
+   "end_s": 61.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, please do. I want someone to actually look at it.",
+   "start_s": 62.2,
+   "end_s": 66.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll log it today, and I’ll personally check that it’s with our lending complaints team by the end of tomorrow. Our application fee can never be refunded, though.",
+   "start_s": 67.0,
+   "end_s": 78.5
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t think I was charged an application fee. What happens now?",
+   "start_s": 79.0,
+   "end_s": 83.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll make sure the team reviews the application and your concerns. You’ll receive a full written response within 8 weeks, and I’ll call you by 5pm tomorrow to confirm it’s been passed on. Your complaint reference is TB-482761.",
+   "start_s": 84.1,
+   "end_s": 98.7
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. So you’ll pass it to the team and call me tomorrow, then I’ll get a full response within eight weeks?",
+   "start_s": 99.2,
+   "end_s": 107.7
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ll pass it on by the end of tomorrow and call you by 5pm, and the full written response will be within 8 weeks. Does that make sense?",
+   "start_s": 108.2,
+   "end_s": 119.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thank you.",
+   "start_s": 120.2,
+   "end_s": 122.2
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Niamh. I’m sorry again for the frustration, and I’ll follow up tomorrow as agreed.",
+   "start_s": 122.7,
+   "end_s": 128.8
+  }
+ ]
+}

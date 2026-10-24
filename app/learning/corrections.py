@@ -1,90 +1,75 @@
-"""Capture bid-manager corrections of drafted answers."""
+"""Analyst evaluations of an AI scorecard → corrections and agreement (README §4.6)."""
 import json
 import time
 
 from app import db
 from app.config import CORRECTIONS_DIR
-from app.models import CorrectionIn
-
-RANK = {"Comply": 3, "Partially Comply": 2, "Do Not Comply": 1, "Not Applicable": 0}
+from app.review.spec import items_by_id
 
 
-def classify(before: dict | None, after: dict) -> list[str]:
-    """Deterministic correction types from the diff between draft and correction."""
-    if not before:
-        return ["seeded"]
-    types = []
-    if before.get("status") != after["status"]:
-        types.append("status_change")
-        if RANK.get(before.get("status"), 0) > RANK.get(after["status"], 0):
-            types.append("over_promise_fixed")
-    if set(after.get("evidence_ids") or []) - set(before.get("evidence_ids") or []):
-        types.append("citation_added")
-    if (after.get("gaps") or "").strip() and not (before.get("gaps") or "").strip():
-        types.append("gap_added")
-    if (before.get("response") or "").strip() != (after.get("response") or "").strip():
-        types.append("response_rewritten")
-    return types or ["confirmed"]
+def _excerpt(call_id: str, item: dict, utts: list[dict], around: int = 2) -> str:
+    """Transcript lines near the item's evidence (redacted), for rule induction."""
+    starts = [e["start_s"] for e in item.get("evidence", [])]
+    if not starts:
+        chosen = utts[:8]
+    else:
+        idx = {i for i, u in enumerate(utts) for s in starts if abs(u["start_s"] - s) < 0.01}
+        keep = {j for i in idx for j in range(max(0, i - around), min(len(utts), i + around + 1))}
+        chosen = [utts[i] for i in sorted(keep)] or utts[:8]
+    return "\n".join(f"[{u['start_s']:.1f}] {u['speaker'].upper()}: {u['text']}" for u in chosen)
 
 
-def submit(c: CorrectionIn) -> dict:
-    draft = db.one("SELECT * FROM drafts WHERE run_id = ? AND req_id = ?", (c.run_id, c.req_id))
-    if not draft:
-        raise KeyError(f"No draft {c.req_id} in run {c.run_id}")
-    run = db.one("SELECT package FROM runs WHERE id = ?", (c.run_id,))
-    before = {k: draft[k] for k in ("status", "response", "evidence_ids", "gaps", "confidence")}
-    after = {"status": c.status, "response": c.response, "evidence_ids": c.evidence_ids, "gaps": c.gaps}
-    cid = db.insert("corrections", {
-        "ts": time.time(),
-        "package": run["package"] if run else None,
-        "run_id": c.run_id,
-        "req_id": c.req_id,
-        "requirement": draft["requirement"],
-        "model_output": before,
-        "corrected_output": after,
-        "correction_type": classify(before, after),
-        "rationale": c.rationale.strip(),
-        "editor": c.editor,
-        "request_id": draft["request_id"],
-    })
-    return get(cid)
+def submit(call_id: str, review_id: int, answers: list[dict], analyst: str = "analyst", comments: str = "") -> dict:
+    """answers: [{id, answer, reason}] for any items the analyst touched; untouched items count as agreed."""
+    from app.review.service import utterances
 
-
-def get(cid: int) -> dict:
-    return db.one("SELECT * FROM corrections WHERE id = ?", (cid,))
-
-
-def all_corrections() -> list[dict]:
-    return db.query("SELECT * FROM corrections ORDER BY id")
-
-
-def delete(cid: int) -> None:
-    db.execute("DELETE FROM corrections WHERE id = ?", (cid,))
+    review = db.one("SELECT * FROM reviews WHERE id = ? AND call_id = ?", (review_id, call_id))
+    if not review or not review.get("items_json"):
+        raise KeyError(f"review {review_id} for call {call_id}")
+    items = review["items_json"]
+    by_id = {a["id"]: a for a in answers if a.get("id") in items}
+    for item_id, a in by_id.items():
+        if a.get("answer") and a["answer"] != items[item_id]["answer"] and not (a.get("reason") or "").strip():
+            raise ValueError(f"{item_id}: a reason is required when changing the AI's answer")
+    utts = utterances(call_id)
+    final, corrections = [], []
+    for item_id in items_by_id():
+        ai = items[item_id]["answer"]
+        a = by_id.get(item_id)
+        after = a["answer"] if a and a.get("answer") else ai
+        agreed = after == ai
+        final.append({"id": item_id, "ai": ai, "answer": after, "agreed": agreed, "reason": (a or {}).get("reason", "")})
+        row = db.one("SELECT * FROM agreement WHERE item_id = ?", (item_id,)) or {"n": 0, "agreed": 0}
+        db.upsert("agreement", {"item_id": item_id, "n": row["n"] + 1, "agreed": row["agreed"] + int(agreed),
+                                "updated_at": time.time()})
+        if not agreed:
+            cid = db.insert("corrections", {
+                "call_id": call_id, "review_id": review_id, "item_id": item_id, "before": ai, "after": after,
+                "reason": a["reason"].strip(), "excerpt": _excerpt(call_id, items[item_id], utts),
+                "source": "analyst", "created_at": time.time(),
+            })
+            corrections.append(db.one("SELECT * FROM corrections WHERE id = ?", (cid,)))
+    eid = db.insert("evaluations", {"call_id": call_id, "review_id": review_id, "analyst": analyst,
+                                    "items_json": final, "comments": comments, "submitted_at": time.time()})
+    db.update("queue", {"call_id": call_id}, {"done": 1})
+    return {"evaluation_id": eid, "items": final, "corrections": corrections}
 
 
 def load_seed() -> int:
-    """Load pre-recorded corrections (data/corrections/seed.jsonl) once."""
+    """Guardrail corrections (data/corrections/seed.jsonl), loaded once."""
     path = CORRECTIONS_DIR / "seed.jsonl"
-    existing = {(r["req_id"], r["editor"]) for r in all_corrections()}
+    if not path.exists():
+        return 0
+    have = {(c["item_id"], c["reason"]) for c in db.query("SELECT item_id, reason FROM corrections")}
     n = 0
     for line in path.read_text(encoding="utf-8").splitlines():
         if not line.strip():
             continue
         s = json.loads(line)
-        if (s["requirement_id"], s["editor"]) in existing:
+        if (s["item_id"], s["reason"]) in have:
             continue
-        db.insert("corrections", {
-            "ts": time.time(),
-            "package": s["package"],
-            "run_id": None,
-            "req_id": s["requirement_id"],
-            "requirement": s["requirement"],
-            "model_output": None,
-            "corrected_output": s["corrected_output"],
-            "correction_type": s.get("correction_type", ["seeded"]),
-            "rationale": s["rationale"],
-            "editor": s["editor"],
-            "request_id": None,
-        })
+        db.insert("corrections", {"call_id": None, "review_id": None, "item_id": s["item_id"], "before": s.get("before"),
+                                  "after": s["after"], "reason": s["reason"], "excerpt": s.get("excerpt", ""),
+                                  "source": "seed", "created_at": time.time()})
         n += 1
     return n

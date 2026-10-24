@@ -1,0 +1,29 @@
+{
+  "id": "demo_call2",
+  "title": "Call 2: unrecognised card payments, recently bereaved (draft: Sultan to check)",
+  "agent_name": "Sam",
+  "cast": { "agent": "Abdul plays Sam", "customer": "Sultan plays Daniel Okoro" },
+  "utterances": [
+    { "speaker": "agent", "start_s": 0.0, "text": "Good afternoon, Thistle Bank, Sam speaking. How can I help?" },
+    { "speaker": "customer", "start_s": 3.5, "text": "Hi. There's a payment on my card I don't recognise, eighty-nine ninety-nine to a company called Brightline Media, and it's the second month running. I'm honestly fed up with it." },
+    { "speaker": "agent", "start_s": 13.0, "text": "I can look into that for you. Can I take your full name and date of birth first, please?" },
+    { "speaker": "customer", "start_s": 18.0, "text": "Daniel Okoro, 12th of June 1961." },
+    { "speaker": "agent", "start_s": 22.0, "text": "Thank you, Daniel. And the first line of your address?" },
+    { "speaker": "customer", "start_s": 25.0, "text": "14 Rowan Close." },
+    { "speaker": "agent", "start_s": 27.5, "text": "Lovely, that's all verified. I can see two payments to Brightline Media, on the 3rd of September and the 3rd of October." },
+    { "speaker": "customer", "start_s": 35.0, "text": "Sorry, I'm a bit all over the place at the moment. My wife passed away in August and she always looked after the bills." },
+    { "speaker": "agent", "start_s": 42.0, "text": "Oh, I'm so sorry to hear that." },
+    { "speaker": "customer", "start_s": 44.5, "text": "So can you stop it?" },
+    { "speaker": "agent", "start_s": 46.5, "text": "Yes, I'll cancel the card, order you a new one and pop a note on the account. I'll raise a dispute with the merchant as well." },
+    { "speaker": "customer", "start_s": 54.0, "text": "And will I get the money back?" },
+    { "speaker": "agent", "start_s": 56.5, "text": "Disputes can take a little while. You should hear back from us within eight weeks." },
+    { "speaker": "customer", "start_s": 62.0, "text": "Okay." },
+    { "speaker": "agent", "start_s": 63.5, "text": "Is there anything else I can help with today?" },
+    { "speaker": "customer", "start_s": 66.0, "text": "No, that's everything. Thanks." }
+  ],
+  "expected": {
+    "C1": "no", "C2": "no", "C3": "yes", "C4": "yes", "S1": "no", "S2": "no", "S3": "no", "S4": "yes", "S5": "yes",
+    "complaint": true, "vulnerability": ["life_event"],
+    "notes": "Subtle on purpose. C1: 'fed up', second month: dissatisfaction, but 'a note on the account' is not logging a complaint. C2: sympathy without support is not enough. S1/S3: a card payment dispute is a payment-services complaint: 15 business days, not 8 weeks. C3 passes: no outcome promised."
+  }
+}

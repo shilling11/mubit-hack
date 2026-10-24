@@ -1,0 +1,122 @@
+{
+ "id": "p024",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p024",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": "capability",
+  "vuln_cue": "seems confused and asks the colleague to repeat things",
+  "customer": "Eilidh Varga",
+  "agent": "Jordan",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Jordan at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Eilidh Varga. Could you tell me what time the Leith branch opens on Saturdays?",
+   "start_s": 3.6,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to check the branch listing. Which Leith branch do you mean?",
+   "start_s": 10.2,
+   "end_s": 15.2
+  },
+  {
+   "speaker": "customer",
+   "text": "The one on Great Junction Street, I think. Sorry, could you repeat what you said?",
+   "start_s": 15.7,
+   "end_s": 21.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I said I need to check the listing. Sorry to hear that. What’s the branch address?",
+   "start_s": 22.0,
+   "end_s": 28.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Great Junction Street, near the library. I’m not upset or anything, I’ve just got a bit muddled.",
+   "start_s": 28.7,
+   "end_s": 35.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’ll check the opening hours for that branch.",
+   "start_s": 35.7,
+   "end_s": 39.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Sorry, so you’re checking the Saturday hours, are you?",
+   "start_s": 39.7,
+   "end_s": 43.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ll look it up after this call and ring you by three o’clock today with the hours listed for that branch.",
+   "start_s": 43.6,
+   "end_s": 52.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, and what happens if you can’t find them?",
+   "start_s": 52.6,
+   "end_s": 56.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll tell you that when I call. I’m Jordan, and I’ll make the call by three.",
+   "start_s": 56.5,
+   "end_s": 62.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Could you say that again? You’ll call me by three with what you find?",
+   "start_s": 63.2,
+   "end_s": 68.6
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ll check the listing, then call you by three with the Saturday hours shown for Great Junction Street. Does that make sense?",
+   "start_s": 69.1,
+   "end_s": 78.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks.",
+   "start_s": 78.8,
+   "end_s": 80.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Fine. Goodbye.",
+   "start_s": 81.2,
+   "end_s": 82.4
+  }
+ ]
+}

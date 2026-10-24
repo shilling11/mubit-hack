@@ -1,0 +1,122 @@
+{
+ "id": "h004",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "h004",
+  "split": "heldout",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Eilidh Pemberton",
+  "agent": "Hannah",
+  "subtle": true,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m Eilidh Pemberton. You’ve declined my loan application and given me no explanation. It’s really poor service, and I’m not happy with the bank at all.",
+   "start_s": 4.3,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been so frustrating, Eilidh. I’ll look into the application with you. Before I discuss any details, could you confirm your full name and date of birth, please?",
+   "start_s": 14.8,
+   "end_s": 26.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Eilidh Pemberton, 14th of June 1988.",
+   "start_s": 27.3,
+   "end_s": 29.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 30.1,
+   "end_s": 33.5
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Rosebank Road, Dundee.",
+   "start_s": 34.0,
+   "end_s": 35.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, I’ve verified that. I can see the application was declined on the 18th of October, but I’m not able to see a specific reason here.",
+   "start_s": 36.1,
+   "end_s": 46.1
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s exactly the problem. I spent ages filling everything in and then you just say no, with nothing to tell me why.",
+   "start_s": 46.6,
+   "end_s": 55.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why that would be upsetting, and I’m sorry you’ve been left without an explanation. I’ll put a note on your account and ask our lending team to review what information they can provide.",
+   "start_s": 55.5,
+   "end_s": 69.0
+  },
+  {
+   "speaker": "customer",
+   "text": "So what happens now, then?",
+   "start_s": 69.5,
+   "end_s": 71.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the request to the lending team today, and I’ll make sure it’s followed up. You’ll hear back within 5 working days.",
+   "start_s": 71.9,
+   "end_s": 80.8
+  },
+  {
+   "speaker": "customer",
+   "text": "And who’s actually going to get back to me?",
+   "start_s": 81.3,
+   "end_s": 84.7
+  },
+  {
+   "speaker": "agent",
+   "text": "The lending team will contact you using the phone number we have on file. I’ll keep ownership of the request and check that it’s been sent over today.",
+   "start_s": 85.2,
+   "end_s": 96.0
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I’m still really disappointed with how this has been handled.",
+   "start_s": 96.5,
+   "end_s": 101.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I do understand, Eilidh, and I’m sorry for the frustration. I’ve noted your concerns and sent the request to the lending team today; they’ll be in touch within 5 working days.",
+   "start_s": 101.6,
+   "end_s": 113.5
+  }
+ ]
+}

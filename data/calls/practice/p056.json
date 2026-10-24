@@ -1,0 +1,134 @@
+{
+ "id": "p056",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "p056",
+  "split": "practice",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they can't afford this, they've got nothing left until payday",
+  "customer": "Rhys Sutherland",
+  "agent": "Marcus",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Rhys Sutherland. There’s a card payment I don’t recognise, and honestly I’m really unhappy with the bank about it.",
+   "start_s": 4.3,
+   "end_s": 12.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had to call about this, Rhys. Before we discuss any account details, could you confirm your full name and date of birth, please?",
+   "start_s": 12.9,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Rhys Sutherland, 14th of February 1991.",
+   "start_s": 23.4,
+   "end_s": 25.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. And the first line of your address?",
+   "start_s": 26.2,
+   "end_s": 29.3
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Willow Lane.",
+   "start_s": 29.8,
+   "end_s": 31.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s all verified. Can you tell me the payment you’re concerned about?",
+   "start_s": 31.5,
+   "end_s": 36.9
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s £186.40 to Northstar Digital on Tuesday. I’ve never used them.",
+   "start_s": 37.4,
+   "end_s": 41.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I can understand why that’s worrying. I’m logging this as a complaint as well as noting the payment you don’t recognise.",
+   "start_s": 42.1,
+   "end_s": 50.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Good, because I can’t afford this. I’ve got nothing left until payday.",
+   "start_s": 50.7,
+   "end_s": 55.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m really sorry, Rhys. That must be stressful. I can put you in touch with our Financial Support team, who can talk through options like extra time if you need it.",
+   "start_s": 55.8,
+   "end_s": 67.7
+  },
+  {
+   "speaker": "agent",
+   "text": "And don’t worry, we’ll get that £186.40 back to you.",
+   "start_s": 68.2,
+   "end_s": 72.1
+  },
+  {
+   "speaker": "customer",
+   "text": "I hope so. What happens now?",
+   "start_s": 72.6,
+   "end_s": 74.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll pass the details to our card team and someone will be in touch about it. I can’t give you a timescale just now, but I’ll keep ownership of this and call you by the end of tomorrow with an update.",
+   "start_s": 75.4,
+   "end_s": 91.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise, I’ve logged your complaint and the unrecognised payment, I’ll refer it to the card team, and I’ll call you by the end of tomorrow. I can also arrange for Financial Support to speak with you. Does that make sense?",
+   "start_s": 91.7,
+   "end_s": 107.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks for listening.",
+   "start_s": 108.3,
+   "end_s": 110.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Rhys. I’m sorry again you’re dealing with this, and I’ll make sure you hear from me by tomorrow.",
+   "start_s": 111.1,
+   "end_s": 118.8
+  }
+ ]
+}

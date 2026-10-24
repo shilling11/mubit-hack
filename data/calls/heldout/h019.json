@@ -1,0 +1,134 @@
+{
+ "id": "h019",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "h019",
+  "split": "heldout",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Siobhan Sutherland",
+  "agent": "Marcus",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Siobhan Sutherland. My savings interest rate’s been cut and I never saw a letter about it. I’m really unhappy.",
+   "start_s": 4.3,
+   "end_s": 12.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Siobhan. I can look into that for you. Before we discuss the account, could you confirm your full name, date of birth and the first line of your address?",
+   "start_s": 12.9,
+   "end_s": 24.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Siobhan Sutherland, 14 March 1982, and 27 Willow Road.",
+   "start_s": 25.3,
+   "end_s": 28.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s verified. I’m sorry you weren’t aware of the change. I’ll make sure the lost interest is returned to you.",
+   "start_s": 29.3,
+   "end_s": 37.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s good to hear. I had no idea the rate had changed.",
+   "start_s": 38.3,
+   "end_s": 42.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll log this as a complaint about the rate change and not receiving the letter. Your reference is TB-604821.",
+   "start_s": 43.4,
+   "end_s": 51.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks. Can you see when the rate changed?",
+   "start_s": 52.0,
+   "end_s": 55.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll check the account history now. It shows the rate changed on 1 July, from 3.2% to 2.6%. I can’t see a record of a letter being sent, so I’ll ask our savings team to investigate that.",
+   "start_s": 55.5,
+   "end_s": 69.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. And will the interest definitely be put back?",
+   "start_s": 70.3,
+   "end_s": 73.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ve said I’ll make sure it’s returned, and I’ll include that in the complaint for the team to review. Just so you know, our fees can never be refunded under any circumstances.",
+   "start_s": 74.2,
+   "end_s": 86.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Right. I’m mainly concerned about the interest and why I wasn’t told.",
+   "start_s": 87.0,
+   "end_s": 91.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll personally send this to our savings complaints team today and call you with an update within two working days. They’ll investigate the rate change and the missing letter.",
+   "start_s": 92.2,
+   "end_s": 104.1
+  },
+  {
+   "speaker": "customer",
+   "text": "All right.",
+   "start_s": 104.6,
+   "end_s": 105.8
+  },
+  {
+   "speaker": "agent",
+   "text": "They’ll send you a full written response within eight weeks. So, I’m logging your complaint, asking the team to investigate both points, and I’ll call you within two working days with an update. Does that make sense?",
+   "start_s": 106.3,
+   "end_s": 120.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks for explaining.",
+   "start_s": 121.0,
+   "end_s": 123.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Siobhan. I’m sorry for the frustration, and I’ll make sure it’s followed up.",
+   "start_s": 124.2,
+   "end_s": 130.0
+  }
+ ]
+}

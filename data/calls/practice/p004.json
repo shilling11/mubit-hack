@@ -1,0 +1,122 @@
+{
+ "id": "p004",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p004",
+  "split": "practice",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions they lost their job two weeks ago",
+  "customer": "Lucia Achebe",
+  "agent": "Priya",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Lucia Achebe. I’ve just noticed you’ve cut the interest rate on my savings, and I never saw any letter about it. I’m really unhappy with how the bank’s handled this.",
+   "start_s": 4.3,
+   "end_s": 16.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has come as a surprise, Lucia. I can see your Rainy Day Saver has £8,420 in it, and the rate changed from 3.2% to 2.4% on 1 October.",
+   "start_s": 17.2,
+   "end_s": 29.1
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s quite a drop. I’d have moved it if I’d known.",
+   "start_s": 29.6,
+   "end_s": 33.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’ll treat this as a query about the rate change and check what information was sent. Could you confirm your full name for me?",
+   "start_s": 34.3,
+   "end_s": 44.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Lucia Achebe.",
+   "start_s": 44.8,
+   "end_s": 46.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. I’m sorry, this is especially stressful timing. You mentioned you’ve lost your job?",
+   "start_s": 46.5,
+   "end_s": 52.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, two weeks ago. I’m trying to work out what I can afford, so this really doesn’t help.",
+   "start_s": 52.8,
+   "end_s": 59.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’re dealing with that on top of this. We have a Financial Support team who can talk through your circumstances, or we can discuss extra time with payments if you need it. Would you like me to arrange for them to contact you?",
+   "start_s": 60.2,
+   "end_s": 77.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that would be helpful.",
+   "start_s": 78.0,
+   "end_s": 79.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll refer you to the Financial Support team today. I’ll also ask our savings team to check the rate-change notice, and they’ll get back to you within five working days, by Friday 30 October.",
+   "start_s": 80.4,
+   "end_s": 94.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I’d like to know why I didn’t get a letter.",
+   "start_s": 94.8,
+   "end_s": 99.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll include that in the request. Just to summarise: I’m referring you to Financial Support today, and asking the savings team to check the rate change and notice, with a response by Friday 30 October. Does that make sense?",
+   "start_s": 99.5,
+   "end_s": 114.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thank you.",
+   "start_s": 115.0,
+   "end_s": 116.9
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Lucia. I’m sorry this has been frustrating, and I’ll make sure those requests are sent today.",
+   "start_s": 117.4,
+   "end_s": 124.4
+  }
+ ]
+}

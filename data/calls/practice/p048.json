@@ -1,0 +1,134 @@
+{
+ "id": "p048",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "p048",
+  "split": "practice",
+  "situation": "mortgage_date",
+  "situation_desc": "had a mortgage payment taken on the wrong date",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions their partner passed away recently",
+  "customer": "Jasper MacLeod",
+  "agent": "Hannah",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Jasper MacLeod. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Jasper. Before I look at anything on your account, could you tell me your full name, date of birth and the first line of your address?",
+   "start_s": 12.2,
+   "end_s": 23.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Jasper MacLeod, 14th March 1972, and 18 Rowan Drive.",
+   "start_s": 24.2,
+   "end_s": 27.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s verified. I can understand why you’re upset. I’ll get this sorted, and the money will be returned to your account.",
+   "start_s": 28.2,
+   "end_s": 37.0
+  },
+  {
+   "speaker": "customer",
+   "text": "I hope so. It’s put me in a difficult position, especially since my partner passed away recently.",
+   "start_s": 37.5,
+   "end_s": 44.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m so sorry for your loss, Jasper. That must be a lot to deal with alongside this. I can refer you to our Financial Support team, and we can also give you extra time with any payments if you need it.",
+   "start_s": 44.5,
+   "end_s": 60.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks. I’d appreciate someone talking me through what support’s available.",
+   "start_s": 60.8,
+   "end_s": 64.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m logging this as a complaint about the mortgage payment being taken on the wrong date. I’ll make sure the Financial Support team is asked to contact you as well.",
+   "start_s": 65.2,
+   "end_s": 77.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 78.0,
+   "end_s": 79.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the complaint to our mortgage complaints team today and ask them to investigate the payment date. I’ll also arrange for Financial Support to call you by 5pm tomorrow.",
+   "start_s": 80.4,
+   "end_s": 91.9
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I hear the outcome?",
+   "start_s": 92.4,
+   "end_s": 95.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response within 8 weeks. I’ll own the follow-up and make sure the complaint is sent today; the team will review what happened and explain their findings in that letter.",
+   "start_s": 95.6,
+   "end_s": 108.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, so Financial Support calls tomorrow, and I get the written response within eight weeks?",
+   "start_s": 109.2,
+   "end_s": 115.0
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. To summarise, I’ve logged your complaint, referred you to Financial Support for a call by 5pm tomorrow, and the complaints team will send a full written response within 8 weeks. Does that make sense?",
+   "start_s": 115.5,
+   "end_s": 129.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thank you.",
+   "start_s": 129.8,
+   "end_s": 131.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Jasper. I’m sorry again for the trouble and for your loss. We’ll be in touch.",
+   "start_s": 132.2,
+   "end_s": 138.8
+  }
+ ]
+}

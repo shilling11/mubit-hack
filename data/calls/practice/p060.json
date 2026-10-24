@@ -1,0 +1,122 @@
+{
+ "id": "p060",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p060",
+  "split": "practice",
+  "situation": "transfer_late",
+  "situation_desc": "sent a bank transfer that arrived days late, so they missed a rent payment",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "health",
+  "vuln_cue": "mentions they're having chemotherapy at the moment",
+  "customer": "Siobhan MacLeod",
+  "agent": "Priya",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Siobhan MacLeod. I sent a transfer for my rent and it arrived days late. I missed the payment, and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the £1,250 transfer left your account on 14 October, and your balance is now £86.40. Can you give me your date of birth?",
+   "start_s": 14.8,
+   "end_s": 24.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 9 March 1987. I’ve already had to explain this to my landlord. I’m having chemotherapy at the moment as well, so it’s been a lot.",
+   "start_s": 25.3,
+   "end_s": 35.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. Was the payment to your landlord’s usual account?",
+   "start_s": 35.8,
+   "end_s": 39.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, the same account I’ve paid before. It was meant to arrive on the 15th, but they didn’t get it until the 19th.",
+   "start_s": 39.8,
+   "end_s": 48.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. I’m logging this as a complaint about the delayed transfer and the missed rent payment.",
+   "start_s": 49.2,
+   "end_s": 55.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Thank you. I want to know why it took so long, and what you’re going to do about the rent charge.",
+   "start_s": 55.8,
+   "end_s": 63.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t say what the outcome will be. I’ll take ownership of getting the complaint reviewed.",
+   "start_s": 64.4,
+   "end_s": 70.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I’ve got a £40 late fee from the landlord now.",
+   "start_s": 71.0,
+   "end_s": 75.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll refer the transfer and that fee for review. I’ll send the complaint team the details today, and I’ll call you by 5pm tomorrow with an update.",
+   "start_s": 76.2,
+   "end_s": 86.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get a proper answer?",
+   "start_s": 87.0,
+   "end_s": 90.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response within 15 business days. The complaint team will review the transfer records and your account of the missed rent payment, then send the response to your address on file.",
+   "start_s": 90.6,
+   "end_s": 104.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I’ll wait for your call tomorrow, then.",
+   "start_s": 104.6,
+   "end_s": 107.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. That’s all I can do today.",
+   "start_s": 108.2,
+   "end_s": 110.8
+  }
+ ]
+}

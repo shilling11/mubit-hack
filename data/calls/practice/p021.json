@@ -1,0 +1,122 @@
+{
+ "id": "p021",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "p021",
+  "split": "practice",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Morag Lindqvist",
+  "agent": "Hannah",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Morag Lindqvist. I transferred £2,450 to someone who said they were from your fraud team, and now I’m being passed around. I’m really unhappy with how the bank’s dealt with it.",
+   "start_s": 4.3,
+   "end_s": 16.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has happened, Morag, and that you’ve had to chase us. Before I look at anything on your account, could you tell me your full name and date of birth, please?",
+   "start_s": 17.2,
+   "end_s": 29.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Morag Lindqvist, 14 September 1982.",
+   "start_s": 30.3,
+   "end_s": 32.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And could you confirm the first line of your address?",
+   "start_s": 32.8,
+   "end_s": 37.4
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Willowbank Road.",
+   "start_s": 37.9,
+   "end_s": 39.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I’ll take ownership of this from here. When did you make the transfer?",
+   "start_s": 39.6,
+   "end_s": 45.7
+  },
+  {
+   "speaker": "customer",
+   "text": "On 18 October. They called saying my account was at risk and told me to move the money to a safe account.",
+   "start_s": 46.2,
+   "end_s": 54.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you were put under that pressure. I can see why you’re upset with us. I’m logging this as a complaint about the way this has been handled.",
+   "start_s": 55.2,
+   "end_s": 66.4
+  },
+  {
+   "speaker": "customer",
+   "text": "I want to know whether I’ll get the money back, and why nobody’s called me.",
+   "start_s": 66.9,
+   "end_s": 72.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise an outcome, but I’ll make sure the complaint includes both the transfer and the lack of contact. We’ll review what happened and the information you’ve already provided.",
+   "start_s": 73.1,
+   "end_s": 84.7
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 85.2,
+   "end_s": 87.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the complaint to our complaints team today, and I’ll call you by 4 pm tomorrow to confirm it’s been passed on and tell you the next steps. You’ll hear back from us within eight weeks.",
+   "start_s": 87.6,
+   "end_s": 101.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I’ll wait for your call tomorrow.",
+   "start_s": 102.3,
+   "end_s": 105.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Morag. I’m sorry again for the experience, and I’ll make that call by 4 pm tomorrow.",
+   "start_s": 105.5,
+   "end_s": 112.4
+  }
+ ]
+}

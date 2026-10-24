@@ -1,0 +1,122 @@
+{
+ "id": "p013",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p013",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Aoife Okonkwo",
+  "agent": "Sam",
+  "subtle": true,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, you’re speaking to Sam at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 5.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Aoife Okonkwo. My loan application was declined and nobody’s explained why. I’m really unhappy about it.",
+   "start_s": 5.5,
+   "end_s": 12.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Aoife. Before I look at anything about your application, could you confirm your full name and date of birth, please?",
+   "start_s": 12.9,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Aoife Okonkwo, 14 June 1991.",
+   "start_s": 23.4,
+   "end_s": 25.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 25.8,
+   "end_s": 29.3
+  },
+  {
+   "speaker": "customer",
+   "text": "27 Willow Lane.",
+   "start_s": 29.8,
+   "end_s": 31.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I understand you’re unhappy that your loan application was declined without an explanation.",
+   "start_s": 31.5,
+   "end_s": 37.7
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s right. I want to know why it happened.",
+   "start_s": 38.2,
+   "end_s": 41.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t give you a reason for the decision on this call. I am logging this as a complaint about the decline and the lack of an explanation.",
+   "start_s": 42.1,
+   "end_s": 52.9
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 53.4,
+   "end_s": 55.3
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll hear back within five working days. I can’t promise what the outcome will be.",
+   "start_s": 55.8,
+   "end_s": 61.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay.",
+   "start_s": 62.1,
+   "end_s": 63.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise, I’ve logged your complaint about the loan decision and not being given an explanation. You’ll hear back within five working days, though I can’t say what the outcome will be. Does that make sense?",
+   "start_s": 63.8,
+   "end_s": 78.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 78.5,
+   "end_s": 80.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you for confirming, Aoife. Is there anything else you’d like to raise today?",
+   "start_s": 80.6,
+   "end_s": 85.9
+  }
+ ]
+}

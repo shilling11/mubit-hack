@@ -1,0 +1,122 @@
+{
+ "id": "p052",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p052",
+  "split": "practice",
+  "situation": "dd_twice",
+  "situation_desc": "had a direct debit taken twice",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Gareth Ndlovu",
+  "agent": "Priya",
+  "subtle": true,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "no",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Gareth Ndlovu. You’ve taken my direct debit twice. I’m really unhappy with the bank—this shouldn’t happen.",
+   "start_s": 4.3,
+   "end_s": 11.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Gareth. I can see two payments to Northstar Energy for £68.40 each came out on 21 October, and your balance is now £214.16. I’m sure we’ll get that second payment refunded for you.",
+   "start_s": 11.8,
+   "end_s": 25.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Well, I’d expect it back. I only authorised one payment.",
+   "start_s": 25.7,
+   "end_s": 29.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll look into it for you. Before I access anything further, could I take your date of birth and the first line of your address, please?",
+   "start_s": 30.1,
+   "end_s": 40.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 March 1982, and 27 Willow Road.",
+   "start_s": 41.3,
+   "end_s": 44.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And your postcode?",
+   "start_s": 44.9,
+   "end_s": 46.8
+  },
+  {
+   "speaker": "customer",
+   "text": "LS6 2QJ.",
+   "start_s": 47.3,
+   "end_s": 48.5
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s all verified, thank you. I’ll put a note on the account and ask our payments team to check the duplicate debit. I’ll make sure they contact you within eight weeks.",
+   "start_s": 49.0,
+   "end_s": 61.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Eight weeks? That’s a long time when it’s your mistake.",
+   "start_s": 61.5,
+   "end_s": 65.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand, and I’m sorry this has been frustrating. I’ll take ownership of it: I’ll send the case to our payments team today, and I’ll call you by 4 pm this Friday with an update, even if they haven’t finished their checks.",
+   "start_s": 65.8,
+   "end_s": 82.0
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. And you still think the second payment will come back?",
+   "start_s": 82.5,
+   "end_s": 87.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, I expect it will be returned once the team has checked it. To summarise, I’ve noted the duplicate £68.40 payment, I’m sending it to the payments team today, and I’ll call you by 4 pm Friday. They may take up to eight weeks to get back with their final response. Does that make sense?",
+   "start_s": 87.6,
+   "end_s": 108.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, I understand. I’ll wait for your call Friday.",
+   "start_s": 109.2,
+   "end_s": 112.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Gareth. I’m sorry again for the trouble, and I’ll be in touch Friday.",
+   "start_s": 113.2,
+   "end_s": 119.0
+  }
+ ]
+}

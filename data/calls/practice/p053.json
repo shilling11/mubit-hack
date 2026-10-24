@@ -1,0 +1,98 @@
+{
+ "id": "p053",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p053",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they can't afford this, they've got nothing left until payday",
+  "customer": "Rhys Haddad",
+  "agent": "Liam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "na",
+  "S2": "no",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi Liam, could you tell me what time the High Street branch opens tomorrow?",
+   "start_s": 4.3,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. The High Street branch opens at half past nine tomorrow and closes at four thirty.",
+   "start_s": 10.2,
+   "end_s": 16.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks. I was thinking of popping in to ask about getting a bit of help. I can't afford this, I've got nothing left until payday.",
+   "start_s": 17.3,
+   "end_s": 26.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm sorry, that sounds really stressful. We can put you in touch with our Financial Support team, and they can talk through options such as extra time to pay.",
+   "start_s": 27.4,
+   "end_s": 38.5
+  },
+  {
+   "speaker": "customer",
+   "text": "That would be helpful. I'm not unhappy with the bank or anything, I just need some guidance.",
+   "start_s": 39.0,
+   "end_s": 45.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. Just so you know, bank fees can never be refunded, but the team can still explain what support might be available.",
+   "start_s": 46.1,
+   "end_s": 54.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, okay. Could I speak to someone at the branch tomorrow?",
+   "start_s": 55.4,
+   "end_s": 59.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ll contact the High Street branch today and ask them to arrange for someone from Financial Support to call you by 11 tomorrow. I’ll make sure they have your request.",
+   "start_s": 60.2,
+   "end_s": 72.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks, Liam. I appreciate you sorting that out.",
+   "start_s": 72.6,
+   "end_s": 75.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome. The branch opens at half past nine, and I’ll send that request over today.",
+   "start_s": 76.2,
+   "end_s": 82.3
+  }
+ ]
+}

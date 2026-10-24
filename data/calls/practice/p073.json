@@ -1,0 +1,140 @@
+{
+ "id": "p073",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p073",
+  "split": "practice",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Rhys Whitlock",
+  "agent": "Jordan",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, you’re through to Jordan at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 5.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I’m Rhys Whitlock. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it.",
+   "start_s": 5.5,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry the app being unavailable got in the way of paying your bill, Rhys. I’ll look into this with you. Before we discuss anything on your account, could you confirm your full name and date of birth, please?",
+   "start_s": 14.8,
+   "end_s": 29.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Rhys Whitlock, 14 September 1988.",
+   "start_s": 30.3,
+   "end_s": 32.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And could you confirm the first line of your address?",
+   "start_s": 32.8,
+   "end_s": 37.4
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Alder Road.",
+   "start_s": 37.9,
+   "end_s": 39.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. Can you tell me when you tried to use the app and what happened with the bill?",
+   "start_s": 39.6,
+   "end_s": 47.3
+  },
+  {
+   "speaker": "customer",
+   "text": "It was last Thursday, the 15th. I kept getting an error when I tried to make the payment, and the electricity company charged me a late fee.",
+   "start_s": 47.8,
+   "end_s": 58.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re upset. You tried to pay, but the app error stopped you, and you’ve been charged a late fee as a result.",
+   "start_s": 58.7,
+   "end_s": 68.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Exactly. I shouldn’t have to deal with that because your app wasn’t working.",
+   "start_s": 68.8,
+   "end_s": 73.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I agree it’s frustrating. I’m logging this as a complaint about the app outage and the effect it had on your bill payment. I won’t be able to promise what the outcome will be, but I’ll make sure your concerns are recorded clearly.",
+   "start_s": 74.3,
+   "end_s": 90.8
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 91.3,
+   "end_s": 93.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the complaint to our complaints team today, including the date you tried to pay and the late fee you mentioned. I’ll also contact you by phone by 30 October to confirm it’s been passed over and update you on its progress.",
+   "start_s": 93.7,
+   "end_s": 110.3
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaints team will investigate and send you a full written response within 8 weeks. I’ll make sure the team has the details you’ve given me.",
+   "start_s": 110.8,
+   "end_s": 120.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay.",
+   "start_s": 121.3,
+   "end_s": 122.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: I’m logging your complaint today, I’ll call you by 30 October with a progress update, and you’ll receive a full written response within 8 weeks. Does that make sense?",
+   "start_s": 123.0,
+   "end_s": 135.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 135.8,
+   "end_s": 137.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Rhys. I’m sorry again for the trouble this has caused, and I’ll follow this up as agreed.",
+   "start_s": 137.8,
+   "end_s": 145.1
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+{
+ "id": "p033",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p033",
+  "split": "practice",
+  "situation": "lost_card",
+  "situation_desc": "needs a replacement for a lost card",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they're already behind on a couple of bills",
+  "customer": "Carys MacLeod",
+  "agent": "Jordan",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "yes",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, Jordan at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Carys MacLeod. I’ve lost my debit card and need a replacement.",
+   "start_s": 4.0,
+   "end_s": 9.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. We’ll get that sorted, and any money that’s gone missing will be refunded.",
+   "start_s": 9.5,
+   "end_s": 14.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t think anyone’s used it. I’m not unhappy with the bank or anything, I just can’t find the card.",
+   "start_s": 15.3,
+   "end_s": 23.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. Before I look at the account, can you confirm your full name and date of birth?",
+   "start_s": 23.5,
+   "end_s": 30.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Carys MacLeod, 14th of June 1989.",
+   "start_s": 30.6,
+   "end_s": 32.9
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 33.4,
+   "end_s": 36.1
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Alder Road.",
+   "start_s": 36.6,
+   "end_s": 37.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’ll block the card and order a replacement. Anything else?",
+   "start_s": 38.3,
+   "end_s": 42.5
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m already behind on a couple of bills, so I’m a bit worried about the card getting used.",
+   "start_s": 43.0,
+   "end_s": 49.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I hear you. We can put you through to the Financial Support team, or look at giving you extra time with payments.",
+   "start_s": 50.4,
+   "end_s": 58.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Could I have extra time, please? I’m trying to catch up.",
+   "start_s": 59.4,
+   "end_s": 63.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I can note that and arrange a conversation with them. The card will be blocked, a replacement sent, and Financial Support can discuss extra time. Does that make sense?",
+   "start_s": 64.1,
+   "end_s": 75.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thank you.",
+   "start_s": 75.8,
+   "end_s": 78.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. Replacement should arrive in five working days. Anything else?",
+   "start_s": 78.6,
+   "end_s": 82.4
+  }
+ ]
+}

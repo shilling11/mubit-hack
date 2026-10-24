@@ -1,0 +1,134 @@
+{
+ "id": "p068",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p068",
+  "split": "practice",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Imran Varga",
+  "agent": "Liam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I'm Imran Varga. I've just realised the interest rate on my savings account has been cut, and I never saw a letter about it. I'm really unhappy.",
+   "start_s": 3.6,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into that. First, for security, can you confirm your full name and date of birth?",
+   "start_s": 14.8,
+   "end_s": 21.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Imran Varga, 14th May 1987.",
+   "start_s": 22.3,
+   "end_s": 24.2
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address, please?",
+   "start_s": 24.7,
+   "end_s": 27.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 3, 18 Ashfield Road.",
+   "start_s": 28.3,
+   "end_s": 30.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I can see the saver rate changed from 3.1% to 2.4% in August. We'll get the difference put back for you.",
+   "start_s": 30.7,
+   "end_s": 39.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Well, that's what I want, but I don't understand why I wasn't told.",
+   "start_s": 39.7,
+   "end_s": 44.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I'm logging this as a complaint. The reference is TB-684219.",
+   "start_s": 45.2,
+   "end_s": 49.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. Can you check what happened with the letter?",
+   "start_s": 49.9,
+   "end_s": 53.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I'll review the notification records and the rate change. I'll do that and call you by 4pm this Friday, 30 October.",
+   "start_s": 53.8,
+   "end_s": 61.9
+  },
+  {
+   "speaker": "customer",
+   "text": "And what happens if it takes longer than that?",
+   "start_s": 62.4,
+   "end_s": 65.9
+  },
+  {
+   "speaker": "agent",
+   "text": "You'll get a full written response within 8 weeks of today. I'll send it to your address on file.",
+   "start_s": 66.4,
+   "end_s": 73.7
+  },
+  {
+   "speaker": "customer",
+   "text": "All right.",
+   "start_s": 74.2,
+   "end_s": 75.4
+  },
+  {
+   "speaker": "agent",
+   "text": "So, I'm checking the letter records and rate change, then I'll call by Friday at 4pm; the full written response will be within 8 weeks. Does that make sense?",
+   "start_s": 75.9,
+   "end_s": 87.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 87.5,
+   "end_s": 89.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Fine. That's all for now.",
+   "start_s": 89.6,
+   "end_s": 91.5
+  }
+ ]
+}

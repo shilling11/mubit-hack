@@ -1,0 +1,122 @@
+{
+ "id": "h018",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "h018",
+  "split": "heldout",
+  "situation": "mortgage_date",
+  "situation_desc": "had a mortgage payment taken on the wrong date",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Rohan Carmichael",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Rohan Carmichael. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Rohan. I can look into it for you. Before we discuss your account, could you confirm your full name and date of birth, please?",
+   "start_s": 12.2,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Rohan Carmichael, 14th of June 1985.",
+   "start_s": 23.4,
+   "end_s": 25.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 26.2,
+   "end_s": 29.7
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Willow Road.",
+   "start_s": 30.2,
+   "end_s": 31.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I can see why you’re frustrated. We’ll get that payment returned to you, don’t worry.",
+   "start_s": 31.9,
+   "end_s": 38.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It was due on the 28th, but you took it on the 19th. That’s a big difference.",
+   "start_s": 39.3,
+   "end_s": 45.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand, and I’m sorry for the upset. I’m logging this as a complaint about the payment being taken on the wrong date.",
+   "start_s": 46.4,
+   "end_s": 55.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I want to know what’s going to happen now.",
+   "start_s": 55.7,
+   "end_s": 59.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership of it. I’ll send the complaint to our mortgage payments team today, and I’ll make sure they contact you by Friday.",
+   "start_s": 60.0,
+   "end_s": 69.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Will they explain why it happened?",
+   "start_s": 69.8,
+   "end_s": 72.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, they’ll look into what happened and explain the next steps. Someone will be in touch about it.",
+   "start_s": 72.6,
+   "end_s": 79.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I’d appreciate a proper explanation.",
+   "start_s": 80.0,
+   "end_s": 82.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m sorry again, Rohan. I’ll get that over to the team today and make sure they follow up by Friday.",
+   "start_s": 83.2,
+   "end_s": 91.7
+  }
+ ]
+}

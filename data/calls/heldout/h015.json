@@ -1,0 +1,122 @@
+{
+ "id": "h015",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "h015",
+  "split": "heldout",
+  "situation": "lost_card",
+  "situation_desc": "needs a replacement for a lost card",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Kwame MacLeod",
+  "agent": "Hannah",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi Hannah, I’m Kwame MacLeod. I’ve lost my debit card and need a replacement.",
+   "start_s": 4.3,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Kwame. I can help with that. Before I look at your account, could you confirm your date of birth and the first line of your address?",
+   "start_s": 10.2,
+   "end_s": 21.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1988, and 27 Rowan Road.",
+   "start_s": 22.3,
+   "end_s": 25.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And just to check, your full name is Kwame MacLeod?",
+   "start_s": 25.8,
+   "end_s": 30.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s right.",
+   "start_s": 31.0,
+   "end_s": 32.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s all verified. I’ll arrange to cancel the lost card and request a replacement. There’s never a fee for replacing a lost card—sorry, I’ve got that wrong. A replacement fee may apply, so I’ll check the charge before submitting the request.",
+   "start_s": 32.7,
+   "end_s": 48.8
+  },
+  {
+   "speaker": "customer",
+   "text": "All right, thanks for letting me know.",
+   "start_s": 49.3,
+   "end_s": 52.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I can see the card ending 4812. Is that the one you’ve lost?",
+   "start_s": 52.5,
+   "end_s": 58.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s the one.",
+   "start_s": 58.8,
+   "end_s": 60.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll cancel that card so it can’t be used, then submit the replacement request to your address. You’ll need to use a new PIN with the replacement; the instructions will come with it. I can’t confirm exactly when it’ll arrive, but we’ll send it by post once the request is processed.",
+   "start_s": 60.8,
+   "end_s": 80.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay.",
+   "start_s": 80.9,
+   "end_s": 82.1
+  },
+  {
+   "speaker": "agent",
+   "text": "So, to summarise: I’ll cancel the card ending 4812, check whether the fee applies, and request a replacement to your address. Does that make sense?",
+   "start_s": 82.6,
+   "end_s": 92.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thanks, Hannah.",
+   "start_s": 92.7,
+   "end_s": 94.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Kwame. I’ll take care of the request now.",
+   "start_s": 95.2,
+   "end_s": 99.0
+  }
+ ]
+}

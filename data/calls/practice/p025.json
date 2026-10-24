@@ -1,0 +1,122 @@
+{
+ "id": "p025",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p025",
+  "split": "practice",
+  "situation": "transfer_late",
+  "situation_desc": "sent a bank transfer that arrived days late, so they missed a rent payment",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions they're caring for their mum full time",
+  "customer": "Declan Lindqvist",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Declan Lindqvist. A transfer I sent arrived days late, and I missed my rent payment. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 12.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Declan. I’ll look into it with you. First, could you confirm your full name, date of birth and the first line of your address?",
+   "start_s": 13.3,
+   "end_s": 24.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Declan Lindqvist, 14 March 1987, and 26 Willow Road.",
+   "start_s": 24.6,
+   "end_s": 28.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. I’ve verified you. When did you send the transfer, and when did it arrive?",
+   "start_s": 28.5,
+   "end_s": 34.7
+  },
+  {
+   "speaker": "customer",
+   "text": "I sent it on Monday the 6th of October, and my landlord didn’t get it until Friday the 10th. I’m caring for my mum full time as well, so this has been a lot to deal with.",
+   "start_s": 35.2,
+   "end_s": 49.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has caused you so much stress, especially with your rent payment being missed. I’ll take ownership of looking into the delay.",
+   "start_s": 49.9,
+   "end_s": 59.2
+  },
+  {
+   "speaker": "customer",
+   "text": "I had the money there and sent it in time. I don’t think I should be left dealing with late rent because of this.",
+   "start_s": 59.7,
+   "end_s": 68.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re unhappy. I’m logging this as a complaint about the delayed transfer and the impact on your rent payment.",
+   "start_s": 69.4,
+   "end_s": 77.8
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 78.3,
+   "end_s": 80.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll review the transfer details and send an enquiry to our payments team today. I’ll call you by 5 pm tomorrow with an update on that enquiry.",
+   "start_s": 80.8,
+   "end_s": 91.2
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get a proper response?",
+   "start_s": 91.7,
+   "end_s": 94.7
+  },
+  {
+   "speaker": "agent",
+   "text": "We’ll send you a full written response within 15 business days. That will explain what we’ve found and the outcome of the complaint. I can’t say what that outcome will be before the review is complete.",
+   "start_s": 95.2,
+   "end_s": 109.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, thanks.",
+   "start_s": 109.6,
+   "end_s": 110.8
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Declan. I’ll make sure the enquiry is sent today and call you by 5 pm tomorrow.",
+   "start_s": 111.3,
+   "end_s": 118.2
+  }
+ ]
+}

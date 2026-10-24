@@ -1,0 +1,122 @@
+{
+ "id": "h001",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "h001",
+  "split": "heldout",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "health",
+  "vuln_cue": "mentions their anxiety has been really bad lately",
+  "customer": "Morag Quigley",
+  "agent": "Sam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Morag Quigley. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into that. Before we discuss the account, can you confirm your full name and date of birth?",
+   "start_s": 10.6,
+   "end_s": 18.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Morag Quigley, 14th June 1982.",
+   "start_s": 18.8,
+   "end_s": 20.7
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 21.2,
+   "end_s": 23.9
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Willow Lane.",
+   "start_s": 24.4,
+   "end_s": 25.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I can see fees of £60 on 3rd October. What’s the issue?",
+   "start_s": 26.1,
+   "end_s": 31.1
+  },
+  {
+   "speaker": "customer",
+   "text": "I went over by a few pounds, and those fees have made things worse. My anxiety’s been really bad lately and this is stressing me out.",
+   "start_s": 31.6,
+   "end_s": 41.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’m logging this as a complaint. I can refer you to our Financial Support team, or note that you may need extra time to respond to us.",
+   "start_s": 42.1,
+   "end_s": 52.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Could you refer me to them, please? I want someone to look at the fees as well.",
+   "start_s": 53.4,
+   "end_s": 59.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ll send the referral today. I can’t say what the outcome will be.",
+   "start_s": 60.4,
+   "end_s": 65.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. What happens now?",
+   "start_s": 66.3,
+   "end_s": 67.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll own the complaint and review the fees. I’ll contact you by phone by 31st October with an update, and the Financial Support team will contact you about support.",
+   "start_s": 68.4,
+   "end_s": 79.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get the final answer?",
+   "start_s": 80.0,
+   "end_s": 83.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response within 8 weeks of today. That’s the process.",
+   "start_s": 83.6,
+   "end_s": 89.0
+  }
+ ]
+}

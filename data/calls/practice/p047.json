@@ -1,0 +1,134 @@
+{
+ "id": "p047",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p047",
+  "split": "practice",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they're already behind on a couple of bills",
+  "customer": "Bronwen Sutherland",
+  "agent": "Priya",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "yes",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.5
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Bronwen Sutherland. There’s a card payment for £186.40 to Northstar Travel that I don’t recognise. And honestly, I’m fed up with this bank—my last call got me nowhere.",
+   "start_s": 4.0,
+   "end_s": 15.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll check that. First, can you confirm your full name and date of birth?",
+   "start_s": 15.6,
+   "end_s": 21.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Bronwen Sutherland, 14 March 1982.",
+   "start_s": 21.5,
+   "end_s": 23.4
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 23.9,
+   "end_s": 26.6
+  },
+  {
+   "speaker": "customer",
+   "text": "27 Larch Road, Bristol.",
+   "start_s": 27.1,
+   "end_s": 28.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I can see the payment dated 22 October. We’ll get that money back to you.",
+   "start_s": 29.2,
+   "end_s": 35.3
+  },
+  {
+   "speaker": "customer",
+   "text": "You can’t know that yet, can you? I’m already behind on a couple of bills because of this.",
+   "start_s": 35.8,
+   "end_s": 42.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. The Financial Support team can talk through extra time on those bills. I’ll give you their number.",
+   "start_s": 43.2,
+   "end_s": 50.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, but I’m still not happy. I keep having to chase you and nobody explains what’s going on.",
+   "start_s": 51.0,
+   "end_s": 58.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll put a note on the account. Someone will be in touch about the payment.",
+   "start_s": 58.5,
+   "end_s": 64.2
+  },
+  {
+   "speaker": "customer",
+   "text": "When? I need to know what happens next.",
+   "start_s": 64.7,
+   "end_s": 67.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership of it. I’ll send the disputed-payment details to our card team today, and I’ll call you by 4pm tomorrow with an update.",
+   "start_s": 68.3,
+   "end_s": 77.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. And the money is definitely coming back?",
+   "start_s": 78.4,
+   "end_s": 81.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ve said we’ll get it back. To recap, I’m sending it to the card team today and calling you by 4pm tomorrow; the Financial Support team can discuss extra time for your bills. Does that make sense?",
+   "start_s": 82.0,
+   "end_s": 96.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, but I still want a proper explanation, not just a note.",
+   "start_s": 96.7,
+   "end_s": 101.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Understood. I’ve got to move on to the next call now. Goodbye.",
+   "start_s": 101.8,
+   "end_s": 106.5
+  }
+ ]
+}

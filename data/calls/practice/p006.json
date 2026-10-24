@@ -1,0 +1,134 @@
+{
+ "id": "p006",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p006",
+  "split": "practice",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Yasmin Whitlock",
+  "agent": "Liam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.1
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Yasmin Whitlock. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it.",
+   "start_s": 3.6,
+   "end_s": 12.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can log that as a complaint. First, I need to verify you. What’s your full name and date of birth?",
+   "start_s": 12.5,
+   "end_s": 20.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Yasmin Whitlock, 14th September 1962.",
+   "start_s": 21.1,
+   "end_s": 23.0
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 23.5,
+   "end_s": 26.2
+  },
+  {
+   "speaker": "customer",
+   "text": "28 Willow Road.",
+   "start_s": 26.7,
+   "end_s": 27.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. What happened with the payment?",
+   "start_s": 28.4,
+   "end_s": 30.7
+  },
+  {
+   "speaker": "customer",
+   "text": "I tried to pay on the app on Monday, the 12th of October, but it wouldn’t load. I paid late the next day and got charged a £15 late fee.",
+   "start_s": 31.2,
+   "end_s": 42.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’m logging this as a complaint about the app preventing your bill payment and the fee. I can’t say what the outcome will be.",
+   "start_s": 43.3,
+   "end_s": 52.9
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t really understand online banking. My son normally does it for me, but he wasn’t there that day.",
+   "start_s": 53.4,
+   "end_s": 60.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. The Financial Support team can talk you through support options, or you can ask the bill company for extra time if another payment is due.",
+   "start_s": 61.2,
+   "end_s": 71.2
+  },
+  {
+   "speaker": "customer",
+   "text": "I just don’t want this happening again. What happens now?",
+   "start_s": 71.7,
+   "end_s": 75.5
+  },
+  {
+   "speaker": "agent",
+   "text": "We’ll review the complaint and send you a full written response within eight weeks. It’ll explain our findings and any decision. That’s the process.",
+   "start_s": 76.0,
+   "end_s": 85.3
+  },
+  {
+   "speaker": "customer",
+   "text": "So I wait for that letter, then?",
+   "start_s": 85.8,
+   "end_s": 88.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. To summarise, I’ve logged your complaint about the app and late fee; you’ll get a full written response within eight weeks. Does that make sense?",
+   "start_s": 89.0,
+   "end_s": 99.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, I understand.",
+   "start_s": 99.5,
+   "end_s": 100.7
+  },
+  {
+   "speaker": "agent",
+   "text": "All right. Is there anything else?",
+   "start_s": 101.2,
+   "end_s": 103.5
+  }
+ ]
+}

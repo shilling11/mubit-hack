@@ -1,0 +1,128 @@
+{
+ "id": "p065",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p065",
+  "split": "practice",
+  "situation": "address_change",
+  "situation_desc": "wants to update their address",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they can't afford this, they've got nothing left until payday",
+  "customer": "Ewan MacLeod",
+  "agent": "Priya",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Ewan MacLeod. I need to update my address, please.",
+   "start_s": 4.3,
+   "end_s": 8.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. Before I look at your account, could you confirm your full name and date of birth?",
+   "start_s": 9.1,
+   "end_s": 16.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Ewan MacLeod, 14 June 1987.",
+   "start_s": 16.5,
+   "end_s": 18.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. And what’s the first line of the address we currently have for you?",
+   "start_s": 18.9,
+   "end_s": 24.3
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Rowan Drive, Dundee.",
+   "start_s": 24.8,
+   "end_s": 26.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s verified. What’s your new address?",
+   "start_s": 26.8,
+   "end_s": 29.9
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Hill Street, Perth, PH1 2AB.",
+   "start_s": 30.4,
+   "end_s": 32.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I can help with that. I can see there’s also a card payment due on the 28th. Is that something you wanted to talk about?",
+   "start_s": 33.2,
+   "end_s": 42.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, I can’t afford this. I’ve got nothing left until payday on the 30th.",
+   "start_s": 43.3,
+   "end_s": 48.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Ewan—that sounds really difficult. I can put you in touch with our Financial Support team, who can talk through options, or we can discuss whether extra time might be appropriate. I can’t promise what they’ll be able to offer.",
+   "start_s": 49.2,
+   "end_s": 65.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, I’d like to hear about extra time. I’m not unhappy with the bank, I’m just short until payday.",
+   "start_s": 65.5,
+   "end_s": 72.8
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s understood. I’ll note that you’re asking about extra time, but I can’t guarantee an outcome. I’ve updated your address to 42 Hill Street, Perth, PH1 2AB.",
+   "start_s": 73.3,
+   "end_s": 83.7
+  },
+  {
+   "speaker": "agent",
+   "text": "So, your address is updated, and we can explore extra time for the payment, with no outcome guaranteed. Does that make sense?",
+   "start_s": 84.2,
+   "end_s": 92.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks for being patient.",
+   "start_s": 93.2,
+   "end_s": 96.2
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Ewan. Is there anything else I can help with today?",
+   "start_s": 96.7,
+   "end_s": 101.3
+  }
+ ]
+}

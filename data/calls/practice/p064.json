@@ -1,0 +1,134 @@
+{
+ "id": "p064",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "p064",
+  "split": "practice",
+  "situation": "transfer_late",
+  "situation_desc": "sent a bank transfer that arrived days late, so they missed a rent payment",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Rhys Oyelaran",
+  "agent": "Marcus",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I'm Rhys Oyelaran. I sent a transfer for my rent and it arrived days late. My landlord charged me for paying late, and honestly I'm really unhappy with how Thistle Bank has handled this.",
+   "start_s": 4.3,
+   "end_s": 17.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm sorry that's happened, Rhys. I can look into the transfer for you. Before we discuss the account, could you confirm your full name and date of birth, please?",
+   "start_s": 18.3,
+   "end_s": 29.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Rhys Oyelaran, 14th of June 1991.",
+   "start_s": 30.0,
+   "end_s": 32.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 32.8,
+   "end_s": 36.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 3, 18 Willow Road, Bristol.",
+   "start_s": 36.7,
+   "end_s": 39.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that's all verified. I appreciate how frustrating this must be. We'll get the transfer charge refunded for you, and I'll check what happened.",
+   "start_s": 39.5,
+   "end_s": 48.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It was £1,240, sent on the 3rd of October. It didn't reach my landlord until the 7th.",
+   "start_s": 49.3,
+   "end_s": 55.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I'll put a note on your account about the delay and the rent charge. Do you know how much the landlord charged?",
+   "start_s": 56.3,
+   "end_s": 65.5
+  },
+  {
+   "speaker": "customer",
+   "text": "£45. I want to know why it took so long, and I don't want this just brushed aside.",
+   "start_s": 66.0,
+   "end_s": 73.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Rhys. I'll take ownership of it. I'll send this to our payments team today, and I'll contact you by Friday the 24th of October with an update on the transfer and the £45 charge.",
+   "start_s": 73.5,
+   "end_s": 87.3
+  },
+  {
+   "speaker": "customer",
+   "text": "And what happens after that?",
+   "start_s": 87.8,
+   "end_s": 89.7
+  },
+  {
+   "speaker": "agent",
+   "text": "We'll investigate the payment and send you a full written response within 15 business days. I'll make sure the payments team has the details you've given me, and I'll follow up with you by the 24th, even if the investigation isn't complete by then.",
+   "start_s": 90.2,
+   "end_s": 107.2
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I still think the delay was unacceptable.",
+   "start_s": 107.7,
+   "end_s": 111.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand, and I'm sorry you've had this experience. Just to summarise, I'll refer the late transfer and £45 charge to the payments team today, contact you by the 24th of October, and you'll receive a full written response within 15 business days. Does that make sense?",
+   "start_s": 111.6,
+   "end_s": 129.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that's clear.",
+   "start_s": 130.2,
+   "end_s": 131.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Rhys. I'll make sure it's followed up. Is there anything else I can help with today?",
+   "start_s": 131.9,
+   "end_s": 138.8
+  }
+ ]
+}

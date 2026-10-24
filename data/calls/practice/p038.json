@@ -1,0 +1,134 @@
+{
+ "id": "p038",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p038",
+  "split": "practice",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions their partner passed away recently",
+  "customer": "Rhys Sutherland",
+  "agent": "Sam",
+  "subtle": true,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I’m Rhys Sutherland. There’s a card payment I don’t recognise, and I’m really fed up with the bank. I’ve tried getting through before.",
+   "start_s": 4.3,
+   "end_s": 13.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll look at it. First, can you confirm your full name and date of birth?",
+   "start_s": 14.1,
+   "end_s": 19.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Rhys Sutherland, 14 February 1982.",
+   "start_s": 20.3,
+   "end_s": 22.3
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 22.8,
+   "end_s": 25.5
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Willow Lane, Bristol.",
+   "start_s": 26.0,
+   "end_s": 27.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. What’s the payment?",
+   "start_s": 28.0,
+   "end_s": 29.5
+  },
+  {
+   "speaker": "customer",
+   "text": "£286.40 to Northstar Digital on the 19th of October. I’ve never used them. My partner passed away a few weeks ago, so I’ve had enough to deal with.",
+   "start_s": 30.0,
+   "end_s": 40.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that. I’m logging this as a complaint. That payment will be refunded, don’t worry.",
+   "start_s": 41.3,
+   "end_s": 48.2
+  },
+  {
+   "speaker": "customer",
+   "text": "You haven’t even checked it yet. I want to know what happens now.",
+   "start_s": 48.7,
+   "end_s": 53.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send it to our card disputes team today. They’ll investigate and contact you by 19 December. You’ll hear back within eight weeks.",
+   "start_s": 54.2,
+   "end_s": 63.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Eight weeks? That’s a long time. And what if they don’t agree with me?",
+   "start_s": 63.6,
+   "end_s": 69.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll own the follow-up. I’ll make sure the disputes team has it today, and I’ll call you by 5pm tomorrow to confirm it’s with them.",
+   "start_s": 69.5,
+   "end_s": 79.1
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. So you’re logging a complaint, sending the payment for investigation today, and calling me tomorrow, but you’re saying I’ll get the money back already?",
+   "start_s": 79.6,
+   "end_s": 89.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, that’s right. The team will investigate, and I’ll call tomorrow by five. Does that make sense?",
+   "start_s": 90.1,
+   "end_s": 96.6
+  },
+  {
+   "speaker": "customer",
+   "text": "It does, although I still don’t see how you can promise a refund before they’ve looked.",
+   "start_s": 97.1,
+   "end_s": 103.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Understood. I need to move on now, but I’ll call tomorrow.",
+   "start_s": 103.8,
+   "end_s": 108.0
+  }
+ ]
+}

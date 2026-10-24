@@ -1,0 +1,134 @@
+{
+ "id": "p003",
+ "agent_name": "Owen",
+ "spec": {
+  "id": "p003",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Declan Ellingham",
+  "agent": "Owen",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Owen speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Declan Ellingham. My loan application was declined and nobody’s told me why. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left without an explanation, Declan. I’ll look into what I can. I can see your current account balance is £1,284.62, and there was a £12 monthly account fee yesterday.",
+   "start_s": 12.2,
+   "end_s": 24.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Right. But can you tell me why the loan was declined?",
+   "start_s": 25.3,
+   "end_s": 29.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t see a reason I’m able to share with you here, and I don’t want to guess or mislead you. Before we go further, could you confirm your date of birth and the first line of your address?",
+   "start_s": 30.1,
+   "end_s": 45.1
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1988, and 27 Larch Road.",
+   "start_s": 45.6,
+   "end_s": 48.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’m not able to complete the identity checks on this call, so I can’t discuss any more account or application details.",
+   "start_s": 49.2,
+   "end_s": 57.6
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s frustrating. I’ve already given you those details, and I still don’t know what’s going on.",
+   "start_s": 58.1,
+   "end_s": 64.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand, and I’m sorry this has been so frustrating. I’ll make sure your concern is recorded properly. I’m logging this as a complaint about the declined loan application and the lack of an explanation.",
+   "start_s": 64.8,
+   "end_s": 78.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. What happens now?",
+   "start_s": 78.7,
+   "end_s": 80.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the complaint today to our complaints team. They’ll review the application and your concerns, then send you a full written response within 8 weeks.",
+   "start_s": 80.8,
+   "end_s": 90.8
+  },
+  {
+   "speaker": "customer",
+   "text": "And if I haven’t heard anything before then?",
+   "start_s": 91.3,
+   "end_s": 94.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll arrange for a complaints colleague to contact you by phone within five working days with an update on the review. I can’t promise what the decision or response will be, but I’ll make sure that follow-up is requested today.",
+   "start_s": 94.8,
+   "end_s": 110.2
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. So someone will call within five working days, and I’ll get the full response in writing within eight weeks?",
+   "start_s": 110.7,
+   "end_s": 118.8
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ll submit the complaint today, a complaints colleague will call you within five working days with an update, and you’ll receive the full written response within 8 weeks. Does that make sense?",
+   "start_s": 119.3,
+   "end_s": 132.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks.",
+   "start_s": 132.9,
+   "end_s": 134.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Declan. I’m sorry again that you’ve had to chase for an explanation. Thanks for calling Thistle Bank.",
+   "start_s": 134.9,
+   "end_s": 142.2
+  }
+ ]
+}

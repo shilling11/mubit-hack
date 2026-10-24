@@ -1,37 +1,36 @@
-"""Send corrected-behaviour draft calls through Mubit so the rfp.draft_response
-task reaches its kept-example threshold (25 by default) and trains an adapter.
+"""Re-score practice calls at the latest playbook so Mubit gets corrected-behaviour training examples.
 
-Uses the latest playbook on the practice packages (Northstar + Kestrel), never
-on the held-out Meridian pack. Watch progress in the Mubit console under Tasks.
+Mubit keeps only new examples, so this skips calls already reviewed at the
+latest version. Held-out calls are never used.
 
-Usage: python -m scripts.warm_mubit [--rounds 1]
+Usage: python -m scripts.warm_mubit [--limit 80]
 """
 import argparse
-import time
+from concurrent.futures import ThreadPoolExecutor
 
 from app import db
+from app.config import MAX_PARALLEL
 from app.learning import playbook
-from app.models import RunIn
-from app.pipeline import runner
-
-PRACTICE = ["northstar", "kestrel"]
+from app.review import service
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--rounds", type=int, default=1)
+    ap.add_argument("--limit", type=int, default=200)
     args = ap.parse_args()
     db.init()
-    version = playbook.latest_version()
-    if version == 0:
-        raise SystemExit("Build a playbook first (Learning tab): warm-up should teach corrected behaviour, not the base.")
-    for n in range(args.rounds):
-        ids = [runner.start(RunIn(package=p, playbook_version=version))["id"] for p in PRACTICE]
-        while any(runner.get(i)["status"] == "running" for i in ids):
-            time.sleep(2)
-        sent = sum(runner.get(i)["total"] for i in ids)
-        print(f"round {n + 1}: sent {sent} rfp.draft_response calls with playbook v{version}")
-    print("Check Mubit console > Tasks for the kept-example count and training status.")
+    v = playbook.latest_version()
+    if v == 0:
+        raise SystemExit("Playbook is at v0: load seeds or submit a correction first (base reviews are never training data).")
+    done = {r["call_id"] for r in db.query("SELECT DISTINCT call_id FROM reviews WHERE playbook_version = ? AND record_mode = 'full'", (v,))}
+    todo = [r["id"] for r in db.query("SELECT id FROM calls WHERE split = 'practice' ORDER BY id") if r["id"] not in done][: args.limit]
+    if not todo:
+        raise SystemExit(f"Every practice call is already reviewed at v{v}. Add a correction for a new version.")
+    print(f"reviewing {len(todo)} practice calls at playbook v{v} (record=full)…")
+    with ThreadPoolExecutor(max_workers=MAX_PARALLEL) as pool:
+        out = list(pool.map(lambda cid: service.review_call(cid, v), todo))
+    print(f"done: {sum(1 for r in out if not r.get('error'))} ok, {sum(1 for r in out if r.get('error'))} failed. "
+          "Check Mubit console > Tasks for the kept-example count.")
 
 
 if __name__ == "__main__":

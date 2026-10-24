@@ -1,0 +1,152 @@
+{
+ "id": "p019",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "p019",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "health",
+  "vuln_cue": "mentions they're having chemotherapy at the moment",
+  "customer": "Niamh Quigley",
+  "agent": "Marcus",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Niamh Quigley. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that, Niamh. Before I look at anything on the account, could you confirm your full name and date of birth, please?",
+   "start_s": 11.0,
+   "end_s": 20.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Niamh Quigley, 14th of March 1982.",
+   "start_s": 21.1,
+   "end_s": 23.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. And the first line of your address?",
+   "start_s": 23.9,
+   "end_s": 27.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 3, 18 Larkfield Road.",
+   "start_s": 27.5,
+   "end_s": 29.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s verified. I can see why those charges would be frustrating. Can you tell me a little more about what’s happened?",
+   "start_s": 29.9,
+   "end_s": 38.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I went over my limit last month and there are fees on there now. I don’t think they’re fair, especially with everything I’ve got going on.",
+   "start_s": 39.3,
+   "end_s": 49.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry. What else is going on, if you’re comfortable telling me?",
+   "start_s": 49.8,
+   "end_s": 54.4
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m having chemotherapy at the moment, so it’s been hard to keep on top of things.",
+   "start_s": 54.9,
+   "end_s": 61.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m really sorry you’re going through that, Niamh. We can put you in touch with our Financial Support team, and they may be able to discuss extra time or other support with you.",
+   "start_s": 61.5,
+   "end_s": 74.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Can you get these fees refunded?",
+   "start_s": 74.7,
+   "end_s": 77.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise any outcome. Our unarranged overdraft fees can never be refunded, though I can log your complaint about them.",
+   "start_s": 77.5,
+   "end_s": 85.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Please do. I want the bank to look at how this has been handled.",
+   "start_s": 86.1,
+   "end_s": 91.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m logging this as a complaint about the unarranged overdraft fees and your concerns about how they were handled.",
+   "start_s": 92.0,
+   "end_s": 100.1
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens now?",
+   "start_s": 100.6,
+   "end_s": 101.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Someone will be in touch about the complaint, and you’ll be told about the next steps. I can’t give you a timescale for that.",
+   "start_s": 102.3,
+   "end_s": 111.5
+  },
+  {
+   "speaker": "agent",
+   "text": "So, I’ve logged the complaint, and someone will be in touch about what happens next. Does that make sense?",
+   "start_s": 112.0,
+   "end_s": 119.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thank you.",
+   "start_s": 119.8,
+   "end_s": 122.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Niamh. I’m sorry this has been stressful, and thank you for speaking with me today.",
+   "start_s": 122.6,
+   "end_s": 129.2
+  }
+ ]
+}

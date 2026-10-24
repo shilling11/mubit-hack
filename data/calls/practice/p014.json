@@ -1,0 +1,134 @@
+{
+ "id": "p014",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p014",
+  "split": "practice",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "resilience",
+  "vuln_cue": "says they can't afford this, they've got nothing left until payday",
+  "customer": "Imran Haddad",
+  "agent": "Priya",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Imran Haddad. I transferred money to someone who said they were from the bank. I’m really unhappy with you lot about it.",
+   "start_s": 4.3,
+   "end_s": 13.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Imran. Before we discuss your account, could you confirm your full name and date of birth, please?",
+   "start_s": 14.1,
+   "end_s": 22.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Imran Haddad, 14th of March 1988.",
+   "start_s": 22.7,
+   "end_s": 25.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 25.5,
+   "end_s": 28.9
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Alder Road.",
+   "start_s": 29.4,
+   "end_s": 30.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. Can you tell me a little more about the transfer?",
+   "start_s": 31.1,
+   "end_s": 36.1
+  },
+  {
+   "speaker": "customer",
+   "text": "It was £2,400, yesterday afternoon. They told me there was fraud on my account and I had to move it to a safe account. I’ve got nothing left until payday, I can’t afford this.",
+   "start_s": 36.6,
+   "end_s": 49.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that, Imran. I can understand why you’re unhappy. I’ll log this as a complaint about the transfer and how this was handled.",
+   "start_s": 50.2,
+   "end_s": 60.2
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens now? Can you get the money back?",
+   "start_s": 60.7,
+   "end_s": 64.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t promise an outcome. Someone will be in touch about the complaint and the transfer investigation.",
+   "start_s": 64.7,
+   "end_s": 71.2
+  },
+  {
+   "speaker": "customer",
+   "text": "When will they contact me?",
+   "start_s": 71.7,
+   "end_s": 73.6
+  },
+  {
+   "speaker": "agent",
+   "text": "I don’t have a timescale to give you, I’m afraid. I’ll take ownership of this and send the case to our complaints team today. I’ll call you by Friday to confirm it’s been passed over and update you on where things stand.",
+   "start_s": 74.1,
+   "end_s": 90.3
+  },
+  {
+   "speaker": "customer",
+   "text": "All right.",
+   "start_s": 90.8,
+   "end_s": 92.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise, I’ve logged your complaint about the £2,400 transfer, and I’ll call you by Friday with an update. The complaints team will be in touch about the investigation, though I can’t say when or what the outcome will be. Does that make sense?",
+   "start_s": 92.5,
+   "end_s": 109.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 110.3,
+   "end_s": 111.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Imran. I’m sorry you’ve had to deal with this, and I’ll follow up by Friday.",
+   "start_s": 112.3,
+   "end_s": 118.9
+  }
+ ]
+}

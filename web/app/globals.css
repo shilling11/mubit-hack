@@ -1,34 +1,29 @@
 @import "tailwindcss";
 
-/* Redline: editorial paper + ink, red reserved for corrections and over-promise risk */
+/* Redress: matches the HTML prototypes (dark, lime accent, Inter Tight) */
 @theme {
-  --color-paper: #f7f4ee;
-  --color-sheet: #fffdf9;
-  --color-ink: #1c1b19;
-  --color-ink-2: #45423d;
-  --color-muted: #7d786f;
-  --color-line: #e3ddd2;
-  --color-line-2: #d3ccbf;
-  --color-red: #c8261d;
-  --color-red-soft: #fbe9e7;
-  --color-comply: #1d6b48;
-  --color-comply-soft: #e3f1e9;
-  --color-partial: #9a6408;
-  --color-partial-soft: #f8eed8;
-  --color-dnc: #3b4250;
-  --color-dnc-soft: #e6e8ec;
-  --color-na: #8b8680;
-  --color-na-soft: #efede9;
+  --color-bg: #050906;
+  --color-lime: #7cff4f;
+  --color-lime-2: #4fbf22;
+  --color-lime-deep: #2f8a12;
+  --color-lime-dim: #2b5e1d;
+  --color-text: #eef3ec;
+  --color-mute: #8b968d;
+  --color-mute-2: #5d685f;
+  --color-line: rgba(255, 255, 255, 0.07);
+  --color-amber: #ffb25e;
+  --color-red: #ff7a6b;
 
-  --font-serif: var(--font-fraunces), Georgia, serif;
-  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-sans: var(--font-inter-tight), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, Consolas, monospace;
 }
 
 html,
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  min-height: 100vh;
+  color: var(--color-text);
+  background: radial-gradient(ellipse 70% 55% at 50% 38%, #0f1d11 0%, #081009 55%, #040704 100%) fixed;
+  background-color: var(--color-bg);
 }
 
 body {
@@ -36,26 +31,33 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+/* Small mono label, e.g. [ Queue ] */
+.lab {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mute-2);
+}
+.lab.g {
+  color: var(--color-lime);
+}
+
+.panel {
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  background: rgba(8, 14, 9, 0.55);
+  backdrop-filter: blur(8px);
+}
+
 ::selection {
-  background: var(--color-red-soft);
-  color: var(--color-red);
+  background: rgba(124, 255, 79, 0.25);
 }
-
-.redline-strike {
-  text-decoration: line-through;
-  text-decoration-color: var(--color-red);
-  text-decoration-thickness: 2px;
-  color: var(--color-muted);
-}
-
-@keyframes pulse-red {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 38, 29, 0.35); }
-  50% { box-shadow: 0 0 0 6px rgba(200, 38, 29, 0); }
-}
-.pulse-red { animation: pulse-red 1.6s ease-in-out infinite; }
-
-@keyframes flash-in {
-  from { background-color: var(--color-red-soft); }
-  to { background-color: transparent; }
-}
-.flash-in { animation: flash-in 1.8s ease-out; }

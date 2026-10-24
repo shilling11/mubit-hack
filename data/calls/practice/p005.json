@@ -1,0 +1,140 @@
+{
+ "id": "p005",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p005",
+  "split": "practice",
+  "situation": "loan_declined",
+  "situation_desc": "had a loan application declined with no explanation",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Bronwen Oyelaran",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Bronwen Oyelaran. My loan application was declined and nobody’s told me why. I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 11.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve been left without an explanation, Bronwen. I’ll look into what I can. Before I discuss your application, could I check your full name and date of birth, please?",
+   "start_s": 11.8,
+   "end_s": 23.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Bronwen Oyelaran, 14th of June 1988.",
+   "start_s": 24.2,
+   "end_s": 26.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 27.0,
+   "end_s": 30.5
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Ashfield Road.",
+   "start_s": 31.0,
+   "end_s": 32.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s matched. I understand why you’re frustrated. I’m logging this as a complaint about the declined application and the lack of explanation.",
+   "start_s": 32.7,
+   "end_s": 41.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Good. I want to know what’s going on.",
+   "start_s": 42.4,
+   "end_s": 45.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll make sure the complaint records both points, and I’ll arrange for our complaints team to review the application and the communication you received. I can’t promise what the outcome will be.",
+   "start_s": 46.0,
+   "end_s": 59.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Can you at least tell me why it was declined?",
+   "start_s": 59.5,
+   "end_s": 63.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I can’t see a reason I can reliably give you on this call, so I don’t want to guess. The complaints team will review the decision and explain what they can in their written response.",
+   "start_s": 63.9,
+   "end_s": 77.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 77.9,
+   "end_s": 79.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the complaint today and send you its reference by text. I’ll also check that it’s been assigned to the complaints team and call you by 4 pm tomorrow with an update on that, even if there’s no further decision yet.",
+   "start_s": 80.3,
+   "end_s": 96.4
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaints team will investigate and send you a full written response within 8 weeks. I’ll include your request for an explanation in the complaint.",
+   "start_s": 96.9,
+   "end_s": 106.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay.",
+   "start_s": 107.0,
+   "end_s": 108.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: I’m logging your complaint today, I’ll text the reference and call by 4 pm tomorrow with an assignment update, and the team will send a full written response within 8 weeks. Does that make sense?",
+   "start_s": 108.7,
+   "end_s": 123.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks.",
+   "start_s": 123.9,
+   "end_s": 125.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Bronwen. I’m sorry again that you had to chase us for an explanation. Goodbye.",
+   "start_s": 125.9,
+   "end_s": 132.1
+  }
+ ]
+}

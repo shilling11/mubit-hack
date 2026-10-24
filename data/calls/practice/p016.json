@@ -1,0 +1,134 @@
+{
+ "id": "p016",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p016",
+  "split": "practice",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Tariq Ferreira",
+  "agent": "Priya",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, you’re through to Priya at Thistle Bank. How can I help?",
+   "start_s": 0.0,
+   "end_s": 4.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Tariq Ferreira. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it.",
+   "start_s": 5.1,
+   "end_s": 14.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry the app being unavailable got in the way of making your payment, Tariq. I can look into this, but first I need to verify your identity. Could you tell me your full name and date of birth?",
+   "start_s": 14.5,
+   "end_s": 29.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Tariq Ferreira, 14th of June 1988.",
+   "start_s": 30.0,
+   "end_s": 32.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address, please?",
+   "start_s": 32.8,
+   "end_s": 36.6
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Kingsley Road.",
+   "start_s": 37.1,
+   "end_s": 38.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I’m sorry you’ve had this experience. I’ll log this as a complaint about the app outage affecting your bill payment.",
+   "start_s": 38.8,
+   "end_s": 47.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Good, because I don’t think I should be left dealing with a late charge when the app wasn’t working.",
+   "start_s": 48.2,
+   "end_s": 55.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand why you’re frustrated. I’ll include the late payment and any charge you’ve been notified about in the complaint, so it can be reviewed. I can’t promise what the outcome will be.",
+   "start_s": 56.0,
+   "end_s": 68.7
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 69.2,
+   "end_s": 71.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll submit the complaint today and make sure it’s recorded with those details. I’ll also arrange for our complaints team to contact you by 27 October with an update on the review.",
+   "start_s": 71.6,
+   "end_s": 83.9
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get a proper answer?",
+   "start_s": 84.4,
+   "end_s": 87.5
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response within 8 weeks of today. That response will explain what we’ve found and what we’ve decided.",
+   "start_s": 88.0,
+   "end_s": 96.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay.",
+   "start_s": 96.9,
+   "end_s": 98.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: I’m logging your complaint about the app outage and its effect on your bill payment, I’ll submit it today, and the complaints team will contact you by 27 October. You’ll get a full written response within 8 weeks. Does that make sense?",
+   "start_s": 98.6,
+   "end_s": 115.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks.",
+   "start_s": 116.4,
+   "end_s": 118.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Tariq. I’m sorry again for the trouble this caused, and I’ll make sure the complaint is passed on today.",
+   "start_s": 118.9,
+   "end_s": 126.9
+  }
+ ]
+}

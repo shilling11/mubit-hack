@@ -1,0 +1,134 @@
+{
+ "id": "p008",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p008",
+  "split": "practice",
+  "situation": "scam",
+  "situation_desc": "transferred money to someone pretending to be from the bank",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Niamh Ndlovu",
+  "agent": "Jordan",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Niamh Ndlovu. I transferred money to someone pretending to be from your bank, and I’m really unhappy with how this has been handled.",
+   "start_s": 3.6,
+   "end_s": 13.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to verify you first. What’s your full name and date of birth, please?",
+   "start_s": 13.7,
+   "end_s": 19.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Niamh Ndlovu, 14 February 1988.",
+   "start_s": 20.0,
+   "end_s": 21.9
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address?",
+   "start_s": 22.4,
+   "end_s": 25.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 3, 18 Birch Road.",
+   "start_s": 25.6,
+   "end_s": 27.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’m sorry you’ve had this experience. Before we get into it, I’ll log this as a complaint. We’ll get the money returned to you, so that should be sorted.",
+   "start_s": 28.0,
+   "end_s": 39.5
+  },
+  {
+   "speaker": "customer",
+   "text": "You can guarantee that? I was told it might not be straightforward.",
+   "start_s": 40.0,
+   "end_s": 44.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, it’ll be returned. What was the transfer amount and when did you send it?",
+   "start_s": 45.2,
+   "end_s": 50.9
+  },
+  {
+   "speaker": "customer",
+   "text": "It was £2,400 on Monday, to someone who called saying they were from the fraud team.",
+   "start_s": 51.4,
+   "end_s": 57.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. I’ll take ownership of this and send it to our fraud complaints team today. I’ll call you with an update by 4 pm tomorrow.",
+   "start_s": 58.1,
+   "end_s": 67.7
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get a proper answer about the complaint?",
+   "start_s": 68.2,
+   "end_s": 72.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll get a full written response within 15 business days. The fraud complaints team will review what happened, and I’ll call you tomorrow by 4 pm with an update.",
+   "start_s": 72.9,
+   "end_s": 84.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. Is there anything else I need to do?",
+   "start_s": 84.6,
+   "end_s": 88.0
+  },
+  {
+   "speaker": "agent",
+   "text": "No. So, I’ve logged the complaint, the team will review the transfer, and I’ll call by 4 pm tomorrow; the full written response will be within 15 business days. Does that make sense?",
+   "start_s": 88.5,
+   "end_s": 101.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 101.7,
+   "end_s": 103.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Good. That’s all for now. Goodbye.",
+   "start_s": 103.8,
+   "end_s": 106.1
+  }
+ ]
+}

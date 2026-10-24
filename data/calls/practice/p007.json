@@ -1,0 +1,134 @@
+{
+ "id": "p007",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "p007",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Ewan Okonkwo",
+  "agent": "Hannah",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Ewan Okonkwo. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Ewan. I’ll look into it with you. Before we discuss your account, could you confirm your full name and date of birth, please?",
+   "start_s": 11.0,
+   "end_s": 22.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Ewan Okonkwo, 14 June 1988.",
+   "start_s": 22.7,
+   "end_s": 24.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 25.1,
+   "end_s": 28.5
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Willow Road.",
+   "start_s": 29.0,
+   "end_s": 30.2
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s verified, thank you. I can see why those charges would be upsetting. I’ll make sure the fees are refunded for you.",
+   "start_s": 30.7,
+   "end_s": 39.2
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s good to hear. There were three charges last month, and I don’t think they’re fair.",
+   "start_s": 39.7,
+   "end_s": 45.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I’m logging this as a complaint about the unarranged overdraft fees. The complaint reference is TB-604183.",
+   "start_s": 46.4,
+   "end_s": 53.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. What happens now?",
+   "start_s": 53.8,
+   "end_s": 55.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll take ownership and send the complaint to our complaints team today. I’ll check in with you by phone by Friday, 30 October, with an update.",
+   "start_s": 55.8,
+   "end_s": 65.8
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get the final answer?",
+   "start_s": 66.3,
+   "end_s": 69.4
+  },
+  {
+   "speaker": "agent",
+   "text": "We’ll investigate what happened and send you a full written response within 8 weeks. That response will explain our findings and any action taken.",
+   "start_s": 69.9,
+   "end_s": 79.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, thanks.",
+   "start_s": 79.6,
+   "end_s": 80.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: I’ve logged your complaint about the three fees, I’ll pass it to the complaints team today, and I’ll call you by 30 October with an update. You’ll receive a full written response within 8 weeks. Does that all make sense?",
+   "start_s": 81.3,
+   "end_s": 97.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear.",
+   "start_s": 98.4,
+   "end_s": 99.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, Ewan. I’m sorry again for the frustration, and I’ll make sure it’s followed up.",
+   "start_s": 100.1,
+   "end_s": 105.8
+  }
+ ]
+}

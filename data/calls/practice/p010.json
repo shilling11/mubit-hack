@@ -1,0 +1,134 @@
+{
+ "id": "p010",
+ "agent_name": "Jordan",
+ "spec": {
+  "id": "p010",
+  "split": "practice",
+  "situation": "lost_card",
+  "situation_desc": "needs a replacement for a lost card",
+  "payment": false,
+  "account": true,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Eilidh Lindqvist",
+  "agent": "Jordan",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Jordan speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi Jordan, I’ve lost my debit card and need a replacement. I’m Eilidh Lindqvist.",
+   "start_s": 4.3,
+   "end_s": 9.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Eilidh. I can help with that. Before I check your identity, I can see your current account balance is £684.27, and there was a £12.50 payment to North Pier Books yesterday. Is that the account you mean?",
+   "start_s": 10.2,
+   "end_s": 26.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s the one.",
+   "start_s": 26.5,
+   "end_s": 28.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’ll just verify you now. Can you tell me your full date of birth and the first line of your address?",
+   "start_s": 28.5,
+   "end_s": 37.0
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1992, and 38 Willowbank Road.",
+   "start_s": 37.5,
+   "end_s": 40.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And what’s the postcode?",
+   "start_s": 41.1,
+   "end_s": 43.4
+  },
+  {
+   "speaker": "customer",
+   "text": "EH4 2LX.",
+   "start_s": 43.9,
+   "end_s": 45.1
+  },
+  {
+   "speaker": "agent",
+   "text": "That matches. I’ll block the lost card and arrange a replacement. The replacement will be sent to your registered address, and delivery usually takes five to seven working days. I can’t guarantee the exact arrival date.",
+   "start_s": 45.6,
+   "end_s": 59.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, thanks. I’m glad I noticed it was missing.",
+   "start_s": 59.9,
+   "end_s": 63.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll submit the replacement request now. I’ll also send you a secure message by 4 pm today confirming the card has been blocked and the request has been logged. If it hasn’t arrived after seven working days, reply to that message and I’ll follow it up.",
+   "start_s": 63.9,
+   "end_s": 82.4
+  },
+  {
+   "speaker": "customer",
+   "text": "That sounds good.",
+   "start_s": 82.9,
+   "end_s": 84.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: the old card will be blocked, a replacement will be sent to your registered address, and I’ll message you by 4 pm today with confirmation. Delivery usually takes five to seven working days. Does that all make sense?",
+   "start_s": 84.6,
+   "end_s": 100.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks for sorting it.",
+   "start_s": 100.8,
+   "end_s": 103.5
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Eilidh. Is there anything else I can help with today?",
+   "start_s": 104.0,
+   "end_s": 109.0
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s everything.",
+   "start_s": 109.5,
+   "end_s": 110.7
+  },
+  {
+   "speaker": "agent",
+   "text": "All right. Thanks for calling Thistle Bank, and take care.",
+   "start_s": 111.2,
+   "end_s": 115.1
+  }
+ ]
+}

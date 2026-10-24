@@ -1,0 +1,134 @@
+{
+ "id": "h008",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "h008",
+  "split": "heldout",
+  "situation": "branch_waits",
+  "situation_desc": "is frustrated that their branch closed and phone waits are long",
+  "payment": false,
+  "account": false,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Niamh Ndlovu",
+  "agent": "Hannah",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "na",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Niamh Ndlovu. I’m really fed up that our branch has closed, and the phone waits are so long. It feels like the bank just doesn’t care.",
+   "start_s": 4.3,
+   "end_s": 15.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Niamh. I can understand why that’s frustrating, especially when you’re trying to get help and can’t get through.",
+   "start_s": 15.6,
+   "end_s": 23.3
+  },
+  {
+   "speaker": "customer",
+   "text": "I used to be able to pop into the branch and speak to someone. Now I’ve waited ages on the phone twice this week.",
+   "start_s": 23.8,
+   "end_s": 33.0
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s not the service we want you to have. I’ll take ownership of this and make sure your feedback gets to the right team.",
+   "start_s": 33.5,
+   "end_s": 42.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks. I want the bank to know how unhappy I am about it.",
+   "start_s": 43.3,
+   "end_s": 48.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m logging this as a complaint about the branch closure and the long phone waits. I’ll make sure it’s recorded clearly.",
+   "start_s": 48.8,
+   "end_s": 57.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 58.1,
+   "end_s": 60.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send it to our customer relations team today. They’ll review the concerns, and I’ll make sure you hear back within five working days.",
+   "start_s": 60.5,
+   "end_s": 69.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Will they actually do anything about it?",
+   "start_s": 70.3,
+   "end_s": 73.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sure they’ll put things right for you, Niamh. The team will look into what’s happened and get back to you.",
+   "start_s": 73.5,
+   "end_s": 81.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, I hope so.",
+   "start_s": 82.0,
+   "end_s": 83.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to be clear, I’ve logged your complaint about the branch closing and the time you’ve spent waiting on the phone. I’ll pass it to customer relations today, and they’ll contact you within five working days. Does that make sense?",
+   "start_s": 84.1,
+   "end_s": 99.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 100.0,
+   "end_s": 101.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Good. I’m sorry again for the frustration, and I’ll make sure it’s followed up.",
+   "start_s": 102.0,
+   "end_s": 107.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Thanks, Hannah.",
+   "start_s": 107.9,
+   "end_s": 109.1
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Niamh. Thanks for taking the time to tell us.",
+   "start_s": 109.6,
+   "end_s": 113.8
+  }
+ ]
+}

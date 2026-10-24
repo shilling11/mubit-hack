@@ -1,0 +1,134 @@
+{
+ "id": "p051",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p051",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Harriet Sutherland",
+  "agent": "Priya",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Harriet Sutherland. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I can look into that. Before we discuss the account, can you confirm your full name and date of birth?",
+   "start_s": 11.0,
+   "end_s": 18.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Harriet Sutherland, 14th of February 1987.",
+   "start_s": 19.2,
+   "end_s": 21.5
+  },
+  {
+   "speaker": "agent",
+   "text": "And the first line of your address, please?",
+   "start_s": 22.0,
+   "end_s": 25.1
+  },
+  {
+   "speaker": "customer",
+   "text": "22 Meadow Lane.",
+   "start_s": 25.6,
+   "end_s": 26.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. I’m sorry you’re unhappy. Those fees will be refunded, so we’ll get that sorted.",
+   "start_s": 27.3,
+   "end_s": 33.0
+  },
+  {
+   "speaker": "customer",
+   "text": "You can’t know that yet, though, can you? I want to know why they were charged.",
+   "start_s": 33.5,
+   "end_s": 39.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll check the details. I’m logging this as a complaint. The reference is TB-604218.",
+   "start_s": 40.2,
+   "end_s": 45.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I was charged £30 last month and I don’t think it’s fair.",
+   "start_s": 46.1,
+   "end_s": 51.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Understood. I’ll review the charges and the account history.",
+   "start_s": 52.0,
+   "end_s": 55.4
+  },
+  {
+   "speaker": "customer",
+   "text": "What happens now?",
+   "start_s": 55.9,
+   "end_s": 57.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll own this and review it myself. I’ll call you by 4pm on Friday, 24 October, with an update.",
+   "start_s": 57.6,
+   "end_s": 64.9
+  },
+  {
+   "speaker": "agent",
+   "text": "We’ll also send you a full written response within 8 weeks of today. That’ll explain our findings and what we’ve decided.",
+   "start_s": 65.4,
+   "end_s": 73.5
+  },
+  {
+   "speaker": "agent",
+   "text": "So, I’ve logged the complaint, I’ll call by Friday at 4pm, and you’ll get the full response within 8 weeks. Does that make sense?",
+   "start_s": 74.0,
+   "end_s": 83.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. I’ll wait for your call.",
+   "start_s": 83.7,
+   "end_s": 86.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Fine. Thanks for calling.",
+   "start_s": 87.3,
+   "end_s": 88.9
+  }
+ ]
+}

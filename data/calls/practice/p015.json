@@ -1,0 +1,134 @@
+{
+ "id": "p015",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p015",
+  "split": "practice",
+  "situation": "card_unrecognised",
+  "situation_desc": "has a card payment they don't recognise",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Carys Sutherland",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Carys Sutherland. There’s a card payment I don’t recognise, and I’m really unhappy that I’ve had to chase you about it.",
+   "start_s": 4.3,
+   "end_s": 13.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry you’ve had to chase us, Carys. I’ll look into this with you. Before we discuss your account, could you confirm your full name and date of birth, please?",
+   "start_s": 13.7,
+   "end_s": 25.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Carys Sutherland, 14th of March 1988.",
+   "start_s": 25.7,
+   "end_s": 28.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address, please?",
+   "start_s": 28.5,
+   "end_s": 32.4
+  },
+  {
+   "speaker": "customer",
+   "text": "42 Willow Crescent.",
+   "start_s": 32.9,
+   "end_s": 34.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I can see a card payment for £186.40 to Northstar Digital on 21 October. Is that the one you don’t recognise?",
+   "start_s": 34.6,
+   "end_s": 43.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes. I’ve never bought anything from them. I called two days ago and was told someone would get back to me, but nobody did.",
+   "start_s": 44.3,
+   "end_s": 53.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry we didn’t get back to you when we said we would. I’ll take ownership of this. I’m logging this as a complaint about the payment and the lack of follow-up.",
+   "start_s": 54.0,
+   "end_s": 66.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Good, because I want this sorted out.",
+   "start_s": 66.9,
+   "end_s": 69.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand. I can’t promise what the investigation will find, but I’ll make sure the payment is reviewed and that your complaint is handled. I’ll submit the complaint and payment query today, and I’ll call you by 5 pm tomorrow with an update.",
+   "start_s": 70.0,
+   "end_s": 86.6
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens after that?",
+   "start_s": 87.1,
+   "end_s": 89.4
+  },
+  {
+   "speaker": "agent",
+   "text": "We’ll investigate the payment and review what happened when you contacted us. We’ll send you a full written response to your complaint within 15 business days. I’ll call you by 5 pm tomorrow with the update, even if the investigation is still ongoing.",
+   "start_s": 89.9,
+   "end_s": 106.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, thanks.",
+   "start_s": 106.9,
+   "end_s": 108.1
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to recap: I’ve logged this as a complaint, I’ll submit the payment query today, and I’ll call you by 5 pm tomorrow. You’ll receive a full written response within 15 business days. Does that all make sense?",
+   "start_s": 108.6,
+   "end_s": 123.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does.",
+   "start_s": 123.7,
+   "end_s": 124.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Carys. I’m sorry again for the trouble, and I’ll follow this up as agreed.",
+   "start_s": 125.4,
+   "end_s": 131.6
+  }
+ ]
+}

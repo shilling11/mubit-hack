@@ -1,0 +1,134 @@
+{
+ "id": "p058",
+ "agent_name": "Owen",
+ "spec": {
+  "id": "p058",
+  "split": "practice",
+  "situation": "mortgage_date",
+  "situation_desc": "had a mortgage payment taken on the wrong date",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Yasmin Kowalski",
+  "agent": "Owen",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Owen speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Yasmin Kowalski. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about how this has been handled.",
+   "start_s": 4.3,
+   "end_s": 13.2
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to verify you first. What’s your date of birth and the first line of your address?",
+   "start_s": 13.7,
+   "end_s": 20.6
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 September 1987, and 26 Rosebery Road.",
+   "start_s": 21.1,
+   "end_s": 24.2
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. What date was the payment taken?",
+   "start_s": 24.7,
+   "end_s": 27.4
+  },
+  {
+   "speaker": "customer",
+   "text": "It came out on the 18th. It should have been the 25th. I didn’t agree to that, and this has caused a lot of hassle.",
+   "start_s": 27.9,
+   "end_s": 37.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. It’ll be returned to your account, so that should sort it.",
+   "start_s": 38.0,
+   "end_s": 42.6
+  },
+  {
+   "speaker": "customer",
+   "text": "You haven’t even checked what happened. I want someone to take this seriously.",
+   "start_s": 43.1,
+   "end_s": 48.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the payment was collected on the 18th. I’ll put a note on the account.",
+   "start_s": 48.6,
+   "end_s": 55.2
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s all? I’ve already had to call about this once.",
+   "start_s": 55.7,
+   "end_s": 59.5
+  },
+  {
+   "speaker": "agent",
+   "text": "The account shows the payment date was changed. I can’t see more here.",
+   "start_s": 60.0,
+   "end_s": 65.0
+  },
+  {
+   "speaker": "customer",
+   "text": "I’m not satisfied with that. The bank has taken it on the wrong date and I’ve had no proper explanation.",
+   "start_s": 65.5,
+   "end_s": 73.2
+  },
+  {
+   "speaker": "agent",
+   "text": "We’ll send a full written response within eight weeks explaining what happens next.",
+   "start_s": 73.7,
+   "end_s": 78.7
+  },
+  {
+   "speaker": "customer",
+   "text": "So I just wait for a letter, then?",
+   "start_s": 79.2,
+   "end_s": 82.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, a full written response within eight weeks. Is there anything else?",
+   "start_s": 82.8,
+   "end_s": 87.4
+  },
+  {
+   "speaker": "customer",
+   "text": "No.",
+   "start_s": 87.9,
+   "end_s": 89.1
+  },
+  {
+   "speaker": "agent",
+   "text": "All right. Goodbye.",
+   "start_s": 89.6,
+   "end_s": 90.8
+  }
+ ]
+}

@@ -1,52 +1,83 @@
-"""Deterministic scoring of a run against hand-written gold labels (no LLM judge)."""
+"""Deterministic scoring of reviews against hand-checked gold labels (no LLM judge).
+
+Gold rows (data/eval/gold.jsonl): {"call_id", "items": {"C1": "no", ...}, "complaint": bool, "vulnerability": bool}
+
+A critical breach in gold is "caught" by the system when the model answered
+"no", or when the call was routed to a human anyway (unsure, low confidence,
+safety net). Missing it entirely is a false negative: the number we care
+about most (README §9).
+"""
+import json
 from statistics import median
 
-RANK = {"Not Applicable": 0, "Do Not Comply": 1, "Partially Comply": 2, "Comply": 3}
+from app.config import EVAL_DIR
+from app.review.spec import items_by_id
 
 
-def score_row(d: dict, g: dict) -> dict:
-    acceptable = g.get("acceptable") or [g["status"]]
-    status = d.get("status")
-    text = f"{d.get('response') or ''} {d.get('gaps') or ''}".lower()
-    facts = g.get("key_facts") or []
-    facts_hit = [f for f in facts if any(alt in text for alt in f.split("|"))]
-    cited = set(d.get("evidence_ids") or [])
+def load_gold() -> dict[str, dict]:
+    path = EVAL_DIR / "gold.jsonl"
+    if not path.exists():
+        return {}
+    rows = [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()]
+    return {r["call_id"]: r for r in rows}
+
+
+def score_runs(reviews: list[dict], routes: dict[str, str], gold: dict[str, dict]) -> dict:
+    """reviews: review rows; routes: call_id -> queue kind the routing would give."""
+    defs = items_by_id()
+    critical = [i for i, d in defs.items() if d["kind"] == "critical"]
+    n_items = correct_items = 0
+    breaches = model_caught = system_caught = 0
+    flagged = flagged_true = 0
+    complaint_pos = complaint_hit = vuln_pos = vuln_hit = 0
+    to_human = 0
+    per_call = []
+    for r in reviews:
+        g = gold.get(r["call_id"])
+        if not g or not r.get("items_json"):
+            continue
+        items = r["items_json"]
+        human = routes.get(r["call_id"]) in ("breach", "analyst")
+        to_human += human
+        call_fn = []
+        for item_id in defs:
+            got, want = items[item_id]["answer"], g["items"][item_id]
+            n_items += 1
+            correct_items += got == want
+            if item_id in critical:
+                if got == "no":
+                    flagged += 1
+                    flagged_true += want == "no"
+                if want == "no":
+                    breaches += 1
+                    model_caught += got == "no"
+                    caught = got == "no" or human
+                    system_caught += caught
+                    if not caught:
+                        call_fn.append(item_id)
+        out = r.get("output_json") or {}
+        if g.get("complaint"):
+            complaint_pos += 1
+            complaint_hit += bool(out.get("complaint", {}).get("expressed"))
+        if g.get("vulnerability"):
+            vuln_pos += 1
+            vuln_hit += bool(out.get("vulnerability"))
+        per_call.append({"call_id": r["call_id"], "items_correct": sum(items[i]["answer"] == g["items"][i] for i in defs),
+                         "false_negatives": call_fn, "to_human": human})
+    n = len(per_call)
+    lat = [r["latency_ms"] for r in reviews if r.get("latency_ms")]
     return {
-        "req_id": d["req_id"],
-        "gold_status": g["status"],
-        "acceptable": acceptable,
-        "status": status,
-        "status_ok": status in acceptable,
-        "over_promise": status is not None and RANK.get(status, 0) > max(RANK[a] for a in acceptable),
-        "under_claim": status is not None and RANK.get(status, 0) < min(RANK[a] for a in acceptable),
-        "trap": bool(g.get("trap")),
-        "facts_total": len(facts),
-        "facts_hit": len(facts_hit),
-        "cited_ok": bool(cited & set(g["evidence_any"])) if g.get("evidence_any") else bool(cited),
-        "note": g.get("note"),
-    }
-
-
-def score_run(drafts: list[dict], gold: dict[str, dict]) -> dict:
-    rows = [score_row(d, gold[d["req_id"]]) for d in drafts if d["req_id"] in gold and d.get("status")]
-    n = len(rows)
-    if not n:
-        return {"n": 0, "rows": {}}
-    traps = [r for r in rows if r["trap"]]
-    facts_total = sum(r["facts_total"] for r in rows)
-    latencies = [d["latency_ms"] for d in drafts if d.get("latency_ms")]
-    return {
-        "n": n,
-        "status_accuracy": round(sum(r["status_ok"] for r in rows) / n, 3),
-        "over_promises": sum(r["over_promise"] for r in rows),
-        "under_claims": sum(r["under_claim"] for r in rows),
-        "trap_correct": sum(r["status_ok"] for r in traps),
-        "trap_total": len(traps),
-        "citation_coverage": round(sum(r["cited_ok"] for r in rows) / n, 3),
-        "key_fact_coverage": round(sum(r["facts_hit"] for r in rows) / facts_total, 3) if facts_total else None,
-        "flagged": sum("over_promise_risk" in (d.get("flags") or []) for d in drafts),
-        "latency_p50_ms": int(median(latencies)) if latencies else None,
-        "tokens_in": sum(d.get("tokens_in") or 0 for d in drafts),
-        "tokens_out": sum(d.get("tokens_out") or 0 for d in drafts),
-        "rows": {r["req_id"]: r for r in rows},
+        "calls": n,
+        "item_accuracy": round(correct_items / n_items, 3) if n_items else None,
+        "critical_breaches": breaches,
+        "model_critical_recall": round(model_caught / breaches, 3) if breaches else None,
+        "system_critical_recall": round(system_caught / breaches, 3) if breaches else None,
+        "false_negatives": breaches - system_caught,
+        "critical_precision": round(flagged_true / flagged, 3) if flagged else None,
+        "human_queue_rate": round(to_human / n, 3) if n else None,
+        "complaint_recall": round(complaint_hit / complaint_pos, 3) if complaint_pos else None,
+        "vulnerability_recall": round(vuln_hit / vuln_pos, 3) if vuln_pos else None,
+        "latency_p50_ms": int(median(lat)) if lat else None,
+        "tokens": sum((r.get("tokens_in") or 0) + (r.get("tokens_out") or 0) for r in reviews),
+        "per_call": per_call,
     }

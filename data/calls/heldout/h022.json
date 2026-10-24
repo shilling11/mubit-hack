@@ -1,0 +1,134 @@
+{
+ "id": "h022",
+ "agent_name": "Marcus",
+ "spec": {
+  "id": "h022",
+  "split": "heldout",
+  "situation": "dd_twice",
+  "situation_desc": "had a direct debit taken twice",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Bartek Ndlovu",
+  "agent": "Marcus",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Marcus speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi. I’m Bartek Ndlovu. My direct debit to Northstar Energy has gone out twice, and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 12.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry that’s happened, Bartek. I can understand why you’re frustrated, and I’ll take ownership of this. Before I look at anything on the account, could you confirm your full name and date of birth, please?",
+   "start_s": 12.5,
+   "end_s": 26.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Bartek Ndlovu, 14 June 1988.",
+   "start_s": 26.9,
+   "end_s": 28.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 29.3,
+   "end_s": 32.8
+  },
+  {
+   "speaker": "customer",
+   "text": "18 Alder Road.",
+   "start_s": 33.3,
+   "end_s": 34.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s verified. I’ll check the duplicate payment now. I’m sure we’ll get the second payment refunded for you.",
+   "start_s": 35.0,
+   "end_s": 42.3
+  },
+  {
+   "speaker": "customer",
+   "text": "I hope so. It’s £86.40 twice, both showing as taken on Monday.",
+   "start_s": 42.8,
+   "end_s": 47.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the two £86.40 payments to Northstar Energy dated 19 October. I’ll log this as a complaint about the duplicate direct debit. Your complaint reference is TB-482731.",
+   "start_s": 47.9,
+   "end_s": 59.0
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What happens now?",
+   "start_s": 59.5,
+   "end_s": 61.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send this to our payments investigation team today and remain your point of contact. I’ll call you by 3 pm tomorrow with an update, even if they’re still looking into it.",
+   "start_s": 62.0,
+   "end_s": 74.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay, and when will I get a proper answer?",
+   "start_s": 74.8,
+   "end_s": 78.2
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll receive a full written response to your complaint within 15 business days. I’ll also make sure the investigation considers the duplicate payment and what should happen to it.",
+   "start_s": 78.7,
+   "end_s": 89.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Right.",
+   "start_s": 90.4,
+   "end_s": 91.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise: I’ve logged your complaint, I’m sending it to the payments team today, and I’ll call you by 3 pm tomorrow. You’ll have a full written response within 15 business days. Does that make sense?",
+   "start_s": 92.1,
+   "end_s": 106.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that’s clear. Thanks.",
+   "start_s": 106.8,
+   "end_s": 108.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Bartek. I’m sorry again for the hassle, and I’ll be in touch tomorrow.",
+   "start_s": 108.9,
+   "end_s": 114.6
+  }
+ ]
+}

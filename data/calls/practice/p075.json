@@ -1,0 +1,146 @@
+{
+ "id": "p075",
+ "agent_name": "Hannah",
+ "spec": {
+  "id": "p075",
+  "split": "practice",
+  "situation": "rate_cut",
+  "situation_desc": "had their savings interest rate cut without noticing any letter",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions their partner passed away recently",
+  "customer": "Isla Varga",
+  "agent": "Hannah",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "no"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Hannah speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Isla Varga. I’ve just noticed the interest rate on my savings has been cut, and I never saw a letter about it. I’m really unhappy.",
+   "start_s": 4.3,
+   "end_s": 14.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry to hear that. Before I look at the account, could you tell me your full name and date of birth, please?",
+   "start_s": 15.2,
+   "end_s": 24.1
+  },
+  {
+   "speaker": "customer",
+   "text": "Isla Varga, 14th of March 1972.",
+   "start_s": 24.6,
+   "end_s": 26.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 27.4,
+   "end_s": 30.8
+  },
+  {
+   "speaker": "customer",
+   "text": "28 Willow Road.",
+   "start_s": 31.3,
+   "end_s": 32.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that’s verified. I’ll check what I can see. Do you know roughly when you noticed the rate change?",
+   "start_s": 33.0,
+   "end_s": 40.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Only this week. It’s gone from 4.1 per cent to 2.8, and I’ve had that account for years. My partner passed away recently, so I’ve had a lot on, but I’d still expect to be told.",
+   "start_s": 41.2,
+   "end_s": 55.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand you’re unhappy about the rate change and that you didn’t notice a letter. I can log this as a complaint for you.",
+   "start_s": 55.6,
+   "end_s": 64.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, please do. I want to know why it changed and why I wasn’t told.",
+   "start_s": 65.3,
+   "end_s": 71.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll record those concerns. You’ll hear back within five working days. That’s the timeframe I can give you today.",
+   "start_s": 71.6,
+   "end_s": 78.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Will you be able to tell me what happened then?",
+   "start_s": 79.4,
+   "end_s": 83.2
+  },
+  {
+   "speaker": "agent",
+   "text": "The complaint will be reviewed, but I can’t say what the outcome will be. I’m not able to confirm the reason for the change from what we’ve discussed so far.",
+   "start_s": 83.7,
+   "end_s": 95.3
+  },
+  {
+   "speaker": "customer",
+   "text": "All right.",
+   "start_s": 95.8,
+   "end_s": 97.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Just to summarise, I’m logging a complaint about the savings rate being reduced and your concern that you didn’t receive or notice a letter. You’ll hear back within five working days, though I can’t promise an outcome. Does that make sense?",
+   "start_s": 97.5,
+   "end_s": 113.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense.",
+   "start_s": 113.7,
+   "end_s": 115.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you for explaining that, Isla. Is there anything else you’d like me to note in the complaint?",
+   "start_s": 115.8,
+   "end_s": 122.7
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s everything.",
+   "start_s": 123.2,
+   "end_s": 124.4
+  },
+  {
+   "speaker": "agent",
+   "text": "All right. Thank you for calling Thistle Bank. Goodbye.",
+   "start_s": 124.9,
+   "end_s": 128.4
+  }
+ ]
+}

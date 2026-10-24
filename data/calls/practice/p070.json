@@ -1,0 +1,122 @@
+{
+ "id": "p070",
+ "agent_name": "Liam",
+ "spec": {
+  "id": "p070",
+  "split": "practice",
+  "situation": "app_outage",
+  "situation_desc": "couldn't pay a bill on time because the mobile app was down",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Oskar Pemberton",
+  "agent": "Liam",
+  "subtle": false,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "no",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Thistle Bank, Liam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.1
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s Oskar Pemberton. Your app was down when I tried to pay my electricity bill, so I paid it late. I’m really unhappy that this has happened.",
+   "start_s": 3.6,
+   "end_s": 14.0
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the £68.40 late-payment fee on your account, and your balance is £1,246.17. What do you need?",
+   "start_s": 14.5,
+   "end_s": 21.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I want to know why your app stopped me paying on time, and what you’re going to do about the fee.",
+   "start_s": 22.3,
+   "end_s": 30.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to check the app outage record. Can you give me your date of birth and address?",
+   "start_s": 30.8,
+   "end_s": 37.8
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1988, and I’m at 22 Willow Lane, Leeds, LS6 2QJ.",
+   "start_s": 38.3,
+   "end_s": 43.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Right. The payment was due on the 18th and went out on the 20th. I can’t say what will happen with the fee.",
+   "start_s": 43.8,
+   "end_s": 52.6
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s not good enough. I couldn’t pay because your app wasn’t working, and now I’ve been charged.",
+   "start_s": 53.1,
+   "end_s": 59.7
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ve noted the app issue as a query. I’ll check the outage record and the fee, then contact you by Friday the 25th with what I find.",
+   "start_s": 60.2,
+   "end_s": 70.5
+  },
+  {
+   "speaker": "customer",
+   "text": "And if you can’t sort it by then?",
+   "start_s": 71.0,
+   "end_s": 74.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll still update you by Friday. A full written response will be sent within 8 weeks.",
+   "start_s": 74.6,
+   "end_s": 80.8
+  },
+  {
+   "speaker": "customer",
+   "text": "So you’ll check the outage and fee, get back to me by Friday, and send a full written response within 8 weeks. Is that right?",
+   "start_s": 81.3,
+   "end_s": 90.9
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes. I’ll check those details and contact you by Friday. That’s the next step. Does that make sense?",
+   "start_s": 91.4,
+   "end_s": 98.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, but I’m still very unhappy about the way this has been handled.",
+   "start_s": 98.8,
+   "end_s": 103.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Understood. Anything else?",
+   "start_s": 104.3,
+   "end_s": 105.5
+  }
+ ]
+}

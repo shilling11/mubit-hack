@@ -1,0 +1,23 @@
+{
+  "id": "demo_call1",
+  "title": "Call 1: overdraft fees during a hospital stay (Abdul's script)",
+  "agent_name": "Sam",
+  "cast": { "agent": "Abdul plays Sam, a Thistle Bank colleague", "customer": "Sultan plays Ellen Hart" },
+  "utterances": [
+    { "speaker": "agent", "start_s": 0.0, "text": "Thistle Bank, Sam speaking, how can I help?" },
+    { "speaker": "customer", "start_s": 3.0, "text": "Hi, I've been charged overdraft fees three times this month and I'm really not happy about it." },
+    { "speaker": "agent", "start_s": 9.0, "text": "Can I take your name and date of birth, and the first line of your address?" },
+    { "speaker": "customer", "start_s": 14.0, "text": "Ellen Hart, 4th of March 1985, 12 Hill Street." },
+    { "speaker": "agent", "start_s": 19.0, "text": "Thanks Ellen. Yes, I can see three £25 fees." },
+    { "speaker": "customer", "start_s": 23.0, "text": "I was in hospital for two weeks and couldn't sort my account out." },
+    { "speaker": "agent", "start_s": 28.0, "text": "Oh right. Don't worry, I'm sure we'll refund all of that for you." },
+    { "speaker": "customer", "start_s": 33.0, "text": "When will I know?" },
+    { "speaker": "agent", "start_s": 35.0, "text": "Someone will be in touch. Anything else?" },
+    { "speaker": "customer", "start_s": 38.0, "text": "No, that's it." }
+  ],
+  "expected": {
+    "C1": "no", "C2": "no", "C3": "no", "C4": "yes", "S1": "no", "S2": "no", "S3": "yes", "S4": "no", "S5": "no",
+    "complaint": true, "vulnerability": ["health"],
+    "notes": "C1: dissatisfaction expressed, never logged as a complaint. C2: hospital stay, no support offered. C3: refund promised. S1: 'someone will be in touch' is vague. S4/S5 judgement calls: dismissive 'Oh right', no ownership."
+  }
+}

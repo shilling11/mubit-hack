@@ -1,0 +1,134 @@
+{
+ "id": "h002",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "h002",
+  "split": "heldout",
+  "situation": "mortgage_date",
+  "situation_desc": "had a mortgage payment taken on the wrong date",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Leanne Fitzgerald",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "na",
+  "C3": "yes",
+  "C4": "no",
+  "S1": "yes",
+  "S2": "no",
+  "S3": "no",
+  "S4": "no",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking.",
+   "start_s": 0.0,
+   "end_s": 2.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, it’s Leanne Fitzgerald. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about it.",
+   "start_s": 2.8,
+   "end_s": 10.1
+  },
+  {
+   "speaker": "agent",
+   "text": "I can see the £1,245 payment came out on the 18th, not the 25th you expected. There’s also a £25 late payment fee showing.",
+   "start_s": 10.6,
+   "end_s": 19.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s exactly the problem. I arranged for it to come out on the 25th. Why was it taken a week early?",
+   "start_s": 20.3,
+   "end_s": 28.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll need to look into that. First, can you give me your date of birth and the first line of your address?",
+   "start_s": 28.9,
+   "end_s": 37.4
+  },
+  {
+   "speaker": "customer",
+   "text": "It’s 14 June 1987, and 22 Alder Road, Bristol.",
+   "start_s": 37.9,
+   "end_s": 41.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks. And the first and third characters of your security word?",
+   "start_s": 41.8,
+   "end_s": 46.1
+  },
+  {
+   "speaker": "customer",
+   "text": "M and T.",
+   "start_s": 46.6,
+   "end_s": 47.8
+  },
+  {
+   "speaker": "agent",
+   "text": "Right, you’re verified. Fees like that can never be refunded, so there’s no point asking for one.",
+   "start_s": 48.3,
+   "end_s": 54.8
+  },
+  {
+   "speaker": "customer",
+   "text": "I’d still like you to investigate why the payment date was wrong. This has caused a lot of hassle.",
+   "start_s": 55.3,
+   "end_s": 62.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Fine. I’m logging this as a complaint. Your reference is TB-684219.",
+   "start_s": 63.1,
+   "end_s": 67.4
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. What are you going to do about it?",
+   "start_s": 67.9,
+   "end_s": 71.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll own this and review the payment instructions and the account history. I’ll call you by Friday, 30 October, with an update.",
+   "start_s": 71.8,
+   "end_s": 80.3
+  },
+  {
+   "speaker": "customer",
+   "text": "And when will I get a proper response?",
+   "start_s": 80.8,
+   "end_s": 83.9
+  },
+  {
+   "speaker": "agent",
+   "text": "You’ll get a full written response within 8 weeks. I’ll send it to your address on file. That’s what happens next.",
+   "start_s": 84.4,
+   "end_s": 92.4
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I’ll wait for your call on Friday.",
+   "start_s": 92.9,
+   "end_s": 96.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Okay. Goodbye.",
+   "start_s": 96.9,
+   "end_s": 98.1
+  }
+ ]
+}

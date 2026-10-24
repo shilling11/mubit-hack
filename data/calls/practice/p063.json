@@ -1,0 +1,122 @@
+{
+ "id": "p063",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p063",
+  "split": "practice",
+  "situation": "transfer_late",
+  "situation_desc": "sent a bank transfer that arrived days late, so they missed a rent payment",
+  "payment": true,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Ewan Ferreira",
+  "agent": "Zara",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "yes",
+  "S1": "yes",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good morning, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I'm Ewan Ferreira. A transfer I sent arrived days late and I missed my rent payment. I'm really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 12.8
+  },
+  {
+   "speaker": "agent",
+   "text": "I'm sorry that's caused you so much trouble, Ewan. Before I look into anything on your account, could I check your full name, date of birth and the first line of your address?",
+   "start_s": 13.3,
+   "end_s": 26.0
+  },
+  {
+   "speaker": "customer",
+   "text": "Ewan Ferreira, 14 March 1961, and 28 Meadow Lane.",
+   "start_s": 26.5,
+   "end_s": 30.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, that's verified. I can see the transfer you mean; I understand it arrived late and you missed your rent payment. I’m logging this as a complaint now.",
+   "start_s": 30.5,
+   "end_s": 41.6
+  },
+  {
+   "speaker": "customer",
+   "text": "Good. I had the rent money there. Now my landlord's charging me a late fee.",
+   "start_s": 42.1,
+   "end_s": 47.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can understand why you're upset. I can't promise what the outcome will be, but we'll look into what happened and consider the impact you've described.",
+   "start_s": 48.4,
+   "end_s": 58.4
+  },
+  {
+   "speaker": "customer",
+   "text": "I don't really understand online banking, to be honest. My son normally does it for me.",
+   "start_s": 58.9,
+   "end_s": 65.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for telling me, and that's absolutely fine. I can arrange for our Financial Support team to talk through ways we can help, and we can allow extra time if you need it to go through things.",
+   "start_s": 65.5,
+   "end_s": 79.8
+  },
+  {
+   "speaker": "customer",
+   "text": "That would help. I don't want to get muddled with it.",
+   "start_s": 80.3,
+   "end_s": 84.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I'll ask the Financial Support team to contact you, and I'll personally call you by 4 pm tomorrow to check they've been in touch and explain any next steps. The complaint itself will be reviewed, and we'll send you a full written response within 15 business days.",
+   "start_s": 85.0,
+   "end_s": 103.1
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. What if you need anything else from me?",
+   "start_s": 103.6,
+   "end_s": 107.4
+  },
+  {
+   "speaker": "agent",
+   "text": "If we need more information, we'll get in touch during the review. Just to summarise: I've logged your complaint about the late transfer and missed rent payment, I'll refer you to Financial Support, and I'll call by 4 pm tomorrow. You'll receive the full written response within 15 business days. Does that make sense?",
+   "start_s": 107.9,
+   "end_s": 128.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thanks for explaining it patiently.",
+   "start_s": 129.2,
+   "end_s": 132.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You're welcome, Ewan. I'm sorry again for the stress this has caused, and I'll speak to you tomorrow.",
+   "start_s": 133.2,
+   "end_s": 140.1
+  }
+ ]
+}

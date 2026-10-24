@@ -1,0 +1,134 @@
+{
+ "id": "p030",
+ "agent_name": "Zara",
+ "spec": {
+  "id": "p030",
+  "split": "practice",
+  "situation": "overdraft_fees",
+  "situation_desc": "was charged unarranged overdraft fees",
+  "payment": false,
+  "account": true,
+  "complaint": true,
+  "vulnerability": "life_event",
+  "vuln_cue": "mentions they lost their job two weeks ago",
+  "customer": "Niamh Varga",
+  "agent": "Zara",
+  "subtle": false,
+  "wrong_timescale": true
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "no",
+  "C3": "no",
+  "C4": "yes",
+  "S1": "no",
+  "S2": "yes",
+  "S3": "no",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Zara speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Niamh Varga. I’ve been charged unarranged overdraft fees and I’m really unhappy about it.",
+   "start_s": 4.3,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry this has been frustrating, Niamh. I can look into it for you. Before we discuss any account details, could you confirm your full name and date of birth, please?",
+   "start_s": 11.0,
+   "end_s": 22.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Niamh Varga, 14th of March 1989.",
+   "start_s": 23.4,
+   "end_s": 25.7
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you. And the first line of your address?",
+   "start_s": 26.2,
+   "end_s": 29.7
+  },
+  {
+   "speaker": "customer",
+   "text": "Flat 2, 18 Willow Road, Bristol.",
+   "start_s": 30.2,
+   "end_s": 32.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks, that’s all verified. I’ll make sure those fees are returned to you. Can you tell me a bit more about what happened?",
+   "start_s": 33.0,
+   "end_s": 41.8
+  },
+  {
+   "speaker": "customer",
+   "text": "There are three fees from this month. I thought I was within my arranged overdraft, and I lost my job two weeks ago, so it’s hit me pretty hard.",
+   "start_s": 42.3,
+   "end_s": 53.5
+  },
+  {
+   "speaker": "agent",
+   "text": "I understand you’re unhappy about the three unarranged overdraft fees, and I’m sorry for the upset. I’m logging this as a complaint now.",
+   "start_s": 54.0,
+   "end_s": 62.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Okay. I just want someone to check why they’ve been taken.",
+   "start_s": 63.3,
+   "end_s": 67.6
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’ll take ownership and ask our complaints team to review the charges. You’ll hear back from us within five working days.",
+   "start_s": 68.1,
+   "end_s": 76.9
+  },
+  {
+   "speaker": "customer",
+   "text": "Will you be the one getting back to me?",
+   "start_s": 77.4,
+   "end_s": 80.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I’ll send the complaint to the team today, and I’ll make sure they contact you by 31 October. They’ll explain what they find and what happens next.",
+   "start_s": 81.4,
+   "end_s": 91.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, so you’re logging it as a complaint and someone will get back to me by the 31st?",
+   "start_s": 92.3,
+   "end_s": 99.2
+  },
+  {
+   "speaker": "agent",
+   "text": "That’s right. I’ve summarised it as a complaint about the three fees, with the complaints team to review them and contact you by 31 October. Does that make sense?",
+   "start_s": 99.7,
+   "end_s": 110.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, that makes sense. Thank you.",
+   "start_s": 111.3,
+   "end_s": 113.7
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re welcome, Niamh. I’m sorry again for the trouble, and I’ll make sure it’s passed on today.",
+   "start_s": 114.2,
+   "end_s": 120.7
+  }
+ ]
+}

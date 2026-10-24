@@ -1,0 +1,110 @@
+{
+ "id": "p035",
+ "agent_name": "Priya",
+ "spec": {
+  "id": "p035",
+  "split": "practice",
+  "situation": "opening_hours",
+  "situation_desc": "is asking about branch opening hours",
+  "payment": false,
+  "account": false,
+  "complaint": false,
+  "vulnerability": null,
+  "vuln_cue": null,
+  "customer": "Bartek Ellingham",
+  "agent": "Priya",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "na",
+  "C2": "na",
+  "C3": "no",
+  "C4": "na",
+  "S1": "na",
+  "S2": "yes",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "na"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Hello, Thistle Bank, Priya speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Bartek Ellingham. Could you tell me what time your High Street branch in York opens?",
+   "start_s": 4.0,
+   "end_s": 10.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course, Bartek. It opens at half past nine on weekdays, and at ten on Saturdays.",
+   "start_s": 11.0,
+   "end_s": 17.2
+  },
+  {
+   "speaker": "customer",
+   "text": "And is it open this coming Monday?",
+   "start_s": 17.7,
+   "end_s": 20.3
+  },
+  {
+   "speaker": "agent",
+   "text": "Yes, it’ll be open as usual, and I can assure you you’ll be able to get in and get everything sorted there.",
+   "start_s": 20.8,
+   "end_s": 29.3
+  },
+  {
+   "speaker": "customer",
+   "text": "Right, thanks. What time does it close?",
+   "start_s": 29.8,
+   "end_s": 32.5
+  },
+  {
+   "speaker": "agent",
+   "text": "It closes at four thirty on weekdays. On Saturdays it closes at one.",
+   "start_s": 33.0,
+   "end_s": 38.0
+  },
+  {
+   "speaker": "customer",
+   "text": "That’s useful. Do I need to book an appointment for a general enquiry?",
+   "start_s": 38.5,
+   "end_s": 43.5
+  },
+  {
+   "speaker": "agent",
+   "text": "You don’t need one for a general enquiry, though you’re welcome to book if you’d prefer. I’m happy to take you through the options.",
+   "start_s": 44.0,
+   "end_s": 53.2
+  },
+  {
+   "speaker": "customer",
+   "text": "No, that’s fine. I’ll just pop in.",
+   "start_s": 53.7,
+   "end_s": 56.4
+  },
+  {
+   "speaker": "agent",
+   "text": "Certainly. Just to summarise, the York High Street branch opens at nine thirty on weekdays and ten on Saturdays, and closes at four thirty on weekdays and one on Saturdays. You can go in without an appointment for a general enquiry. Does that make sense?",
+   "start_s": 56.9,
+   "end_s": 74.2
+  },
+  {
+   "speaker": "customer",
+   "text": "Yes, it does. Thanks for your help.",
+   "start_s": 74.7,
+   "end_s": 77.4
+  },
+  {
+   "speaker": "agent",
+   "text": "You’re very welcome, Bartek. Have a lovely day.",
+   "start_s": 77.9,
+   "end_s": 81.0
+  }
+ ]
+}

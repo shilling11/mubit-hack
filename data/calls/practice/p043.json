@@ -1,0 +1,110 @@
+{
+ "id": "p043",
+ "agent_name": "Sam",
+ "spec": {
+  "id": "p043",
+  "split": "practice",
+  "situation": "branch_waits",
+  "situation_desc": "is frustrated that their branch closed and phone waits are long",
+  "payment": false,
+  "account": false,
+  "complaint": true,
+  "vulnerability": "capability",
+  "vuln_cue": "says they don't really understand online banking and their son normally does it",
+  "customer": "Jasper Lindqvist",
+  "agent": "Sam",
+  "subtle": true,
+  "wrong_timescale": false
+ },
+ "gold": {
+  "C1": "yes",
+  "C2": "yes",
+  "C3": "yes",
+  "C4": "na",
+  "S1": "no",
+  "S2": "no",
+  "S3": "yes",
+  "S4": "yes",
+  "S5": "yes"
+ },
+ "utterances": [
+  {
+   "speaker": "agent",
+   "text": "Good afternoon, Thistle Bank, Sam speaking. How can I help?",
+   "start_s": 0.0,
+   "end_s": 3.8
+  },
+  {
+   "speaker": "customer",
+   "text": "Hi, I’m Jasper Lindqvist. I’m really fed up. Our branch has closed, and then I’m left waiting ages on the phone. It’s just not good enough.",
+   "start_s": 4.3,
+   "end_s": 14.3
+  },
+  {
+   "speaker": "agent",
+   "text": "I’m sorry, Jasper. I can understand why that’s frustrating, especially when the branch was somewhere you could go for help.",
+   "start_s": 14.8,
+   "end_s": 22.5
+  },
+  {
+   "speaker": "customer",
+   "text": "Exactly. I don’t know where I’m meant to turn now.",
+   "start_s": 23.0,
+   "end_s": 26.9
+  },
+  {
+   "speaker": "agent",
+   "text": "I can take ownership of raising this for you. I’m logging this as a complaint about the branch closure and the phone wait times.",
+   "start_s": 27.4,
+   "end_s": 36.6
+  },
+  {
+   "speaker": "customer",
+   "text": "I don’t really understand online banking either. My son normally does it for me.",
+   "start_s": 37.1,
+   "end_s": 42.5
+  },
+  {
+   "speaker": "agent",
+   "text": "Thanks for telling me, and that’s absolutely fine. We have a Financial Support team who can talk through the options with you, and we can allow extra time so you’re not rushed.",
+   "start_s": 43.0,
+   "end_s": 55.3
+  },
+  {
+   "speaker": "customer",
+   "text": "That would be better. I don’t want to be made to feel silly for asking.",
+   "start_s": 55.8,
+   "end_s": 61.6
+  },
+  {
+   "speaker": "agent",
+   "text": "You won’t be, Jasper. I’ll make sure your concerns are passed on clearly. I can’t say what the outcome will be, but someone will be in touch about the complaint.",
+   "start_s": 62.1,
+   "end_s": 73.6
+  },
+  {
+   "speaker": "customer",
+   "text": "When will I hear from them?",
+   "start_s": 74.1,
+   "end_s": 76.4
+  },
+  {
+   "speaker": "agent",
+   "text": "I don’t have a timescale to give you, I’m afraid. I’ll send the complaint to our complaints team today, and I’ll personally call you by Friday to let you know it’s been passed on and discuss arranging support from the Financial Support team.",
+   "start_s": 76.9,
+   "end_s": 93.5
+  },
+  {
+   "speaker": "customer",
+   "text": "All right. I appreciate you taking it seriously.",
+   "start_s": 94.0,
+   "end_s": 97.0
+  },
+  {
+   "speaker": "agent",
+   "text": "Of course. I’m sorry you’ve had such a frustrating experience, Jasper, and I’ll follow that up as I’ve said.",
+   "start_s": 97.5,
+   "end_s": 104.8
+  }
+ ]
+}
