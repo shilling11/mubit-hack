@@ -1,0 +1,24 @@
+{
+  "_note": "Gold review for demo_call.json, written before any model run. The must-match fields are complaint.expressed, clock, vulnerability drivers and the answers to C1–C4, S1 and S5. S2, S3 and S4 are judgement calls, so don't fail a run on them.",
+  "complaint": {
+    "expressed": true,
+    "category": "fees_charges",
+    "evidence": [{ "quote": "I've been charged overdraft fees three times this month and I'm really not happy about it", "start_s": 3.1 }]
+  },
+  "vulnerability": [
+    { "driver": "health", "evidence": [{ "quote": "I was in hospital for two weeks and couldn't sort my account out", "start_s": 24.5 }] }
+  ],
+  "clock": "DISP_8W",
+  "scorecard": {
+    "C1": { "reasoning": "Customer said she was not happy about fees; agent never treated it as a complaint or logged it.", "answer": "no", "evidence": [{ "quote": "I'm really not happy about it", "start_s": 3.1 }], "confidence": 0.9 },
+    "C2": { "reasoning": "Customer mentioned a two-week hospital stay; agent offered no support or specialist help.", "answer": "no", "evidence": [{ "quote": "I was in hospital for two weeks and couldn't sort my account out", "start_s": 24.5 }], "confidence": 0.9 },
+    "C3": { "reasoning": "Agent promised a refund before any investigation.", "answer": "no", "evidence": [{ "quote": "I'm sure we'll refund all of that for you", "start_s": 30.1 }], "confidence": 0.95 },
+    "C4": { "reasoning": "Agent asked for name, date of birth and address before discussing the fees.", "answer": "yes", "evidence": [{ "quote": "Can I take your name and date of birth, and the first line of your address?", "start_s": 9.4 }], "confidence": 0.9 },
+    "S1": { "reasoning": "Customer asked when she would know; agent gave no next steps or timescale.", "answer": "no", "evidence": [{ "quote": "Someone will be in touch. Anything else?", "start_s": 37.6 }], "confidence": 0.9 },
+    "S2": { "reasoning": "Agent explained the fees and a refund without checking understanding.", "answer": "no", "evidence": [{ "quote": "Yes, I can see three twenty five pound fees", "start_s": 19.2 }], "confidence": 0.6 },
+    "S3": { "reasoning": "Fee facts were accurate; the refund promise is covered by C3.", "answer": "yes", "evidence": [{ "quote": "Yes, I can see three twenty five pound fees", "start_s": 19.2 }], "confidence": 0.6 },
+    "S4": { "reasoning": "Agent brushed off the hospital stay with 'Oh right. Don't worry'.", "answer": "no", "evidence": [{ "quote": "Oh right. Don't worry", "start_s": 30.1 }], "confidence": 0.7 },
+    "S5": { "reasoning": "Vague 'someone will be in touch' with no owner, channel or time.", "answer": "no", "evidence": [{ "quote": "Someone will be in touch", "start_s": 37.6 }], "confidence": 0.9 }
+  },
+  "summary": "Overdraft fee complaint from a customer recently in hospital; agent missed the complaint and vulnerability and promised a refund."
+}

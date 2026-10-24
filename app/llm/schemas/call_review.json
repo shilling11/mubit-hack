@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["complaint", "vulnerability", "clock", "scorecard", "summary"],
+  "properties": {
+    "complaint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expressed", "category", "evidence"],
+      "properties": {
+        "expressed": { "type": "boolean" },
+        "category": {
+          "type": "string",
+          "enum": ["fees_charges", "card_payment_dispute", "fraud_scam", "lending_overdraft", "mortgage", "account_service", "other", "none"]
+        },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "vulnerability": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["driver", "evidence"],
+        "properties": {
+          "driver": { "type": "string", "enum": ["health", "life_event", "resilience", "capability"] },
+          "evidence": { "$ref": "#/$defs/evidence" }
+        }
+      }
+    },
+    "clock": { "type": "string", "enum": ["SRC_3BD", "PSR_15BD", "DISP_8W", "NONE"] },
+    "scorecard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["C1", "C2", "C3", "C4", "S1", "S2", "S3", "S4", "S5"],
+      "properties": {
+        "C1": { "$ref": "#/$defs/item" },
+        "C2": { "$ref": "#/$defs/item" },
+        "C3": { "$ref": "#/$defs/item" },
+        "C4": { "$ref": "#/$defs/item" },
+        "S1": { "$ref": "#/$defs/item" },
+        "S2": { "$ref": "#/$defs/item" },
+        "S3": { "$ref": "#/$defs/item" },
+        "S4": { "$ref": "#/$defs/item" },
+        "S5": { "$ref": "#/$defs/item" }
+      }
+    },
+    "summary": { "type": "string" }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["quote", "start_s"],
+        "properties": {
+          "quote": { "type": "string" },
+          "start_s": { "type": "number" }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reasoning", "answer", "evidence", "confidence"],
+      "properties": {
+        "reasoning": { "type": "string" },
+        "answer": { "type": "string", "enum": ["yes", "no", "na"] },
+        "evidence": { "$ref": "#/$defs/evidence" },
+        "confidence": { "type": "number" }
+      }
+    }
+  }
+}

@@ -45,10 +45,24 @@ A Mubit task is the combination of **system prompt + model + output format** (RE
 
 | Task | System prompt (fixed) | User message (varies) | Output (strict JSON) | Record mode |
 |---|---|---|---|---|
-| `review.thistle` | Reviewer instructions + **Thistle's scorecard** (C1–C4, S1–S5, see QA_RESEARCH §2) | Transcript (speaker-labelled, timestamped) + **Thistle playbook vN** | `{items:[{id, answer:"yes"|"no"|"na", quote, start_s, confidence}], complaint:{is_complaint, category, quote}, clock, vulnerability:[{driver, quote, start_s}], risk_tier, summary}` | practice and live calls: `full` · held-out: `metadata` |
+| `review.thistle` | [`app/llm/prompts/review_thistle.md`](../app/llm/prompts/review_thistle.md): reviewer instructions + **Thistle's scorecard** (C1–C4, S1–S5) | `spec.build_user_message()`: `PLAYBOOK (...)` + `TRANSCRIPT` lines `[start_s] AGENT/CUSTOMER: text` | [`call_review.json`](../app/llm/schemas/call_review.json): `{complaint{expressed, category, evidence[]}, vulnerability[{driver, evidence[]}], clock, scorecard{C1..S5: {reasoning, answer, evidence[{quote, start_s}], confidence}}, summary}`. **The score, pass/fail and risk tier are computed in code** (`spec.score`) | practice and live calls: `full` · held-out: `metadata` |
 | `review.northwind` | Same reviewer instructions + **Northwind's scorecard** | Same | Same | Same. **Left at about 12/25 on purpose**, to show "one model per client" |
 | `report.thistle` | Report writer + **Thistle's report template and tone** | **One section's inputs**: the stats for that section (computed in code) + evidence excerpts + report playbook vN | `{title, body, evidence_call_ids:[...]}` | `full` |
 | `rule.induce` | Rule writer (shared) | The correction (before, after, reason, context) | `{rule, applies_when, keywords}` | `full` |
+
+**Frozen at 00:00 (don't edit after):**
+- `app/llm/prompts/review_thistle.md`
+- `review_northwind.md`
+- `app/llm/schemas/call_review.json`
+- the user-message layout in `app/review/spec.py`
+- the model (`MUBIT_MODEL`)
+
+When porting Redline's `mubit_client.py`:
+- add `"review.thistle": "review_thistle.md"` and `"review.northwind": "review_northwind.md"` to `TASKS`;
+- keep the schema name convention (`review_thistle`);
+- run every review through `spec.verify_evidence()` then `spec.score()`.
+
+Smoke test: `python -m scripts.try_review` (it uses `record=metadata`, so nothing is trained on).
 
 **Why reports are written one section at a time:**
 - Mubit refuses "examples too long to train on" (Mubit docs).

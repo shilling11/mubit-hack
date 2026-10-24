@@ -1,0 +1,19 @@
+{
+  "id": "thistle",
+  "name": "Thistle Bank",
+  "task": "review.thistle",
+  "prompt": "review_thistle.md",
+  "contact_email": "thistle.complaints.demo@gmail.com",
+  "pass_mark": 80,
+  "items": [
+    { "id": "C1", "label": "Complaint recognised", "kind": "critical", "weight": 0, "rule": "FCA DISP: definition of a complaint" },
+    { "id": "C2", "label": "Vulnerability recognised and supported", "kind": "critical", "weight": 0, "rule": "FCA FG21/1" },
+    { "id": "C3", "label": "No promised outcome or misleading statement", "kind": "critical", "weight": 0, "rule": "Consumer Duty: consumer understanding" },
+    { "id": "C4", "label": "Identity verified before account details", "kind": "critical", "weight": 0, "rule": "Thistle security policy" },
+    { "id": "S1", "label": "Next steps and correct timescale", "kind": "scored", "weight": 20, "rule": "FCA DISP 1.6" },
+    { "id": "S2", "label": "Checked understanding", "kind": "scored", "weight": 20, "rule": "Consumer Duty: consumer understanding" },
+    { "id": "S3", "label": "Accurate information", "kind": "scored", "weight": 20, "rule": "Thistle policy" },
+    { "id": "S4", "label": "Empathy and tone", "kind": "scored", "weight": 20, "rule": "Thistle service standard" },
+    { "id": "S5", "label": "Ownership and follow-up", "kind": "scored", "weight": 20, "rule": "Thistle service standard" }
+  ]
+}

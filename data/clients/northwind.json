@@ -1,0 +1,19 @@
+{
+  "id": "northwind",
+  "name": "Northwind Finance",
+  "task": "review.northwind",
+  "prompt": "review_northwind.md",
+  "contact_email": "northwind.complaints.demo@gmail.com",
+  "pass_mark": 80,
+  "items": [
+    { "id": "C1", "label": "Complaint recognised", "kind": "critical", "weight": 0, "rule": "FCA DISP: definition of a complaint" },
+    { "id": "C2", "label": "Vulnerability recognised and supported", "kind": "critical", "weight": 0, "rule": "FCA FG21/1" },
+    { "id": "C3", "label": "No pressure or misleading statement", "kind": "critical", "weight": 0, "rule": "FCA CONC 7" },
+    { "id": "C4", "label": "Identity verified before account details", "kind": "critical", "weight": 0, "rule": "Northwind security policy" },
+    { "id": "S1", "label": "Affordability explored", "kind": "scored", "weight": 20, "rule": "FCA CONC 7" },
+    { "id": "S2", "label": "Forbearance and free advice explained", "kind": "scored", "weight": 20, "rule": "FCA CONC 7" },
+    { "id": "S3", "label": "Next steps and correct timescale", "kind": "scored", "weight": 20, "rule": "FCA DISP 1.6" },
+    { "id": "S4", "label": "Empathy and tone", "kind": "scored", "weight": 20, "rule": "Northwind service standard" },
+    { "id": "S5", "label": "Accurate information", "kind": "scored", "weight": 20, "rule": "Northwind policy" }
+  ]
+}
