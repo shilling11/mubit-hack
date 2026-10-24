@@ -122,7 +122,9 @@ def _review_bg(call_id: str, version: int | None = None) -> None:
 @app.get("/api/status")
 def status():
     t = db.one("SELECT COUNT(*) AS calls, SUM(ok = 0) AS errors FROM traces") or {}
+    ex = db.one("SELECT COUNT(*) AS n FROM traces WHERE task = 'review.call' AND record_mode = 'full' AND ok = 1") or {}
     return {
+        "training_examples_sent": ex.get("n") or 0,
         "mubit": {"base_url": MUBIT_BASE_URL, "key_set": bool(MUBIT_API_KEY), "model": MUBIT_MODEL,
                   "reasoning_effort": REVIEW_REASONING_EFFORT},
         "deepgram_key_set": bool(DEEPGRAM_API_KEY),

@@ -337,6 +337,21 @@ POST /api/demo/reset                clear live calls and analyst corrections (ke
 
 ---
 
+## 7b. The web app (Next.js, `web/`)
+Styled after Abdul's HTML references in `design/`: the corridor background with light streaks, the pixel voice glyph, word-by-word blur reveals, glass cards that light where the cursor is, glowing lime cards, the beam and the Mubit particle morph. Everything is live from the API (polled every 1–5s).
+
+| Page | What it's for |
+|---|---|
+| `/` **Landing** (our slide deck) | Scroll or use ↑/↓ and 1–5: **Home** → **Problem** (100-tile wall: 5 heard today, click *Score them all* or press L to flip to 100%) → **How it works** (the 7-step pipeline and the 4 critical items) → **Proof** (live held-out numbers and per-call barcode) → **Mubit** (particle morph: collecting → training → adapter passed; click to step) → **Open the dashboard** |
+| `/dashboard` **Overview** | Stats, the wall (one tile per call, coloured by risk; audit sample outlined), the queue (breach / analyst / audit, most urgent first), quick buttons to load the demo calls as text |
+| `/dashboard/live` **Live call** | **Record call** (laptop mic, live equaliser), **Stop & score** → Deepgram → Mubit → scorecard. Shows "scored in Xs after hang-up", the four finding cards lighting up (complaint, vulnerable, critical fails, routed), the transcript, **Upload file** and **Swap speakers** |
+| `/dashboard/calls/[id]` **Evaluation form** | The analyst's screen: transcript (▶ plays the audio from any line; flagged lines glow), *What Mubit saw* toggle (redacted), the AI scorecard with critical items first, quotes, confidence and routing reasons. Pick pass / fail / n/a / unsure, give a one-line reason (preset suggestions offered), **Submit & teach** → the induced rule and the new playbook version, **Test this rule on archived calls**, and **Compare with v0 / previous version** side by side |
+| `/dashboard/learning` | Playbook versions, rules (newest lit), corrections feed, AI-vs-analyst agreement per item, test any rule on the archive, load the guardrail seeds |
+| `/dashboard/proof` | Held-out metrics per playbook version (mean and min–max), per-call barcode, **Run 3× base vs latest** |
+| `/dashboard/mubit` | Gateway settings, training examples sent, adapter stages, live trace table (task, record mode, request ID, latency, tokens) |
+
+---
+
 ## 8. Technology and repo layout
 
 | Layer | Choice | Notes |
@@ -397,39 +412,37 @@ mubit-hack/
 
 ## 10. Demo (3 minutes, live)
 
-**Cast:** Abdul plays **Sam**, a Thistle Bank colleague, and answers on his phone **on speaker next to the laptop**. Sultan plays the customer and rings him. The laptop records the room (setup B) and runs Redress on the projector. Scripts: [`data/demo/call1.json`](data/demo/call1.json) (Abdul's) and [`data/demo/call2.json`](data/demo/call2.json) (draft, to check).
+**Cast:** Abdul plays **Sam**, a Thistle Bank colleague, and answers his phone **on speaker next to the laptop**. Sultan plays the customer and rings him. The laptop runs Redress on the projector and records the room. Scripts: [`data/demo/call1.json`](data/demo/call1.json) (Abdul's) and [`data/demo/call2.json`](data/demo/call2.json).
 
 ### Before going on stage
-1. `python -m scripts.reset_demo`, then start the API **without** `--reload` and the web app; Mubit console open on Try models in another tab.
-2. Practice calls scored and the wall populated (done: 80 calls at playbook v1); guardrail seeds in the playbook (done).
-3. Held-out set run 3× at base and 3× at the latest playbook: `python -m scripts.run_eval --repeats 3`.
-4. Mubit adapter: Tasks → Adapters shows **Passed**; start it once in Try models beforehand.
-5. Rehearse both calls 3× in the venue; record the best takes as fallback files (upload them with `POST /api/calls`, or use `POST /api/demo/scripts/{id}` for the text version).
+1. `python -m scripts.reset_demo` (keeps the 80 scored practice calls and the guardrail playbook; clears live calls and analyst corrections).
+2. Start the API **without** `--reload`, then the web app (§12). Open `http://localhost:3000` full-screen in Chrome; allow the microphone once on `/dashboard/live`.
+3. Recommended: in rehearsal, make the S3 correction on call 1 (below), then **Proof → Run 3× base vs latest** so the latest playbook has averaged numbers. Don't reset after that; the live correction on stage then becomes the next version.
+4. Mubit console open in another tab on **Tasks → Adapters**; if a version has **Passed**, start it once in **Try models** beforehand.
+5. Rehearse both calls 3× in the room; upload the best take of each as a fallback (**Upload file** on the Live call page). If audio fails, **Demo call 1/2 (text)** loads the scripts instantly.
 
-### What the rehearsal showed (text versions, 24–25 Oct)
-The base model **catches every planted lapse** in both calls, including the subtle ones. Where it differs from an analyst, it **over-flags**: it fails **S3 (accurate information)** on call 1 because of the refund promise that C3 already counts, and at times fails C3 on call 2 for the wrong timescale. So the demo correction is about **scoring like the bank's analysts**, not about a missed breach:
+### What the rehearsal showed
+The base model catches every planted lapse; where it differs from an analyst, it **over-flags**: S3 (accurate information) fails on call 1 because of the refund promise that C3 already counts. So the live correction is about **scoring like the bank's analysts**:
 
-> *"Score each mistake under the one item it belongs to. A promised refund is a C3 fail, not inaccurate information: S3 is only for factually wrong statements about fees, rules or timescales."*
+> *"Score each mistake under the one item it belongs to. A promised refund is a C3 fail, not inaccurate information: S3 is only for factually wrong statements about fees, rules or timescales."* (one click: it's a preset under S3)
 
-`rule.induce` turned this into: *"For S3 Accurate information, score only whether statements about products, fees, rules, or timescales are factually accurate; do not score a promise or service commitment here when it belongs under another item."* Call 2 at the new version: C3 passes and S3 fails (the 8 weeks should be 15 business days), which is what an analyst would score.
-
-### On stage
-| Time | Beat | On screen |
+### On stage, step by step
+| Time | Do this | What the audience sees |
 |---|---|---|
-| 0:00–0:15 | **Problem.** "Banks check one call in twenty. The other nineteen are never heard." The wall: 80 calls, 4 in the random sample. | Wall |
-| 0:15–0:55 | **Call 1 (live).** Ellen: overdraft fees while she was in hospital. Sam checks identity, then *"Don't worry, I'm sure we'll refund all of that"*, then *"Someone will be in touch."* | Live call (recording timer) |
-| 0:55–1:15 | **Scored in ~15s.** Transcript, then the scorecard: C1, C2, C3 failed with quotes and timestamps, routed as a breach. | Evaluation form |
-| 1:15–1:40 | **The analyst corrects one thing:** S3 → pass, with the one-line reason above. Mubit induces a rule; playbook v2. | Learning |
-| 1:40–2:15 | **Call 2 (live), similar but different:** Daniel, recently bereaved, disputes a card payment. Sam is kind but offers no support, puts "a note on the account" and quotes 8 weeks. Scored at v2: C1 and C2 fail, **C3 correctly passes**, S3 correctly fails. Show the same call at v1 beside it. | Evaluation form |
-| 2:15–2:40 | **Scale.** All calls scored; held-out Compare: critical recall and false negatives (0 at base and v1), precision, human queue rate. | Wall + Compare |
-| 2:40–2:55 | **Model update.** Mubit Try models: the adapter vs the provider on a held-out transcript. | Mubit console |
-| 2:55–3:00 | **Money line.** | Title |
+| 0:00–0:20 | Landing page: **Home** then **Problem**. Press **L** to flip the wall | "Banks hear one call in twenty." 5 tiles become 100 |
+| 0:20–0:30 | Press **3** (How it works), then click **Open the dashboard** → **Live call** | The pipeline, then the live-call stage |
+| 0:30–1:05 | Click **Record call**. Sultan rings Abdul; they play call 1. Click **Stop & score** | Timer and equaliser while recording; on stop, the beam runs and the four cards light: complaint, vulnerable (health), critical fails C1·C2·C3, routed: escalate |
+| 1:05–1:35 | **Open the evaluation form**. Show the quotes (▶ plays the audio), *What Mubit saw*. On **S3** click **pass**, click the preset reason, **Submit & teach** | Rule appears; playbook v(N+1) |
+| 1:35–2:10 | Back to **Live call**, record call 2 (Daniel, bereaved, card payment). **Stop & score** → evaluation form → **Compare with v(N)** | At the new version C3 passes, S3 fails (8 weeks should be 15 business days), C1 and C2 fail: scored like an analyst. Side by side with the earlier version |
+| 2:10–2:35 | **Proof** | Held-out: every breach caught, 0 missed, precision and queue rate, per-call barcode |
+| 2:35–2:52 | **Mubit** page, then the Mubit console's **Try models** | Training examples sent, trace table; the adapter vs the provider |
+| 2:52–3:00 | Landing page **Mubit** section | "Without Mubit, AI scores calls. With Mubit, it learns how your QA team scores them." |
 
 **Judge questions to prepare:**
-- *What if the transcript is wrong?* → We assume high-fidelity recordings (contact centres record per speaker); low STT confidence routes the call to a human instead of scoring it.
-- *What about false negatives?* → 0 on the held-out set so far. Critical items need positive evidence to pass; `unsure` goes to a human; an independent keyword safety net (it would have caught a run where the model missed call 2's "fed up" complaint); a 5% random audit; critical recall is the headline metric.
+- *What if the transcript is wrong?* → We assume high-fidelity recordings (contact centres record per speaker); low STT confidence routes the call to a human instead of scoring it. **Swap speakers** fixes a mislabelled call.
+- *What about false negatives?* → 0 missed out of 22 breaches on the held-out set across 8 runs. Critical items need positive evidence to pass; `unsure` goes to a human; an independent keyword safety net; a 5% random audit.
 - *Isn't this an LLM judging people?* → It drafts scores; analysts decide. Coaching and any action on a colleague stay human.
-- *PII?* → Redacted in code before Mubit; raw audio never leaves the laptop; held-out runs aren't stored at Mubit.
+- *PII?* → Redacted in code before Mubit (toggle *What Mubit saw*); raw audio never leaves the laptop; held-out runs aren't stored at Mubit.
 - *Isn't this just a prompt?* → The playbook applies corrections immediately; Mubit distils the corrected reviews into a task adapter (Try models).
 
 ---
@@ -446,8 +459,8 @@ Code freeze is **Sun 10:00**.
 | 5 | Evaluation → corrections → `rule.induce` → playbook; test on archive | ✅ |
 | 6 | Deepgram upload path (setup B) | ✅ ~9s for a 26s recording |
 | 7 | Mubit warm-up: 80 practice reviews at v1 (`record=full`) | ✅ sent; check Tasks → Adapters |
-| 8 | Held-out eval 3× base and 3× latest | 🔲 `python -m scripts.run_eval --repeats 3` |
-| 9 | UI: wall, live call (recorder), queue, evaluation form, learning, compare, Mubit panel | 🔲 against the API in §7 |
+| 8 | Held-out eval, repeated | ✅ 4× base and 4× v1 (§15) |
+| 9 | UI: landing, overview (wall + queue), live call (recorder), evaluation form, learning, proof, Mubit | ✅ §7b |
 | 10 | Rehearse both calls 3×, record fallbacks, tune thresholds on practice calls | 🔲 **Before Sun 10:00** |
 
 ---
@@ -459,7 +472,7 @@ python -m venv .venv
 copy .env.example .env                                         # MUBIT_API_KEY, DEEPGRAM_API_KEY
 .\.venv\Scripts\python -m scripts.smoke_mubit                 # Mubit + Deepgram reachable?
 .\.venv\Scripts\python -m uvicorn app.main:app --port 8000     # no --reload when demoing
-cd web; npm install; npm run dev                               # http://localhost:3000 (PowerShell)
+cd web; npm install; npm run dev                               # http://localhost:3000 = landing · /dashboard = the app (PowerShell)
 start design\prototype.html                                    # visual reference
 ```
 
@@ -494,8 +507,20 @@ Keys go in `.env` only. Provider keys (OpenAI or Anthropic) never go in the app:
 
 ---
 
-## 15. Status and measured results (25 Oct 2026, ~01:00)
-- **Held-out (25 calls, one run each):** critical recall **100%** with **0 false negatives** at both base and playbook v1; critical precision 88%; item accuracy 91.6%; complaint and vulnerability recall 100%; human queue rate 84% → 76%; review latency p50 ~12s. The synthetic set is lapse-dense on purpose, so most calls genuinely need a human.
-- **Where the model is wrong:** mostly **over-flagging**: S3 failed for a mistake already counted elsewhere, and C3 failed for a wrong timescale. That's what analyst corrections should teach.
-- **Mubit:** `review.call` has 80 full-record practice reviews at v1 (training examples), plus metadata-only base and held-out runs. `data.generate` and `rule.induce` are separate tasks.
+## 15. Status and measured results (25 Oct 2026)
+**Held-out: 25 calls containing 22 critical breaches (18 calls with at least one), 4 runs per version:**
+
+| | Base (v0) | Playbook v1 (guardrail seeds) |
+|---|---|---|
+| Breaches caught (system critical recall) | **100%** (100–100) | **100%** (100–100) |
+| Missed breaches | **0** in every run | **0** in every run |
+| Model critical recall (model said "fail") | 100% | 100% |
+| Flag precision | 89.9% (88–96) | 89.0% (85–92) |
+| Sent to a human | 81% (80–84) | 78% (76–84) |
+| Item accuracy vs gold | 90.9% (91–92) | 90.9% (89–92) |
+| Review time (median) | ~12s | ~12s |
+
+- **What it means:** the model never missed a breach in 8 runs (22 breaches × 8 = 176 chances), so the conservative design isn't costing recall. The guardrail seeds (v1) cover things the base model already did right, so v1 ≈ base: the differences are within run-to-run noise. The room to improve is **precision and item accuracy** (over-flagging, mainly S3). That's what analyst corrections like the S3 rule should move; evaluate the version that includes it.
+- **The queue rate is high because the synthetic set is lapse-dense** (18 of 25 calls genuinely breach). In a real centre most calls are compliant, so far fewer reach a human.
+- **Mubit:** 88 full-record `review.call` examples sent (practice reviews at v1 plus rehearsal); base and held-out runs are metadata-only.
 - **To check by hand:** the 25 held-out gold labels in `data/eval/gold.jsonl` (spec-derived) and the call 2 script.

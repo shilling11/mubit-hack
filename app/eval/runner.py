@@ -70,7 +70,12 @@ def compare(split: str = "heldout") -> list[dict]:
         for k in keys:
             vals = [r["metrics_json"].get(k) for r in rs if r["metrics_json"].get(k) is not None]
             summary[k] = {"mean": round(mean(vals), 3), "min": min(vals), "max": max(vals)} if vals else None
+        latest = rs[-1]["metrics_json"].get("per_call", [])
         out.append({"playbook_version": version, "model": model, "runs": len(rs),
                     "label": "Base" if version == 0 else f"Playbook v{version}",
-                    "run_ids": [r["id"] for r in rs], "metrics": summary})
+                    "run_ids": [r["id"] for r in rs], "metrics": summary,
+                    "n_items": len(spec.items_by_id()),
+                    # Latest run, one entry per held-out call: how many of the 9 items matched gold
+                    "per_call": [{"call_id": p["call_id"], "items_correct": p["items_correct"],
+                                  "false_negatives": p["false_negatives"]} for p in latest]})
     return out
