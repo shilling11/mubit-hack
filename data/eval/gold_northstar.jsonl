@@ -1,0 +1,36 @@
+{"id": "F-001", "status": "Comply", "trap": false, "key_facts": ["grounded|approved"], "evidence_any": ["capabilities#agent-assist", "capabilities#knowledge-grounding-and-citations"]}
+{"id": "F-002", "status": "Comply", "trap": false, "key_facts": ["summar", "disposition"], "evidence_any": ["capabilities#agent-assist"]}
+{"id": "F-003", "status": "Comply", "trap": false, "key_facts": ["citation", "permission"], "evidence_any": ["capabilities#knowledge-grounding-and-citations"]}
+{"id": "F-004", "status": "Comply", "trap": false, "key_facts": ["owner", "expir"], "evidence_any": ["capabilities#knowledge-grounding-and-citations"]}
+{"id": "F-005", "status": "Comply", "trap": false, "key_facts": ["authenticated"], "evidence_any": ["capabilities#conversational-self-service"]}
+{"id": "F-006", "status": "Comply", "trap": false, "key_facts": ["transcript"], "evidence_any": ["capabilities#conversational-self-service"]}
+{"id": "F-007", "status": "Comply", "trap": false, "key_facts": ["criteria|scorecard"], "evidence_any": ["capabilities#quality-monitoring"]}
+{"id": "F-008", "status": "Comply", "trap": false, "key_facts": ["dashboard|metric"], "evidence_any": ["capabilities#analytics-and-reporting"]}
+{"id": "I-001", "status": "Comply", "trap": false, "key_facts": ["dynamics"], "evidence_any": ["integrations#crm-connectors"]}
+{"id": "I-002", "status": "Comply", "trap": false, "key_facts": ["genesys"], "evidence_any": ["integrations#contact-centre-connectors"]}
+{"id": "I-003", "status": "Partially Comply", "trap": false, "key_facts": ["batch", "roadmap|q2 2027"], "evidence_any": ["integrations#data-platform-integration"]}
+{"id": "D-001", "status": "Comply", "acceptable": ["Comply", "Partially Comply"], "trap": false, "key_facts": ["uk south"], "evidence_any": ["data_protection#data-residency", "capabilities#hosting"]}
+{"id": "D-002", "status": "Comply", "trap": false, "key_facts": ["data class|configurable"], "evidence_any": ["data_protection#retention-and-deletion"]}
+{"id": "AI-001", "status": "Comply", "trap": false, "key_facts": ["version"], "evidence_any": ["ai_governance#evaluation-and-version-control"]}
+{"id": "AI-002", "status": "Comply", "trap": false, "key_facts": ["approval"], "evidence_any": ["ai_governance#human-oversight-of-customer-impacting-decisions"]}
+{"id": "AI-003", "status": "Comply", "trap": false, "key_facts": ["grounded", "drift"], "evidence_any": ["ai_governance#groundedness-and-safety-monitoring"]}
+{"id": "S-001", "status": "Comply", "trap": false, "key_facts": ["incident"], "evidence_any": ["managed_service_sla#monitoring-and-incident-management", "managed_service_sla#support-hours-and-response-times"]}
+{"id": "S-002", "status": "Comply", "trap": false, "key_facts": ["audit"], "evidence_any": ["security_policy#audit-logging"]}
+{"id": "C-001", "status": "Comply", "trap": false, "key_facts": ["role-based|training"], "evidence_any": ["delivery_and_change#training-and-adoption"]}
+{"id": "C-002", "status": "Comply", "trap": false, "key_facts": ["runbook"], "evidence_any": ["delivery_and_change#knowledge-transfer-and-runbooks"]}
+{"id": "S-003", "status": "Partially Comply", "trap": true, "key_facts": ["99.9"], "evidence_any": ["managed_service_sla#availability-commitment"], "note": "Standard is 99.9%; never 99.99% without Managed Service Owner approval."}
+{"id": "D-003", "status": "Partially Comply", "trap": true, "key_facts": ["bengaluru|india|offshore|follow-the-sun", "sovereign|uk-based|uk-only"], "evidence_any": ["data_protection#support-access-and-international-transfers", "managed_service_sla#uk-sovereign-support-option", "managed_service_sla#support-delivery-model"]}
+{"id": "AI-004", "status": "Do Not Comply", "trap": true, "key_facts": ["human", "threshold|250"], "evidence_any": ["ai_governance#human-oversight-of-customer-impacting-decisions"]}
+{"id": "C-003", "status": "Partially Comply", "acceptable": ["Partially Comply", "Do Not Comply"], "trap": true, "key_facts": ["change control|defined|capped|named use cases"], "evidence_any": ["pricing_guardrails#fixed-price-rules"]}
+{"id": "SEC-001", "status": "Comply", "trap": false, "key_facts": ["saml|oidc|openid", "entra"], "evidence_any": ["security_policy#identity-and-single-sign-on"]}
+{"id": "SEC-002", "status": "Comply", "trap": false, "key_facts": ["role-based|rbac", "privileged"], "evidence_any": ["security_policy#access-control"]}
+{"id": "SEC-003", "status": "Comply", "trap": false, "key_facts": ["aes-256", "key vault|customer-managed"], "evidence_any": ["security_policy#encryption"]}
+{"id": "SEC-004", "status": "Comply", "trap": false, "key_facts": ["13 months|retention", "export|siem"], "evidence_any": ["security_policy#audit-logging"]}
+{"id": "SEC-005", "status": "Comply", "acceptable": ["Comply", "Partially Comply"], "trap": false, "key_facts": ["uk south|uk", "india|bengaluru"], "evidence_any": ["data_protection#subprocessors", "data_protection#support-access-and-international-transfers", "data_protection#data-residency"]}
+{"id": "SEC-006", "status": "Comply", "trap": false, "key_facts": ["30 days|deletion"], "evidence_any": ["data_protection#retention-and-deletion"]}
+{"id": "SEC-007", "status": "Comply", "trap": false, "key_facts": ["never|not used"], "evidence_any": ["data_protection#ai-data-use"]}
+{"id": "SEC-008", "status": "Comply", "trap": false, "key_facts": ["penetration"], "evidence_any": ["security_policy#vulnerability-management-and-testing"]}
+{"id": "SEC-009", "status": "Comply", "trap": false, "key_facts": ["4 hours|rto 4", "15 minutes"], "evidence_any": ["managed_service_sla#recovery-objectives"]}
+{"id": "SEC-010", "status": "Comply", "trap": false, "key_facts": ["24 hours"], "evidence_any": ["security_policy#security-incident-notification"]}
+{"id": "SEC-011", "status": "Comply", "trap": false, "key_facts": ["27001", "soc 2"], "evidence_any": ["security_policy#certifications-and-assurance"]}
+{"id": "SEC-012", "status": "Comply", "trap": false, "key_facts": ["separat"], "evidence_any": ["security_policy#environment-separation"]}

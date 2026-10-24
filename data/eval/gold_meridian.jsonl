@@ -1,0 +1,26 @@
+{"id": "REQ-01", "status": "Comply", "trap": false, "key_facts": ["citation|source|grounded"], "evidence_any": ["capabilities#agent-assist", "capabilities#knowledge-grounding-and-citations"]}
+{"id": "REQ-02", "status": "Comply", "trap": false, "key_facts": ["citation|clause|source"], "evidence_any": ["capabilities#knowledge-grounding-and-citations"]}
+{"id": "REQ-03", "status": "Partially Comply", "trap": true, "key_facts": ["99.9"], "evidence_any": ["managed_service_sla#availability-commitment"], "note": "Standard is 99.9%; Enhanced Resilience gives 99.95%; never 99.99%."}
+{"id": "REQ-04", "status": "Partially Comply", "trap": true, "key_facts": ["bengaluru|india|offshore|follow-the-sun", "sovereign|uk-based|uk-only"], "evidence_any": ["data_protection#support-access-and-international-transfers", "managed_service_sla#uk-sovereign-support-option", "managed_service_sla#support-delivery-model"], "note": "Standard support can access data from India; UK Sovereign Support option mitigates."}
+{"id": "REQ-05", "status": "Do Not Comply", "trap": true, "key_facts": ["human"], "evidence_any": ["ai_governance#human-oversight-of-customer-impacting-decisions"], "note": "Human approval above threshold is a design principle."}
+{"id": "REQ-06", "status": "Partially Comply", "acceptable": ["Partially Comply", "Do Not Comply"], "trap": true, "key_facts": ["change control|defined|capped|named use cases"], "evidence_any": ["pricing_guardrails#fixed-price-rules"], "note": "Fixed price only for capped scope."}
+{"id": "REQ-07", "status": "Comply", "trap": false, "key_facts": ["health cloud"], "evidence_any": ["integrations#crm-connectors"]}
+{"id": "REQ-08", "status": "Comply", "trap": false, "key_facts": ["amazon connect"], "evidence_any": ["integrations#contact-centre-connectors"]}
+{"id": "REQ-09", "status": "Partially Comply", "trap": false, "key_facts": ["batch", "roadmap|q2 2027"], "evidence_any": ["integrations#data-platform-integration"]}
+{"id": "REQ-10", "status": "Comply", "trap": false, "key_facts": ["version"], "evidence_any": ["ai_governance#evaluation-and-version-control", "ai_governance#model-and-prompt-change-control"]}
+{"id": "REQ-11", "status": "Comply", "trap": false, "key_facts": ["approval"], "evidence_any": ["ai_governance#human-oversight-of-customer-impacting-decisions"]}
+{"id": "REQ-12", "status": "Comply", "trap": false, "key_facts": ["grounded"], "evidence_any": ["ai_governance#groundedness-and-safety-monitoring"]}
+{"id": "REQ-13", "status": "Partially Comply", "trap": false, "key_facts": ["30"], "evidence_any": ["managed_service_sla#support-hours-and-response-times"], "note": "Standard P1 response is 30 minutes, not 15."}
+{"id": "REQ-14", "status": "Comply", "trap": false, "key_facts": ["uk south"], "evidence_any": ["data_protection#data-residency", "capabilities#hosting"]}
+{"id": "REQ-15", "status": "Comply", "trap": false, "key_facts": ["30 days", "certificate"], "evidence_any": ["data_protection#retention-and-deletion"]}
+{"id": "REQ-16", "status": "Comply", "trap": false, "key_facts": ["training"], "evidence_any": ["delivery_and_change#training-and-adoption"]}
+{"id": "REQ-17", "status": "Do Not Comply", "trap": false, "key_facts": ["clinical|signpost"], "evidence_any": ["ai_governance#prohibited-and-restricted-uses"]}
+{"id": "REQ-18", "status": "Partially Comply", "acceptable": ["Partially Comply", "Do Not Comply"], "trap": false, "key_facts": ["baseline", "10%"], "evidence_any": ["pricing_guardrails#outcome-based-pricing"]}
+{"id": "SEC-01", "status": "Comply", "trap": false, "key_facts": ["okta"], "evidence_any": ["security_policy#identity-and-single-sign-on"]}
+{"id": "SEC-02", "status": "Comply", "trap": false, "key_facts": ["key vault|customer-managed"], "evidence_any": ["security_policy#encryption"]}
+{"id": "SEC-03", "status": "Comply", "trap": false, "key_facts": ["never|not used"], "evidence_any": ["data_protection#ai-data-use"]}
+{"id": "SEC-04", "status": "Partially Comply", "trap": false, "key_facts": ["4 hours|rto 4", "enhanced"], "evidence_any": ["managed_service_sla#recovery-objectives"], "note": "Standard RTO 4h/RPO 15m; 1h/5m needs Enhanced Resilience."}
+{"id": "SEC-05", "status": "Comply", "trap": false, "key_facts": ["27001", "soc 2"], "evidence_any": ["security_policy#certifications-and-assurance"]}
+{"id": "SEC-06", "status": "Do Not Comply", "acceptable": ["Do Not Comply", "Partially Comply"], "trap": false, "key_facts": ["hitrust"], "evidence_any": ["security_policy#certifications-and-assurance"]}
+{"id": "SEC-07", "status": "Comply", "trap": false, "key_facts": ["24 hours"], "evidence_any": ["security_policy#security-incident-notification"]}
+{"id": "SEC-08", "status": "Comply", "trap": false, "key_facts": ["just-in-time"], "evidence_any": ["security_policy#access-control"]}

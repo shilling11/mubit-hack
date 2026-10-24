@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Redline: editorial paper + ink, red reserved for corrections and over-promise risk */
+@theme {
+  --color-paper: #f7f4ee;
+  --color-sheet: #fffdf9;
+  --color-ink: #1c1b19;
+  --color-ink-2: #45423d;
+  --color-muted: #7d786f;
+  --color-line: #e3ddd2;
+  --color-line-2: #d3ccbf;
+  --color-red: #c8261d;
+  --color-red-soft: #fbe9e7;
+  --color-comply: #1d6b48;
+  --color-comply-soft: #e3f1e9;
+  --color-partial: #9a6408;
+  --color-partial-soft: #f8eed8;
+  --color-dnc: #3b4250;
+  --color-dnc-soft: #e6e8ec;
+  --color-na: #8b8680;
+  --color-na-soft: #efede9;
+
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-red-soft);
+  color: var(--color-red);
+}
+
+.redline-strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-red);
+  text-decoration-thickness: 2px;
+  color: var(--color-muted);
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 38, 29, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(200, 38, 29, 0); }
+}
+.pulse-red { animation: pulse-red 1.6s ease-in-out infinite; }
+
+@keyframes flash-in {
+  from { background-color: var(--color-red-soft); }
+  to { background-color: transparent; }
+}
+.flash-in { animation: flash-in 1.8s ease-out; }

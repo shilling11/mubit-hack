@@ -1,0 +1,15 @@
+{"id": "K-01", "status": "Comply", "trap": false, "key_facts": ["citation|source"], "evidence_any": ["capabilities#knowledge-grounding-and-citations", "capabilities#agent-assist"]}
+{"id": "K-02", "status": "Partially Comply", "acceptable": ["Partially Comply", "Do Not Comply"], "trap": true, "key_facts": ["99.9"], "evidence_any": ["managed_service_sla#availability-commitment"]}
+{"id": "K-03", "status": "Partially Comply", "trap": true, "key_facts": ["sovereign|uk-based|uk-only"], "evidence_any": ["managed_service_sla#uk-sovereign-support-option", "data_protection#support-access-and-international-transfers"]}
+{"id": "K-04", "status": "Do Not Comply", "trap": true, "key_facts": ["officer|human"], "evidence_any": ["ai_governance#prohibited-and-restricted-uses", "ai_governance#human-oversight-of-customer-impacting-decisions"]}
+{"id": "K-05", "status": "Partially Comply", "acceptable": ["Partially Comply", "Do Not Comply"], "trap": true, "key_facts": ["change control|defined|capped|named"], "evidence_any": ["pricing_guardrails#fixed-price-rules"]}
+{"id": "K-06", "status": "Comply", "trap": false, "key_facts": ["dynamics"], "evidence_any": ["integrations#crm-connectors"]}
+{"id": "K-07", "status": "Partially Comply", "acceptable": ["Partially Comply", "Do Not Comply"], "trap": false, "key_facts": ["roadmap|h2 2027"], "evidence_any": ["integrations#contact-centre-connectors"]}
+{"id": "K-08", "status": "Comply", "trap": false, "key_facts": ["version"], "evidence_any": ["ai_governance#evaluation-and-version-control"]}
+{"id": "K-09", "status": "Comply", "trap": false, "key_facts": ["30"], "evidence_any": ["managed_service_sla#support-hours-and-response-times"]}
+{"id": "K-10", "status": "Comply", "trap": false, "key_facts": ["configurable|data class"], "evidence_any": ["data_protection#retention-and-deletion"]}
+{"id": "K-11", "status": "Comply", "trap": false, "key_facts": ["entra"], "evidence_any": ["security_policy#identity-and-single-sign-on"]}
+{"id": "K-12", "status": "Comply", "trap": false, "key_facts": ["training"], "evidence_any": ["delivery_and_change#training-and-adoption"]}
+{"id": "SEC-01", "status": "Comply", "trap": false, "key_facts": ["cyber essentials"], "evidence_any": ["security_policy#certifications-and-assurance"]}
+{"id": "SEC-02", "status": "Comply", "trap": false, "key_facts": ["15 minutes"], "evidence_any": ["managed_service_sla#recovery-objectives"]}
+{"id": "SEC-03", "status": "Comply", "trap": false, "key_facts": ["microsoft", "india"], "evidence_any": ["data_protection#subprocessors"]}

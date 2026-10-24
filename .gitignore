@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Redline local state
+redline.db
+redline.db-*
+data/rfps/uploads/
+exports/
+web/node_modules/
+web/.next/

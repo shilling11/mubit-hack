@@ -13,7 +13,7 @@ This file is the **single source of truth** for building the repo. When promptin
 
 - Build in the order in [§9 Build Plan](#9-build-plan-ruthlessly-prioritised). Don't start P2 work until the P0 golden path runs end to end.
 - **Hard rule: every LLM call in the app goes through the Mubit client (`app/llm/mubit_client.py`).** Don't add direct OpenAI/Anthropic calls anywhere else.
-- Every Mubit integration detail marked `TODO(mubit)` must be confirmed against the Mubit docs or kickoff walkthrough. **Don't invent Mubit endpoints, SDK methods or parameters.**
+- The Mubit integration in §3 was verified against <https://docs.mubit.ai> and live calls on 24 Oct 2026. Anything still marked `TODO(mubit)` needs confirming with the Mubit team. **Don't invent Mubit endpoints, SDK methods or parameters.**
 - All data is **synthetic**. Never add real client, Accenture or third-party RFP content to this repo.
 
 ---
@@ -96,102 +96,81 @@ Build a product that **routes its LLM calls through Mubit** (one base URL change
 
 ## 3. How Mubit is used throughout
 
-Mubit sits **between Redline and every model call**. Nothing calls a model directly.
+Mubit sits **between Redline and every model call**. Nothing calls a model directly: `app/llm/mubit_client.py` is the only module that does.
 
 ```text
                 ┌────────────────────────────────────────────┐
   RFP package → │                Redline app                 │
- (DOCX + XLSX)  │                                            │
-                │  1 Ingest  2 Extract  3 Draft  4 Verify   │
-                │      │         │         │         │       │
-                │      └─────────┴────┬────┴─────────┘       │
+ (DOCX + XLSX)  │  Ingest (no LLM) → Retrieve (BM25, no LLM) │
+                │  Extract · Draft · Verify · Induce · Summ. │
                 │                     ▼                      │
                 │          app/llm/mubit_client.py           │
                 └─────────────────────┬──────────────────────┘
-                                      ▼
+                                      ▼  OpenAI-compatible, one base-URL change
                     ┌──────────────────────────────────┐
-                    │              MUBIT               │
-                    │  routes calls · logs traces      │
-                    │  ingests corrections/feedback    │
-                    │  builds lightweight model updates│
+                    │  MUBIT  api.mubit.ai/openai/v1   │
+                    │  records calls · groups tasks    │
+                    │  keeps examples · trains adapter │
+                    │  routes to a passing adapter     │
                     └────────────────┬─────────────────┘
                                      ▼
-                     Fixed base open model + task update
-                                     ▲
-  Bid manager edits ─── corrections ─┘  (the learning loop)
+                     Provider model (starter credit) or task adapter
 ```
+
+### What Mubit actually does (verified)
+
+| Fact | How Redline uses it |
+|---|---|
+| Base URL `https://api.mubit.ai/openai/v1`, Mubit key (`mbt_…`) as the API key | `MUBIT_BASE_URL`, `MUBIT_API_KEY` in `.env` |
+| A **task** is the set of calls sharing model + system prompt + tools + output format. There is no task-tag parameter | One fixed system prompt (`app/llm/prompts/*.md`) and one JSON schema per task. Everything that varies (requirement, evidence, playbook) goes in the **user** message |
+| Every answer carries `x-middleware-request-id` (`mreq_…`); `response.model` shows what served it | Logged per call in SQLite and shown in the trace panel |
+| `x-middleware-record: full / metadata / off` controls what Mubit keeps | Base (v0) runs use `metadata`, so the uncorrected answers never become training examples |
+| Mubit trains an **adapter** for a task once it has 25 kept examples, tests it against the provider model, and (per the Mubit team) routes to a passing version | `scripts/warm_mubit.py` sends corrected-behaviour calls to reach the threshold; the trace panel highlights calls served by a model other than the one asked |
+| `metadata.session_id` needs OpenAI `store=true` | Not sent. We don't want OpenAI storing calls |
+| The Mubit docs describe **no feedback/correction API**. `mubit-sdk` (`remember`, `record_outcome`) exists on PyPI but its endpoints returned `unknown_route` on our gateway key | Corrections are captured by Redline (below). `TODO(mubit)`: ask whether a memory/outcome endpoint is available for our project |
+| Starter credit serves: gpt-6-sol, gpt-6.1-sol, gpt-6-luna, gpt-6-astra, gpt-5.5, gpt-4o-mini, gpt-4.1-mini; claude-opus-5-5, claude-sonnet-5-5, claude-haiku-4-5 | `MUBIT_MODEL` / `BASELINE_MODEL` |
 
 ### Every pipeline stage goes through Mubit
 
-| # | Stage | Mubit task name | Recurring? | Learns from corrections? |
-|---|---|---|---|---|
-| 1 | Classify the uploaded file and tab types | `rfp.classify_artifact` | Yes | Light |
-| 2 | Extract structured requirements from DOCX prose | `rfp.extract_requirements` | Yes | Yes (missed or merged requirements) |
-| 3 | **Draft compliance status + response per requirement** | `rfp.draft_response` | **Yes – core task** | **Yes – the main demo** |
-| 4 | Verify claims against evidence and flag over-promising | `rfp.verify_claims` | Yes | Yes |
-| 5 | Route requirements to the right SME/owner | `rfp.route_owner` | Yes | Yes |
-| 6 | Write the executive summary and win-risk analysis | `rfp.exec_summary` | Yes | Light |
+| Stage | Mubit task (system prompt) | Module |
+|---|---|---|
+| Extract implicit requirements from DOCX prose | `rfp.extract_requirements` | `app/pipeline/extract.py` |
+| **Draft status + response per requirement** | **`rfp.draft_response`** (core task) | `app/pipeline/draft.py` |
+| Verify claims against evidence | `rfp.verify_claims` | `app/pipeline/verify.py` |
+| Turn a correction into a reusable rule | `rfp.induce_rule` | `app/learning/playbook.py` |
+| Executive summary + win risks | `rfp.exec_summary` | `app/pipeline/summarise.py` |
 
-**Demo focus:** stage 3 (`rfp.draft_response`) is the task where we show corrections becoming a model update. The other stages still route through Mubit, so the trace view shows Mubit is used everywhere.
+File/tab classification and SME routing are done with plain code (no LLM), because the workbook structure is fixed.
 
-### The correction → model update loop (core of the demo)
+### The correction → model update loop
 
 ```text
- Draft (Mubit)  →  Bid manager edits  →  Correction record  →  Mubit feedback
-       ▲                                                          │
-       │                                                          ▼
- Better draft on new RFP  ←  task-adapted model  ←  Mubit model update
+ Draft v0 (Mubit, not trained on) → Bid manager corrects + gives a reason → Correction record
+        ▲                                                                       │
+        │                                                       rfp.induce_rule (Mubit)
+        │                                                                       ▼
+ Draft on unseen RFP with playbook vN  ←────────── Playbook vN: generalised rules + worked examples
+        │
+        └─► corrected-behaviour calls = Mubit kept examples → adapter trains (25) → Mubit routes to it
 ```
 
-A **correction record** contains:
+1. **Immediate update.** Building a playbook version induces one generalised rule per correction through Mubit. Draft calls carry the playbook in the user message, so the next RFP's first draft changes straight away, on the same Mubit task.
+2. **Model update.** Those corrected calls are kept examples for `rfp.draft_response`. Mubit trains a task adapter from them, so a cheap open model learns the team's judgement. Before the demo, run `python -m scripts.warm_mubit` and check the Mubit console (Tasks → Adapters).
+
+A **correction record** (SQLite `corrections` table):
 ```json
 {
-  "task": "rfp.draft_response",
-  "request_id": "<Mubit trace/request id>",
-  "requirement_id": "S-003",
-  "input": {"requirement": "...", "evidence": ["..."]},
-  "model_output": {"status": "Comply", "response": "..."},
-  "corrected_output": {"status": "Partially Comply", "response": "...", "gap": "..."},
-  "correction_type": ["status_change", "unsupported_claim_removed", "citation_added"],
-  "rationale": "Managed-service standard is 99.9%; never claim 99.99% without service-owner approval.",
-  "editor": "demo-bid-manager",
-  "timestamp": "..."
+  "req_id": "S-001", "package": "northstar", "run_id": "run_…", "request_id": "mreq_…",
+  "requirement": "...",
+  "model_output": {"status": "Partially Comply", "response": "...", "evidence_ids": ["..."], "gaps": "..."},
+  "corrected_output": {"status": "Comply", "response": "...", "evidence_ids": ["..."], "gaps": ""},
+  "correction_type": ["status_change"],
+  "rationale": "We meet this with the standard service: answer Comply and put ordinary qualifiers in the response.",
+  "rule": {"rule": "...", "applies_when": "...", "keywords": ["..."]}
 }
 ```
 
-### Integration contract (confirm at kickoff)
-
-```python
-# app/llm/mubit_client.py — the ONLY module allowed to call a model
-# TODO(mubit): confirm base URL, auth header, model naming, and the
-#              feedback/correction + model-update APIs from Mubit docs.
-import os
-from openai import OpenAI  # Mubit is described as a one-base-URL-change integration
-
-client = OpenAI(
-    base_url=os.environ["MUBIT_BASE_URL"],   # TODO(mubit)
-    api_key=os.environ["MUBIT_API_KEY"],     # TODO(mubit)
-)
-
-def call(task: str, messages: list, schema: dict | None = None, **kw) -> dict:
-    """Route an LLM call through Mubit. Tag it with `task` so updates are per-task.
-    Returns {output, request_id, latency_ms, tokens, model}."""
-    ...
-
-def submit_correction(record: dict) -> None:
-    """Send a correction to Mubit as feedback for `record['task']`.  TODO(mubit)"""
-    ...
-
-def trigger_update(task: str) -> str:
-    """Ask Mubit to build/refresh the model update for a task (if manual). TODO(mubit)"""
-    ...
-
-def update_status(task: str) -> dict:
-    """Poll update status/version for the UI badge. TODO(mubit)"""
-    ...
-```
-
-**Fallback if model updates take longer than the demo slot:** pre-run the update before going on stage, and show (a) the correction being submitted live, (b) the update version/timestamp in Mubit, and (c) the before/after on the held-out RFP. **Never fake the after result.** Everything shown must come from real Mubit calls.
+**Never fake the after result.** Every number on the Compare tab comes from real Mubit calls scored against hand-written gold labels, with no LLM judge.
 
 ---
 
@@ -201,13 +180,14 @@ All data is fictional and safe to publish.
 
 | File | Role | Status |
 |---|---|---|
-| `data/rfps/northstar/Northstar_Retail_AI_Transformation_RFP.docx` | RFP #1 narrative (retail, AI customer operations) | ✅ exists |
-| `data/rfps/northstar/Northstar_Retail_RFP_Exhibits.xlsx` | RFP #1 exhibits, 9 tabs: Read Me, Requirements, Security Questionnaire, Pricing, Volumes & Assumptions, Implementation Plan, Risks & Assumptions, Clarifications, Evaluation | ✅ exists |
-| `data/rfps/meridian/…docx + …xlsx` | **RFP #2 – held-out** (e.g. Meridian Health / insurer). Different domain, and it includes requirements that are *similar but not identical* to the corrected ones | 🔲 to generate |
-| `data/rfps/kestrel/…` | RFP #3 for "fast refresh" (e.g. public sector / new domain) | 🔲 optional |
-| `data/company_kb/*.md` | Fictional internal knowledge: capability statements, security policy, managed-service SLA standard (**99.9%**), 4 past case studies, AI governance standard, pricing guardrails, SME directory | 🔲 to generate |
-| `data/corrections/seed.jsonl` | Pre-recorded bid manager corrections for warm-up | 🔲 to generate |
-| `data/eval/gold_*.jsonl` | Gold answers for each requirement in RFP #2 (status + key facts) | 🔲 to generate |
+| `data/rfps/northstar/*.docx + *.xlsx` | RFP #1 (retail), 24 requirements + 12 security questions, including the 4 trap rows | ✅ |
+| `data/rfps/meridian/*.docx + *.xlsx` | **RFP #2, held out** (health insurer), 18 requirements + 8 security questions | ✅ generated |
+| `data/rfps/kestrel/*.docx + *.xlsx` | RFP #3 (county council), practice/warm-up + fast refresh | ✅ generated |
+| `data/company_kb/*.md` | Fictional supplier **Ashgrove Digital**: capabilities, SLA standard (**99.9%**), security, data protection, AI governance, pricing guardrails, integrations, delivery, case studies, SMEs (48 passages) | ✅ |
+| `data/corrections/seed.jsonl` | 2 pre-recorded corrections (AI-004, C-003) | ✅ |
+| `data/eval/gold_*.jsonl` | Hand-written gold labels for all three RFPs: status (+ acceptable alternatives), trap flag, key facts, valid evidence | ✅ |
+
+`python scripts/generate_synthetic.py` rebuilds the Meridian and Kestrel packages and adds the Northstar trap rows (safe to re-run).
 
 ### Deliberate traps (these make the demo work)
 Add these rows to the RFP #1 Requirements tab, with matching rows in RFP #2:
@@ -257,40 +237,31 @@ Real client data · authentication · multi-tenant · full proposal-management w
 ## 6. Architecture and repo layout
 
 ```text
-redline/
+mubit-hack/
 ├── README.md
 ├── .env.example              # MUBIT_BASE_URL, MUBIT_API_KEY, MUBIT_MODEL, BASELINE_MODEL
 ├── requirements.txt
 ├── app/
-│   ├── main.py               # FastAPI entrypoint
+│   ├── main.py               # FastAPI entrypoint (all /api routes)
+│   ├── config.py · db.py · models.py
 │   ├── llm/
-│   │   ├── mubit_client.py   # ONLY model gateway (call/submit_correction/trigger_update/update_status)
-│   │   └── prompts/          # one prompt file per Mubit task
-│   ├── ingest/
-│   │   ├── docx_parser.py
-│   │   └── xlsx_parser.py
-│   ├── pipeline/
-│   │   ├── extract.py        # rfp.extract_requirements
-│   │   ├── retrieve.py       # KB retrieval (no LLM)
-│   │   ├── draft.py          # rfp.draft_response
-│   │   ├── verify.py         # rfp.verify_claims
-│   │   └── summarise.py      # rfp.exec_summary
-│   ├── learning/
-│   │   ├── corrections.py    # store + send corrections to Mubit
-│   │   └── updates.py        # trigger/poll Mubit updates
-│   ├── eval/
-│   │   └── score.py          # held-out scoring vs gold
-│   └── export/
-│       └── writeback.py      # fill XLSX + build DOCX
-├── web/                      # Next.js + Tailwind + shadcn/ui (or Streamlit fallback)
+│   │   ├── mubit_client.py   # ONLY model gateway: call() + trace logging
+│   │   └── prompts/          # one fixed system prompt per Mubit task
+│   ├── ingest/               # docx_parser.py, xlsx_parser.py, packages.py (registry + gold)
+│   ├── pipeline/             # retrieve.py (BM25), draft.py, verify.py, extract.py, summarise.py, runner.py
+│   ├── learning/             # corrections.py, playbook.py (versioned rules via rfp.induce_rule)
+│   ├── eval/score.py         # deterministic scoring vs gold
+│   └── export/writeback.py   # fill the client XLSX
+├── web/                      # Next.js 16 + Tailwind 4 (Overview, Matrix, Learning, Compare, trace panel)
 ├── data/                     # synthetic only (see §4)
 └── scripts/
-    ├── generate_synthetic.py
-    ├── seed_corrections.py
-    └── run_eval.py
+    ├── generate_synthetic.py # build RFP packages
+    ├── run_eval.py           # CLI scoreboard: base vs latest playbook
+    ├── warm_mubit.py         # send corrected calls so Mubit trains the adapter
+    └── reset_demo.py         # clear runs/corrections/traces
 ```
 
-**Stack:** Python 3.11, FastAPI, Pydantic, python-docx, openpyxl, rank-bm25 (or a small embedding model), SQLite for corrections/traces, Next.js + Tailwind + shadcn/ui. **Fallback UI:** Streamlit if time runs short. A working demo beats a pretty, broken one.
+**Stack:** Python 3.11, FastAPI, Pydantic, python-docx, openpyxl, rank-bm25, SQLite (`redline.db`) for runs, corrections and traces; Next.js 16, Tailwind 4, lucide-react.
 
 **Data model (Pydantic):** `Requirement`, `Evidence`, `Draft`, `Correction`, `MubitTrace`, `EvalResult`.
 
@@ -357,31 +328,38 @@ redline/
 
 ## 9. Build plan (ruthlessly prioritised)
 
-| Order | Task | Done when |
+| Order | Task | Status |
 |---|---|---|
-| 1 | Confirm the Mubit API at office hours: base URL, auth, task tagging, feedback API, update trigger/latency | `mubit_client.call()` returns real output |
-| 2 | Parsers for the existing Northstar DOCX + XLSX | Requirements JSON printed |
-| 3 | Generate the synthetic KB + trap rows + RFP #2 + gold labels | `data/` complete |
-| 4 | `draft_response` via Mubit with strict JSON + retrieval | Matrix filled for RFP #1 |
-| 5 | Correction capture + `submit_correction` | Corrections visible in Mubit |
-| 6 | Update + re-run on RFP #2 + scoring | Real before/after numbers |
-| 7 | Minimal UI: Matrix, Teach, Compare | Golden path clickable |
-| 8 | Trace panel + cost/latency comparison | Track 2 evidence |
-| 9 | Polish, record backup video, rehearse under 3 minutes | **Before Sun 10:00 code freeze** |
+| 1 | Confirm the Mubit API | ✅ verified (§3); feedback API still `TODO(mubit)` |
+| 2 | Parsers for DOCX + XLSX | ✅ |
+| 3 | Synthetic KB + trap rows + RFP #2/#3 + gold labels | ✅ |
+| 4 | `draft_response` via Mubit with strict JSON + retrieval | ✅ |
+| 5 | Correction capture + playbook versions | ✅ |
+| 6 | Re-run on RFP #2 + scoring | ✅ |
+| 7 | UI: Overview, Matrix + Teach, Learning, Compare | ✅ built; needs a click-through in the browser |
+| 8 | Trace panel + model comparison | ✅ (closed-baseline run button on Compare) |
+| 9 | Warm Mubit to 25 kept examples, confirm adapter + "Served by" | 🔲 run `scripts/warm_mubit.py`, check console |
+| 10 | Decide demo narrative (§12), polish, record backup video, rehearse | 🔲 **before Sun 10:00 code freeze** |
 
 ---
 
 ## 10. Setup
 
-```bash
-git clone <repo> && cd redline
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env   # fill MUBIT_BASE_URL, MUBIT_API_KEY (TODO(mubit))
-python scripts/generate_synthetic.py
-uvicorn app.main:app --reload
-cd web && npm install && npm run dev
-python scripts/run_eval.py --rfp meridian --compare base,mubit
+```powershell
+# Backend (Python 3.11+)
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r requirements.txt
+copy .env.example .env          # set MUBIT_API_KEY (mbt_…)
+.\.venv\Scripts\python -m uvicorn app.main:app --port 8000   # no --reload when demoing: a reload kills in-flight runs
+
+# Frontend (from PowerShell)
+cd web; npm install; npm run dev   # http://localhost:3000
+
+# Optional
+.\.venv\Scripts\python scripts\generate_synthetic.py
+.\.venv\Scripts\python -m scripts.run_eval --rfp meridian --compare base,latest
+.\.venv\Scripts\python -m scripts.warm_mubit
+.\.venv\Scripts\python -m scripts.reset_demo
 ```
 
 ---
@@ -391,3 +369,20 @@ python scripts/run_eval.py --rfp meridian --compare base,mubit
 - 100% synthetic organisations, people, numbers and documents.
 - No real RFPs or internal company material in the repo, prompts, demo or screenshots.
 - Human-in-the-loop by design: the agent drafts and flags; a bid manager approves.
+
+---
+
+## 12. Findings so far (real runs, 24 Oct 2026)
+
+Held-out Meridian pack, 26 rows, one run per cell, scored against the gold labels:
+
+| Model | Base v0 | Playbook v1 (4 corrections) |
+|---|---|---|
+| gpt-6-luna | 84.6% status accuracy, 0 over-promises, 4 hedged | **92.3%** |
+| gpt-4o-mini | 92.3% | 88.5% |
+| gpt-4.1-mini | 92.3% (1 over-promise) | not run |
+
+- Grounded in a clean knowledge base, current models rarely **over-promise**: `gpt-6-luna` got all four trap rows right with no playbook. Its main failure is **under-claiming**: answering "Partially Comply" to requirements the company fully meets. On a mandatory row that can eliminate the bid (Northstar §8).
+- Two hedging corrections on Northstar fixed hedging on *different* Meridian rows (REQ-01, REQ-16, SEC-07): real generalisation. The strict seed rules (AI-004, C-003) nudged some partials to "Do Not Comply", which the scoreboard catches.
+- n is small and runs vary by a row or two, so rehearse with the numbers from the day.
+- **Decision needed:** pitch "calibration" (agents both over-promise and hedge; corrections teach the team's judgement both ways) rather than the pure over-promise story in §1 and §8.
