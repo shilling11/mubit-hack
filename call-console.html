@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call console · Redress</title>
+<!--
+  Live call console for Redress, built from the landing page's live-call scene: same chrome, same background
+  (rails, streaks, stars), the pixel glyph as a big equaliser, the beam with its light pulse into the glowing
+  cards, captions that blur in. Below the stage: transcript, Ava's tools, guardrails and every Mubit call.
+  Self-contained (fonts only). All data is synthetic.
+  Keys: L next moment · G play the call · R reset
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050906; --lime:#7CFF4F; --lime-2:#4fbf22; --lime-dim:#2b5e1d; --text:#eef3ec; --mute:#8b968d; --mute-2:#5d685f;
+    --line:rgba(255,255,255,.07); --amber:#ffb25e; --red:#ff7a6b;
+    --sans:"Inter Tight",Inter,system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh;
+    background:radial-gradient(ellipse 70% 55% at 50% 38%,#0f1d11 0%,#081009 55%,#040704 100%) fixed}
+  a{color:inherit;text-decoration:none}
+  em{font-style:normal;color:var(--mute)}
+  h1,h2,h3,h4{font-weight:400;letter-spacing:-.035em}
+  .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-2)}
+  .lab.g{color:var(--lime)}
+  #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+  /* landing chrome */
+  .logo{position:fixed;top:26px;left:30px;z-index:60;display:flex;align-items:center;gap:9px;font-weight:600;font-size:15px;letter-spacing:.02em}
+  .logo b{color:var(--lime);font-weight:600}
+  .cta{position:fixed;top:20px;right:26px;z-index:60;display:flex;align-items:center;gap:14px;padding:5px 5px 5px 18px;border-radius:999px;
+    border:1px solid rgba(124,255,79,.35);background:rgba(8,14,9,.55);backdrop-filter:blur(8px);font-size:13px;color:var(--text);transition:border-color .3s}
+  .cta:hover{border-color:var(--lime)}
+  .cta i{width:30px;height:30px;border-radius:50%;background:var(--lime);display:grid;place-items:center;box-shadow:0 0 18px rgba(124,255,79,.45)}
+  .cta i svg{width:13px;height:13px}
+  nav.island{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:5px;border-radius:12px;
+    background:rgba(16,21,17,.72);border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  nav.island a{font-size:13px;color:#c6cec6;padding:9px 14px;border-radius:8px;white-space:nowrap;transition:color .25s,background .25s;display:flex;align-items:center;gap:7px}
+  nav.island a:hover{color:#fff}
+  nav.island a.active{background:rgba(255,255,255,.075);color:#fff}
+  nav.island a.active::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+  nav.island .plus{color:var(--lime);font-size:15px;line-height:0;margin-left:2px}
+  #hint{position:fixed;left:30px;bottom:34px;z-index:60;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--mute-2)}
+
+  .w{display:inline-block;filter:blur(12px);opacity:0;transform:translateY(8px);transition:filter .9s ease,opacity .9s ease,transform .9s ease}
+  .in .w{filter:none;opacity:1;transform:none}
+  .rise{opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity .9s ease,transform .9s ease,filter .9s ease}
+  .rise.in{opacity:1;transform:none;filter:none}
+  .glyph{display:inline-flex;gap:.035em;align-items:center;height:.62em;margin:0 .14em;vertical-align:.02em;position:relative;top:-.55em}
+  .glyph span{display:flex;flex-direction:column;gap:.035em}
+  .glyph i{display:block;width:.085em;height:.085em;background:var(--lime);opacity:.12;transition:opacity .12s}
+  .glyph i.on{opacity:1;box-shadow:0 0 8px rgba(124,255,79,.7)}
+
+  .glass{position:relative;border-radius:22px;background:linear-gradient(180deg,rgba(22,31,23,.62),rgba(9,14,10,.62));border:1px solid rgba(255,255,255,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .glass::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;transition:opacity .35s;
+    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(124,255,79,.75),transparent 45%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .glass:hover::before{opacity:1}
+
+  .wrap{position:relative;z-index:2;width:min(1240px,calc(100% - 64px));margin:0 auto;padding:116px 0 140px;display:grid;gap:22px}
+
+  /* header */
+  .head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}
+  .head h1{font-size:clamp(44px,5.2vw,78px);line-height:1;margin-top:14px}
+  .head .sub{margin-top:14px;font-size:14px;color:var(--mute)}
+  .callbox{text-align:right}
+  .live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--lime)}
+  .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 1.2s infinite}
+  @keyframes pulse{50%{opacity:.25}}
+  .timer{display:block;font-family:var(--mono);font-size:48px;font-weight:400;letter-spacing:.02em;margin:8px 0 14px;text-shadow:0 0 24px rgba(124,255,79,.25)}
+  .acts{display:flex;gap:10px;justify-content:flex-end}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 18px;font:500 13px var(--sans);cursor:pointer;border:1px solid transparent;background:transparent;color:var(--text);white-space:nowrap;transition:transform .2s,border-color .2s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.primary{background:var(--lime);color:#071407;box-shadow:0 0 24px rgba(124,255,79,.35)}
+  .btn.ghost{border-color:rgba(255,255,255,.18);background:rgba(8,14,9,.5)}
+  .btn.ghost:hover{border-color:var(--lime)}
+  .btn.end{border-color:rgba(255,122,107,.5);color:var(--red);background:rgba(8,14,9,.5)}
+  body.ended .live{color:var(--mute)}
+  body.ended .live::before{background:var(--mute);box-shadow:none;animation:none}
+
+  /* the landing live-call scene */
+  .stage{position:relative;height:520px;overflow:hidden}
+  .stage::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse 45% 55% at 72% 45%,rgba(124,255,79,.08),transparent 70%)}
+  .voice{position:absolute;left:44px;top:50%;transform:translateY(-60%);z-index:3;width:30%}
+  .eq{display:flex;gap:4px;align-items:center}
+  .eq span{display:flex;flex-direction:column;gap:4px}
+  .eq i{display:block;width:8px;height:8px;background:var(--lime);opacity:.08;transition:opacity .1s}
+  .eq i.on{opacity:1;box-shadow:0 0 10px rgba(124,255,79,.75)}
+  .eq.quiet i.on{opacity:.28;box-shadow:none}
+  .speaker{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--lime);margin-top:18px}
+  .meta{margin-top:18px;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13px}
+  .meta dt{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--mute-2);text-transform:uppercase;padding-top:2px}
+  .meta dd{color:#cfd7cf}
+  .beam{position:absolute;left:35%;width:19%;top:44%;height:2px;z-index:2;transform:translateY(-50%);
+    background:linear-gradient(90deg,rgba(124,255,79,0),rgba(124,255,79,.55) 35%,rgba(190,255,150,.95) 62%,rgba(124,255,79,.25) 88%,rgba(124,255,79,0));
+    box-shadow:0 0 14px rgba(124,255,79,.55),0 0 34px rgba(124,255,79,.25);opacity:.8}
+  .beam::after{content:"";position:absolute;left:40%;top:50%;width:46%;height:10px;transform:translateY(-50%);border-radius:50%;
+    background:radial-gradient(closest-side,rgba(210,255,180,.9),rgba(124,255,79,.25),transparent);filter:blur(2px);animation:flare 3.2s ease-in-out infinite}
+  @keyframes flare{50%{opacity:.45;transform:translateY(-50%) scaleX(.8)}}
+  .pulse{position:absolute;top:50%;left:0;width:70px;height:14px;transform:translate(-50%,-50%);border-radius:50%;opacity:0;
+    background:radial-gradient(closest-side,#fff,rgba(160,255,120,.9) 35%,rgba(124,255,79,0));filter:blur(1px)}
+  .pulse.go{animation:travel .7s cubic-bezier(.55,.05,.4,1) forwards}
+  @keyframes travel{0%{left:0;opacity:0}15%{opacity:1}100%{left:100%;opacity:.9}}
+  .cluster{position:absolute;left:56%;right:4%;top:44%;transform:translateY(-50%);height:340px;z-index:3}
+  .fl{position:absolute;width:31%;min-height:108px;padding:15px 15px 14px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(6px);transition:all .6s cubic-bezier(.2,.8,.2,1)}
+  .fl .k{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--mute-2);text-transform:uppercase}
+  .fl h4{font-size:clamp(16px,1.4vw,20px);letter-spacing:-.02em;margin:7px 0 6px;color:#d7ddd7}
+  .fl p{font-size:11.5px;line-height:1.45;color:var(--mute);opacity:0;max-height:0;overflow:hidden;transition:all .5s}
+  .fl.lit{background:linear-gradient(180deg,#5fd62e 0%,#3fae1a 55%,#2f8a12 100%);border-color:rgba(200,255,170,.55);
+    box-shadow:0 0 0 1px rgba(124,255,79,.35),0 0 40px rgba(124,255,79,.45),0 0 90px rgba(124,255,79,.18),inset 0 1px 0 rgba(255,255,255,.4);transform:translateY(-4px)}
+  .fl.lit h4{color:#fff}.fl.lit .k{color:rgba(5,30,8,.75)}
+  .fl.lit p{opacity:1;max-height:80px;color:rgba(240,255,235,.92)}
+  .captions{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);width:min(900px,90%);text-align:center;z-index:3}
+  .cap{font-size:clamp(17px,1.5vw,21px);line-height:1.4;letter-spacing:-.01em}
+  .cap.old{opacity:.32;font-size:clamp(13px,1.1vw,15px);margin-bottom:6px}
+  .cap small{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--lime);margin-right:10px;vertical-align:2px}
+  .cap.enter{animation:capIn .7s ease both}
+  @keyframes capIn{from{filter:blur(10px);opacity:0;transform:translateY(8px)}to{filter:none;opacity:1;transform:none}}
+  .idle{color:var(--mute-2);font-size:14px}
+
+  .controls{display:flex;gap:10px;align-items:center;justify-content:center}
+  .controls span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--mute-2)}
+
+  /* panels under the stage */
+  .three{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px;align-items:start}
+  .panel{padding:22px 24px}
+  .panel h3{font-size:22px;margin:8px 0 16px}
+  .lines{display:flex;flex-direction:column;gap:12px;max-height:420px;overflow:auto;padding-right:4px}
+  .msg{max-width:88%;padding:12px 15px;border-radius:16px;font-size:14.5px;line-height:1.5;animation:capIn .7s ease both}
+  .msg small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;margin-bottom:5px}
+  .msg.ava{align-self:flex-start;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+  .msg.ava small{color:var(--lime)}
+  .msg.cust{align-self:flex-end;background:rgba(124,255,79,.07);border:1px solid rgba(124,255,79,.22)}
+  .msg.cust small{color:#c6cec6;text-align:right}
+  .hl{background:linear-gradient(transparent 62%,rgba(124,255,79,.3) 62%);padding:0 2px}
+  .hl.v{background:linear-gradient(transparent 62%,rgba(255,178,94,.34) 62%)}
+  .empty{color:var(--mute-2);font-size:14px}
+  .txn{display:flex;justify-content:space-between;font-size:13px;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);opacity:.35;transition:all .5s;margin-top:8px}
+  .txn.on{opacity:1;border-color:rgba(255,178,94,.4);box-shadow:0 0 18px rgba(255,178,94,.08)}
+  .txn b{font-weight:500;color:var(--amber)}
+  .checks{display:grid;gap:11px;font-size:13.5px;margin-top:4px}
+  .checks div{display:flex;gap:11px;align-items:center;color:var(--mute-2);transition:color .4s}
+  .checks i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;font-style:normal;font-size:10px;flex:none;transition:all .4s}
+  .checks .on{color:#dfe6df}
+  .checks .on i{background:var(--lime);border-color:var(--lime);color:#071407;box-shadow:0 0 12px rgba(124,255,79,.6)}
+  .mono{font-family:var(--mono)}
+  .sep{height:1px;background:var(--line);margin:18px 0}
+  .trace{display:grid;gap:7px;max-height:210px;overflow:hidden}
+  .tr{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-family:var(--mono);font-size:10.5px;color:#c6cec6;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.04);animation:capIn .5s ease both}
+  .tr span{color:var(--mute-2)}
+  .tr em{color:var(--lime)}
+  .count{float:right;font-family:var(--mono);font-size:11px;color:var(--lime);padding:3px 9px;border-radius:999px;border:1px solid rgba(124,255,79,.35)}
+
+  /* after the call: a lit card, like the landing's lit cards */
+  .after{display:none;align-items:center;gap:18px;padding:22px 26px;border-radius:22px;
+    background:linear-gradient(180deg,#5fd62e 0%,#3fae1a 55%,#2f8a12 100%);border:1px solid rgba(200,255,170,.55);
+    box-shadow:0 0 0 1px rgba(124,255,79,.35),0 0 50px rgba(124,255,79,.35),inset 0 1px 0 rgba(255,255,255,.4);animation:capIn .8s ease both}
+  .after.show{display:flex}
+  .after .lab{color:rgba(5,30,8,.75)}
+  .after h3{font-size:24px;color:#fff;margin:6px 0 4px}
+  .after p{font-size:13.5px;color:rgba(240,255,235,.92)}
+  .after .btn{margin-left:auto;background:#071407;color:var(--lime);box-shadow:none}
+  .toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,20px);opacity:0;transition:all .4s;z-index:70;padding:12px 18px;border-radius:999px;
+    background:rgba(16,24,17,.95);border:1px solid rgba(124,255,79,.4);font-size:13px}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  @media (max-width:1100px){.three{grid-template-columns:1fr 1fr}.three>:first-child{grid-column:1/-1}}
+  @media (max-width:900px){
+    .head{flex-direction:column;align-items:flex-start}.callbox{text-align:left}.acts{justify-content:flex-start}
+    .stage{height:auto;padding:26px 22px 130px}.voice{position:static;transform:none;width:auto}.meta{display:none}.beam{display:none}
+    .cluster{position:static;transform:none;height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.fl{position:static;width:auto;min-height:0}
+    .three{grid-template-columns:1fr}#hint{display:none}.wrap{width:calc(100% - 32px)}
+  }
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<a class="logo" href="prototype.html"><svg width="26" height="14" viewBox="0 0 26 14" fill="none"><circle cx="7.5" cy="7" r="5.6" stroke="#fff" stroke-width="2"/><circle cx="18.5" cy="7" r="5.6" stroke="#7CFF4F" stroke-width="2"/></svg><span>RE<b>DRESS</b></span></a>
+<a class="cta" href="dashboard.html">Dashboard <i><svg viewBox="0 0 12 12" fill="none" stroke="#071407" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></a>
+
+<main class="wrap">
+  <section class="head">
+    <div>
+      <div class="lab g">[ Live call · Thistle Bank · Case #1042 ]</div>
+      <h1 data-reveal>Ellen Hart <em>is</em> <span class="glyph keep" id="glyph"></span><em>calling</em></h1>
+      <p class="sub rise">Ava (AI) is on the line. You're listening, and you can take over at any time.</p>
+    </div>
+    <div class="callbox rise">
+      <span class="live" id="state">LIVE · AVA (AI)</span>
+      <span class="timer" id="timer">00:00</span>
+      <div class="acts">
+        <button class="btn ghost" onclick="toast('You\'ve joined the call. Ava is now listening only.')">Take over</button>
+        <button class="btn ghost" onclick="toast('Ava is muted. The transcript keeps running.')">Mute Ava</button>
+        <button class="btn end" onclick="endCall()">End call</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="glass stage rise">
+    <div class="voice">
+      <div class="eq quiet" id="eq"></div>
+      <span class="speaker" id="speaker">WAITING FOR THE CALL</span>
+      <dl class="meta">
+        <dt>Customer</dt><dd>Ellen Hart · synthetic</dd>
+        <dt>Account</dt><dd>Current ····4821</dd>
+        <dt>Mubit</dt><dd id="m-calls">0 calls</dd>
+      </dl>
+    </div>
+    <div class="beam"><div class="pulse" id="pulse"></div></div>
+    <div class="cluster">
+      <div class="fl" data-k="fees" style="left:0;top:34%"><div class="k">[ Complaint ]</div><h4>Complaint</h4><p>"charged overdraft fees three times": unhappy and out of pocket</p></div>
+      <div class="fl" data-k="hosp" style="left:34.5%;top:0"><div class="k">[ Vulnerable ]</div><h4>Health</h4><p>"I was in hospital": FCA health driver</p></div>
+      <div class="fl" data-k="clock" style="left:69%;top:40%"><div class="k">[ Clock ]</div><h4>DISP 8 weeks</h4><p>Case #1042 opened · due 19 Dec</p></div>
+      <div class="fl" data-k="team" style="left:34.5%;top:70%"><div class="k">[ Routed ]</div><h4>Financial Support</h4><p>Draft waiting for a handler</p></div>
+    </div>
+    <div class="captions" id="captions"><p class="idle">Press <b>Next moment</b> or L to start the call</p></div>
+  </section>
+
+  <div class="controls"><button class="btn primary" onclick="step()">Next moment →</button><button class="btn ghost" onclick="reset()">Replay</button><span>OR PRESS L · G TO PLAY</span></div>
+
+  <div class="after" id="after">
+    <div><span class="lab">[ Call ended ]</span><h3>Case #1042 drafted</h3><p>Partially upheld, £25 refund. Nothing has been sent to Ellen. A handler reviews it first.</p></div>
+    <a class="btn" href="dashboard.html">Review in dashboard ↗</a>
+  </div>
+
+  <section class="three">
+    <div class="glass panel rise">
+      <div class="lab g">[ Transcript ]</div><h3>Every word, as it's said</h3>
+      <div class="lines" id="lines"><p class="empty" id="empty">The transcript starts with the call.</p></div>
+    </div>
+    <div class="glass panel rise">
+      <div class="lab g">[ Ava's tools ]</div><h3>What Ava looked up</h3>
+      <div class="checks">
+        <div id="t1"><i>✓</i>lookup_customer · ID check</div>
+        <div id="t2"><i>✓</i>get_transactions</div>
+        <div id="t3"><i>✓</i>log_complaint</div>
+        <div id="t4"><i>✓</i>route_case</div>
+      </div>
+      <div class="sep"></div>
+      <div class="txn" data-t><span>03 Oct · Overdraft fee</span><b>£25.00</b></div>
+      <div class="txn" data-t><span>10 Oct · Overdraft fee</span><b>£25.00</b></div>
+      <div class="txn" data-t><span>17 Oct · Overdraft fee</span><b>£25.00</b></div>
+    </div>
+    <div class="glass panel rise">
+      <div class="lab g">[ Guardrails ]</div><h3>Ava stays inside the rules</h3>
+      <div class="checks">
+        <div id="g1"><i>✓</i>Said she's an AI assistant</div>
+        <div id="g2"><i>✓</i>Checked identity first</div>
+        <div id="g3"><i>✓</i>Offered specialist support</div>
+        <div id="g4"><i>✓</i>No refund promised on the call</div>
+      </div>
+      <div class="sep"></div>
+      <div class="lab g">[ Mubit ] <span class="count" id="ncalls">0</span></div>
+      <div class="trace" id="trace" style="margin-top:12px"></div>
+    </div>
+  </section>
+</main>
+
+<nav class="island">
+  <a href="prototype.html">Home</a><a href="dashboard.html">Dashboard</a><a class="active" href="call-console.html">Call console <span class="plus">+</span></a>
+</nav>
+<div id="hint">L NEXT · G PLAY · R RESET</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+/* ---------- landing background: corridor rails, light streaks, twinkling stars ---------- */
+function sprite(stops,size=64){const c=document.createElement('canvas');c.width=c.height=size;const g=c.getContext('2d');
+  const r=g.createRadialGradient(size/2,size/2,0,size/2,size/2,size/2);stops.forEach(([o,col])=>r.addColorStop(o,col));g.fillStyle=r;g.fillRect(0,0,size,size);return c}
+const SPR_HEAD=sprite([[0,'rgba(255,255,255,1)'],[.2,'rgba(190,255,150,.9)'],[.55,'rgba(124,255,79,.18)'],[1,'rgba(124,255,79,0)']]);
+const bg=$('bg'),bx=bg.getContext('2d');let BW=0,BH=0;
+const RAILS=[-.46,-.37,-.29,-.22,-.15,-.09,.09,.15,.22,.29,.37,.46];
+function sizeBg(){const d=Math.min(2,devicePixelRatio||1);BW=innerWidth;BH=innerHeight;bg.width=BW*d;bg.height=BH*d;bx.setTransform(d,0,0,d,0,0)}
+function railPts(side,k){const cx=BW/2,cy=BH*.5;return{x0:cx+side*BW*.1,y0:cy+k*BH*.5,x1:side<0?-BW*.02:BW*1.02,y1:cy+k*BH*1.08}}
+const ease=t=>t*t*(1.25-.25*t);
+function newStreak(delay=true){return{side:Math.random()<.5?-1:1,k:RAILS[Math.floor(Math.random()*RAILS.length)],t:delay?-Math.random()*1.4:Math.random(),v:.0012+Math.random()*.0016,len:.12+Math.random()*.12,w:.5+Math.random()*.7}}
+const streaks=Array.from({length:14},()=>newStreak(false));
+const dust=Array.from({length:70},()=>({x:Math.random(),y:Math.random(),r:.4+Math.random()*1.1,p:Math.random()*6.28,s:.4+Math.random()*1.4,vy:-(0.00002+Math.random()*0.00006)}));
+function drawBg(time){bx.clearRect(0,0,BW,BH);bx.lineWidth=1;
+  for(const side of[-1,1])for(const k of RAILS){const p=railPts(side,k),g=bx.createLinearGradient(p.x0,p.y0,p.x1,p.y1);
+    g.addColorStop(0,'rgba(140,255,110,0)');g.addColorStop(.45,'rgba(140,255,110,.05)');g.addColorStop(1,'rgba(140,255,110,.09)');
+    bx.strokeStyle=g;bx.beginPath();bx.moveTo(p.x0,p.y0);bx.lineTo(p.x1,p.y1);bx.stroke()}
+  bx.globalCompositeOperation='lighter';
+  for(const s of streaks){s.t+=s.v*(.55+Math.max(0,s.t)*1.6);if(s.t-s.len>1){Object.assign(s,newStreak(true));continue}if(s.t<=0)continue;
+    const p=railPts(s.side,s.k),h=Math.min(1,ease(Math.min(s.t,1))),tl=ease(Math.max(0,s.t-s.len));
+    const hx=p.x0+(p.x1-p.x0)*h,hy=p.y0+(p.y1-p.y0)*h,tx=p.x0+(p.x1-p.x0)*tl,ty=p.y0+(p.y1-p.y0)*tl;
+    const fade=Math.min(1,s.t/.18)*(s.t>.9?Math.max(0,1-(s.t-.9)/(s.len+.1)):1),w=s.w*(.5+1.8*h);
+    const g=bx.createLinearGradient(tx,ty,hx,hy);g.addColorStop(0,'rgba(124,255,79,0)');g.addColorStop(.75,`rgba(124,255,79,${.5*fade})`);g.addColorStop(1,`rgba(205,255,180,${.9*fade})`);
+    bx.strokeStyle=g;bx.lineCap='round';
+    bx.globalAlpha=.14;bx.lineWidth=w*7;bx.beginPath();bx.moveTo(tx,ty);bx.lineTo(hx,hy);bx.stroke();
+    bx.globalAlpha=1;bx.lineWidth=w;bx.beginPath();bx.moveTo(tx,ty);bx.lineTo(hx,hy);bx.stroke();
+    const hs=6+w*6;bx.globalAlpha=.35*fade;bx.drawImage(SPR_HEAD,hx-hs/2,hy-hs/2,hs,hs)}
+  for(const d of dust){d.y+=d.vy;if(d.y<0)d.y=1;bx.globalAlpha=.12+.38*(.5+.5*Math.sin(time*.001*d.s+d.p));bx.fillStyle='#d8ffc8';bx.beginPath();bx.arc(d.x*BW,d.y*BH,d.r,0,6.283);bx.fill()}
+  bx.globalAlpha=1;bx.globalCompositeOperation='source-over';requestAnimationFrame(drawBg)}
+sizeBg();addEventListener('resize',sizeBg);requestAnimationFrame(drawBg);
+
+/* ---------- pixel glyph (headline) and the big pixel equaliser ---------- */
+function pixelWave(el,COLS,ROWS){el.innerHTML=Array.from({length:COLS},()=>`<span>${'<i></i>'.repeat(ROWS)}</span>`).join('');
+  const cols=[...el.children],mid=(ROWS-1)/2;
+  setInterval(()=>{const t=performance.now()*.006;cols.forEach((c,ci)=>{const lvl=Math.round(Math.abs(Math.sin(t+ci*.75)*Math.cos(t*.37+ci*.45))*(mid+.2));
+    [...c.children].forEach((q,ri)=>q.classList.toggle('on',Math.abs(ri-mid)<=lvl))})},110)}
+pixelWave($('glyph'),7,5);pixelWave($('eq'),19,11);
+
+/* ---------- landing word-by-word blur reveal ---------- */
+function splitWords(el){let n=0;(function walk(node){[...node.childNodes].forEach(ch=>{
+  if(ch.nodeType===3){const frag=document.createDocumentFragment();ch.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(p));return}
+    const s=document.createElement('span');s.className='w';s.textContent=p;s.style.transitionDelay=Math.min(n++*55,900)+'ms';frag.appendChild(s)});ch.replaceWith(frag)}
+  else if(ch.nodeType===1){if(ch.classList.contains('keep')){const s=document.createElement('span');s.className='w';s.style.transitionDelay=Math.min(n++*55,900)+'ms';ch.replaceWith(s);s.appendChild(ch)}else walk(ch)}})})(el)}
+document.querySelectorAll('[data-reveal]').forEach(splitWords);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('[data-reveal],.rise').forEach((el,i)=>{if(el.classList.contains('rise'))el.style.transitionDelay=(i%5)*100+'ms';io.observe(el)});
+addEventListener('pointermove',e=>{document.querySelectorAll('.glass').forEach(g=>{const r=g.getBoundingClientRect();g.style.setProperty('--mx',e.clientX-r.left+'px');g.style.setProperty('--my',e.clientY-r.top+'px')})});
+
+/* ---------- the call, one moment per L ---------- */
+const SCRIPT=[
+  {who:'ava',text:"Thistle Bank, you're speaking to Ava, an AI assistant. Can I take your date of birth to check it's you?",
+   tools:['t1'],guard:['g1','g2'],trace:[['complaint.voice_turn','gpt-4.1-mini','1.2s','metadata']]},
+  {who:'cust',text:`Yes, it's fine. I've been <span class="hl">charged overdraft fees three times this month</span>.`,
+   lit:'fees',tools:['t2'],txns:true,trace:[['complaint.voice_turn','gpt-4.1-mini','1.1s','metadata'],['complaint.triage','gpt-6-luna','3.1s','metadata']]},
+  {who:'cust',text:`<span class="hl v">I was in hospital</span> and couldn't sort it. I don't think that's fair.`,
+   lit:'hosp',guard:['g3'],trace:[['complaint.triage','gpt-6-luna','3.0s','metadata']]},
+  {who:'ava',text:"I'm so sorry, Ellen. I've logged this as a complaint, and you'll get a written response by email.",
+   lit:'clock',tools:['t3'],guard:['g4'],trace:[['complaint.voice_turn','gpt-4.1-mini','1.3s','metadata']]},
+  {who:'ava',text:"I've passed it to our Financial Support team. They'll look at the fees first. Thank you for calling.",
+   lit:'team',tools:['t4'],end:true,trace:[['complaint.triage','gpt-6-luna','3.2s','full'],['complaint.decide','gpt-6-luna','3.6s','full'],['complaint.letter','gpt-6-luna','4.1s','full']]},
+];
+let at=0,calls=0,secs=0,timerId=null,playId=null,lastCap='';
+const plain=h=>h.replace(/<[^>]+>/g,'');
+function step(){if(at>=SCRIPT.length)return;const s=SCRIPT[at++],who=s.who==='ava'?'AVA (AI)':'ELLEN';
+  if(!timerId)timerId=setInterval(()=>{secs++;$('timer').textContent=`${String(Math.floor(secs/60)).padStart(2,'0')}:${String(secs%60).padStart(2,'0')}`},1000);
+  $('captions').innerHTML=(lastCap?`<p class="cap old">${lastCap}</p>`:'')+`<p class="cap enter"><small>${who}</small>${plain(s.text)}</p>`;lastCap=`<small>${who}</small>${plain(s.text)}`;
+  $('empty')?.remove();$('lines').insertAdjacentHTML('beforeend',`<div class="msg ${s.who}"><small>${who}</small>${s.text}</div>`);$('lines').scrollTop=1e6;
+  $('eq').classList.remove('quiet');$('speaker').textContent=s.who==='ava'?'AVA (AI) SPEAKING':'ELLEN SPEAKING';
+  (s.tools||[]).forEach(t=>$(t).classList.add('on'));(s.guard||[]).forEach(g=>$(g).classList.add('on'));
+  if(s.txns)document.querySelectorAll('[data-t]').forEach((t,i)=>setTimeout(()=>t.classList.add('on'),200+i*220));
+  (s.trace||[]).forEach((t,i)=>setTimeout(()=>addTrace(t),300+i*350));
+  if(s.lit){const p=$('pulse');p.classList.remove('go');void p.offsetWidth;p.classList.add('go');setTimeout(()=>document.querySelector(`.fl[data-k="${s.lit}"]`).classList.add('lit'),620)}
+  if(s.end)setTimeout(endCall,1800)}
+function addTrace([task,model,lat,rec]){calls++;$('ncalls').textContent=calls;$('m-calls').textContent=`${calls} calls · every one via Mubit`;
+  $('trace').insertAdjacentHTML('afterbegin',`<div class="tr">${task}<em>${lat}</em><span>${model} · mreq_${Math.random().toString(16).slice(2,8)}…</span><span>record=${rec}</span></div>`)}
+function endCall(){clearInterval(timerId);timerId=null;document.body.classList.add('ended');$('state').textContent='CALL ENDED';
+  $('eq').classList.add('quiet');$('speaker').textContent='CALL ENDED';$('after').classList.add('show')}
+function reset(){clearInterval(timerId);clearInterval(playId);timerId=null;at=0;calls=0;secs=0;lastCap='';
+  $('timer').textContent='00:00';$('state').textContent='LIVE · AVA (AI)';document.body.classList.remove('ended');
+  $('captions').innerHTML='<p class="idle">Press <b>Next moment</b> or L to start the call</p>';
+  $('lines').innerHTML='<p class="empty" id="empty">The transcript starts with the call.</p>';
+  document.querySelectorAll('.fl.lit,.checks .on,.txn.on').forEach(e=>e.classList.remove('lit','on'));$('pulse').classList.remove('go');
+  $('trace').innerHTML='';$('ncalls').textContent='0';$('m-calls').textContent='0 calls';$('after').classList.remove('show');
+  $('eq').classList.add('quiet');$('speaker').textContent='WAITING FOR THE CALL'}
+function play(){reset();step();let i=1;playId=setInterval(()=>{step();if(++i>=SCRIPT.length)clearInterval(playId)},2600)}
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2600)}
+
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(k==='l')step();else if(k==='g')play();else if(k==='r')reset()});
+if(location.hash==='#play')setTimeout(play,700);
+</script>
+</body>
+</html>
