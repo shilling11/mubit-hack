@@ -1,81 +1,68 @@
-# Redress: bank complaints that resolve better with every correction
+# Redress: QA on every regulated call, with a model that learns from your analysts
 
 > **Night Shift: $65K Mubit Hackathon, London** · 23–25 October 2026 · <https://luma.com/nightshift-london>
 >
-> **One-liner:** Customers complain to their bank by phone or by email. On calls, Redress **listens in** silently, flags the few things the employee must not miss, and fills in the whole case when the call ends. For emails, Redress **reads the complaint and drafts the reply and the solution**. A human approves everything. Every model call goes through Mubit, and every correction becomes a rule immediately and a Mubit model update over time, so the next complaint, on either channel, is handled right first time.
+> **One-liner:** Bank call QA checks **1–2% of calls** by hand. Redress reviews **100%** of a bank's calls against its scorecard and the FCA's rules. It sends the risky ones to a QA analyst, and turns every correction the analyst makes into a rule straight away and a Mubit model update over time. Built for **outsourced QA firms**: one model per bank client, trained only on that client's labels.
 >
-> This replaces our first idea, **Redline** (RFP responses). Its full README, with everything we measured, is in [docs/redline/README.md](docs/redline/README.md), and its code is in commit `fb545f9`. **§3 below is the Mubit knowledge we learned building it. Read it before touching any model call.**
+> **Direction change (Sat 22:30, Abdul).** This README now describes **v3**.
+> - Sultan's listen-in + email version (20:46) is kept **unchanged** at [docs/redress-listen-in/README.md](docs/redress-listen-in/README.md). Its Deepgram, Gmail IMAP/SMTP, redaction and Mubit parts carry straight over.
+> - The first idea, Redline, is at [docs/redline/README.md](docs/redline/README.md).
+> - **§3 (Mubit knowledge) is unchanged. Read it before touching any model call.**
+>
+> **Read next:**
+> - [docs/QA_RESEARCH.md](docs/QA_RESEARCH.md): how call QA really works, with sources
+> - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): flow, Mubit tasks, data model, **routes v3**
+> - [docs/CALLING.md](docs/CALLING.md): the call recording path (Sultan)
+> - [docs/planning/](docs/planning/): decision notes and the risk log
 
 ---
 
 ## 0. How to use this README (for teammates and coding agents)
 
-- Build in the order in [§10 Build plan](#10-build-plan-ruthlessly-prioritised). The **email channel** comes first, because it carries the core loop and is the lowest risk. The **call channel** reuses the same pipeline and adds live transcription.
+- Build in the order in [§10](#10-build-plan). The **review task on imported transcripts** comes first: it's the core loop and the lowest risk. The call recording path feeds the same pipeline.
 - **Hard rule: every LLM call goes through `app/llm/mubit_client.py`** (the Mubit gateway). Speech-to-text isn't an LLM task and calls Deepgram directly.
-- **Freeze system prompts and JSON schemas early.** Mubit identifies a task by its system prompt, model, tools and output format. Changing any of them starts a new task with zero training examples (§3.4).
-- Anything marked `TODO(verify)` hasn't been tested by us yet. Don't invent API details for Mubit, LiveKit, Deepgram, Gmail or Resend. Check their docs.
-- All customers, banks, accounts and complaints are **synthetic**. No real customer data, ever: Mubit records request and reply content by default.
+- **Freeze system prompts and JSON schemas by 00:00.** Mubit identifies a task by its system prompt, model, tools and output format. Changing any of them starts a new task with zero training examples (§3.4). Each client's scorecard lives **in its system prompt**, which is how each bank gets its own model.
+- **Held-out calls are `x-middleware-record: metadata`, set in code.**
+- Anything marked `TODO(verify)` hasn't been tested by us yet. Don't invent API details for Mubit, Deepgram or Gmail. Check their docs.
+- Everything is **synthetic**: the QA firm, the banks, the agents and the customers. Mubit records request and reply content by default.
 
 ---
 
-## 1. Problem overview and narrative
+## 1. Problem and narrative
 
-### The problem
-UK banks handle very large volumes of complaints, by phone and by email: unexpected fees, card disputes, scams, mortgage errors, poor service. Every complaint is regulated. The FCA's complaint rules (DISP) set the clock and the content:
+### How call QA works today (sources in [docs/QA_RESEARCH.md](docs/QA_RESEARCH.md))
+- Calls are recorded. **A random 1–2% are sampled** (ContactBabel survey of 200+ UK contact centres), and **an analyst listens to the whole call**: advice calls run about 90 minutes, and one audit took 24 minutes.
+- Analysts score a **weighted scorecard with auto-fail items** and meet monthly to align their scoring. Findings become coaching, urgent escalations, and **reports that feed the bank's Consumer Duty board report**.
+- QA can be **in-house or outsourced** (TCC Group, Huntswood, KPMG). The FCA only requires that the checkers are **independent** of the work they check (SYSC 6.1).
+- **What analysts look for:**
+  - missed **complaints**, even when the customer never uses the word;
+  - missed **vulnerability** (health, bereavement, money worries, confusion);
+  - **promises or misleading statements**;
+  - **missing checks or disclosures**;
+  - the **wrong deadline** (8 weeks, or 15 business days for payments).
 
-| Rule (FCA DISP, summarised: verify before quoting) | What it means operationally |
+### What's broken
+| Problem | Cost |
 |---|---|
-| A **prompt written acknowledgement** | Every complaint gets one, by email or letter |
-| Resolved by the end of the **third business day** after receipt | A short "summary resolution communication" can close it, and must tell the customer about the Financial Ombudsman Service (FOS) |
-| Otherwise a **final response within 8 weeks** | Must say whether the complaint is upheld, explain why, set out any redress, and give FOS referral rights (6 months) |
-| **Payment services** complaints (card payments, transfers, direct debits) | Shorter clock: **15 business days**, up to 35 in exceptional cases |
-| Fair treatment, Consumer Duty, vulnerable customers | Vulnerability must be spotted and acted on; outcomes must be consistent |
-
-Each case is the **same recurring task**, whatever the channel:
-
-> *Understand what happened → classify it and start the right clock → spot vulnerability → decide uphold / partial / reject under policy → calculate redress → write a compliant, human response.*
-
-Where it goes wrong today:
-
-| Failure | Cost |
-|---|---|
-| Vulnerability missed ("I was in hospital", "my husband just died") | Unfair outcome, regulatory breach, reputational damage |
-| Wrong clock (a card-payment dispute treated as 8 weeks, not 15 business days) | Missed deadline, automatic breach |
-| Inconsistent redress: two handlers, two answers | Unfair treatment; the customer goes to the Ombudsman, and the bank pays a case fee |
-| After-call and inbox work: notes, logging, letters, replies | Most of a handler's time goes on paperwork, not customers |
-| Promises made on the phone ("you'll definitely get it back") | A commitment the bank then has to honour or unwind |
-| Generic AI chatbots and email auto-replies | Fluent but inconsistent; they promise what policy doesn't allow, or hedge on clear-cut cases |
-
-### The insight
-Complaints handlers already **correct** cases all day, and those corrections are the bank's real policy in practice:
-
-- "Fees charged while the customer was in hospital are refunded in full, plus a distress-and-inconvenience payment."
-- "Card-payment disputes are payment-services complaints: 15 business days, not 8 weeks."
-- "Never tell a scam victim the money will definitely come back before the investigation."
-
-Today those corrections stay in one handler's head, or a QA spreadsheet, and the knowledge doesn't move between the phone team and the email team.
+| 98% of calls are never checked | Missed complaints and missed vulnerable customers stay hidden. The bank can't evidence Consumer Duty outcomes. |
+| Analysts disagree with each other | "Reviews were at times inconsistent and uncoordinated" (Key Group) |
+| Today's AI QA is **configured, not trained** | A rented big model you instruct ("write guidelines… tune it until it's calibrated"). When analysts disagree, someone rewrites the instructions. **The model never learns.** |
 
 ### The solution
-**Redress** works alongside the people already handling complaints:
+**Redress** is the QA firm's workbench:
+1. **Review 100%.** An AI reviewer scores every call against the client's scorecard, with the quote and timestamp for every answer.
+2. **Route.** Critical failures are escalated now. High-risk and low-confidence calls go to an analyst. A random 1% audit keeps it honest. The rest is auto-accepted.
+3. **Label.** The analyst sees the same evaluation form they use today, pre-filled. They ✓ agree, or change an answer and give a one-line reason.
+4. **Learn.** Each override becomes a playbook rule (re-tested on last week's calls before it goes live) and a Mubit training example. **Agreement per scorecard item** rises; items above 95% stop needing a human.
+5. **Report.** The weekly client report is written section by section by a second Mubit task. The analyst's edits teach that task too.
 
-| Channel | Who talks to the customer | What Redress does |
-|---|---|---|
-| **Phone** | The bank employee, as today | Listens silently and transcribes both sides. Shows **at most one nudge at a time**, only at the moments that matter (vulnerability heard, "this is a complaint", "don't promise an outcome", "confirm the callback time"). When the call ends, it **pre-fills the case**: summary, category, clock, vulnerability, commitments made, draft decision and the follow-up email |
-| **Email** | Redress drafts; the handler sends | Reads the complaint (and the thread), triages it, drafts the acknowledgement immediately, then the decision and the resolution email. The handler edits and approves |
+### Pitch points (agreed)
+1. **Today's AI QA never learns.** "If the analysts disagree, someone rewrites the instructions. The model itself never learns." Redress is trained by the analysts, every day.
+2. **100% coverage becomes affordable.** Running every long call through a big model costs real money. That's why Aveni built small models (they claim "up to 25× cheaper"), and it took them seven years. **Mubit builds a small model from the firm's own calls, with no ML team.**
+3. **One model per bank client.** Each bank's scorecard is a separate Mubit task, so a separate model is trained **only on that bank's calls**. Nothing crosses between clients.
+4. **Stable scores for auditors.** A rented model changes when the provider updates it. A Mubit model only changes when a new version passes Mubit's tests and you choose to switch.
 
-Both channels feed **one shared case pipeline**, so a correction made on a phone case also improves email handling, and the reverse. Each correction:
-1. **immediately** becomes a playbook rule that the next case's calls include, and
-2. **over time** becomes a Mubit task adapter: the corrected calls are Mubit's training examples, so a small, fast model learns the bank's complaint judgement.
-
-### Why listen-in, not an AI that talks
-- **Least overhead:** the employee does nothing new during the call. The paperwork after it, where the time actually goes, is done for them.
-- **Safer:** a complaint outcome usually needs investigation, so nothing is decided live and the AI never speaks to a distressed customer.
-- **Better for Mubit:** no speech synthesis and no sub-second turn deadline. Nudges can take 2–4s, which suits Mubit's measured latency. The employee confirming the wrap-up *is* the correction, so training data comes from normal work.
-
-### Narrative for the judges (30 seconds)
-> "A Thistle Bank customer rings, upset about overdraft fees, and mentions in passing they were in hospital. The employee handles the call; Redress listens and flags the vulnerability with the exact quote. When they hang up, the case is already written: category, deadline, decision and the follow-up email. The handler corrects one thing, and seconds later a different customer's **email** complaint is handled correctly first time. Those corrections train a small Mubit adapter, so this judgement runs on a model the bank owns."
-
-**Money line:** *Without Mubit, the AI does the paperwork. With Mubit, it learns how your bank resolves complaints.*
+**Closing line:** *"Today's AI QA is configured. Redress is trained, by your analysts, every day."*
 
 ---
 
@@ -91,16 +78,16 @@ Both channels feed **one shared case pipeline**, so a correction made on a phone
 **Brief:** build a product that routes its LLM calls through Mubit (one base-URL change) and turns corrections into model updates for a recurring task.
 
 **Tracks (top 3 judged across all):**
-1. **Recurring tasks** ← primary.
-2. **Own your intelligence layer** (closed model vs task-adapted open model: quality, cost, latency). `call.nudge` runs every ~20s of every call, so it's the highest-volume task and the clearest cost story for a small adapter.
-3. **Fast refresh** (keeping pace with change): a policy change ("new fee-refund rule from Monday") taught with one correction.
+1. **Recurring tasks** (primary): the same review after every call, corrected by analysts.
+2. **Own your intelligence layer:** 100% coverage only pays on a small task model. The Compare tab shows quality, latency and cost per 1,000 calls side by side.
+3. **Fast refresh:** a rule change (a new FCA rule, or a new client policy) taught with one correction and tested on the archive.
 
 | Judging criterion (equal weight) | How Redress scores |
 |---|---|
-| **Use of Mubit**: a correction becoming a model update | Live correction → rule → unseen complaint on the *other* channel handled right; corrected calls → Mubit adapter, shown in Try models. Every call visibly routed through Mubit |
-| **Usefulness**: a real recurring task | Bank complaints: regulated, high-volume, costly when wrong, and most handler time goes on paperwork |
-| **Technical execution** | Live dual-channel transcription, structured outputs, held-out set with hand-written gold labels, fixed-rule scoring, averaged runs |
-| **Demo** | A live role-played call plus a real email arriving on a phone, in 3 minutes (§9) |
+| **Use of Mubit**: a correction becoming a model update | Analyst override → rule → unseen calls scored right; corrected calls → `review.thistle` adapter version, shown in Try models; a second client's task shows one model per client |
+| **Usefulness**: a real recurring task | Regulated call QA: 1–2% sampled today, analysts paid per review, FCA board reports depend on it |
+| **Technical execution** | Speaker-separated transcription, strict JSON scorecards with evidence timestamps, risk routing, an agreement metric, a held-out set with gold labels, averaged runs |
+| **Demo** | A live role-played call scored seconds after hang-up, a label → rule → retest, and a client report landing in Gmail, in 3 minutes (§9) |
 
 | When | What |
 |---|---|
@@ -156,7 +143,7 @@ Consequences we hit:
 - **Editing a system prompt creates a new task** at 0 of 25. Freeze prompts by Saturday night, or the adapter never trains.
 - **Put everything that varies in the user message** (case facts, transcript, policy passages, playbook rules), never in the system prompt.
 - If a task uses tools, the **tool definitions** are part of the fingerprint. Keep the tool list fixed.
-- **Our two models:** `call.nudge` on a fast model and the case tasks on one other model. That's deliberate, and each stays fixed.
+- **Our model (v3):** one fixed model (`MUBIT_MODEL`) for every `review.*`, `report.*` and `rule.induce` task.
 
 ### 3.5 Kept examples, and why the count was slow
 - Training starts at **25 kept examples**, and the console shows `Collecting examples` → `Reviewing examples` → `Training` → `Testing`.
@@ -205,321 +192,202 @@ Base (v0) and held-out calls are sent with record=metadata → never training da
 - **A narrow rule set can make things worse** (80.8% vs base 86.6%), and a broad "don't hedge" rule once flipped "auto-approve payments" to Comply. **Guardrail rules** (seeded corrections for the non-negotiables) fixed it: 86.6% → **94.9%** averaged over 3 runs.
 - **Single runs are noisy** (±1–2 rows out of 26). Quote averages over 3 runs with min–max ranges.
 - **Held-out hygiene:** we accidentally sent our "held-out" pack to Mubit with full recording and had to replace it. Make held-out cases `metadata`-only **in code**, not by remembering.
-- **Latency (measured through Mubit, JSON output):** `gpt-6-luna` about 3–4s p50 per call; `gpt-4o-mini` and `gpt-4.1-mini` about 1.4s. Fine for nudges (non-blocking) and post-call drafting; too slow for an AI that talks in real time, which is one reason we listen in instead (§1).
+- **Latency (measured through Mubit, JSON output):** `gpt-6-luna` about 3–4s p50 per call; `gpt-4o-mini` and `gpt-4.1-mini` about 1.4s. Fine for post-call review, which runs after the call ends; too slow for an AI that talks in real time.
 - **Ops gotchas:** `uvicorn --reload` restarts kill in-flight background work, so demo without `--reload`. npm was broken under Git Bash on our Windows machine but works in PowerShell. Next.js versions before 16.4.1 had critical advisories, so we use 16.4.3.
 
 ---
 
 ## 4. Product overview
 
-### 4.1 Channels
+### 4.1 Who uses it
+| User | Where | What they do |
+|---|---|---|
+| **QA analyst** at Harbour Assurance (a fictional outsourced QA firm) | Queue → evaluation form | Confirms or overrides the AI's answers, with a reason |
+| **QA lead** | Agreement · Learning · Report | Watches agreement per item, checks rules before they go live, edits and sends the client report |
+| **Client complaints manager** at Thistle Bank | Their Gmail | Receives urgent escalations and the weekly report |
 
-**Phone: listen-in assistant**
-1. The customer calls; the bank employee answers as normal. Redress joins as a **silent participant**: it records and transcribes both sides on separate audio tracks, so "who said what" is exact.
-2. The live transcript appears in a slim side panel. **Nudges** appear only when needed, at most one at a time; they expire on their own and can be dismissed in one click:
+**Nothing leaves Harbour without a human click.** Escalations and reports are drafted, then sent by the analyst or lead.
 
-   | Nudge | Fires when | Example |
-   |---|---|---|
-   | `vulnerability` | Health, bereavement, money worries, confusion, distress | *"Customer mentioned a hospital stay → offer specialist support."* (with the quote) |
-   | `complaint` | Dissatisfaction is expressed: it's a complaint even if the word isn't used | *"This is a complaint: it's been logged and the clock has started."* |
-   | `no_promise` | The employee promises an outcome before investigation | *"Avoid promising a refund: explain what happens next."* |
-   | `expectation` | The customer asks "when", or the call is ending | *"Confirm when they'll hear back and how."* |
-   | `info_needed` | A fact the case needs is missing | *"Ask for the date of the first fee."* |
-3. When the call ends, the case is **pre-filled within seconds**: summary, category, regulatory clock, vulnerability flags (with quotes), commitments the employee made ("I'll call you Friday"), draft decision and redress, and the follow-up email. The employee confirms or edits. **That edit is the correction.**
+### 4.2 The flow
+**Ingest** (upload a recording or import transcripts) → **Review** (`review.<client>`, every call) → **Route** (escalate / analyst / audit / auto) → **Label** (the evaluation form) → **Learn** (rule, test on archive, agreement) → **Report** (`report.<client>`, section by section) → **Send** (Gmail).
 
-**Email: drafting assistant**
-1. A complaint email arrives in the bank's complaints inbox (seeded for the demo, or a real mailbox via IMAP).
-2. Redress triages it straight away and drafts the **acknowledgement** (one click to send).
-3. It then drafts the **decision and resolution email**: a summary resolution communication if it can be resolved within three business days, a final response otherwise, or an **info request** if a fact is missing. Follow-ups in the same thread join the same case.
-4. The handler edits and clicks **Approve & send**. Edits are corrections.
+Full detail, the Mubit task table, the data model and **routes v3** are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-### 4.2 One shared case pipeline (every LLM step is a Mubit task)
-| # | Mubit task | Channel | Input (user message) | Output (strict JSON) | Volume · corrected by |
-|---|---|---|---|---|---|
-| 1 | `call.nudge` | Phone (live) | Last ~90s of transcript + nudges already shown + case so far + playbook | 0–2 nudges: type, message (≤ 15 words), quote, priority | **Highest:** every ~20s of every call · dismissals with a reason |
-| 2 | `complaint.triage` | **Both** | Final transcript **or** email thread + customer profile + playbook | Category, product, clock type, **vulnerability [type, quote]**, severity, customer's ask, summary, commitments made, missing info | Every case · **core** |
-| 3 | `complaint.decide` | Both | Triage + transactions + policy passages + playbook | Outcome (upheld / partially / not upheld / need info), reasons, **redress lines**, confidence | Every case · **core** |
-| 4 | `complaint.reply` | Both | Case + decision + reply type (acknowledgement / info request / summary resolution / final response) + thread or call commitments + playbook | Subject, body, required-elements checklist | Every case · email edits |
-| 5 | `rule.induce` | – | Correction + the handler's reason | One general rule + when it applies + keywords | Every correction |
+### 4.3 Mubit tasks
+| Task | Per client? | What it does |
+|---|---|---|
+| `review.thistle`, `review.northwind` | **Yes**: the scorecard is in the system prompt | Scores one call: items + quote + timestamp + confidence, complaint, deadline, vulnerability, risk tier |
+| `report.thistle` | **Yes**: the report template is in the system prompt | Writes one report section or finding (kept short, so it can be trained on) |
+| `rule.induce` | Shared | Turns an override and its reason into a general rule |
 
-Because triage, decide and reply are **one task each for both channels**, phone and email cases train the same three adapters. That gives twice the examples, and corrections carry across channels.
-
-**Plain code, no LLM:** speaker separation (separate tracks), nudge rate-limiting (one visible at a time, a cooldown per type, no repeats), clock and deadline arithmetic, PII redaction, policy retrieval (BM25), email threading, the reply compliance checklist, and scoring.
-
-### 4.3 Where corrections come from (no extra work for the employee)
-| Signal | Becomes |
-|---|---|
-| Edits to the pre-filled wrap-up (category, clock, vulnerability, commitments) | A triage correction → rule |
-| Edits to the decision or redress | A decision correction → rule |
-| Edits to the email (word-level diff) | A reply correction → rule |
-| A nudge dismissed with a one-click reason ("not vulnerability", "already done") | A nudge correction. Repeated dismissals become a rule |
-| Approve with no edits | Recorded as a confirmation (no rule) |
-
-Each correction can carry an **optional reason** from a dropdown or a short note, so there's no essay-writing. `rule.induce` turns the reason and the diff into a general rule.
-
-### 4.4 Handler workspace (web app)
-- **Live call:** two-lane transcript (customer / employee), the current nudge, and the case so far.
-- **Inbox:** email complaints with deadline countdowns and acknowledgement status.
-- **Case view:** triage, decision and redress, draft email, evidence (transcript lines, transactions, policy passages). Edit anything, give a reason → **Teach** or **Teach & ripple**. **Approve & send** sends the real email.
-- **Learning:** corrections as tracked changes, playbook versions, induced rules.
-- **Compare:** held-out cases from both channels, base vs playbook, averaged over 3 runs.
-- **Mubit trace panel:** every call with task, request ID, model, latency and record mode.
+### 4.4 Screens
+Wall (100 tiles) · Queue · Evaluation form · Agreement · Report editor · Learning · Mubit panel. Details are in ARCHITECTURE §6. Visual style is owned by the UI session.
 
 ---
 
 ## 5. Architecture and technologies
 
-### 5.1 Diagram
-```text
- PHONE                                                   EMAIL
- Customer ──audio──┐                                      Customer ──email──► complaints inbox
-                   ▼                                                            │ IMAP poll (or webhook)
-          ┌──────────────── call room (LiveKit, WebRTC) ────────────────┐       │
-          │ customer track         employee track                       │       │
-          │        └── Redress listener (silent participant) ──┐        │       │
-          └────────────────────────────────────────────────────┼────────┘       │
-                  per-track streaming STT (Deepgram) ◄─────────┘                │
-                         │ transcript segments, speaker known                    │
-                         ▼                                                       ▼
- ┌──────────────────────────────────── Redress API (FastAPI) ─────────────────────────────────────┐
- │ live: transcript store → nudge loop (call.nudge, debounced) → WebSocket to the UI              │
- │ cases: intake (call end / new email) → redaction → triage → decide → reply                     │
- │ learning: corrections → rule.induce → playbook vN · ripple · scoring · SQLite                  │
- │ app/llm/mubit_client.py ──────────────────────────► Mubit gateway ──► provider model           │
- │ email out: SMTP (Gmail app password) or Resend, only after the handler approves                │
- └────────────────────────────────────────────────────────────────────────────────────────────────┘
-                         ▲ REST + WebSocket
-           ┌─────────────┴──────── Web app (Next.js 16 + Tailwind 4) ────────┐
-           │ live call · inbox · case view · learning · compare · traces     │
-           └─────────────────────────────────────────────────────────────────┘
-```
-
-### 5.2 Stack
 | Layer | Choice | Notes |
 |---|---|---|
-| Call room | **LiveKit** (Cloud free tier or self-hosted), WebRTC | The customer and employee join from browsers or phones; the listener joins as a hidden, muted participant and subscribes to each track. Alternative: Daily + Pipecat. `TODO(verify)`: LiveKit Agents API for a non-publishing participant |
-| Speech-to-text | **Deepgram** streaming (Nova family), one stream per track | Interim results for captions, endpointing to detect "utterance finished", punctuation. Alternative: AssemblyAI streaming |
-| Email in | **Gmail inbox via IMAP polling** (app password), every ~10s | Simplest real inbound with no webhooks. Alternatives: Postmark or Resend inbound webhooks `TODO(verify)` |
-| Email out | **SMTP** on the same Gmail account, or **Resend** | Real email to a phone on stage. Human approval required |
-| LLM gateway | **Mubit**, OpenAI SDK, one base URL | One fixed model per task (§3.4): fast model for `call.nudge`, one model for the case tasks |
-| Backend | Python 3.11, FastAPI, Pydantic, SQLite, rank-bm25, asyncio | Reuse Redline modules (§6) |
-| Frontend | Next.js 16.4.3, React 19, Tailwind 4, lucide-react | Reuse Redline's trace panel, UI kit and diff view |
-| Telephony (stretch) | Twilio number + Media Streams (both call legs) | So expo judges can ring in from a real phone |
+| Recording | Browser `MediaRecorder` (laptop mic), or upload a file | No call room needed. Calls are reviewed after they end ([docs/CALLING.md](docs/CALLING.md)) |
+| Speech-to-text | **Deepgram pre-recorded**, `diarize=true`, `utterances=true` | Speaker mapping in code, plus a Swap button. `TODO(verify)` the model name |
+| LLM gateway | **Mubit**, OpenAI SDK, one base URL | One fixed model for all `review.*` / `report.*` tasks (`MUBIT_MODEL`) |
+| Backend | Python 3.11, FastAPI, Pydantic, SQLite | Reuse Redline's `mubit_client`, db, corrections, playbook, score |
+| Email out | **Gmail SMTP** (app password) | Escalations and client reports, after a human click |
+| Frontend | Next.js 16.4.3, React 19, Tailwind 4 | Polls the API every 1–2 s; no WebSockets |
 
-### 5.3 Design decisions
-- **Separate tracks, not diarisation.** Transcribing each participant's audio on its own stream gives exact speaker labels and avoids diarisation errors, which matters when the nudge is "*the employee* just promised a refund".
-- **Nudge loop:** trigger `call.nudge` when a speaker finishes an utterance, debounced to at most one request in flight and at least ~15s apart. Send a window of recent transcript, not the whole call, so inputs stay short and varied. Nudges never block the call and expire after ~20s. The rate limits, cooldowns and dedupe are plain code.
-- **Post-call wrap-up:** on hang-up, run `complaint.triage` on the full transcript, then `decide`, then `reply` (a follow-up email confirming what was agreed). Target: case ready within ~10s.
-- **Email threading** uses `Message-ID` / `In-Reply-To`, so replies attach to the open case. The acknowledgement is drafted the moment an email lands; an "auto-send acknowledgements" toggle is available.
-- **Latency is fine:** nothing waits on the model in real time. Nudges taking 2–4s through Mubit is acceptable, unlike an AI that talks.
-- **PII:** Mubit stores content by default. Data is synthetic, but we still redact card numbers, sort codes, account numbers and dates of birth by regex before any Mubit call.
-- **Consent:** standard "calls may be recorded" notice; Redress assists the employee and never speaks to the customer.
-- **Fallbacks:** (1) a pre-recorded two-track call replayed through the same STT path; (2) a transcript simulator (timed text lines); (3) seeded emails; (4) a recorded video.
-
-### 5.4 Regulatory clock (plain code, from triage output)
-| Situation | Clock | Deadline |
-|---|---|---|
-| Resolved by the end of the 3rd business day | Summary resolution | Day 3 (business days) |
-| Payment services (card payment, transfer, direct debit) | PSR | 15 business days (35 exceptional) |
-| Everything else | DISP final response | 8 weeks |
-
-UK bank holidays in the business-day calculation: `TODO(verify)`.
+**PII:** card numbers, sort codes, account numbers, dates of birth and postcodes are redacted by regex before any Mubit call, even though the data is synthetic.
 
 ---
 
 ## 6. Repo layout (planned)
 ```text
 mubit-hack/
-├── README.md                       # this file
-├── docs/redline/README.md          # previous idea: full context + measured results
-├── .env.example · requirements.txt
-├── app/                            # FastAPI
-│   ├── main.py                     # REST + WebSocket (live transcript, nudges, case updates)
-│   ├── config.py · db.py · models.py
-│   ├── llm/
-│   │   ├── mubit_client.py         # ONLY model gateway (reuse from fb545f9)
-│   │   └── prompts/                # nudge, triage, decide, reply, induce_rule (frozen early)
-│   ├── cases/                      # intake, redaction, deadlines, policy retrieval
-│   ├── calls/                      # transcript store, nudge loop, wrap-up trigger
-│   ├── email/                      # imap_poll.py, threading.py, send.py (approval-gated)
-│   ├── pipeline/                   # triage.py, decide.py, reply.py, runner.py
-│   ├── learning/                   # corrections.py, playbook.py, ripple.py
-│   └── eval/score.py               # deterministic scoring vs gold
-├── listener/                       # LiveKit silent participant (separate process)
-│   └── agent.py                    # subscribe to tracks → Deepgram → POST segments to the API
-├── web/                            # Next.js app
-├── data/                           # synthetic only
-│   ├── bank_kb/*.md                # Thistle Bank (fictional) policies
-│   ├── customers.json · transactions.json
-│   ├── cases/practice/             # call scripts (two speakers) + email threads
-│   ├── cases/heldout/              # never recorded for training
-│   ├── audio/                      # pre-recorded two-track demo call (fallback)
-│   ├── eval/gold_*.jsonl           # hand-written gold labels
-│   └── corrections/seed.jsonl      # guardrail corrections
-└── scripts/                        # generate_synthetic.py, warm_mubit.py, run_eval.py, replay_call.py, reset_demo.py
+├── README.md                     # this file (v3)
+├── docs/
+│   ├── QA_RESEARCH.md · ARCHITECTURE.md · CALLING.md
+│   ├── planning/                 # decision notes, RISKS.md (Mubit risk log)
+│   ├── redress-listen-in/        # Sultan's previous version, unchanged
+│   └── redline/                  # first idea
+├── app/                          # FastAPI
+│   ├── main.py · config.py · db.py
+│   ├── llm/mubit_client.py       # the ONLY model gateway (from fb545f9)
+│   ├── llm/prompts/              # review_thistle.md, review_northwind.md, report_thistle.md, induce_rule.md (FROZEN 00:00)
+│   ├── ingest/                   # deepgram.py, redact.py, import_calls.py
+│   ├── review/                   # run.py, route.py, agreement.py
+│   ├── learning/                 # corrections.py, playbook.py, test_archive.py
+│   ├── report/                   # sections.py, send.py
+│   └── eval/score.py             # gold vs output, averaged runs
+├── web/                          # Next.js (UI session)
+├── data/                         # synthetic only
+│   ├── clients/*.json            # scorecards, report templates, policies
+│   ├── calls/thistle_practice/*.json · calls/thistle_heldout/*.json · calls/northwind/*.json
+│   ├── eval/gold_thistle.jsonl   # written BEFORE any run
+│   └── audio/                    # demo recordings + fallback file
+└── scripts/                      # generate_calls.py, warm_mubit.py, run_eval.py, reset_demo.py
 ```
-
-**Reusable from Redline (`git show fb545f9:<path>`):** `app/llm/mubit_client.py`, `app/db.py`, `app/learning/corrections.py`, `app/learning/playbook.py`, `app/eval/score.py`, `app/pipeline/runner.py`, `app/pipeline/retrieve.py` (BM25), `scripts/warm_mubit.py`, `web/components/MubitPanel.tsx`, `web/components/ui.tsx`, `web/app/globals.css`. The later Redline features (ripple, averaged scoreboard, demo rail, word-level diffs) weren't committed. They're described in [docs/redline/README.md](docs/redline/README.md) §7 and need rebuilding.
 
 ---
 
 ## 7. Synthetic data
+- **Harbour Assurance** (the QA firm) and its clients **Thistle Bank** and **Northwind Finance**, with fictional agents and customers.
+- **Thistle: 100 call transcripts.**
+  - **About 40% are hard cases**: a complaint never called a complaint, vulnerability mentioned in passing ("since my husband passed"), the wrong deadline given, a refund promised, a skipped identity check.
+  - 75 practice calls · 25 held-out calls (`metadata`).
+- **Gold labels for the held-out 25 are written before any run.**
+- **Northwind:** 12–20 calls (its task stays partly trained on purpose).
+- As Redline taught us, **run the base model first and write corrections around what it actually gets wrong.**
 
-Fictional bank: **Thistle Bank** (Scottish retail bank). Fictional complaints team, policies and customers.
-
-| Data | Contents |
-|---|---|
-| `bank_kb/` | Complaints handling policy (clocks, letter types, FOS wording, acknowledgement), fee refund policy, distress & inconvenience payment guidance (fictional bands), vulnerable customer policy, card dispute policy, scam (APP) reimbursement policy, call-handling standards (no promises, expectations) |
-| Customers + transactions | ~30 synthetic customers with accounts, fees, card payments, transfers, contact history |
-| Practice cases (~45) | ~15 two-speaker call scripts + ~30 email threads, across categories; used for live corrections and Mubit warm-up (`record=full` with playbook) |
-| Held-out cases (~25) | ~8 calls + ~17 emails, different customers and wording; **always `metadata`**; gold labels written before any run |
-| Demo call script | The lines the two presenters role-play on stage (§9), plus a pre-recorded two-track version |
-
-**Deliberate patterns (what the corrections teach):**
-| Pattern | Base model likely does | Correct handling |
-|---|---|---|
-| Vulnerability mentioned in passing | Misses it or doesn't act | Nudge with the quote; flag it; apply the policy (full fee refund + D&I payment, specialist team) |
-| Card-payment dispute | 8-week clock | Payment-services clock: 15 business days |
-| Employee says "you'll get that back" | Nothing | `no_promise` nudge; the wrap-up records it as a commitment to honour or correct |
-| Fees the customer was clearly warned about | Upholds it to please the customer | Not upheld, explained kindly, FOS rights given |
-| Scam victim asks "will I get it back?" (email) | Reassures, or promises | No promise before investigation; explain the process and timeline |
-| Email missing a key fact | Guesses | Info request reply |
-| Resolved on the call | Drafts a full final response | Summary resolution communication, with FOS rights |
-
-As we learned on Redline, **run the base model first and write the corrections around what it actually gets wrong**, not what we assume.
-
-**Metrics (fixed rules vs gold):** nudge precision and recall by type (within a time window of the gold line) · category accuracy · **vulnerability recall** · clock accuracy · outcome accuracy · redress within ±£5 · reply checklist pass rate (FOS rights, outcome, reasons, redress, deadline, apology where upheld) · time from hang-up to case ready · cost per complaint.
+**Metrics** (fixed rules against gold labels):
+- item accuracy
+- **critical-fail recall**
+- complaint recall
+- vulnerability recall
+- agreement %
+- latency p50
+- cost per 1,000 calls
 
 ---
 
 ## 8. Features
+**P0 (must ship):**
+1. Import transcripts → `review.thistle` (strict JSON, quotes + timestamps), all through Mubit
+2. Routing + queue + **evaluation form** with override reasons → corrections → `rule.induce` → playbook vN
+3. **Test on archive** (before → after) + **agreement per item**
+4. **Record call** → Deepgram → review in ≤ 20 s
+5. Held-out eval: base vs playbook, averaged over 3 runs; Mubit trace panel
+6. The wall (100 tiles)
 
-### P0: golden path (must ship)
-1. **Email channel:** seeded inbox + IMAP → triage → decide → reply (acknowledgement and resolution), all through Mubit, strict JSON
-2. Case view: edit + reason → **Teach**; playbook versions via `rule.induce`
-3. Held-out set (both channels) + gold labels + scoring; **Compare** (base vs playbook, averaged)
-4. Mubit trace panel; `record=metadata` for base and held-out runs, enforced in code
-5. **Call channel:** LiveKit room + silent listener + Deepgram per track → live two-lane transcript → post-call wrap-up into a case
-6. **Approve & send**: a real email to the presenter's inbox
+**P1:**
+- `report.thistle` sections + edit-with-reason + **send via Gmail**
+- one-click escalation email
+- the Northwind task, partly trained
 
-### P1: makes it a winner
-7. **Live nudges** (`call.nudge`) with one-click dismiss + reason
-8. **Teach & ripple across channels:** a correction on a call case re-runs the held-out *email* cases it touches, animated as tracked changes
-9. Closed model vs small model panel for `call.nudge` (quality, latency, £ per call)
-10. Deadline countdowns; auto-send acknowledgements toggle
-11. Expo mode: judges email the demo complaints address and watch the draft appear
+**P2:**
+- disputes
+- coaching notes per agent
+- auto-accept per item at ≥ 95%
 
-### P2: nice to have
-12. Twilio phone number (judges ring in from a real phone) · 13. Root-cause analytics (top complaint drivers) · 14. Fast-refresh demo ("policy changes Monday") · 15. An AI voice that talks to customers (stretch only: the riskiest part, and it needs sub-second latency)
-
-### Out of scope
-Real customer data · real banking or CRM integrations · authentication · production telephony compliance · automatic decisions or emails without human approval.
+**Out of scope:** live voice agents, live nudges, real bank data, authentication, telephony.
 
 ---
 
 ## 9. Demo script (3 minutes, live)
 
-Two presenters: **A** plays the Thistle Bank employee (drives the laptop), **B** plays the customer (joins the call from a phone or a second laptop).
+**Before going on stage:**
+- API running **without** `--reload`
+- the Mubit console on **Try models** in a second tab, with the adapter started beforehand
+- the fallback audio file ready
+- Gmail open on a phone as Thistle's complaints manager
 
-### Before going on stage
-1. API and listener running **without** `--reload`; web app open; Mubit console open on **Try models** in a second tab.
-2. Seed guardrail corrections loaded and the playbook built. Practice cases from both channels sent with the playbook, so the triage/decide adapters have trained (`scripts/warm_mubit.py`; check Tasks → Adapters for **Passed**). Start the adapter once in Try models beforehand.
-3. Held-out set run 3× base and 3× latest playbook (Compare tab ready).
-4. A's phone logged into the inbox that **Approve & send** delivers to.
-5. Call room tested in the venue (mics, Wi-Fi or tethering); `scripts/replay_call.py` and the recorded video ready as fallbacks.
-
-### On stage
 | Time | Beat | On screen |
 |---|---|---|
-| 0:00–0:15 | **Problem.** "Banks handle huge volumes of regulated complaints. Most handler time goes on paperwork, and one missed vulnerability or deadline is a breach." | Title |
-| 0:15–1:00 | **Live call.** B: *"I've been charged overdraft fees three times this month. I was in hospital and couldn't sort it."* The two-lane transcript streams. A **vulnerability nudge** appears with the quote. A slips: *"Don't worry, we'll refund those."* A **no-promise nudge** appears. A recovers and sets expectations. | Live call panel + trace panel |
-| 1:00–1:20 | **Hang up → case ready.** Within seconds: summary, category, clock, vulnerability, commitments, draft decision and follow-up email, all Mubit calls. Point out what the base draft got wrong (e.g. only one fee refunded, no D&I payment). | Case view |
-| 1:20–1:50 | **Correct + Teach & ripple.** Refund all three fees plus the D&I payment, with reason: *"Fees during a documented hospital stay are refunded in full, plus a distress payment."* The ripple re-runs held-out **email** complaints from other customers that the rule touches: corrected in tracked changes. "Taught on a phone call, applied to the inbox." | Ripple overlay |
-| 1:50–2:10 | **Approve & send.** The resolution email lands on A's phone. Hold it up. | Phone |
-| 2:10–2:35 | **Prove.** Compare: held-out cases, both channels, base → playbook, averaged over 3 runs: vulnerability recall, clock accuracy, outcome accuracy, reply compliance. | Compare |
-| 2:35–2:52 | **Model update.** Mubit Try models: the decision adapter vs the provider, side by side. "Those corrected cases trained a small model the bank owns." | Mubit console |
-| 2:52–3:00 | **Money line.** "Without Mubit, the AI does the paperwork. With Mubit, it learns how your bank resolves complaints." | Title |
+| 0:00 | *"Thistle Bank sent Harbour 100 calls this week. Our contract checks 2."* The wall lights 2, then **Redress reviews all 100**: complaints, vulnerable customers and critical fails light up. | Wall |
+| 0:25 | **Live call.** Sultan (Ellen) rings Abdul (Sam, the agent) on speaker. Sam slips up on purpose. | Recorder |
+| 1:05 | **Hang up, and the scorecard lands in seconds:** FAIL · 3 critical fails, each quote ▶ playable. One click sends the escalation to Thistle's manager. | Evaluation form |
+| 1:30 | **Label.** On a queued call the AI said "no vulnerability". The analyst overrides it: *"'since my husband passed' = bereavement"*. The rule is created → **Test on archive: 6 calls change** → the agreement meter rises. | Learning / Agreement |
+| 2:00 | **Mubit.** `review.thistle` **v2 Passed**, side by side with the big model in Try models. `review.northwind` is still collecting at 12/25: *"one model per client, trained only on its own labels."* | Mubit console |
+| 2:25 | **Report.** This week's Thistle report section is drafted. The analyst edits one line with a reason, then sends it, and it **lands in Gmail on the phone**. | Report editor + phone |
+| 2:45 | **Money:** coverage 2% → 100% · analyst minutes per call · cost per 1,000 calls, big model vs own model (measured). **"Today's AI QA is configured. Redress is trained, by your analysts, every day."** | Compare |
 
-**Judge Q&A to prepare:**
-- *Why doesn't the AI talk to the customer?* → Complaint outcomes need investigation and a human decision. Listening in removes the paperwork without putting an AI in front of a distressed customer, and it adds no latency or risk to the call.
-- *Isn't the employee distracted by nudges?* → At most one at a time, only for five high-stakes moments, with expiry and one-click dismiss. Dismissals are training signal.
-- *Isn't this just a prompt?* → The playbook applies corrections immediately; Mubit then distils the corrected calls into small task adapters (Try models). Every stage is a Mubit task, and phone and email share them.
-- *Overfitting?* → Held-out cases are different customers and wording on both channels, gold labels were written before any run, and held-out calls are never recorded for training (enforced in code). Numbers are averaged over 3 runs.
-- *Real data / privacy?* → Synthetic only, and PII is redacted before any Mubit call anyway.
+**Judge Q&A:**
+- *"AI QA already exists."* → It's configured, not trained. Analysts' corrections are logged and then thrown away, or improve the vendor's shared model. Ours become this firm's model.
+- *"Is 100% accurate?"* → 100% *scored*. Accuracy comes from the random 1% audit and the held-out set, shown on Compare.
+- *"Isn't this just a prompt?"* → The rule works immediately. Mubit then distils the corrected calls into a per-client adapter (Try models).
+- *"Can banks do their own QA?"* → Yes. The rule is independence (SYSC 6.1). Same product for an in-house QA team.
 
 ---
 
-## 10. Build plan (ruthlessly prioritised)
-It's Saturday evening and code freeze is **Sun 10:00**. In order:
+## 10. Build plan
+It's Saturday night; code freeze is **Sun 10:00**. **Confirm owners in chat.**
 
-| # | Task | Done when |
+| By | Done when | Owner |
 |---|---|---|
-| 1 | Restore reusable Redline modules (`mubit_client`, db, corrections, playbook, score, trace panel) | One Mubit call logged with a request ID |
-| 2 | Synthetic Thistle Bank KB, customers, transactions, practice + held-out calls and emails, gold labels | `data/` complete |
-| 3 | `triage`, `decide`, `reply` (and `nudge`) prompts + schemas, **then freeze them** | An email case drafted end to end |
-| 4 | Base run on practice + held-out, look at the real errors, write seed guardrail corrections | First scoreboard |
-| 5 | Warm Mubit: practice cases from both channels with the playbook (≥40 varied calls per task) | Console: Training → Testing |
-| 6 | Email: IMAP poll + threading + Approve & send | A real email in, a real reply out |
-| 7 | Call: LiveKit room + listener + Deepgram per track → transcript → wrap-up case | A full role-played call creates a case |
-| 8 | UI: live call panel, inbox, case view + Teach, learning, compare | Golden path clickable |
-| 9 | Nudges; Teach & ripple across channels | Nudge appears on the hospital line; ripple fixes an email case |
-| 10 | Polish, replay fallback, backup video, rehearse | **Before Sun 10:00** |
+| 23:15 | Scorecard + `review.thistle` prompt + JSON schema drafted; routes v3 sent to the UI session | Abdul |
+| 23:30 | 100 Thistle calls + 15 Northwind generated; gold labels for the 25 held out | Data (an agent drafts, a human checks) |
+| **00:00** | **System prompts FROZEN.** `review.thistle` runs end to end on imported calls | Abdul |
+| **00:45** | 75 practice calls sent `full` through Mubit, so training can start before the **01:00 BST limit reset** | Abdul |
+| 01:30 | Record → Deepgram → scorecard in ≤ 20 s | **Sultan** ([CALLING.md](docs/CALLING.md)) |
+| 03:00 | Evaluation form → corrections → rules → test on archive → agreement | Backend + UI |
+| 04:30 | Report sections + edit + Gmail send; escalation email | Sultan (email) + backend |
+| 06:00 | Compare: base vs playbook × 3; adapter check in Try models; Northwind partial | Abdul |
+| **08:00** | **Feature freeze.** Screen-record every Mubit console beat; rehearse 3 times | All |
+| 09:15 | Submit | All |
 
-**Risk register:** venue audio and Wi-Fi (tethering, replay script, video) · STT mishearing amounts (the wrap-up shows the transcript line next to every figure) · nudge noise (strict rate limits; tune on practice calls) · adapter not trained in time (start warm-up by midnight; show the playbook effect regardless) · prompt edits resetting tasks (freeze by step 3) · Gmail blocking IMAP/SMTP (use an app password; Resend as backup).
+**Risks:** see [docs/planning/RISKS.md](docs/planning/RISKS.md). The big ones:
+- nobody has seen an adapter pass yet;
+- training limits;
+- held-out leakage;
+- prompt edits after 00:00 splitting the task.
 
 ---
 
 ## 11. Setup
 
 ```powershell
-# Backend (Python 3.11+)
 python -m venv .venv
 .\.venv\Scripts\python -m pip install -r requirements.txt
 copy .env.example .env
-.\.venv\Scripts\python -m uvicorn app.main:app --port 8000          # no --reload when demoing
-
-# Call listener (separate terminal)
-.\.venv\Scripts\python listener\agent.py                             # TODO(verify): LiveKit Agents run command
-
-# Frontend (PowerShell)
-cd web; npm install; npm run dev                                     # http://localhost:3000
-
-# Fallback: replay a recorded two-track call through the same pipeline
-.\.venv\Scripts\python -m scripts.replay_call data\audio\demo_call
+.\.venv\Scripts\python -m uvicorn app.main:app --port 8000       # no --reload when demoing
+cd web; npm install; npm run dev                                  # http://localhost:3000 (PowerShell, not Git Bash)
 ```
 
-`.env`:
+`.env` (never commit; never paste keys in chat):
 ```bash
-# Mubit (all LLM calls)
 MUBIT_BASE_URL=https://api.mubit.ai/openai/v1
 MUBIT_API_KEY=mbt_...
-MUBIT_MODEL=gpt-6-luna            # case tasks: triage, decide, reply, induce (one model, fixed)
-NUDGE_MODEL=gpt-4.1-mini          # live nudges: fast model (one model, fixed)
-
-# Call room + speech
-LIVEKIT_URL=wss://...
-LIVEKIT_API_KEY=...
-LIVEKIT_API_SECRET=...
+MUBIT_MODEL=gpt-6-luna          # one fixed model for review.* / report.* / rule.induce
+BASELINE_MODEL=gpt-6-sol        # closed-model baseline for Compare
 DEEPGRAM_API_KEY=...
-
-# Email (simplest: one Gmail account with 2FA + an app password)
-GMAIL_ADDRESS=thistle.complaints.demo@gmail.com
-GMAIL_APP_PASSWORD=...
-IMAP_POLL_SECONDS=10
-# or: RESEND_API_KEY=... and EMAIL_FROM=complaints@your-verified-domain
-DEMO_INBOX=presenter@example.com   # where Approve & send delivers on stage
-
-# Telephony (stretch)
-TWILIO_ACCOUNT_SID=...
-TWILIO_AUTH_TOKEN=...
-TWILIO_PHONE_NUMBER=...
+GMAIL_USER=harbour.assurance.demo@gmail.com
+GMAIL_APP_PASSWORD=...          # needs 2-Step Verification on that account
 ```
-Never put provider keys (OpenAI or Anthropic) in this app. Provider keys live in the Mubit console under **Provider keys**; the app sends only the Mubit key.
+Provider keys (OpenAI or Anthropic) go in the **Mubit console under Provider keys**, never in the app.
 
 ---
 
 ## 12. Ethics and data
-- 100% synthetic customers, bank, accounts and complaints. No real data in prompts, the demo or screenshots.
-- PII redaction before every Mubit call, even on synthetic data.
-- Human in the loop: Redress drafts and flags; a person handles the call, approves every outcome and sends every email.
-- Recording consent: standard "calls may be recorded" notice. The privacy notice says AI assists the complaints team.
+- Everything is synthetic: firms, banks, agents, customers and calls. No real recordings.
+- PII is redacted before every Mubit call.
+- A human checks every escalation and report before it leaves the QA firm. The AI scores; analysts decide.
+- Agents are scored on evidence (a quote and timestamp for every answer), never on an unexplained number.
