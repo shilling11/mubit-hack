@@ -100,6 +100,7 @@ export interface Call {
   stt_confidence: number | null;
   customer_name?: string | null;
   audio_muted?: number | null;
+  batch_id?: string | null;
   status: string;
   error: string | null;
   created_at: number;
@@ -186,6 +187,56 @@ export interface Run {
   created_at: number;
 }
 
+/** A monthly batch: the client's export, imported and scored (app/main.py, /api/batches) */
+export interface BatchCall {
+  id: string;
+  source: string; // "live" or "demo" for a call taken on stage, "import" for the client's export
+  created_at: number;
+  agent_name: string;
+  status: string;
+  error: string | null;
+  queue_kind: QueueKind | null;
+  audit: number | null;
+  done: number | null;
+  score: number | null;
+  pass: number | null;
+  risk_tier: Tier | null;
+  playbook_version: number | null;
+  critical_fails: string[] | null;
+  checked: number;
+}
+
+export interface BatchSummary {
+  id: string;
+  name: string;
+  formats: Record<string, number>;
+  created_at: number;
+  total: number;
+}
+
+export interface Batch extends Omit<BatchSummary, "total"> {
+  playbook_version: number;
+  rules: number;
+  stats: {
+    total: number;
+    scored: number;
+    failed: number;
+    checked: number;
+    current: number;
+    flagged: Record<"breach" | "analyst" | "audit", number>;
+    auto: number;
+  };
+  suggested: BatchCall[];
+  calls: BatchCall[];
+}
+
+export interface BatchImport {
+  batch_id: string;
+  count: number;
+  formats: Record<string, number>;
+  skipped: { file: string; reason: string }[];
+}
+
 /** The phone line (lib/line-server.ts): closed → waiting (laptop listening) → calling (Ellen rang) → connected */
 export interface Line {
   state: "closed" | "waiting" | "calling" | "connected";
@@ -246,6 +297,15 @@ export const api = {
     fd.append("two_channel", String(twoChannel));
     return request<{ call_id: string }>("/api/calls", { method: "POST", body: fd });
   },
+  batches: () => request<BatchSummary[]>("/api/batches"),
+  batch: (id: string) => request<Batch>(`/api/batches/${id}`),
+  importBatch: (files: File[], text = "") => {
+    const fd = new FormData();
+    files.forEach((f) => fd.append("files", f, f.name));
+    fd.append("text", text);
+    return request<BatchImport>("/api/batches", { method: "POST", body: fd });
+  },
+  finishBatch: (id: string) => post<{ queued: number; playbook_version: number }>(`/api/batches/${id}/finish`),
   loadScript: (id: string) => post<{ call_id: string }>(`/api/demo/scripts/${id}`),
   rereview: (id: string, version?: number) =>
     post<Review>(`/api/calls/${id}/review${version === undefined ? "" : `?playbook_version=${version}`}`),

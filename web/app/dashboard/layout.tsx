@@ -11,6 +11,7 @@ import { usePoll } from "@/lib/usePoll";
 const NAV = [
   { href: "/dashboard", label: "Overview" },
   { href: "/dashboard/live", label: "Live call", plus: true },
+  { href: "/dashboard/batch", label: "Batch" },
   { href: "/dashboard/learning", label: "Learning" },
   { href: "/dashboard/proof", label: "Proof" },
   { href: "/dashboard/mubit", label: "Mubit" },

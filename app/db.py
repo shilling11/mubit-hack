@@ -129,11 +129,17 @@ CREATE TABLE IF NOT EXISTS traces (
     ok INTEGER NOT NULL,
     error TEXT
 );
+CREATE TABLE IF NOT EXISTS batches (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,              -- e.g. "Thistle Bank · October 2026"
+    formats TEXT,                    -- what the import read, e.g. {"Excel": 80}
+    created_at REAL NOT NULL
+);
 CREATE INDEX IF NOT EXISTS reviews_call ON reviews (call_id, id);
 """
 
 JSON_COLS = {"output_json", "items_json", "critical_fails", "issues_json", "reasons_json", "rule_json",
-             "correction_ids", "rules_json", "metrics_json"}
+             "correction_ids", "rules_json", "metrics_json", "formats"}
 
 
 def _connect() -> sqlite3.Connection:
@@ -157,6 +163,7 @@ def tx() -> Iterator[sqlite3.Connection]:
 MIGRATIONS = [
     "ALTER TABLE calls ADD COLUMN customer_name TEXT",  # names to redact for this call
     "ALTER TABLE calls ADD COLUMN audio_muted INTEGER",  # redacted words silenced in the audio (-1: not WAV)
+    "ALTER TABLE calls ADD COLUMN batch_id TEXT",  # the monthly batch an imported call came in (batches.id)
 ]
 
 

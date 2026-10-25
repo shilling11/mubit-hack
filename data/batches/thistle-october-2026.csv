@@ -1,0 +1,1339 @@
+Call ID,Date,Agent,Speaker,Start,Text
+p001,01/10/2026 09:00,Jordan,Agent,0:00,"Good morning, Thistle Bank, Jordan speaking. How can I help?"
+p001,01/10/2026 09:00,Jordan,Customer,0:04,"Hi, I’m Isla Rahman. Could you tell me what time your branches are open?"
+p001,01/10/2026 09:00,Jordan,Agent,0:10,"Of course, Isla. It varies by branch. Which one are you looking to visit?"
+p001,01/10/2026 09:00,Jordan,Customer,0:16,"The one on Market Street in Leeds, please."
+p001,01/10/2026 09:00,Jordan,Agent,0:19,"Thanks. I don’t have the latest hours in front of me, so I’ll check the branch information rather than risk giving you the wrong times."
+p001,01/10/2026 09:00,Jordan,Customer,0:29,"That’d be great, thank you."
+p001,01/10/2026 09:00,Jordan,Agent,0:32,"You’re welcome. I’ll look it up now. The current listing says the Market Street branch is open Monday to Friday, nine till five, and Saturday, nine till one. It’s closed on Sundays."
+p001,01/10/2026 09:00,Jordan,Customer,0:45,"Right, and is that the same for this Saturday?"
+p001,01/10/2026 09:00,Jordan,Agent,0:49,"The listing I’ve checked shows those Saturday hours, but I can’t verify whether there’s a one-off change for this particular weekend."
+p001,01/10/2026 09:00,Jordan,Customer,0:57,"Okay, could you check that for me?"
+p001,01/10/2026 09:00,Jordan,Agent,1:00,"Certainly. I’ll contact the branch team today to confirm this Saturday’s hours, then I’ll call you back by 3pm tomorrow. Is the number you’re calling from a suitable one to reach you on?"
+p001,01/10/2026 09:00,Jordan,Customer,1:14,"Yes, that’s fine."
+p001,01/10/2026 09:00,Jordan,Agent,1:15,"Thanks. Just to recap, the usual listed hours are nine to five on weekdays and nine to one on Saturdays, and I’ll check whether this Saturday is different and call you by 3pm tomorrow. Does that make sense?"
+p001,01/10/2026 09:00,Jordan,Customer,1:30,"Yes, that’s clear. Thanks for checking."
+p001,01/10/2026 09:00,Jordan,Agent,1:33,"You’re very welcome, Isla. I’ll take care of that follow-up. Is there anything else I can help with today?"
+p001,01/10/2026 09:00,Jordan,Customer,1:41,"No, that’s all, thank you."
+p001,01/10/2026 09:00,Jordan,Agent,1:43,Thanks for calling Thistle Bank. Goodbye.
+p002,01/10/2026 16:13,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p002,01/10/2026 16:13,Priya,Customer,0:04,"Hi, I’m Carys Lindqvist. Someone pretending to be from your bank talked me into transferring £2,400 last Thursday. I’m really unhappy with how this has been handled."
+p002,01/10/2026 16:13,Priya,Agent,0:15,"I’m very sorry this has happened, Carys. I’d like to look into it, but first I need to verify you. Can you tell me your full name and date of birth, please?"
+p002,01/10/2026 16:13,Priya,Customer,0:28,"Carys Lindqvist, 14th of May 1988."
+p002,01/10/2026 16:13,Priya,Agent,0:30,Thank you. And the first line of your address?
+p002,01/10/2026 16:13,Priya,Customer,0:34,18 Willow Road.
+p002,01/10/2026 16:13,Priya,Agent,0:36,"Thanks, that’s verified. I can see the transfer you mean, but I appreciate this is about more than the payment itself and the way we’ve dealt with it."
+p002,01/10/2026 16:13,Priya,Customer,0:47,Exactly. I reported it on Friday and I’ve heard nothing useful. I feel like the bank just left me to sort it out.
+p002,01/10/2026 16:13,Priya,Agent,0:57,I’m sorry you’ve been left feeling that way. I’m logging this as a complaint about the scam transfer and the service you received. The reference is TB-641928.
+p002,01/10/2026 16:13,Priya,Customer,1:08,All right. Does that mean I’ll get the money back?
+p002,01/10/2026 16:13,Priya,Agent,1:12,"I can’t promise an outcome. The complaint team will review what happened and the information available, then explain their decision in writing."
+p002,01/10/2026 16:13,Priya,Customer,1:21,And what about the £15 fee that came out as well?
+p002,01/10/2026 16:13,Priya,Agent,1:26,"I should mention that our fees can never be refunded, even when there’s a complaint."
+p002,01/10/2026 16:13,Priya,Customer,1:32,"That doesn’t sound fair, but okay."
+p002,01/10/2026 16:13,Priya,Agent,1:35,"I understand why you’d question it. I’ll make sure the complaint team considers that fee as part of the review. I’ll send them the details and the notes from your call today, and I’ll check that the case has been allocated by tomorrow afternoon."
+p002,01/10/2026 16:13,Priya,Customer,1:52,What happens after that?
+p002,01/10/2026 16:13,Priya,Agent,1:54,"The complaint team will investigate and send you a full written response within 15 business days. I’ll make sure the case is passed on today, and I’ll contact you by tomorrow afternoon if it hasn’t been allocated. So, we’ve logged your complaint, they’ll review the transfer, service and fee, and you’ll get that written response within 15 business days. Does that make sense?"
+p002,01/10/2026 16:13,Priya,Customer,2:19,"Yes, that’s clear. Thanks for explaining it."
+p002,01/10/2026 16:13,Priya,Agent,2:22,"You’re welcome, Carys. I’m sorry again for the experience, and I’ll make sure those details are sent through today."
+p003,01/10/2026 15:26,Owen,Agent,0:00,"Good afternoon, Thistle Bank, Owen speaking. How can I help?"
+p003,01/10/2026 15:26,Owen,Customer,0:04,"Hi, I’m Declan Ellingham. My loan application was declined and nobody’s told me why. I’m really unhappy about it."
+p003,01/10/2026 15:26,Owen,Agent,0:12,"I’m sorry you’ve been left without an explanation, Declan. I’ll look into what I can. I can see your current account balance is £1,284.62, and there was a £12 monthly account fee yesterday."
+p003,01/10/2026 15:26,Owen,Customer,0:25,Right. But can you tell me why the loan was declined?
+p003,01/10/2026 15:26,Owen,Agent,0:30,"I can’t see a reason I’m able to share with you here, and I don’t want to guess or mislead you. Before we go further, could you confirm your date of birth and the first line of your address?"
+p003,01/10/2026 15:26,Owen,Customer,0:45,"It’s 14 June 1988, and 27 Larch Road."
+p003,01/10/2026 15:26,Owen,Agent,0:49,"Thanks. I’m not able to complete the identity checks on this call, so I can’t discuss any more account or application details."
+p003,01/10/2026 15:26,Owen,Customer,0:58,"That’s frustrating. I’ve already given you those details, and I still don’t know what’s going on."
+p003,01/10/2026 15:26,Owen,Agent,1:04,"I understand, and I’m sorry this has been so frustrating. I’ll make sure your concern is recorded properly. I’m logging this as a complaint about the declined loan application and the lack of an explanation."
+p003,01/10/2026 15:26,Owen,Customer,1:18,Okay. What happens now?
+p003,01/10/2026 15:26,Owen,Agent,1:20,"I’ll submit the complaint today to our complaints team. They’ll review the application and your concerns, then send you a full written response within 8 weeks."
+p003,01/10/2026 15:26,Owen,Customer,1:31,And if I haven’t heard anything before then?
+p003,01/10/2026 15:26,Owen,Agent,1:34,"I’ll arrange for a complaints colleague to contact you by phone within five working days with an update on the review. I can’t promise what the decision or response will be, but I’ll make sure that follow-up is requested today."
+p003,01/10/2026 15:26,Owen,Customer,1:50,"All right. So someone will call within five working days, and I’ll get the full response in writing within eight weeks?"
+p003,01/10/2026 15:26,Owen,Agent,1:59,"That’s right. I’ll submit the complaint today, a complaints colleague will call you within five working days with an update, and you’ll receive the full written response within 8 weeks. Does that make sense?"
+p003,01/10/2026 15:26,Owen,Customer,2:12,"Yes, that’s clear. Thanks."
+p003,01/10/2026 15:26,Owen,Agent,2:14,"You’re welcome, Declan. I’m sorry again that you’ve had to chase for an explanation. Thanks for calling Thistle Bank."
+p004,01/10/2026 14:39,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p004,01/10/2026 14:39,Priya,Customer,0:04,"Hi, I’m Lucia Achebe. I’ve just noticed you’ve cut the interest rate on my savings, and I never saw any letter about it. I’m really unhappy with how the bank’s handled this."
+p004,01/10/2026 14:39,Priya,Agent,0:17,"I’m sorry this has come as a surprise, Lucia. I can see your Rainy Day Saver has £8,420 in it, and the rate changed from 3.2% to 2.4% on 1 October."
+p004,01/10/2026 14:39,Priya,Customer,0:29,That’s quite a drop. I’d have moved it if I’d known.
+p004,01/10/2026 14:39,Priya,Agent,0:34,I understand. I’ll treat this as a query about the rate change and check what information was sent. Could you confirm your full name for me?
+p004,01/10/2026 14:39,Priya,Customer,0:44,Lucia Achebe.
+p004,01/10/2026 14:39,Priya,Agent,0:46,"Thank you. I’m sorry, this is especially stressful timing. You mentioned you’ve lost your job?"
+p004,01/10/2026 14:39,Priya,Customer,0:52,"Yes, two weeks ago. I’m trying to work out what I can afford, so this really doesn’t help."
+p004,01/10/2026 14:39,Priya,Agent,1:00,"I’m sorry you’re dealing with that on top of this. We have a Financial Support team who can talk through your circumstances, or we can discuss extra time with payments if you need it. Would you like me to arrange for them to contact you?"
+p004,01/10/2026 14:39,Priya,Customer,1:18,"Yes, that would be helpful."
+p004,01/10/2026 14:39,Priya,Agent,1:20,"Of course. I’ll refer you to the Financial Support team today. I’ll also ask our savings team to check the rate-change notice, and they’ll get back to you within five working days, by Friday 30 October."
+p004,01/10/2026 14:39,Priya,Customer,1:34,Okay. I’d like to know why I didn’t get a letter.
+p004,01/10/2026 14:39,Priya,Agent,1:39,"I’ll include that in the request. Just to summarise: I’m referring you to Financial Support today, and asking the savings team to check the rate change and notice, with a response by Friday 30 October. Does that make sense?"
+p004,01/10/2026 14:39,Priya,Customer,1:55,"Yes, that’s clear. Thank you."
+p004,01/10/2026 14:39,Priya,Agent,1:57,"You’re welcome, Lucia. I’m sorry this has been frustrating, and I’ll make sure those requests are sent today."
+p005,02/10/2026 13:52,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p005,02/10/2026 13:52,Zara,Customer,0:04,It’s Bronwen Oyelaran. My loan application was declined and nobody’s told me why. I’m really unhappy about it.
+p005,02/10/2026 13:52,Zara,Agent,0:11,"I’m sorry you’ve been left without an explanation, Bronwen. I’ll look into what I can. Before I discuss your application, could I check your full name and date of birth, please?"
+p005,02/10/2026 13:52,Zara,Customer,0:24,"Bronwen Oyelaran, 14th of June 1988."
+p005,02/10/2026 13:52,Zara,Agent,0:27,Thank you. And the first line of your address?
+p005,02/10/2026 13:52,Zara,Customer,0:31,42 Ashfield Road.
+p005,02/10/2026 13:52,Zara,Agent,0:32,"Thank you, that’s matched. I understand why you’re frustrated. I’m logging this as a complaint about the declined application and the lack of explanation."
+p005,02/10/2026 13:52,Zara,Customer,0:42,Good. I want to know what’s going on.
+p005,02/10/2026 13:52,Zara,Agent,0:46,"Of course. I’ll make sure the complaint records both points, and I’ll arrange for our complaints team to review the application and the communication you received. I can’t promise what the outcome will be."
+p005,02/10/2026 13:52,Zara,Customer,0:59,Can you at least tell me why it was declined?
+p005,02/10/2026 13:52,Zara,Agent,1:03,"I can’t see a reason I can reliably give you on this call, so I don’t want to guess. The complaints team will review the decision and explain what they can in their written response."
+p005,02/10/2026 13:52,Zara,Customer,1:17,All right. What happens now?
+p005,02/10/2026 13:52,Zara,Agent,1:20,"I’ll submit the complaint today and send you its reference by text. I’ll also check that it’s been assigned to the complaints team and call you by 4 pm tomorrow with an update on that, even if there’s no further decision yet."
+p005,02/10/2026 13:52,Zara,Agent,1:36,The complaints team will investigate and send you a full written response within 8 weeks. I’ll include your request for an explanation in the complaint.
+p005,02/10/2026 13:52,Zara,Customer,1:47,Okay.
+p005,02/10/2026 13:52,Zara,Agent,1:48,"Just to summarise: I’m logging your complaint today, I’ll text the reference and call by 4 pm tomorrow with an assignment update, and the team will send a full written response within 8 weeks. Does that make sense?"
+p005,02/10/2026 13:52,Zara,Customer,2:03,"Yes, that’s clear. Thanks."
+p005,02/10/2026 13:52,Zara,Agent,2:05,"You’re welcome, Bronwen. I’m sorry again that you had to chase us for an explanation. Goodbye."
+p006,02/10/2026 12:05,Liam,Agent,0:00,"Thistle Bank, Liam speaking. How can I help?"
+p006,02/10/2026 12:05,Liam,Customer,0:03,It’s Yasmin Whitlock. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it.
+p006,02/10/2026 12:05,Liam,Agent,0:12,"I can log that as a complaint. First, I need to verify you. What’s your full name and date of birth?"
+p006,02/10/2026 12:05,Liam,Customer,0:21,"Yasmin Whitlock, 14th September 1962."
+p006,02/10/2026 12:05,Liam,Agent,0:23,And the first line of your address?
+p006,02/10/2026 12:05,Liam,Customer,0:26,28 Willow Road.
+p006,02/10/2026 12:05,Liam,Agent,0:28,Thanks. What happened with the payment?
+p006,02/10/2026 12:05,Liam,Customer,0:31,"I tried to pay on the app on Monday, the 12th of October, but it wouldn’t load. I paid late the next day and got charged a £15 late fee."
+p006,02/10/2026 12:05,Liam,Agent,0:43,Right. I’m logging this as a complaint about the app preventing your bill payment and the fee. I can’t say what the outcome will be.
+p006,02/10/2026 12:05,Liam,Customer,0:53,"I don’t really understand online banking. My son normally does it for me, but he wasn’t there that day."
+p006,02/10/2026 12:05,Liam,Agent,1:01,"Okay. The Financial Support team can talk you through support options, or you can ask the bill company for extra time if another payment is due."
+p006,02/10/2026 12:05,Liam,Customer,1:11,I just don’t want this happening again. What happens now?
+p006,02/10/2026 12:05,Liam,Agent,1:16,We’ll review the complaint and send you a full written response within eight weeks. It’ll explain our findings and any decision. That’s the process.
+p006,02/10/2026 12:05,Liam,Customer,1:25,"So I wait for that letter, then?"
+p006,02/10/2026 12:05,Liam,Agent,1:29,"Yes. To summarise, I’ve logged your complaint about the app and late fee; you’ll get a full written response within eight weeks. Does that make sense?"
+p006,02/10/2026 12:05,Liam,Customer,1:39,"Yes, I understand."
+p006,02/10/2026 12:05,Liam,Agent,1:41,All right. Is there anything else?
+p007,02/10/2026 11:18,Hannah,Agent,0:00,"Good morning, Thistle Bank, Hannah speaking. How can I help?"
+p007,02/10/2026 11:18,Hannah,Customer,0:04,"Hi, it’s Ewan Okonkwo. I’ve been charged unarranged overdraft fees and I’m really unhappy about it."
+p007,02/10/2026 11:18,Hannah,Agent,0:11,"I’m sorry this has been frustrating, Ewan. I’ll look into it with you. Before we discuss your account, could you confirm your full name and date of birth, please?"
+p007,02/10/2026 11:18,Hannah,Customer,0:22,"Ewan Okonkwo, 14 June 1988."
+p007,02/10/2026 11:18,Hannah,Agent,0:25,Thank you. And the first line of your address?
+p007,02/10/2026 11:18,Hannah,Customer,0:29,42 Willow Road.
+p007,02/10/2026 11:18,Hannah,Agent,0:30,"That’s verified, thank you. I can see why those charges would be upsetting. I’ll make sure the fees are refunded for you."
+p007,02/10/2026 11:18,Hannah,Customer,0:39,"That’s good to hear. There were three charges last month, and I don’t think they’re fair."
+p007,02/10/2026 11:18,Hannah,Agent,0:46,I understand. I’m logging this as a complaint about the unarranged overdraft fees. The complaint reference is TB-604183.
+p007,02/10/2026 11:18,Hannah,Customer,0:53,Okay. What happens now?
+p007,02/10/2026 11:18,Hannah,Agent,0:55,"I’ll take ownership and send the complaint to our complaints team today. I’ll check in with you by phone by Friday, 30 October, with an update."
+p007,02/10/2026 11:18,Hannah,Customer,1:06,And when will I get the final answer?
+p007,02/10/2026 11:18,Hannah,Agent,1:09,We’ll investigate what happened and send you a full written response within 8 weeks. That response will explain our findings and any action taken.
+p007,02/10/2026 11:18,Hannah,Customer,1:19,"Right, thanks."
+p007,02/10/2026 11:18,Hannah,Agent,1:21,"Just to summarise: I’ve logged your complaint about the three fees, I’ll pass it to the complaints team today, and I’ll call you by 30 October with an update. You’ll receive a full written response within 8 weeks. Does that all make sense?"
+p007,02/10/2026 11:18,Hannah,Customer,1:38,"Yes, that’s clear."
+p007,02/10/2026 11:18,Hannah,Agent,1:40,"Thanks, Ewan. I’m sorry again for the frustration, and I’ll make sure it’s followed up."
+p008,02/10/2026 10:31,Jordan,Agent,0:00,"Thistle Bank, Jordan speaking. How can I help?"
+p008,02/10/2026 10:31,Jordan,Customer,0:03,"Hi, I’m Niamh Ndlovu. I transferred money to someone pretending to be from your bank, and I’m really unhappy with how this has been handled."
+p008,02/10/2026 10:31,Jordan,Agent,0:13,"I’ll need to verify you first. What’s your full name and date of birth, please?"
+p008,02/10/2026 10:31,Jordan,Customer,0:20,"Niamh Ndlovu, 14 February 1988."
+p008,02/10/2026 10:31,Jordan,Agent,0:22,And the first line of your address?
+p008,02/10/2026 10:31,Jordan,Customer,0:25,"Flat 3, 18 Birch Road."
+p008,02/10/2026 10:31,Jordan,Agent,0:28,"Thanks. I’m sorry you’ve had this experience. Before we get into it, I’ll log this as a complaint. We’ll get the money returned to you, so that should be sorted."
+p008,02/10/2026 10:31,Jordan,Customer,0:40,You can guarantee that? I was told it might not be straightforward.
+p008,02/10/2026 10:31,Jordan,Agent,0:45,"Yes, it’ll be returned. What was the transfer amount and when did you send it?"
+p008,02/10/2026 10:31,Jordan,Customer,0:51,"It was £2,400 on Monday, to someone who called saying they were from the fraud team."
+p008,02/10/2026 10:31,Jordan,Agent,0:58,Right. I’ll take ownership of this and send it to our fraud complaints team today. I’ll call you with an update by 4 pm tomorrow.
+p008,02/10/2026 10:31,Jordan,Customer,1:08,And when will I get a proper answer about the complaint?
+p008,02/10/2026 10:31,Jordan,Agent,1:12,"You’ll get a full written response within 15 business days. The fraud complaints team will review what happened, and I’ll call you tomorrow by 4 pm with an update."
+p008,02/10/2026 10:31,Jordan,Customer,1:24,Okay. Is there anything else I need to do?
+p008,02/10/2026 10:31,Jordan,Agent,1:28,"No. So, I’ve logged the complaint, the team will review the transfer, and I’ll call by 4 pm tomorrow; the full written response will be within 15 business days. Does that make sense?"
+p008,02/10/2026 10:31,Jordan,Customer,1:41,"Yes, that makes sense."
+p008,02/10/2026 10:31,Jordan,Agent,1:43,Good. That’s all for now. Goodbye.
+p009,05/10/2026 09:44,Marcus,Agent,0:00,"Good afternoon, Thistle Bank, Marcus speaking. How can I help?"
+p009,05/10/2026 09:44,Marcus,Customer,0:04,"Hi, I’m Ruairi Okonkwo. My direct debit to Northstar Energy’s come out twice, and I’m really fed up. This is the second time I’ve had to chase the bank about something like this."
+p009,05/10/2026 09:44,Marcus,Agent,0:17,"I’m sorry this has been frustrating. Before I look at the account, could you confirm your full name and date of birth, please?"
+p009,05/10/2026 09:44,Marcus,Customer,0:26,"Ruairi Okonkwo, 14th of February 1982."
+p009,05/10/2026 09:44,Marcus,Agent,0:29,Thank you. And the first line of your address?
+p009,05/10/2026 09:44,Marcus,Customer,0:33,27 Willow Road.
+p009,05/10/2026 09:44,Marcus,Agent,0:35,"Thanks, that’s verified. I’ll have a look at the payments now."
+p009,05/10/2026 09:44,Marcus,Customer,0:40,"They were both £86.40, on the 18th of October. I had an operation last month as well, so I really don’t need this hassle."
+p009,05/10/2026 09:44,Marcus,Agent,0:49,I’m sorry to hear you had an operation. I can see two payments to Northstar Energy for £86.40 on the 18th.
+p009,05/10/2026 09:44,Marcus,Customer,0:58,"Right, so what are you actually going to do about it? It’s not good enough."
+p009,05/10/2026 09:44,Marcus,Agent,1:04,"I understand why you’re unhappy. I can put a note on the account about the duplicate payment, and someone will be in touch about it."
+p009,05/10/2026 09:44,Marcus,Customer,1:14,When? I need to know when I’ll hear something.
+p009,05/10/2026 09:44,Marcus,Agent,1:18,I’m afraid I can’t give you a timescale. There’s no outcome I can confirm at this point.
+p009,05/10/2026 09:44,Marcus,Customer,1:25,"So I’ve just got to wait, then?"
+p009,05/10/2026 09:44,Marcus,Agent,1:29,"I’m sorry, I appreciate that’s frustrating. To summarise, I’ve noted the two £86.40 payments and someone will be in touch, though I can’t say when or what the outcome will be. Does that make sense?"
+p009,05/10/2026 09:44,Marcus,Customer,1:42,"Yes, I understand. I’m still not happy about it."
+p009,05/10/2026 09:44,Marcus,Agent,1:46,"I understand, Ruairi. Thanks for speaking with me today."
+p010,05/10/2026 16:57,Jordan,Agent,0:00,"Good morning, Thistle Bank, Jordan speaking. How can I help?"
+p010,05/10/2026 16:57,Jordan,Customer,0:04,"Hi Jordan, I’ve lost my debit card and need a replacement. I’m Eilidh Lindqvist."
+p010,05/10/2026 16:57,Jordan,Agent,0:10,"I’m sorry that’s happened, Eilidh. I can help with that. Before I check your identity, I can see your current account balance is £684.27, and there was a £12.50 payment to North Pier Books yesterday. Is that the account you mean?"
+p010,05/10/2026 16:57,Jordan,Customer,0:26,"Yes, that’s the one."
+p010,05/10/2026 16:57,Jordan,Agent,0:28,Thanks. I’ll just verify you now. Can you tell me your full date of birth and the first line of your address?
+p010,05/10/2026 16:57,Jordan,Customer,0:37,"It’s 14 June 1992, and 38 Willowbank Road."
+p010,05/10/2026 16:57,Jordan,Agent,0:41,Thank you. And what’s the postcode?
+p010,05/10/2026 16:57,Jordan,Customer,0:43,EH4 2LX.
+p010,05/10/2026 16:57,Jordan,Agent,0:45,"That matches. I’ll block the lost card and arrange a replacement. The replacement will be sent to your registered address, and delivery usually takes five to seven working days. I can’t guarantee the exact arrival date."
+p010,05/10/2026 16:57,Jordan,Customer,0:59,"Okay, thanks. I’m glad I noticed it was missing."
+p010,05/10/2026 16:57,Jordan,Agent,1:03,"Of course. I’ll submit the replacement request now. I’ll also send you a secure message by 4 pm today confirming the card has been blocked and the request has been logged. If it hasn’t arrived after seven working days, reply to that message and I’ll follow it up."
+p010,05/10/2026 16:57,Jordan,Customer,1:22,That sounds good.
+p010,05/10/2026 16:57,Jordan,Agent,1:24,"Just to summarise: the old card will be blocked, a replacement will be sent to your registered address, and I’ll message you by 4 pm today with confirmation. Delivery usually takes five to seven working days. Does that all make sense?"
+p010,05/10/2026 16:57,Jordan,Customer,1:40,"Yes, that’s clear. Thanks for sorting it."
+p010,05/10/2026 16:57,Jordan,Agent,1:44,"You’re very welcome, Eilidh. Is there anything else I can help with today?"
+p010,05/10/2026 16:57,Jordan,Customer,1:49,"No, that’s everything."
+p010,05/10/2026 16:57,Jordan,Agent,1:51,"All right. Thanks for calling Thistle Bank, and take care."
+p011,05/10/2026 15:10,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p011,05/10/2026 15:10,Zara,Customer,0:04,"It’s Jasper Ellingham. I couldn’t pay my electricity bill because your app was down, and now I’m really unhappy about it."
+p011,05/10/2026 15:10,Zara,Agent,0:12,"I can look into that. First, can you confirm your full name and date of birth, please?"
+p011,05/10/2026 15:10,Zara,Customer,0:20,"Jasper Ellingham, 14th of February 1952."
+p011,05/10/2026 15:10,Zara,Agent,0:22,And the first line of your address?
+p011,05/10/2026 15:10,Zara,Customer,0:26,"22 Willow Road, York."
+p011,05/10/2026 15:10,Zara,Agent,0:28,Right. What happened with the bill?
+p011,05/10/2026 15:10,Zara,Customer,0:30,"It was due on Monday. I tried the app all afternoon, but it wouldn’t work, and now they’ve charged me a late fee."
+p011,05/10/2026 15:10,Zara,Agent,0:40,"That’ll be refunded, then. I’ll log this as a complaint for you."
+p011,05/10/2026 15:10,Zara,Customer,0:45,"I don’t really understand online banking. My son normally does it for me, but he was away."
+p011,05/10/2026 15:10,Zara,Agent,0:52,"Okay. The Financial Support team can help with that, or we can allow extra time for payments. I’ll note it."
+p011,05/10/2026 15:10,Zara,Customer,1:00,So what happens now? I don’t want this happening again.
+p011,05/10/2026 15:10,Zara,Agent,1:04,Someone will be in touch about the complaint. I can’t say more at this point.
+p011,05/10/2026 15:10,Zara,Customer,1:11,Will the late fee definitely come back into my account?
+p011,05/10/2026 15:10,Zara,Agent,1:15,"Yes, it’ll be refunded. I’ve logged the complaint."
+p011,05/10/2026 15:10,Zara,Customer,1:19,And I don’t need to do anything else?
+p011,05/10/2026 15:10,Zara,Agent,1:22,"I’ve summarised it: the app stopped you paying, I’ve logged a complaint, and someone will be in touch. Does that make sense?"
+p011,05/10/2026 15:10,Zara,Customer,1:31,"Yes, I think so. Thank you."
+p011,05/10/2026 15:10,Zara,Agent,1:34,Right. Thanks for calling.
+p012,06/10/2026 14:23,Liam,Agent,0:00,"Good morning, Thistle Bank, Liam speaking. How can I help?"
+p012,06/10/2026 14:23,Liam,Customer,0:04,"Hi, I'm Ewan Pemberton. The app was down when I tried to pay my electricity bill, and now I've been charged a late fee. I'm really unhappy about it."
+p012,06/10/2026 14:23,Liam,Agent,0:16,"I'm sorry that's happened, Ewan. I can see a £25 late-payment fee on your account, and I promise we'll get that money returned to you."
+p012,06/10/2026 14:23,Liam,Customer,0:26,"Well, that's good, but the bill was due on Monday and I couldn't get the app to work at all."
+p012,06/10/2026 14:23,Liam,Agent,0:34,"I understand. Before I look into it further, I need to verify you. Could you tell me your date of birth and the first line of your address?"
+p012,06/10/2026 14:23,Liam,Customer,0:45,"It's 14 June 1958, and 8 Rowan Close."
+p012,06/10/2026 14:23,Liam,Agent,0:49,"Thank you, that's verified. I'll log this as a complaint about the app outage and the late fee. Your reference is TB-684219."
+p012,06/10/2026 14:23,Liam,Customer,0:58,"Thanks. I don't really understand online banking, to be honest. My son normally does it for me, but he wasn't around."
+p012,06/10/2026 14:23,Liam,Agent,1:06,"That's completely understandable, and I'm sorry you were left stuck. I can ask our Financial Support team to call you and talk through using the app, or we can discuss extra time for bills if you need it."
+p012,06/10/2026 14:23,Liam,Customer,1:21,A call from them would be helpful. I don't want this happening again.
+p012,06/10/2026 14:23,Liam,Agent,1:27,"Of course. I'll refer you to the Financial Support team today, and I'll personally call you by 3 pm tomorrow to confirm the referral and update you on the complaint."
+p012,06/10/2026 14:23,Liam,Customer,1:39,Okay. What happens with the complaint now?
+p012,06/10/2026 14:23,Liam,Agent,1:42,"We'll investigate the app outage and the fee, then send you a full written response within 8 weeks. I've logged it today, and I'll be your point of contact until I call tomorrow."
+p012,06/10/2026 14:23,Liam,Customer,1:55,"Right, so you'll refer me for help today, call tomorrow by three, and the written response will come within eight weeks?"
+p012,06/10/2026 14:23,Liam,Agent,2:04,"That's right. I've noted all of that. Does that make sense, and is there anything else you'd like me to explain?"
+p012,06/10/2026 14:23,Liam,Customer,2:12,"No, that makes sense. Thank you."
+p013,06/10/2026 13:36,Sam,Agent,0:00,"Good morning, you’re speaking to Sam at Thistle Bank. How can I help?"
+p013,06/10/2026 13:36,Sam,Customer,0:05,"Hi, I’m Aoife Okonkwo. My loan application was declined and nobody’s explained why. I’m really unhappy about it."
+p013,06/10/2026 13:36,Sam,Agent,0:12,"I’m sorry this has been frustrating, Aoife. Before I look at anything about your application, could you confirm your full name and date of birth, please?"
+p013,06/10/2026 13:36,Sam,Customer,0:23,"Aoife Okonkwo, 14 June 1991."
+p013,06/10/2026 13:36,Sam,Agent,0:25,Thank you. And the first line of your address?
+p013,06/10/2026 13:36,Sam,Customer,0:29,27 Willow Lane.
+p013,06/10/2026 13:36,Sam,Agent,0:31,"Thanks, that’s verified. I understand you’re unhappy that your loan application was declined without an explanation."
+p013,06/10/2026 13:36,Sam,Customer,0:38,That’s right. I want to know why it happened.
+p013,06/10/2026 13:36,Sam,Agent,0:42,I can’t give you a reason for the decision on this call. I am logging this as a complaint about the decline and the lack of an explanation.
+p013,06/10/2026 13:36,Sam,Customer,0:53,All right. What happens now?
+p013,06/10/2026 13:36,Sam,Agent,0:55,You’ll hear back within five working days. I can’t promise what the outcome will be.
+p013,06/10/2026 13:36,Sam,Customer,1:02,Okay.
+p013,06/10/2026 13:36,Sam,Agent,1:03,"Just to summarise, I’ve logged your complaint about the loan decision and not being given an explanation. You’ll hear back within five working days, though I can’t say what the outcome will be. Does that make sense?"
+p013,06/10/2026 13:36,Sam,Customer,1:18,"Yes, that makes sense."
+p013,06/10/2026 13:36,Sam,Agent,1:20,"Thank you for confirming, Aoife. Is there anything else you’d like to raise today?"
+p014,06/10/2026 12:49,Priya,Agent,0:00,"Good afternoon, Thistle Bank, Priya speaking. How can I help?"
+p014,06/10/2026 12:49,Priya,Customer,0:04,"Hi, it’s Imran Haddad. I transferred money to someone who said they were from the bank. I’m really unhappy with you lot about it."
+p014,06/10/2026 12:49,Priya,Agent,0:14,"I’m sorry that’s happened, Imran. Before we discuss your account, could you confirm your full name and date of birth, please?"
+p014,06/10/2026 12:49,Priya,Customer,0:22,"Imran Haddad, 14th of March 1988."
+p014,06/10/2026 12:49,Priya,Agent,0:25,Thank you. And the first line of your address?
+p014,06/10/2026 12:49,Priya,Customer,0:29,42 Alder Road.
+p014,06/10/2026 12:49,Priya,Agent,0:31,"Thanks, that’s verified. Can you tell me a little more about the transfer?"
+p014,06/10/2026 12:49,Priya,Customer,0:36,"It was £2,400, yesterday afternoon. They told me there was fraud on my account and I had to move it to a safe account. I’ve got nothing left until payday, I can’t afford this."
+p014,06/10/2026 12:49,Priya,Agent,0:50,"I’m sorry to hear that, Imran. I can understand why you’re unhappy. I’ll log this as a complaint about the transfer and how this was handled."
+p014,06/10/2026 12:49,Priya,Customer,1:00,What happens now? Can you get the money back?
+p014,06/10/2026 12:49,Priya,Agent,1:04,I can’t promise an outcome. Someone will be in touch about the complaint and the transfer investigation.
+p014,06/10/2026 12:49,Priya,Customer,1:11,When will they contact me?
+p014,06/10/2026 12:49,Priya,Agent,1:14,"I don’t have a timescale to give you, I’m afraid. I’ll take ownership of this and send the case to our complaints team today. I’ll call you by Friday to confirm it’s been passed over and update you on where things stand."
+p014,06/10/2026 12:49,Priya,Customer,1:30,All right.
+p014,06/10/2026 12:49,Priya,Agent,1:32,"Just to summarise, I’ve logged your complaint about the £2,400 transfer, and I’ll call you by Friday with an update. The complaints team will be in touch about the investigation, though I can’t say when or what the outcome will be. Does that make sense?"
+p014,06/10/2026 12:49,Priya,Customer,1:50,"Yes, that makes sense."
+p014,06/10/2026 12:49,Priya,Agent,1:52,"Thank you, Imran. I’m sorry you’ve had to deal with this, and I’ll follow up by Friday."
+p015,06/10/2026 11:02,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p015,06/10/2026 11:02,Zara,Customer,0:04,"Hi, I’m Carys Sutherland. There’s a card payment I don’t recognise, and I’m really unhappy that I’ve had to chase you about it."
+p015,06/10/2026 11:02,Zara,Agent,0:13,"I’m sorry you’ve had to chase us, Carys. I’ll look into this with you. Before we discuss your account, could you confirm your full name and date of birth, please?"
+p015,06/10/2026 11:02,Zara,Customer,0:25,"Carys Sutherland, 14th of March 1988."
+p015,06/10/2026 11:02,Zara,Agent,0:28,"Thank you. And the first line of your address, please?"
+p015,06/10/2026 11:02,Zara,Customer,0:32,42 Willow Crescent.
+p015,06/10/2026 11:02,Zara,Agent,0:34,"Thanks, that’s verified. I can see a card payment for £186.40 to Northstar Digital on 21 October. Is that the one you don’t recognise?"
+p015,06/10/2026 11:02,Zara,Customer,0:44,"Yes. I’ve never bought anything from them. I called two days ago and was told someone would get back to me, but nobody did."
+p015,06/10/2026 11:02,Zara,Agent,0:54,I’m sorry we didn’t get back to you when we said we would. I’ll take ownership of this. I’m logging this as a complaint about the payment and the lack of follow-up.
+p015,06/10/2026 11:02,Zara,Customer,1:06,"Good, because I want this sorted out."
+p015,06/10/2026 11:02,Zara,Agent,1:10,"I understand. I can’t promise what the investigation will find, but I’ll make sure the payment is reviewed and that your complaint is handled. I’ll submit the complaint and payment query today, and I’ll call you by 5 pm tomorrow with an update."
+p015,06/10/2026 11:02,Zara,Customer,1:27,All right. What happens after that?
+p015,06/10/2026 11:02,Zara,Agent,1:29,"We’ll investigate the payment and review what happened when you contacted us. We’ll send you a full written response to your complaint within 15 business days. I’ll call you by 5 pm tomorrow with the update, even if the investigation is still ongoing."
+p015,06/10/2026 11:02,Zara,Customer,1:46,"Okay, thanks."
+p015,06/10/2026 11:02,Zara,Agent,1:48,"Just to recap: I’ve logged this as a complaint, I’ll submit the payment query today, and I’ll call you by 5 pm tomorrow. You’ll receive a full written response within 15 business days. Does that all make sense?"
+p015,06/10/2026 11:02,Zara,Customer,2:03,"Yes, it does."
+p015,06/10/2026 11:02,Zara,Agent,2:05,"Thank you, Carys. I’m sorry again for the trouble, and I’ll follow this up as agreed."
+p016,07/10/2026 10:15,Priya,Agent,0:00,"Hello, you’re through to Priya at Thistle Bank. How can I help?"
+p016,07/10/2026 10:15,Priya,Customer,0:05,"Hi, I’m Tariq Ferreira. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it."
+p016,07/10/2026 10:15,Priya,Agent,0:14,"I’m sorry the app being unavailable got in the way of making your payment, Tariq. I can look into this, but first I need to verify your identity. Could you tell me your full name and date of birth?"
+p016,07/10/2026 10:15,Priya,Customer,0:30,"Tariq Ferreira, 14th of June 1988."
+p016,07/10/2026 10:15,Priya,Agent,0:32,"Thank you. And the first line of your address, please?"
+p016,07/10/2026 10:15,Priya,Customer,0:37,42 Kingsley Road.
+p016,07/10/2026 10:15,Priya,Agent,0:38,"Thanks, that’s verified. I’m sorry you’ve had this experience. I’ll log this as a complaint about the app outage affecting your bill payment."
+p016,07/10/2026 10:15,Priya,Customer,0:48,"Good, because I don’t think I should be left dealing with a late charge when the app wasn’t working."
+p016,07/10/2026 10:15,Priya,Agent,0:56,"I understand why you’re frustrated. I’ll include the late payment and any charge you’ve been notified about in the complaint, so it can be reviewed. I can’t promise what the outcome will be."
+p016,07/10/2026 10:15,Priya,Customer,1:09,All right. What happens now?
+p016,07/10/2026 10:15,Priya,Agent,1:11,I’ll submit the complaint today and make sure it’s recorded with those details. I’ll also arrange for our complaints team to contact you by 27 October with an update on the review.
+p016,07/10/2026 10:15,Priya,Customer,1:24,And when will I get a proper answer?
+p016,07/10/2026 10:15,Priya,Agent,1:28,You’ll receive a full written response within 8 weeks of today. That response will explain what we’ve found and what we’ve decided.
+p016,07/10/2026 10:15,Priya,Customer,1:36,Okay.
+p016,07/10/2026 10:15,Priya,Agent,1:38,"Just to summarise: I’m logging your complaint about the app outage and its effect on your bill payment, I’ll submit it today, and the complaints team will contact you by 27 October. You’ll get a full written response within 8 weeks. Does that make sense?"
+p016,07/10/2026 10:15,Priya,Customer,1:56,"Yes, that makes sense. Thanks."
+p016,07/10/2026 10:15,Priya,Agent,1:58,"You’re welcome, Tariq. I’m sorry again for the trouble this caused, and I’ll make sure the complaint is passed on today."
+p017,07/10/2026 09:28,Jordan,Agent,0:00,"Good afternoon, Thistle Bank, Jordan speaking. How can I help?"
+p017,07/10/2026 09:28,Jordan,Customer,0:04,"Hi, I’m Imran Rahman. My loan application’s been declined and nobody’s explained why. I’m really unhappy with how the bank’s handled it."
+p017,07/10/2026 09:28,Jordan,Agent,0:13,"I’m sorry it’s left you feeling that way, Imran. I’ll look into it with you. Before we discuss the application, could you confirm your full name and date of birth, please?"
+p017,07/10/2026 09:28,Jordan,Customer,0:25,"Imran Rahman, 14 February 1988."
+p017,07/10/2026 09:28,Jordan,Agent,0:28,Thank you. And the first line of your address?
+p017,07/10/2026 09:28,Jordan,Customer,0:32,"22 Meadow Lane, Leeds."
+p017,07/10/2026 09:28,Jordan,Agent,0:34,"Thanks, that’s verified. I can see why you’d expect a clearer explanation. I’m sure the loan funds will be released once I get this checked."
+p017,07/10/2026 09:28,Jordan,Customer,0:44,That’s quite a promise when you haven’t even checked what happened. I just want someone to take responsibility and tell me why I was turned down.
+p017,07/10/2026 09:28,Jordan,Agent,0:54,"You’re right, I shouldn’t get ahead of the checks. I’ll take ownership and ask our lending team to review the decision and explain it. I’ll put a note on your account as well."
+p017,07/10/2026 09:28,Jordan,Customer,1:08,"All right, but I don’t want this brushed off again."
+p017,07/10/2026 09:28,Jordan,Agent,1:12,"I understand. I’ll send the review to the lending team today, and I’ll call you by 5pm next Wednesday, the 28th, with an update, even if they haven’t finished."
+p017,07/10/2026 09:28,Jordan,Customer,1:24,And when will I get an actual answer?
+p017,07/10/2026 09:28,Jordan,Agent,1:27,You’ll receive a full written response within eight weeks. I’ll make sure the team has your concerns and the details of the application to review.
+p017,07/10/2026 09:28,Jordan,Customer,1:37,"Okay. I’m still not happy, but at least that’s a clear timeframe."
+p017,07/10/2026 09:28,Jordan,Agent,1:42,"So, I’ll ask lending to review the decline today, add a note to your account, and call you by 5pm next Wednesday with an update. A full written response will arrive within eight weeks. Does that all make sense?"
+p017,07/10/2026 09:28,Jordan,Customer,1:58,"Yes, that makes sense. Thanks."
+p017,07/10/2026 09:28,Jordan,Agent,2:00,"You’re welcome, Imran. I’m sorry again for the frustration, and I’ll follow it through."
+p018,07/10/2026 16:41,Marcus,Agent,0:00,"Good morning, Thistle Bank, Marcus speaking. How can I help?"
+p018,07/10/2026 16:41,Marcus,Customer,0:04,"It’s Bronwen Kowalski. I’ve just noticed the interest rate on my savings account has been cut, and I never saw any letter about it. I’m really unhappy with the way you’ve handled this."
+p018,07/10/2026 16:41,Marcus,Agent,0:17,"I’m sorry this has been frustrating, Bronwen. I can see your Everyday Saver has a balance of £12,460.18, and the rate changed from 3.1% to 2.4% on 1 September."
+p018,07/10/2026 16:41,Marcus,Customer,0:29,That’s exactly what I mean. You’ve taken a fair bit off the interest and I wasn’t told.
+p018,07/10/2026 16:41,Marcus,Agent,0:36,"I understand why you’re upset. Before I go further, can you tell me your date of birth and the first line of your address?"
+p018,07/10/2026 16:41,Marcus,Customer,0:46,"It’s 14 March 1982, and 28 Alder Road."
+p018,07/10/2026 16:41,Marcus,Agent,0:49,Thanks. I’ll have a look at the information we have about the rate change. I can’t see a copy of a letter on this screen.
+p018,07/10/2026 16:41,Marcus,Customer,0:59,So you’ve changed the rate and can’t even show me that you told me. That’s not good enough.
+p018,07/10/2026 16:41,Marcus,Agent,1:07,"I’m sorry, Bronwen. The account information says the new rate took effect on 1 September, but I can’t confirm from here what was sent or when."
+p018,07/10/2026 16:41,Marcus,Customer,1:17,"What are you going to do about it, then?"
+p018,07/10/2026 16:41,Marcus,Agent,1:21,"I can explain the process. I’ll record the details of your query, and it will be reviewed. You’ll receive a full written response within 8 weeks."
+p018,07/10/2026 16:41,Marcus,Customer,1:32,And that’s all I can expect? I still think the bank’s treated me badly.
+p018,07/10/2026 16:41,Marcus,Agent,1:37,"I can’t say what the review will conclude, and I don’t want to give you the wrong impression about the outcome. The next step is that the details are reviewed and a full written response is sent within 8 weeks."
+p018,07/10/2026 16:41,Marcus,Agent,1:53,"Just to check, I’ve understood that you’re unhappy because the savings rate fell from 3.1% to 2.4% on 1 September and you didn’t notice a letter, and the details will be reviewed with a full written response within 8 weeks. Does that make sense?"
+p018,07/10/2026 16:41,Marcus,Customer,2:11,"Yes, I understand the process. I’m still not happy about it."
+p018,07/10/2026 16:41,Marcus,Agent,2:16,I understand. Is there anything else I can explain about the rate or the response process?
+p018,07/10/2026 16:41,Marcus,Customer,2:22,"No, that’s it."
+p018,07/10/2026 16:41,Marcus,Agent,2:24,"All right, Bronwen. Thank you for calling Thistle Bank, and I’m sorry this has been frustrating."
+p019,07/10/2026 15:54,Marcus,Agent,0:00,"Good afternoon, Thistle Bank, Marcus speaking. How can I help?"
+p019,07/10/2026 15:54,Marcus,Customer,0:04,"Hi, it’s Niamh Quigley. I’ve been charged unarranged overdraft fees and I’m really unhappy about it."
+p019,07/10/2026 15:54,Marcus,Agent,0:11,"I’m sorry to hear that, Niamh. Before I look at anything on the account, could you confirm your full name and date of birth, please?"
+p019,07/10/2026 15:54,Marcus,Customer,0:21,"Niamh Quigley, 14th of March 1982."
+p019,07/10/2026 15:54,Marcus,Agent,0:23,Thanks. And the first line of your address?
+p019,07/10/2026 15:54,Marcus,Customer,0:27,"Flat 3, 18 Larkfield Road."
+p019,07/10/2026 15:54,Marcus,Agent,0:29,"Thank you, that’s verified. I can see why those charges would be frustrating. Can you tell me a little more about what’s happened?"
+p019,07/10/2026 15:54,Marcus,Customer,0:39,"I went over my limit last month and there are fees on there now. I don’t think they’re fair, especially with everything I’ve got going on."
+p019,07/10/2026 15:54,Marcus,Agent,0:49,"I’m sorry. What else is going on, if you’re comfortable telling me?"
+p019,07/10/2026 15:54,Marcus,Customer,0:54,"I’m having chemotherapy at the moment, so it’s been hard to keep on top of things."
+p019,07/10/2026 15:54,Marcus,Agent,1:01,"I’m really sorry you’re going through that, Niamh. We can put you in touch with our Financial Support team, and they may be able to discuss extra time or other support with you."
+p019,07/10/2026 15:54,Marcus,Customer,1:14,Can you get these fees refunded?
+p019,07/10/2026 15:54,Marcus,Agent,1:17,"I can’t promise any outcome. Our unarranged overdraft fees can never be refunded, though I can log your complaint about them."
+p019,07/10/2026 15:54,Marcus,Customer,1:26,Please do. I want the bank to look at how this has been handled.
+p019,07/10/2026 15:54,Marcus,Agent,1:32,Of course. I’m logging this as a complaint about the unarranged overdraft fees and your concerns about how they were handled.
+p019,07/10/2026 15:54,Marcus,Customer,1:40,What happens now?
+p019,07/10/2026 15:54,Marcus,Agent,1:42,"Someone will be in touch about the complaint, and you’ll be told about the next steps. I can’t give you a timescale for that."
+p019,07/10/2026 15:54,Marcus,Agent,1:52,"So, I’ve logged the complaint, and someone will be in touch about what happens next. Does that make sense?"
+p019,07/10/2026 15:54,Marcus,Customer,1:59,"Yes, that makes sense. Thank you."
+p019,07/10/2026 15:54,Marcus,Agent,2:02,"You’re welcome, Niamh. I’m sorry this has been stressful, and thank you for speaking with me today."
+p020,08/10/2026 14:07,Hannah,Agent,0:00,"Hello, Thistle Bank, Hannah speaking. How can I help?"
+p020,08/10/2026 14:07,Hannah,Customer,0:04,"It’s Kwame Okonkwo. There’s a card payment I don’t recognise, and I’m really unhappy about this."
+p020,08/10/2026 14:07,Hannah,Agent,0:10,"Before I discuss the account, I need to check your identity. What’s your date of birth and the first line of your address?"
+p020,08/10/2026 14:07,Hannah,Customer,0:20,"It’s the 14th of February 1962, and 27 Ashfield Road, Leeds."
+p020,08/10/2026 14:07,Hannah,Agent,0:24,Thank you. Which payment is it?
+p020,08/10/2026 14:07,Hannah,Customer,0:27,£86.40 to Northstar Digital on the 22nd of October. I’ve never bought anything from them.
+p020,08/10/2026 14:07,Hannah,Agent,0:33,I can see it. I’ll record that you don’t recognise the payment.
+p020,08/10/2026 14:07,Hannah,Customer,0:38,This is exactly the sort of thing that makes me lose faith in the bank. I don’t really understand online banking; my son normally does it in passing.
+p020,08/10/2026 14:07,Hannah,Agent,0:50,Sorry to hear that. I’ve noted the payment.
+p020,08/10/2026 14:07,Hannah,Customer,0:53,So what are you actually going to do about it?
+p020,08/10/2026 14:07,Hannah,Agent,0:58,I’m logging this as a complaint. I’ll own the follow-up and send it to our card disputes team today.
+p020,08/10/2026 14:07,Hannah,Customer,1:05,And when will I hear back?
+p020,08/10/2026 14:07,Hannah,Agent,1:08,You’ll receive a full written response within 15 business days. I’ll check that the referral has been sent and contact you by phone by 5pm tomorrow.
+p020,08/10/2026 14:07,Hannah,Customer,1:19,"All right. I’ll wait for that, then."
+p020,08/10/2026 14:07,Hannah,Agent,1:22,That’s noted. Goodbye.
+p021,08/10/2026 13:20,Hannah,Agent,0:00,"Good morning, Thistle Bank, Hannah speaking. How can I help?"
+p021,08/10/2026 13:20,Hannah,Customer,0:04,"It’s Morag Lindqvist. I transferred £2,450 to someone who said they were from your fraud team, and now I’m being passed around. I’m really unhappy with how the bank’s dealt with it."
+p021,08/10/2026 13:20,Hannah,Agent,0:17,"I’m sorry this has happened, Morag, and that you’ve had to chase us. Before I look at anything on your account, could you tell me your full name and date of birth, please?"
+p021,08/10/2026 13:20,Hannah,Customer,0:30,"Morag Lindqvist, 14 September 1982."
+p021,08/10/2026 13:20,Hannah,Agent,0:32,Thank you. And could you confirm the first line of your address?
+p021,08/10/2026 13:20,Hannah,Customer,0:37,42 Willowbank Road.
+p021,08/10/2026 13:20,Hannah,Agent,0:39,"Thanks, that’s verified. I’ll take ownership of this from here. When did you make the transfer?"
+p021,08/10/2026 13:20,Hannah,Customer,0:46,On 18 October. They called saying my account was at risk and told me to move the money to a safe account.
+p021,08/10/2026 13:20,Hannah,Agent,0:55,I’m sorry you were put under that pressure. I can see why you’re upset with us. I’m logging this as a complaint about the way this has been handled.
+p021,08/10/2026 13:20,Hannah,Customer,1:06,"I want to know whether I’ll get the money back, and why nobody’s called me."
+p021,08/10/2026 13:20,Hannah,Agent,1:13,"I can’t promise an outcome, but I’ll make sure the complaint includes both the transfer and the lack of contact. We’ll review what happened and the information you’ve already provided."
+p021,08/10/2026 13:20,Hannah,Customer,1:25,All right. What happens now?
+p021,08/10/2026 13:20,Hannah,Agent,1:27,"I’ll send the complaint to our complaints team today, and I’ll call you by 4 pm tomorrow to confirm it’s been passed on and tell you the next steps. You’ll hear back from us within eight weeks."
+p021,08/10/2026 13:20,Hannah,Customer,1:42,Okay. I’ll wait for your call tomorrow.
+p021,08/10/2026 13:20,Hannah,Agent,1:45,"Thank you, Morag. I’m sorry again for the experience, and I’ll make that call by 4 pm tomorrow."
+p022,08/10/2026 12:33,Jordan,Agent,0:00,"Thistle Bank, Jordan speaking. How can I help?"
+p022,08/10/2026 12:33,Jordan,Customer,0:03,"Hi, I'm Eilidh Carmichael. My direct debit's been taken twice and I'm really unhappy about it."
+p022,08/10/2026 12:33,Jordan,Agent,0:10,"I can look into that. Before we discuss the account, can you confirm your full name and date of birth?"
+p022,08/10/2026 12:33,Jordan,Customer,0:18,"Eilidh Carmichael, 14th of March 1988."
+p022,08/10/2026 12:33,Jordan,Agent,0:21,Thanks. And the first line of your address?
+p022,08/10/2026 12:33,Jordan,Customer,0:24,"42 Rose Street, Dundee."
+p022,08/10/2026 12:33,Jordan,Agent,0:26,"Right, verified. Which payment was duplicated?"
+p022,08/10/2026 12:33,Jordan,Customer,0:29,"Highland Energy, £86.40. It went out twice on the 22nd of October. I can't afford this, I've got nothing left until payday."
+p022,08/10/2026 12:33,Jordan,Agent,0:38,"Okay. We'll get that money refunded, don't worry. I'll check the payment now."
+p022,08/10/2026 12:33,Jordan,Customer,0:44,You haven't even checked it yet. I need to know why it's happened.
+p022,08/10/2026 12:33,Jordan,Agent,0:49,I'm logging this as a complaint. The reference is TB-741903.
+p022,08/10/2026 12:33,Jordan,Customer,0:54,Fine. What happens now?
+p022,08/10/2026 12:33,Jordan,Agent,0:56,I'll own this and review the payments myself. I'll call you by 5 pm tomorrow with an update.
+p022,08/10/2026 12:33,Jordan,Agent,1:03,"We'll also send you a full written response within 15 business days, explaining what we've found and what we're doing about it."
+p022,08/10/2026 12:33,Jordan,Agent,1:12,"So, I've logged the complaint, I'll call by 5 tomorrow, and you'll get the full response within 15 business days. Does that make sense?"
+p022,08/10/2026 12:33,Jordan,Customer,1:22,"Yes, but I still want the money back."
+p022,08/10/2026 12:33,Jordan,Agent,1:25,"As I said, we'll get it refunded. Anything else?"
+p023,09/10/2026 11:46,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p023,09/10/2026 11:46,Zara,Customer,0:04,"Hi, I’m Oskar Fitzgerald. My loan application’s been declined and nobody’s explained why. I’m really unhappy about it."
+p023,09/10/2026 11:46,Zara,Agent,0:11,"I’m sorry you’ve been left without an explanation, Oskar. I’ll do what I can to help. Before I discuss the application, could I check your full name and date of birth, please?"
+p023,09/10/2026 11:46,Zara,Customer,0:24,"Oskar Fitzgerald, 14th of June 1987."
+p023,09/10/2026 11:46,Zara,Agent,0:27,Thank you. And the first line of your address?
+p023,09/10/2026 11:46,Zara,Customer,0:31,"Flat 3, 18 Willow Road, Bristol."
+p023,09/10/2026 11:46,Zara,Agent,0:34,"Thanks, that’s verified. I can see the decision was made on Tuesday. I appreciate how frustrating it is not to know more."
+p023,09/10/2026 11:46,Zara,Customer,0:43,It’s not good enough. I’ve been a customer for years and just got a rejection with no reason.
+p023,09/10/2026 11:46,Zara,Agent,0:50,I understand why you’re upset. I’m logging this as a complaint about the decline and the lack of explanation.
+p023,09/10/2026 11:46,Zara,Customer,0:58,So what happens now?
+p023,09/10/2026 11:46,Zara,Agent,1:00,I’ll take ownership of it. I’ll send the complaint to our lending review team today and ask them to look at the decision and what explanation we can provide.
+p023,09/10/2026 11:46,Zara,Customer,1:12,And when will I hear something?
+p023,09/10/2026 11:46,Zara,Agent,1:14,You’ll hear back from us within 5 working days. I’ll also make sure the team has your preferred contact number ending 4821.
+p023,09/10/2026 11:46,Zara,Customer,1:23,Will someone actually call me?
+p023,09/10/2026 11:46,Zara,Agent,1:26,"I’ll request a call from the lending review team, and I’ll check that your complaint has been passed on today. I can’t promise what their review will conclude, but I’ll make sure it’s followed up."
+p023,09/10/2026 11:46,Zara,Customer,1:40,All right. I expect a proper explanation this time.
+p023,09/10/2026 11:46,Zara,Agent,1:44,"That’s understandable, Oskar. I’ve recorded that you want a clear explanation of the decision, and the team will contact you within 5 working days."
+p024,09/10/2026 10:59,Jordan,Agent,0:00,Jordan at Thistle Bank. How can I help?
+p024,09/10/2026 10:59,Jordan,Customer,0:03,"Hi, it’s Eilidh Varga. Could you tell me what time the Leith branch opens on Saturdays?"
+p024,09/10/2026 10:59,Jordan,Agent,0:10,I’ll need to check the branch listing. Which Leith branch do you mean?
+p024,09/10/2026 10:59,Jordan,Customer,0:15,"The one on Great Junction Street, I think. Sorry, could you repeat what you said?"
+p024,09/10/2026 10:59,Jordan,Agent,0:22,I said I need to check the listing. Sorry to hear that. What’s the branch address?
+p024,09/10/2026 10:59,Jordan,Customer,0:28,"Great Junction Street, near the library. I’m not upset or anything, I’ve just got a bit muddled."
+p024,09/10/2026 10:59,Jordan,Agent,0:35,Right. I’ll check the opening hours for that branch.
+p024,09/10/2026 10:59,Jordan,Customer,0:39,"Sorry, so you’re checking the Saturday hours, are you?"
+p024,09/10/2026 10:59,Jordan,Agent,0:43,Yes. I’ll look it up after this call and ring you by three o’clock today with the hours listed for that branch.
+p024,09/10/2026 10:59,Jordan,Customer,0:52,"Okay, and what happens if you can’t find them?"
+p024,09/10/2026 10:59,Jordan,Agent,0:56,"I’ll tell you that when I call. I’m Jordan, and I’ll make the call by three."
+p024,09/10/2026 10:59,Jordan,Customer,1:03,Could you say that again? You’ll call me by three with what you find?
+p024,09/10/2026 10:59,Jordan,Agent,1:09,"That’s right. I’ll check the listing, then call you by three with the Saturday hours shown for Great Junction Street. Does that make sense?"
+p024,09/10/2026 10:59,Jordan,Customer,1:18,"Yes, that makes sense. Thanks."
+p024,09/10/2026 10:59,Jordan,Agent,1:21,Fine. Goodbye.
+p025,09/10/2026 09:12,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p025,09/10/2026 09:12,Zara,Customer,0:04,"Hi, I’m Declan Lindqvist. A transfer I sent arrived days late, and I missed my rent payment. I’m really unhappy about it."
+p025,09/10/2026 09:12,Zara,Agent,0:13,"I’m sorry that’s happened, Declan. I’ll look into it with you. First, could you confirm your full name, date of birth and the first line of your address?"
+p025,09/10/2026 09:12,Zara,Customer,0:24,"Declan Lindqvist, 14 March 1987, and 26 Willow Road."
+p025,09/10/2026 09:12,Zara,Agent,0:28,"Thank you. I’ve verified you. When did you send the transfer, and when did it arrive?"
+p025,09/10/2026 09:12,Zara,Customer,0:35,"I sent it on Monday the 6th of October, and my landlord didn’t get it until Friday the 10th. I’m caring for my mum full time as well, so this has been a lot to deal with."
+p025,09/10/2026 09:12,Zara,Agent,0:49,"I’m sorry this has caused you so much stress, especially with your rent payment being missed. I’ll take ownership of looking into the delay."
+p025,09/10/2026 09:12,Zara,Customer,0:59,I had the money there and sent it in time. I don’t think I should be left dealing with late rent because of this.
+p025,09/10/2026 09:12,Zara,Agent,1:09,I understand why you’re unhappy. I’m logging this as a complaint about the delayed transfer and the impact on your rent payment.
+p025,09/10/2026 09:12,Zara,Customer,1:18,All right. What happens now?
+p025,09/10/2026 09:12,Zara,Agent,1:20,I’ll review the transfer details and send an enquiry to our payments team today. I’ll call you by 5 pm tomorrow with an update on that enquiry.
+p025,09/10/2026 09:12,Zara,Customer,1:31,And when will I get a proper response?
+p025,09/10/2026 09:12,Zara,Agent,1:35,We’ll send you a full written response within 15 business days. That will explain what we’ve found and the outcome of the complaint. I can’t say what that outcome will be before the review is complete.
+p025,09/10/2026 09:12,Zara,Customer,1:49,"Okay, thanks."
+p025,09/10/2026 09:12,Zara,Agent,1:51,"You’re welcome, Declan. I’ll make sure the enquiry is sent today and call you by 5 pm tomorrow."
+p026,09/10/2026 16:25,Hannah,Agent,0:00,"Good morning, Thistle Bank, Hannah speaking. How can I help?"
+p026,09/10/2026 16:25,Hannah,Customer,0:04,"Hi, I’m Harriet Carmichael. I’ve been charged unarranged overdraft fees and I’m really unhappy about it."
+p026,09/10/2026 16:25,Hannah,Agent,0:11,"I’m sorry you’ve had that experience, Harriet. I’ll look into it with you. Before we discuss your account, could you tell me your full name and date of birth, please?"
+p026,09/10/2026 16:25,Hannah,Customer,0:23,"Harriet Louise Carmichael, 14th June 1987."
+p026,09/10/2026 16:25,Hannah,Agent,0:25,Thank you. And the first line of your address?
+p026,09/10/2026 16:25,Hannah,Customer,0:29,26 Brook Street.
+p026,09/10/2026 16:25,Hannah,Agent,0:31,"Thanks, that’s verified. Could you tell me a bit more about what’s happened?"
+p026,09/10/2026 16:25,Hannah,Customer,0:37,"There are three fees, £15 each, taken on 18 September. I went over my limit briefly, but I didn’t expect to be charged that much. I tried calling last week and didn’t get a clear answer."
+p026,09/10/2026 16:25,Hannah,Agent,0:51,"I can understand why that’s frustrating, especially when you’ve already tried to get an explanation. I’ll review the charges and the previous contact."
+p026,09/10/2026 16:25,Hannah,Customer,1:00,I want the fees back. It doesn’t seem fair.
+p026,09/10/2026 16:25,Hannah,Agent,1:04,"I can’t promise what the outcome will be, but I can make sure your concerns are formally looked into. I’m logging this as a complaint about the unarranged overdraft fees and the explanation you received."
+p026,09/10/2026 16:25,Hannah,Customer,1:18,All right. What happens now?
+p026,09/10/2026 16:25,Hannah,Agent,1:21,"I’ll take ownership of the complaint and send it to our complaints team today, with the details you’ve given me. They’ll investigate and send you a full written response within 8 weeks."
+p026,09/10/2026 16:25,Hannah,Customer,1:33,Will you let me know if you need anything else?
+p026,09/10/2026 16:25,Hannah,Agent,1:38,"Yes. I’ll check the complaint record tomorrow and contact you by phone if we need any more information. Otherwise, the complaints team will write to you with their response within that 8-week timeframe."
+p026,09/10/2026 16:25,Hannah,Agent,1:51,"So, I’m logging your complaint about the three fees and the earlier explanation, I’m sending it to the team today, and I’ll check in tomorrow if anything further is needed. Does that make sense?"
+p026,09/10/2026 16:25,Hannah,Customer,2:05,"Yes, that’s clear. Thank you."
+p026,09/10/2026 16:25,Hannah,Agent,2:07,"You’re welcome, Harriet. I’m sorry again for the frustration, and I’ll make sure it’s passed on today."
+p027,12/10/2026 15:38,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p027,12/10/2026 15:38,Zara,Customer,0:04,"Hi, it’s Declan Pemberton. I’m really unhappy about the unarranged overdraft fees on my account."
+p027,12/10/2026 15:38,Zara,Agent,0:10,"I’m sorry you’ve had to call about that, Declan. I can see a £25 fee was charged on 14 October, and your balance is currently £312 overdrawn."
+p027,12/10/2026 15:38,Zara,Customer,0:21,"That’s what I’m calling about. I had an operation last month, and all this has been a lot to deal with."
+p027,12/10/2026 15:38,Zara,Agent,0:30,I understand you’re unhappy with the fee. Can you tell me what you feel has gone wrong?
+p027,12/10/2026 15:38,Zara,Customer,0:37,"I didn’t realise I’d gone over my arranged limit, and I don’t think the fee is fair. I want the bank to look into it."
+p027,12/10/2026 15:38,Zara,Agent,0:47,Of course. I’m logging this as a complaint about the unarranged overdraft fee and how it was applied.
+p027,12/10/2026 15:38,Zara,Customer,0:54,Thank you. I’d like someone to properly review it.
+p027,12/10/2026 15:38,Zara,Agent,0:58,"I’ll take ownership of getting it recorded today, and I’ll make sure the complaints team has your concerns to review."
+p027,12/10/2026 15:38,Zara,Customer,1:06,Will the money definitely be refunded?
+p027,12/10/2026 15:38,Zara,Agent,1:09,I can’t promise what the outcome will be. The complaints team will look into the circumstances and explain its decision in writing.
+p027,12/10/2026 15:38,Zara,Customer,1:18,"All right. What happens now, then?"
+p027,12/10/2026 15:38,Zara,Agent,1:21,"I’ll submit the complaint today. The complaints team will investigate and send you a full written response within 8 weeks. If they need anything else, they’ll contact you."
+p027,12/10/2026 15:38,Zara,Customer,1:32,"Okay, so you’re logging it today, and I’ll get the full response within eight weeks."
+p027,12/10/2026 15:38,Zara,Agent,1:38,"That’s right. I’ll make sure it’s logged today. Does that make sense, and is there anything else you’d like me to clarify?"
+p027,12/10/2026 15:38,Zara,Customer,1:47,"No, that’s clear. Thanks."
+p027,12/10/2026 15:38,Zara,Agent,1:49,"You’re welcome, Declan. Thanks for speaking with me, and I’m sorry this has been frustrating."
+p028,12/10/2026 14:51,Marcus,Agent,0:00,"Good afternoon, Thistle Bank, Marcus speaking. How can I help?"
+p028,12/10/2026 14:51,Marcus,Customer,0:04,"Hi, I’m Femi Thornbury. My loan application’s been declined and nobody’s explained why. I’m really unhappy about it."
+p028,12/10/2026 14:51,Marcus,Agent,0:11,"I’m sorry you’ve been left without an explanation, Femi. I can see there was a £12.50 returned-payment fee on your current account on 14 October, as well. Is that the sort of thing you’re calling about?"
+p028,12/10/2026 14:51,Marcus,Customer,0:26,"No, I’m calling about the loan. I don’t know why you’re bringing up my account details."
+p028,12/10/2026 14:51,Marcus,Agent,0:32,"You’re right to question that, and I’m sorry. I should have checked your identity before discussing any account details. Let me do that now. Could you confirm your full name and date of birth, please?"
+p028,12/10/2026 14:51,Marcus,Customer,0:46,"Femi Thornbury, 8 June 1988."
+p028,12/10/2026 14:51,Marcus,Agent,0:49,Thank you. And the first line of your address and your postcode?
+p028,12/10/2026 14:51,Marcus,Customer,0:54,"22 Redland Road, Bristol, BS6 6XE."
+p028,12/10/2026 14:51,Marcus,Agent,0:57,"Thanks, that’s verified. I understand you want an explanation for the loan decision and you’re unhappy that none was given. I’m logging this as a complaint."
+p028,12/10/2026 14:51,Marcus,Customer,1:07,All right. What happens now?
+p028,12/10/2026 14:51,Marcus,Agent,1:10,"Someone will be in touch about it, and the complaints team will review what happened. I can’t promise what the outcome will be."
+p028,12/10/2026 14:51,Marcus,Customer,1:19,Can you tell me when someone will contact me?
+p028,12/10/2026 14:51,Marcus,Agent,1:23,"I can’t give you a timescale for that at the moment. I will take ownership of following this up: I’ll send the complaint to our complaints team today, and I’ll call you by 4 pm tomorrow to confirm it’s been passed on."
+p028,12/10/2026 14:51,Marcus,Customer,1:40,"Okay, I’d appreciate that."
+p028,12/10/2026 14:51,Marcus,Agent,1:42,"Just to make sure I’ve explained it clearly: I’ve logged your complaint about the declined loan and the lack of an explanation. I’ll send it to the complaints team today and call you by 4 pm tomorrow to confirm that’s happened. The team will be in touch after that, but I can’t say when or what the outcome will be. Does that make sense?"
+p028,12/10/2026 14:51,Marcus,Customer,2:07,"Yes, that makes sense. Thank you."
+p028,12/10/2026 14:51,Marcus,Agent,2:09,"You’re welcome, Femi. I’m sorry again for the way this has been handled, and I’ll call you by 4 pm tomorrow."
+p029,12/10/2026 13:04,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p029,12/10/2026 13:04,Zara,Customer,0:04,"Hi. I’m Carys Thornbury. I’m really fed up that you closed our branch, and then I’m left waiting ages when I phone. It’s not good enough."
+p029,12/10/2026 13:04,Zara,Agent,0:14,"I’m sorry, Carys. I can understand why that’s frustrating, especially when the branch has closed and you’re having trouble getting through."
+p029,12/10/2026 13:04,Zara,Customer,0:23,"It was the branch I’d used for years. Now every time I need to ask something, I’m stuck on hold."
+p029,12/10/2026 13:04,Zara,Agent,0:31,"I hear you. I’ll take ownership of raising this feedback, and I can log it as a complaint so the bank can respond to what you’ve experienced."
+p029,12/10/2026 13:04,Zara,Customer,0:42,"Yes, please. I’m already dealing with a divorce, and this is just one more thing to sort out."
+p029,12/10/2026 13:04,Zara,Agent,0:49,I’m sorry to hear that. Would you like me to log the complaint about the branch closure and the phone waiting times?
+p029,12/10/2026 13:04,Zara,Customer,0:58,"Yes, that’s exactly what I want."
+p029,12/10/2026 13:04,Zara,Agent,1:01,"Of course. I’m logging this as a complaint now, covering the branch closure and the long waits on the phone. I can’t say what the outcome will be."
+p029,12/10/2026 13:04,Zara,Customer,1:13,All right. What happens now?
+p029,12/10/2026 13:04,Zara,Agent,1:15,I’ll submit it today for our complaints team to review. They’ll look into the points you’ve raised and send you a full written response within 8 weeks.
+p029,12/10/2026 13:04,Zara,Customer,1:26,And if I don’t hear anything by then?
+p029,12/10/2026 13:04,Zara,Agent,1:29,"I’ll make sure it’s submitted today, and I’ll call you by 4 pm tomorrow to confirm it’s been passed on and give you the complaint reference. The complaints team will then send the full written response within 8 weeks."
+p029,12/10/2026 13:04,Zara,Customer,1:45,"Okay, so you’re logging it today, you’ll call me tomorrow with the reference, and I’ll get the written response within 8 weeks?"
+p029,12/10/2026 13:04,Zara,Agent,1:54,"That’s right. I’m logging your complaint about the branch closure and phone waits today, I’ll call by 4 pm tomorrow with the reference, and the complaints team will send a full written response within 8 weeks. Does that make sense?"
+p029,12/10/2026 13:04,Zara,Customer,2:10,"Yes, it does. Thank you."
+p029,12/10/2026 13:04,Zara,Agent,2:12,"You’re welcome, Carys. I’m sorry again for the frustration, and I’ll make that call tomorrow."
+p030,12/10/2026 12:17,Zara,Agent,0:00,"Good afternoon, Thistle Bank, Zara speaking. How can I help?"
+p030,12/10/2026 12:17,Zara,Customer,0:04,"Hi, I’m Niamh Varga. I’ve been charged unarranged overdraft fees and I’m really unhappy about it."
+p030,12/10/2026 12:17,Zara,Agent,0:11,"I’m sorry this has been frustrating, Niamh. I can look into it for you. Before we discuss any account details, could you confirm your full name and date of birth, please?"
+p030,12/10/2026 12:17,Zara,Customer,0:23,"Niamh Varga, 14th of March 1989."
+p030,12/10/2026 12:17,Zara,Agent,0:26,Thank you. And the first line of your address?
+p030,12/10/2026 12:17,Zara,Customer,0:30,"Flat 2, 18 Willow Road, Bristol."
+p030,12/10/2026 12:17,Zara,Agent,0:33,"Thanks, that’s all verified. I’ll make sure those fees are returned to you. Can you tell me a bit more about what happened?"
+p030,12/10/2026 12:17,Zara,Customer,0:42,"There are three fees from this month. I thought I was within my arranged overdraft, and I lost my job two weeks ago, so it’s hit me pretty hard."
+p030,12/10/2026 12:17,Zara,Agent,0:54,"I understand you’re unhappy about the three unarranged overdraft fees, and I’m sorry for the upset. I’m logging this as a complaint now."
+p030,12/10/2026 12:17,Zara,Customer,1:03,Okay. I just want someone to check why they’ve been taken.
+p030,12/10/2026 12:17,Zara,Agent,1:08,Of course. I’ll take ownership and ask our complaints team to review the charges. You’ll hear back from us within five working days.
+p030,12/10/2026 12:17,Zara,Customer,1:17,Will you be the one getting back to me?
+p030,12/10/2026 12:17,Zara,Agent,1:21,"I’ll send the complaint to the team today, and I’ll make sure they contact you by 31 October. They’ll explain what they find and what happens next."
+p030,12/10/2026 12:17,Zara,Customer,1:32,"Right, so you’re logging it as a complaint and someone will get back to me by the 31st?"
+p030,12/10/2026 12:17,Zara,Agent,1:39,"That’s right. I’ve summarised it as a complaint about the three fees, with the complaints team to review them and contact you by 31 October. Does that make sense?"
+p030,12/10/2026 12:17,Zara,Customer,1:51,"Yes, that makes sense. Thank you."
+p030,12/10/2026 12:17,Zara,Agent,1:54,"You’re welcome, Niamh. I’m sorry again for the trouble, and I’ll make sure it’s passed on today."
+p031,13/10/2026 11:30,Liam,Agent,0:00,"Good morning, you’re through to Liam at Thistle Bank. How can I help?"
+p031,13/10/2026 11:30,Liam,Customer,0:05,"Hi, I’m Callum Achebe. I’d like to update the address on my account."
+p031,13/10/2026 11:30,Liam,Agent,0:11,"Of course, Callum. I can help with that. Before we discuss your account, could you tell me your full name and date of birth, please?"
+p031,13/10/2026 11:30,Liam,Customer,0:21,"Callum Achebe, 14th of June 1988."
+p031,13/10/2026 11:30,Liam,Agent,0:23,Thank you. And could you confirm the first line of your current address?
+p031,13/10/2026 11:30,Liam,Customer,0:29,"Flat 3, 18 Willow Road."
+p031,13/10/2026 11:30,Liam,Agent,0:31,"Thanks, that’s all verified. What’s the new address you’d like us to use?"
+p031,13/10/2026 11:30,Liam,Customer,0:37,"It’s 42 Brook Lane, Leeds, LS6 2QH."
+p031,13/10/2026 11:30,Liam,Agent,0:40,"Thanks. Just to check, that’s 42 Brook Lane, Leeds, postcode LS6 2QH?"
+p031,13/10/2026 11:30,Liam,Customer,0:45,"Yes, that’s right."
+p031,13/10/2026 11:30,Liam,Agent,0:47,"I’ll submit the address change now. Once it’s submitted, we’ll send confirmation to your existing address, and you can check the new address in online banking after the change has been processed."
+p031,13/10/2026 11:30,Liam,Customer,1:00,"Okay, that sounds fine."
+p031,13/10/2026 11:30,Liam,Agent,1:02,"Just to summarise: you’ve asked us to change your address to 42 Brook Lane, Leeds, LS6 2QH. I’ll submit the request, and you’ll receive confirmation at your current address. Does that make sense?"
+p031,13/10/2026 11:30,Liam,Customer,1:15,"Yes, it does. Thanks for your help."
+p031,13/10/2026 11:30,Liam,Agent,1:18,"You’re welcome, Callum. Is there anything else I can help with today?"
+p031,13/10/2026 11:30,Liam,Customer,1:23,"No, that’s everything."
+p031,13/10/2026 11:30,Liam,Agent,1:25,Thanks for calling Thistle Bank. Have a good day.
+p032,13/10/2026 10:43,Liam,Agent,0:00,"Good morning, Thistle Bank, Liam speaking. How can I help?"
+p032,13/10/2026 10:43,Liam,Customer,0:04,"Hi, I'm Imran Okonkwo. I've just noticed the interest rate on my savings account has been cut. I never saw a letter about it, and honestly, I'm really unhappy with how the bank's handled this."
+p032,13/10/2026 10:43,Liam,Agent,0:18,"I'm sorry to hear that, Imran. I can look into the rate change for you. Before I discuss the account, could you confirm your full name and date of birth, please?"
+p032,13/10/2026 10:43,Liam,Customer,0:30,"Imran Okonkwo, 14th of March 1987."
+p032,13/10/2026 10:43,Liam,Agent,0:33,Thank you. And the first line of your address?
+p032,13/10/2026 10:43,Liam,Customer,0:37,27 Brookfield Road.
+p032,13/10/2026 10:43,Liam,Agent,0:39,"Thanks, that's verified. Which savings account is it, and when did you notice the change?"
+p032,13/10/2026 10:43,Liam,Customer,0:45,The Easy Saver. I checked yesterday and it's gone from 4.1 per cent to 2.8. I don't understand why I wasn't told.
+p032,13/10/2026 10:43,Liam,Agent,0:54,"I can see why that would be frustrating. Don't worry, we'll get the difference back into your account."
+p032,13/10/2026 10:43,Liam,Customer,1:01,I hope so. It feels like the bank just changed it and expected me not to notice.
+p032,13/10/2026 10:43,Liam,Agent,1:08,I'll have a look at the rate history and the notification details. You should hear back within five working days.
+p032,13/10/2026 10:43,Liam,Customer,1:17,Is there anything you'll do about me not receiving a letter?
+p032,13/10/2026 10:43,Liam,Agent,1:21,"I'll put a note on the account that you didn't receive one, and the team can review the details."
+p032,13/10/2026 10:43,Liam,Customer,1:29,"All right, but I'm still not happy about it."
+p032,13/10/2026 10:43,Liam,Agent,1:33,"I understand, and I'm sorry this has been such a frustrating experience. Just to summarise, the rate change and notification will be reviewed, and you'll hear back within five working days. Does that make sense?"
+p032,13/10/2026 10:43,Liam,Customer,1:47,"Yes, that makes sense. I just want to know why it happened."
+p032,13/10/2026 10:43,Liam,Agent,1:52,"Of course. Thanks for your patience, Imran."
+p033,13/10/2026 09:56,Jordan,Agent,0:00,"Hello, Jordan at Thistle Bank. How can I help?"
+p033,13/10/2026 09:56,Jordan,Customer,0:04,"Hi, I’m Carys MacLeod. I’ve lost my debit card and need a replacement."
+p033,13/10/2026 09:56,Jordan,Agent,0:09,"Right. We’ll get that sorted, and any money that’s gone missing will be refunded."
+p033,13/10/2026 09:56,Jordan,Customer,0:15,"I don’t think anyone’s used it. I’m not unhappy with the bank or anything, I just can’t find the card."
+p033,13/10/2026 09:56,Jordan,Agent,0:23,"Okay. Before I look at the account, can you confirm your full name and date of birth?"
+p033,13/10/2026 09:56,Jordan,Customer,0:30,"Carys MacLeod, 14th of June 1989."
+p033,13/10/2026 09:56,Jordan,Agent,0:33,And the first line of your address?
+p033,13/10/2026 09:56,Jordan,Customer,0:36,22 Alder Road.
+p033,13/10/2026 09:56,Jordan,Agent,0:38,Thanks. I’ll block the card and order a replacement. Anything else?
+p033,13/10/2026 09:56,Jordan,Customer,0:43,"I’m already behind on a couple of bills, so I’m a bit worried about the card getting used."
+p033,13/10/2026 09:56,Jordan,Agent,0:50,"I hear you. We can put you through to the Financial Support team, or look at giving you extra time with payments."
+p033,13/10/2026 09:56,Jordan,Customer,0:59,"Could I have extra time, please? I’m trying to catch up."
+p033,13/10/2026 09:56,Jordan,Agent,1:04,"I can note that and arrange a conversation with them. The card will be blocked, a replacement sent, and Financial Support can discuss extra time. Does that make sense?"
+p033,13/10/2026 09:56,Jordan,Customer,1:15,"Yes, that makes sense. Thank you."
+p033,13/10/2026 09:56,Jordan,Agent,1:18,Right. Replacement should arrive in five working days. Anything else?
+p034,14/10/2026 16:09,Zara,Agent,0:00,"Hello, Zara speaking at Thistle Bank. How can I help?"
+p034,14/10/2026 16:09,Zara,Customer,0:04,"Hi, I’m Priyanka Kowalski. I’ve had unarranged overdraft fees taken and I’m really unhappy about it."
+p034,14/10/2026 16:09,Zara,Agent,0:11,"I’m sorry this has been frustrating, Priyanka. I can see a £25 unarranged overdraft fee on your account on 14 October, and your balance is currently £312.40 overdrawn."
+p034,14/10/2026 16:09,Zara,Customer,0:22,"That’s exactly the charge I’m calling about. I didn’t expect it, and I don’t think it’s fair."
+p034,14/10/2026 16:09,Zara,Agent,0:29,I understand. I’m logging this as a complaint so we can look into the fee and what happened. I can’t say what the outcome will be at this stage.
+p034,14/10/2026 16:09,Zara,Customer,0:41,All right. What happens now?
+p034,14/10/2026 16:09,Zara,Agent,0:43,"Before I go further, I need to verify your identity. Could you tell me your date of birth and the first line of your address?"
+p034,14/10/2026 16:09,Zara,Customer,0:53,"It’s 12 March 1991, and 18 Willow Road."
+p034,14/10/2026 16:09,Zara,Agent,0:57,"Thank you. And could you confirm your postcode, please?"
+p034,14/10/2026 16:09,Zara,Customer,1:01,LS6 2QJ.
+p034,14/10/2026 16:09,Zara,Agent,1:02,"Thanks, that’s verified. I’ll review the fee and the account notes, and you’ll hear back from us within five working days."
+p034,14/10/2026 16:09,Zara,Customer,1:11,Will you be the one looking into it?
+p034,14/10/2026 16:09,Zara,Agent,1:14,"I’ll take ownership of it and review the account myself. I’ll call you by 31 October with an update, even if we’re still investigating."
+p034,14/10/2026 16:09,Zara,Customer,1:24,Okay. I’d appreciate knowing what’s going on.
+p034,14/10/2026 16:09,Zara,Agent,1:27,"Of course, Priyanka. I’m sorry again for the frustration. I’ve recorded your complaint and will call you by 31 October."
+p035,14/10/2026 15:22,Priya,Agent,0:00,"Hello, Thistle Bank, Priya speaking. How can I help?"
+p035,14/10/2026 15:22,Priya,Customer,0:04,"Hi, I’m Bartek Ellingham. Could you tell me what time your High Street branch in York opens?"
+p035,14/10/2026 15:22,Priya,Agent,0:11,"Of course, Bartek. It opens at half past nine on weekdays, and at ten on Saturdays."
+p035,14/10/2026 15:22,Priya,Customer,0:17,And is it open this coming Monday?
+p035,14/10/2026 15:22,Priya,Agent,0:20,"Yes, it’ll be open as usual, and I can assure you you’ll be able to get in and get everything sorted there."
+p035,14/10/2026 15:22,Priya,Customer,0:29,"Right, thanks. What time does it close?"
+p035,14/10/2026 15:22,Priya,Agent,0:33,It closes at four thirty on weekdays. On Saturdays it closes at one.
+p035,14/10/2026 15:22,Priya,Customer,0:38,That’s useful. Do I need to book an appointment for a general enquiry?
+p035,14/10/2026 15:22,Priya,Agent,0:44,"You don’t need one for a general enquiry, though you’re welcome to book if you’d prefer. I’m happy to take you through the options."
+p035,14/10/2026 15:22,Priya,Customer,0:53,"No, that’s fine. I’ll just pop in."
+p035,14/10/2026 15:22,Priya,Agent,0:56,"Certainly. Just to summarise, the York High Street branch opens at nine thirty on weekdays and ten on Saturdays, and closes at four thirty on weekdays and one on Saturdays. You can go in without an appointment for a general enquiry. Does that make sense?"
+p035,14/10/2026 15:22,Priya,Customer,1:14,"Yes, it does. Thanks for your help."
+p035,14/10/2026 15:22,Priya,Agent,1:17,"You’re very welcome, Bartek. Have a lovely day."
+p036,14/10/2026 14:35,Jordan,Agent,0:00,"Good morning, Thistle Bank, Jordan speaking. How can I help?"
+p036,14/10/2026 14:35,Jordan,Customer,0:04,"Hi, it’s Jasper MacLeod. I’ve just noticed you’ve cut the interest rate on my savings account. I haven’t seen any letter about it, and I’m really unhappy with the way the bank’s handled this."
+p036,14/10/2026 14:35,Jordan,Agent,0:17,"I’m sorry this has been frustrating, Jasper. I’ll take a look at the account for you. First, could you confirm your full name and date of birth, please?"
+p036,14/10/2026 14:35,Jordan,Customer,0:29,"Jasper MacLeod, 14th of June 1982."
+p036,14/10/2026 14:35,Jordan,Agent,0:32,Thank you. And the first line of your address?
+p036,14/10/2026 14:35,Jordan,Customer,0:36,27 Willow Lane.
+p036,14/10/2026 14:35,Jordan,Agent,0:37,"Thanks, that’s verified. I’m sorry you’ve had to chase this. We’ll get the interest you’ve missed returned to you, and I’ll check what’s happened."
+p036,14/10/2026 14:35,Jordan,Customer,0:47,"Well, I want to know why the rate went down and why nobody told me."
+p036,14/10/2026 14:35,Jordan,Agent,0:53,"Of course. Which savings account is it, and roughly when did you notice the rate change?"
+p036,14/10/2026 14:35,Jordan,Customer,1:00,"The Easy Access Saver. I noticed today, but the rate looks like it changed around the start of September."
+p036,14/10/2026 14:35,Jordan,Agent,1:08,"Right, thanks. I can see the rate changed on 2 September. I can’t see a letter recorded here at the moment, but the team will review the notification and the interest calculation."
+p036,14/10/2026 14:35,Jordan,Customer,1:20,That’s exactly the problem. I shouldn’t have to find it out by checking the account myself.
+p036,14/10/2026 14:35,Jordan,Agent,1:27,"I understand why you’re unhappy, and I’m sorry about that. I’ll put a note on the account that you’re unhappy about the rate change and not receiving a letter."
+p036,14/10/2026 14:35,Jordan,Customer,1:39,"Okay, but I do expect the interest to be put right."
+p036,14/10/2026 14:35,Jordan,Agent,1:44,"I understand. The review will confirm the amount due, and as I said, we’ll get any missed interest returned to you."
+p036,14/10/2026 14:35,Jordan,Customer,1:52,And what happens now?
+p036,14/10/2026 14:35,Jordan,Agent,1:54,"The team will review the rate change, the notification record and the interest calculation, then send you a full written response within 8 weeks. That’s what happens next."
+p036,14/10/2026 14:35,Jordan,Customer,2:05,All right. Thank you.
+p036,14/10/2026 14:35,Jordan,Agent,2:07,"You’re welcome, Jasper. Thanks for calling Thistle Bank."
+p037,14/10/2026 13:48,Liam,Agent,0:00,"Good morning, Thistle Bank, Liam speaking. How can I help?"
+p037,14/10/2026 13:48,Liam,Customer,0:04,"It’s Callum Pemberton. There’s a card payment I don’t recognise, and honestly I’m fed up with the bank. It’s £186.40 to Northstar Media."
+p037,14/10/2026 13:48,Liam,Agent,0:13,"I can look into it. Before we discuss the account, please confirm your full name and date of birth."
+p037,14/10/2026 13:48,Liam,Customer,0:21,"Callum James Pemberton, 14 March 1958."
+p037,14/10/2026 13:48,Liam,Agent,0:24,And the first line of your address?
+p037,14/10/2026 13:48,Liam,Customer,0:27,42 Willow Lane.
+p037,14/10/2026 13:48,Liam,Agent,0:29,Thanks. I can see the payment from 19 October. I’m logging this as a complaint as well as a disputed card payment. The complaint reference is TB-641927.
+p037,14/10/2026 13:48,Liam,Customer,0:40,"Good. I’ve tried to sort it online, but I don’t really understand online banking. My son normally does it for me, and he’s away."
+p037,14/10/2026 13:48,Liam,Agent,0:49,"Right. The Financial Support team can help you with online banking, or we can allow extra time while you do things by phone. I’ll note that."
+p037,14/10/2026 13:48,Liam,Customer,1:00,I just want to know if I’ll get the money back.
+p037,14/10/2026 13:48,Liam,Agent,1:05,I can’t promise an outcome. We’ll investigate the payment and tell you what we find. And any bank fees can never be refunded.
+p037,14/10/2026 13:48,Liam,Customer,1:14,That’s not very reassuring. I’ve already spent ages trying to get an answer.
+p037,14/10/2026 13:48,Liam,Agent,1:19,I understand. I’ll take ownership of this: I’ll send the disputed payment details to our card investigations team today and call you by 3 November with an update.
+p037,14/10/2026 13:48,Liam,Customer,1:31,And the complaint?
+p037,14/10/2026 13:48,Liam,Agent,1:32,You’ll receive a full written response to the complaint within 15 business days. I’ll make sure it’s sent to your address.
+p037,14/10/2026 13:48,Liam,Customer,1:41,"So you’re investigating the payment, you’ll call me by the third of November, and I’ll get the written complaint response within 15 business days?"
+p037,14/10/2026 13:48,Liam,Agent,1:51,Yes. I’ve noted your support needs too. Does that make sense?
+p037,14/10/2026 13:48,Liam,Customer,1:55,"Yes, that makes sense. Thanks."
+p038,15/10/2026 12:01,Sam,Agent,0:00,"Good afternoon, Thistle Bank, Sam speaking. How can I help?"
+p038,15/10/2026 12:01,Sam,Customer,0:04,"Hi. I’m Rhys Sutherland. There’s a card payment I don’t recognise, and I’m really fed up with the bank. I’ve tried getting through before."
+p038,15/10/2026 12:01,Sam,Agent,0:14,"I’ll look at it. First, can you confirm your full name and date of birth?"
+p038,15/10/2026 12:01,Sam,Customer,0:20,"Rhys Sutherland, 14 February 1982."
+p038,15/10/2026 12:01,Sam,Agent,0:22,And the first line of your address?
+p038,15/10/2026 12:01,Sam,Customer,0:26,"18 Willow Lane, Bristol."
+p038,15/10/2026 12:01,Sam,Agent,0:28,Thanks. What’s the payment?
+p038,15/10/2026 12:01,Sam,Customer,0:30,"£286.40 to Northstar Digital on the 19th of October. I’ve never used them. My partner passed away a few weeks ago, so I’ve had enough to deal with."
+p038,15/10/2026 12:01,Sam,Agent,0:41,"I’m sorry to hear that. I’m logging this as a complaint. That payment will be refunded, don’t worry."
+p038,15/10/2026 12:01,Sam,Customer,0:48,You haven’t even checked it yet. I want to know what happens now.
+p038,15/10/2026 12:01,Sam,Agent,0:54,I’ll send it to our card disputes team today. They’ll investigate and contact you by 19 December. You’ll hear back within eight weeks.
+p038,15/10/2026 12:01,Sam,Customer,1:03,Eight weeks? That’s a long time. And what if they don’t agree with me?
+p038,15/10/2026 12:01,Sam,Agent,1:09,"I’ll own the follow-up. I’ll make sure the disputes team has it today, and I’ll call you by 5pm tomorrow to confirm it’s with them."
+p038,15/10/2026 12:01,Sam,Customer,1:19,"All right. So you’re logging a complaint, sending the payment for investigation today, and calling me tomorrow, but you’re saying I’ll get the money back already?"
+p038,15/10/2026 12:01,Sam,Agent,1:30,"Yes, that’s right. The team will investigate, and I’ll call tomorrow by five. Does that make sense?"
+p038,15/10/2026 12:01,Sam,Customer,1:37,"It does, although I still don’t see how you can promise a refund before they’ve looked."
+p038,15/10/2026 12:01,Sam,Agent,1:43,"Understood. I need to move on now, but I’ll call tomorrow."
+p039,15/10/2026 11:14,Sam,Agent,0:00,"Hello, Sam at Thistle Bank. How can I help?"
+p039,15/10/2026 11:14,Sam,Customer,0:04,"Hi, I’m Yasmin Kowalski. I’ve lost my debit card and need a replacement."
+p039,15/10/2026 11:14,Sam,Agent,0:09,"I can help. Before we discuss your account, what’s your full name and date of birth?"
+p039,15/10/2026 11:14,Sam,Customer,0:16,"Yasmin Kowalski, 14 March 1992."
+p039,15/10/2026 11:14,Sam,Agent,0:18,And the first line of your address?
+p039,15/10/2026 11:14,Sam,Customer,0:21,28 Alder Road.
+p039,15/10/2026 11:14,Sam,Agent,0:23,"Thanks, that’s verified. When did you last have the card?"
+p039,15/10/2026 11:14,Sam,Customer,0:27,"Yesterday afternoon, I think. I’ve checked at home and in my bag, but it’s not there."
+p039,15/10/2026 11:14,Sam,Agent,0:34,Right. I’ll block it and arrange a replacement. You’ll need to activate the new one when it arrives.
+p039,15/10/2026 11:14,Sam,Customer,0:41,Okay. Is there a fee for replacing it?
+p039,15/10/2026 11:14,Sam,Agent,0:45,"There’s a £5 fee, and fees can never be refunded."
+p039,15/10/2026 11:14,Sam,Customer,0:49,All right. I’m not unhappy with the bank or anything; I just need the new card.
+p039,15/10/2026 11:14,Sam,Agent,0:56,Understood. I’ll submit the replacement request now. I can’t confirm the delivery date here.
+p039,15/10/2026 11:14,Sam,Customer,1:02,That’s fine. What happens next?
+p039,15/10/2026 11:14,Sam,Agent,1:04,"I’ll check the request has gone through and call you by 3 pm tomorrow with an update. If it hasn’t, I’ll tell you what’s needed."
+p039,15/10/2026 11:14,Sam,Customer,1:14,"So you’re checking the request and calling by 3 pm tomorrow, and I’ll activate the card once it arrives. Have I got that right?"
+p039,15/10/2026 11:14,Sam,Agent,1:24,Yes. The request is being submitted; I’ll call by 3 pm tomorrow with an update. Does that make sense?
+p039,15/10/2026 11:14,Sam,Customer,1:32,"Yes, that makes sense. Thanks."
+p039,15/10/2026 11:14,Sam,Agent,1:34,Okay. Goodbye.
+p040,15/10/2026 10:27,Sam,Agent,0:00,"Hello, Sam at Thistle Bank. How can I help?"
+p040,15/10/2026 10:27,Sam,Customer,0:04,"Hi, I’m Femi Thornbury. My mortgage payment’s come out on the wrong date, and I’m really unhappy about it."
+p040,15/10/2026 10:27,Sam,Agent,0:11,"I can look into it. Before we discuss the account, can you confirm your full name and date of birth?"
+p040,15/10/2026 10:27,Sam,Customer,0:20,"Femi Thornbury, 14 March 1982."
+p040,15/10/2026 10:27,Sam,Agent,0:22,And the first line of your address?
+p040,15/10/2026 10:27,Sam,Customer,0:25,27 Hazel Road.
+p040,15/10/2026 10:27,Sam,Agent,0:27,"Thanks. I can see a payment of £1,246 was taken on the 18th, not the 25th. Is that the one?"
+p040,15/10/2026 10:27,Sam,Customer,0:35,"Yes. It’s caused problems with my bills. I’m caring for my mum full time as well, so I’ve got enough to deal with."
+p040,15/10/2026 10:27,Sam,Agent,0:44,Right. What date did you expect it to come out?
+p040,15/10/2026 10:27,Sam,Customer,0:49,The 25th. That’s what I’ve always had it set to.
+p040,15/10/2026 10:27,Sam,Agent,0:53,I’m logging this as a complaint about the payment date. The reference is TB-684219.
+p040,15/10/2026 10:27,Sam,Customer,0:59,Okay. I want to know why it happened.
+p040,15/10/2026 10:27,Sam,Agent,1:03,"I’ll take ownership. I’ll review the payment history and send the details to our complaints team by tomorrow, 25 October."
+p040,15/10/2026 10:27,Sam,Customer,1:11,And what happens after that?
+p040,15/10/2026 10:27,Sam,Agent,1:13,The complaints team will investigate and send you a full written response within 8 weeks. I can’t say what the outcome will be.
+p040,15/10/2026 10:27,Sam,Customer,1:22,All right.
+p040,15/10/2026 10:27,Sam,Agent,1:24,"So I’ll review the history and pass it on by tomorrow, and you’ll get the full written response within 8 weeks. Does that make sense?"
+p040,15/10/2026 10:27,Sam,Customer,1:34,"Yes, it does."
+p040,15/10/2026 10:27,Sam,Agent,1:36,Fine. Is there anything else?
+p041,16/10/2026 09:40,Marcus,Agent,0:00,"Good afternoon, Thistle Bank, Marcus speaking. How can I help?"
+p041,16/10/2026 09:40,Marcus,Customer,0:04,Hello. I’m Yasmin MacLeod. My loan application was declined and nobody’s explained why. I’m really unhappy about it.
+p041,16/10/2026 09:40,Marcus,Agent,0:11,"I’m sorry this has left you feeling that way, Yasmin. Before I discuss anything about the application, could you tell me your full name and date of birth, please?"
+p041,16/10/2026 09:40,Marcus,Customer,0:23,"Yasmin MacLeod, 14th of June 1962."
+p041,16/10/2026 09:40,Marcus,Agent,0:26,"Thank you. And the first line of your address, please?"
+p041,16/10/2026 09:40,Marcus,Customer,0:30,"Flat 2, 18 Rosebank Road, Dundee."
+p041,16/10/2026 09:40,Marcus,Agent,0:33,"Thank you, that’s all verified. I can hear how frustrating it is to be declined without an explanation."
+p041,16/10/2026 09:40,Marcus,Customer,0:40,"It’s not right. I’ve been with you for years, and I don’t understand what I’m meant to do now."
+p041,16/10/2026 09:40,Marcus,Agent,0:48,I understand. I’ll log this as a complaint about the loan decision and the lack of explanation.
+p041,16/10/2026 09:40,Marcus,Customer,0:55,"I don’t really understand online banking either. My son normally does it for me, and I’m worried I’ll miss something."
+p041,16/10/2026 09:40,Marcus,Agent,1:03,"That’s understandable. We have a Financial Support team who can talk you through ways to access information, and we can allow extra time if you need support with the process."
+p041,16/10/2026 09:40,Marcus,Customer,1:15,All right. I just want someone to look at what happened.
+p041,16/10/2026 09:40,Marcus,Agent,1:20,"The complaint will be reviewed, but I can’t promise what the outcome will be. I’m not able to agree a particular follow-up here."
+p041,16/10/2026 09:40,Marcus,Customer,1:30,"So what happens next, then?"
+p041,16/10/2026 09:40,Marcus,Agent,1:32,"Your complaint will be recorded and reviewed by our complaints team. They’ll send you a full written response within eight weeks. If they need anything further, they may contact you during that time."
+p041,16/10/2026 09:40,Marcus,Customer,1:45,Okay. Thank you for explaining.
+p041,16/10/2026 09:40,Marcus,Agent,1:48,"You’re welcome, Yasmin. I’m sorry this has been upsetting, and thank you for speaking with me today."
+p042,16/10/2026 16:53,Owen,Agent,0:00,"Good afternoon, Thistle Bank, Owen speaking. How can I help?"
+p042,16/10/2026 16:53,Owen,Customer,0:04,"Hi, I’m Carys Delacroix. I sent a transfer on Monday and it didn’t arrive until Thursday. I missed my rent payment because of it, and I’m really unhappy with how this has been handled."
+p042,16/10/2026 16:53,Owen,Agent,0:17,"I can look at that. Before we discuss the account, can you confirm your date of birth and the first line of your address?"
+p042,16/10/2026 16:53,Owen,Customer,0:27,"It’s 14 June 1992, and 27 Alder Road."
+p042,16/10/2026 16:53,Owen,Agent,0:31,Thanks. What was the transfer amount?
+p042,16/10/2026 16:53,Owen,Customer,0:34,"£860, to my landlord. My anxiety’s been really bad lately, and this has made things worse."
+p042,16/10/2026 16:53,Owen,Agent,0:40,Sorry to hear that. The transfer shows as received on Thursday.
+p042,16/10/2026 16:53,Owen,Customer,0:45,"Yes, I know it arrived. I want to know why it took days, and now my landlord’s charged me a late fee."
+p042,16/10/2026 16:53,Owen,Agent,0:54,Transfers can take a few working days. I’ll put a note on the account.
+p042,16/10/2026 16:53,Owen,Customer,1:00,That’s not much help. Can the late fee I’ve been charged be refunded?
+p042,16/10/2026 16:53,Owen,Agent,1:05,Bank fees can never be refunded. Someone will be in touch about the transfer.
+p042,16/10/2026 16:53,Owen,Customer,1:11,When will someone contact me? I need to know what’s happening.
+p042,16/10/2026 16:53,Owen,Agent,1:16,I can’t give you a timescale. Someone will be in touch.
+p042,16/10/2026 16:53,Owen,Customer,1:21,"So you’re just noting it and I’m meant to wait, even though I’ve lost money?"
+p042,16/10/2026 16:53,Owen,Agent,1:27,"I’ve noted the delayed transfer and the late fee. Is that clear, does that make sense?"
+p042,16/10/2026 16:53,Owen,Customer,1:34,"It’s clear, but I’m still unhappy. I’ve got no idea when I’ll hear anything."
+p042,16/10/2026 16:53,Owen,Agent,1:39,Right. Is there anything else?
+p043,16/10/2026 15:06,Sam,Agent,0:00,"Good afternoon, Thistle Bank, Sam speaking. How can I help?"
+p043,16/10/2026 15:06,Sam,Customer,0:04,"Hi, I’m Jasper Lindqvist. I’m really fed up. Our branch has closed, and then I’m left waiting ages on the phone. It’s just not good enough."
+p043,16/10/2026 15:06,Sam,Agent,0:14,"I’m sorry, Jasper. I can understand why that’s frustrating, especially when the branch was somewhere you could go for help."
+p043,16/10/2026 15:06,Sam,Customer,0:23,Exactly. I don’t know where I’m meant to turn now.
+p043,16/10/2026 15:06,Sam,Agent,0:27,I can take ownership of raising this for you. I’m logging this as a complaint about the branch closure and the phone wait times.
+p043,16/10/2026 15:06,Sam,Customer,0:37,I don’t really understand online banking either. My son normally does it for me.
+p043,16/10/2026 15:06,Sam,Agent,0:43,"Thanks for telling me, and that’s absolutely fine. We have a Financial Support team who can talk through the options with you, and we can allow extra time so you’re not rushed."
+p043,16/10/2026 15:06,Sam,Customer,0:55,That would be better. I don’t want to be made to feel silly for asking.
+p043,16/10/2026 15:06,Sam,Agent,1:02,"You won’t be, Jasper. I’ll make sure your concerns are passed on clearly. I can’t say what the outcome will be, but someone will be in touch about the complaint."
+p043,16/10/2026 15:06,Sam,Customer,1:14,When will I hear from them?
+p043,16/10/2026 15:06,Sam,Agent,1:16,"I don’t have a timescale to give you, I’m afraid. I’ll send the complaint to our complaints team today, and I’ll personally call you by Friday to let you know it’s been passed on and discuss arranging support from the Financial Support team."
+p043,16/10/2026 15:06,Sam,Customer,1:34,All right. I appreciate you taking it seriously.
+p043,16/10/2026 15:06,Sam,Agent,1:37,"Of course. I’m sorry you’ve had such a frustrating experience, Jasper, and I’ll follow that up as I’ve said."
+p044,16/10/2026 14:19,Sam,Agent,0:00,"Good morning, Thistle Bank, Sam speaking. How can I help?"
+p044,16/10/2026 14:19,Sam,Customer,0:04,"Hi, I’m Bartek Quigley. Could you tell me what time the Clifton branch opens?"
+p044,16/10/2026 14:19,Sam,Agent,0:10,"Of course. The Clifton branch opens at nine on weekdays, and at nine on Saturday. It’s closed on Sundays."
+p044,16/10/2026 14:19,Sam,Customer,0:18,"Sorry, could you repeat that? I didn’t quite catch the Saturday bit."
+p044,16/10/2026 14:19,Sam,Agent,0:23,"No problem at all. It opens at nine on Saturdays too, and closes at one. Take your time, there’s no rush."
+p044,16/10/2026 14:19,Sam,Customer,0:31,"Right, nine until one. And weekdays, did you say it shuts at five?"
+p044,16/10/2026 14:19,Sam,Agent,0:37,"That’s right, Monday to Friday it’s open from nine until five. Saturday is nine until one."
+p044,16/10/2026 14:19,Sam,Customer,0:43,Thanks. Is there a charge for getting help in the branch? I’m just asking generally.
+p044,16/10/2026 14:19,Sam,Agent,0:50,"There’s no charge for general help. And just so you know, any fee the bank charges can never be refunded."
+p044,16/10/2026 14:19,Sam,Customer,0:58,"Sorry, can you say that last part again? I’m a bit muddled."
+p044,16/10/2026 14:19,Sam,Agent,1:03,"Of course. I said any fee the bank charges can never be refunded. If you’d like, I can give you extra time to go over anything, or put you in touch with our Financial Support team for more support."
+p044,16/10/2026 14:19,Sam,Customer,1:19,"I don’t think I need that, thanks. So I can just turn up at nine tomorrow?"
+p044,16/10/2026 14:19,Sam,Agent,1:25,"Yes, tomorrow’s a weekday, so the branch is open from nine until five. I’d suggest checking our branch finder before you travel, in case the hours change for a particular date."
+p044,16/10/2026 14:19,Sam,Customer,1:38,"Okay, so weekdays nine to five, Saturday nine to one, and check the branch finder before I go. Have I got that right?"
+p044,16/10/2026 14:19,Sam,Agent,1:47,"That’s exactly right. Does that make sense, or would you like me to repeat any of it?"
+p044,16/10/2026 14:19,Sam,Customer,1:54,"No, that makes sense now. Thanks for your help."
+p044,16/10/2026 14:19,Sam,Agent,1:58,"You’re very welcome, Bartek. Have a lovely day."
+p045,19/10/2026 13:32,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p045,19/10/2026 13:32,Zara,Customer,0:04,"Hi, I'm Eilidh Achebe. I've lost my bank card and need a replacement."
+p045,19/10/2026 13:32,Zara,Agent,0:09,"I'm sorry to hear that, Eilidh. I can help you with the next steps. Before we get to that, I can see your current account balance is £684.27."
+p045,19/10/2026 13:32,Zara,Customer,0:21,"All right, thanks. I haven't noticed any transactions I don't recognise."
+p045,19/10/2026 13:32,Zara,Agent,0:25,Thanks for letting me know. I'll just check your identity now. Could you tell me your date of birth and the first line of your address?
+p045,19/10/2026 13:32,Zara,Customer,0:36,"It's 14 June 1992, and 18 Meadow Lane."
+p045,19/10/2026 13:32,Zara,Agent,0:39,Thank you. And what's the postcode?
+p045,19/10/2026 13:32,Zara,Customer,0:42,EH4 3QL.
+p045,19/10/2026 13:32,Zara,Agent,0:44,"That's all matched, thank you. Is the card definitely lost, rather than just misplaced?"
+p045,19/10/2026 13:32,Zara,Customer,0:50,I'm pretty sure it's lost. I've checked my bag and at home.
+p045,19/10/2026 13:32,Zara,Agent,0:55,Understood. I can talk you through reporting it lost and requesting a replacement. I'll first check the card details and available options with you.
+p045,19/10/2026 13:32,Zara,Customer,1:05,"Okay, that sounds good."
+p045,19/10/2026 13:32,Zara,Agent,1:07,"To summarise, you've told me the card is lost and you haven't seen any unrecognised transactions. We can go through the lost-card steps and the replacement options next. Does that make sense?"
+p045,19/10/2026 13:32,Zara,Customer,1:20,"Yes, it does. Thanks for explaining."
+p045,19/10/2026 13:32,Zara,Agent,1:22,"You're welcome, Eilidh. Shall we go through those steps now?"
+p046,19/10/2026 12:45,Liam,Agent,0:00,"Good morning, Thistle Bank, Liam speaking. How can I help?"
+p046,19/10/2026 12:45,Liam,Customer,0:04,I’m Oskar MacLeod. My loan application was declined and nobody’s explained why. I’m really unhappy with how the bank’s handled this.
+p046,19/10/2026 12:45,Liam,Agent,0:12,"I’ll need to verify you first. Full name, please."
+p046,19/10/2026 12:45,Liam,Customer,0:16,Oskar MacLeod.
+p046,19/10/2026 12:45,Liam,Agent,0:18,And your date of birth and first line of address?
+p046,19/10/2026 12:45,Liam,Customer,0:22,"Nineteenth of August 1988, and 14 Birch Road."
+p046,19/10/2026 12:45,Liam,Agent,0:26,Thanks. What’s the issue with the application?
+p046,19/10/2026 12:45,Liam,Customer,0:29,"That’s it. I applied last week, got a rejection, and was just left with no explanation. It’s not good enough."
+p046,19/10/2026 12:45,Liam,Agent,0:37,I can see it was declined on 12 October. I can’t give you a reason from here.
+p046,19/10/2026 12:45,Liam,Customer,0:44,So the bank can just say no and leave me to guess?
+p046,19/10/2026 12:45,Liam,Agent,0:50,I can put a note on the account that you’ve asked about it.
+p046,19/10/2026 12:45,Liam,Customer,0:55,That doesn’t really address how frustrating this is.
+p046,19/10/2026 12:45,Liam,Agent,0:59,The next step is that you’ll receive a full written response within 8 weeks.
+p046,19/10/2026 12:45,Liam,Customer,1:05,What happens in the meantime?
+p046,19/10/2026 12:45,Liam,Agent,1:07,"That’s the process. I can’t say what the response will be, or make any promises about the outcome."
+p046,19/10/2026 12:45,Liam,Customer,1:14,"All right. So I wait for a letter, then."
+p046,19/10/2026 12:45,Liam,Agent,1:18,"Yes. To summarise, I’ve noted your query and you’ll get a full written response within 8 weeks. Does that make sense?"
+p046,19/10/2026 12:45,Liam,Customer,1:27,"Yes, I understand."
+p046,19/10/2026 12:45,Liam,Agent,1:29,Okay. Anything else?
+p046,19/10/2026 12:45,Liam,Customer,1:30,No.
+p047,19/10/2026 11:58,Priya,Agent,0:00,"Hello, Thistle Bank, Priya speaking. How can I help?"
+p047,19/10/2026 11:58,Priya,Customer,0:04,"It’s Bronwen Sutherland. There’s a card payment for £186.40 to Northstar Travel that I don’t recognise. And honestly, I’m fed up with this bank—my last call got me nowhere."
+p047,19/10/2026 11:58,Priya,Agent,0:15,"I’ll check that. First, can you confirm your full name and date of birth?"
+p047,19/10/2026 11:58,Priya,Customer,0:21,"Bronwen Sutherland, 14 March 1982."
+p047,19/10/2026 11:58,Priya,Agent,0:23,And the first line of your address?
+p047,19/10/2026 11:58,Priya,Customer,0:27,"27 Larch Road, Bristol."
+p047,19/10/2026 11:58,Priya,Agent,0:29,Thanks. I can see the payment dated 22 October. We’ll get that money back to you.
+p047,19/10/2026 11:58,Priya,Customer,0:35,"You can’t know that yet, can you? I’m already behind on a couple of bills because of this."
+p047,19/10/2026 11:58,Priya,Agent,0:43,I understand. The Financial Support team can talk through extra time on those bills. I’ll give you their number.
+p047,19/10/2026 11:58,Priya,Customer,0:51,"Right, but I’m still not happy. I keep having to chase you and nobody explains what’s going on."
+p047,19/10/2026 11:58,Priya,Agent,0:58,I’ll put a note on the account. Someone will be in touch about the payment.
+p047,19/10/2026 11:58,Priya,Customer,1:04,When? I need to know what happens next.
+p047,19/10/2026 11:58,Priya,Agent,1:08,"I’ll take ownership of it. I’ll send the disputed-payment details to our card team today, and I’ll call you by 4pm tomorrow with an update."
+p047,19/10/2026 11:58,Priya,Customer,1:18,Okay. And the money is definitely coming back?
+p047,19/10/2026 11:58,Priya,Agent,1:22,"I’ve said we’ll get it back. To recap, I’m sending it to the card team today and calling you by 4pm tomorrow; the Financial Support team can discuss extra time for your bills. Does that make sense?"
+p047,19/10/2026 11:58,Priya,Customer,1:36,"Yes, but I still want a proper explanation, not just a note."
+p047,19/10/2026 11:58,Priya,Agent,1:41,Understood. I’ve got to move on to the next call now. Goodbye.
+p048,19/10/2026 10:11,Hannah,Agent,0:00,"Good morning, Thistle Bank, Hannah speaking. How can I help?"
+p048,19/10/2026 10:11,Hannah,Customer,0:04,"Hi, I’m Jasper MacLeod. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about it."
+p048,19/10/2026 10:11,Hannah,Agent,0:12,"I’m sorry that’s happened, Jasper. Before I look at anything on your account, could you tell me your full name, date of birth and the first line of your address?"
+p048,19/10/2026 10:11,Hannah,Customer,0:24,"Jasper MacLeod, 14th March 1972, and 18 Rowan Drive."
+p048,19/10/2026 10:11,Hannah,Agent,0:28,"Thank you, that’s verified. I can understand why you’re upset. I’ll get this sorted, and the money will be returned to your account."
+p048,19/10/2026 10:11,Hannah,Customer,0:37,"I hope so. It’s put me in a difficult position, especially since my partner passed away recently."
+p048,19/10/2026 10:11,Hannah,Agent,0:44,"I’m so sorry for your loss, Jasper. That must be a lot to deal with alongside this. I can refer you to our Financial Support team, and we can also give you extra time with any payments if you need it."
+p048,19/10/2026 10:11,Hannah,Customer,1:00,Thanks. I’d appreciate someone talking me through what support’s available.
+p048,19/10/2026 10:11,Hannah,Agent,1:05,Of course. I’m logging this as a complaint about the mortgage payment being taken on the wrong date. I’ll make sure the Financial Support team is asked to contact you as well.
+p048,19/10/2026 10:11,Hannah,Customer,1:18,All right. What happens now?
+p048,19/10/2026 10:11,Hannah,Agent,1:20,I’ll send the complaint to our mortgage complaints team today and ask them to investigate the payment date. I’ll also arrange for Financial Support to call you by 5pm tomorrow.
+p048,19/10/2026 10:11,Hannah,Customer,1:32,And when will I hear the outcome?
+p048,19/10/2026 10:11,Hannah,Agent,1:35,You’ll receive a full written response within 8 weeks. I’ll own the follow-up and make sure the complaint is sent today; the team will review what happened and explain their findings in that letter.
+p048,19/10/2026 10:11,Hannah,Customer,1:49,"Okay, so Financial Support calls tomorrow, and I get the written response within eight weeks?"
+p048,19/10/2026 10:11,Hannah,Agent,1:55,"That’s right. To summarise, I’ve logged your complaint, referred you to Financial Support for a call by 5pm tomorrow, and the complaints team will send a full written response within 8 weeks. Does that make sense?"
+p048,19/10/2026 10:11,Hannah,Customer,2:09,"Yes, that’s clear. Thank you."
+p048,19/10/2026 10:11,Hannah,Agent,2:12,"You’re welcome, Jasper. I’m sorry again for the trouble and for your loss. We’ll be in touch."
+p049,20/10/2026 09:24,Sam,Agent,0:00,"Good afternoon, Thistle Bank, Sam speaking. How can I help?"
+p049,20/10/2026 09:24,Sam,Customer,0:04,"Hi, I’ve lost my bank card and need a replacement."
+p049,20/10/2026 09:24,Sam,Agent,0:08,"I’m sorry to hear that. I can help with that. Before we discuss your account, could you tell me your full name and date of birth, please?"
+p049,20/10/2026 09:24,Sam,Customer,0:19,"Ruairi Ellingham, 14th of June 1988."
+p049,20/10/2026 09:24,Sam,Agent,0:22,Thank you. And the first line of your address?
+p049,20/10/2026 09:24,Sam,Customer,0:26,27 Willow Crescent.
+p049,20/10/2026 09:24,Sam,Agent,0:28,"Thanks, Ruairi. I’ve verified your details. When did you last have the card?"
+p049,20/10/2026 09:24,Sam,Customer,0:33,"Yesterday evening, I think. I’ve looked around at home and in the car, but it’s not there."
+p049,20/10/2026 09:24,Sam,Agent,0:40,"That’s frustrating. I’ll block the lost card so it can’t be used, then arrange for a replacement to be sent to your address on file."
+p049,20/10/2026 09:24,Sam,Customer,0:50,"All right, thank you."
+p049,20/10/2026 09:24,Sam,Agent,0:52,"The replacement usually takes several working days to arrive. I’ll submit the request now, and your existing card will no longer work once it’s blocked."
+p049,20/10/2026 09:24,Sam,Customer,1:02,Okay. I’m glad I called.
+p049,20/10/2026 09:24,Sam,Agent,1:05,I’ll just take a moment to process that for you.
+p049,20/10/2026 09:24,Sam,Customer,1:09,No problem.
+p049,20/10/2026 09:24,Sam,Agent,1:11,"The lost card is blocked, and I’ve submitted the replacement request. You’ll receive it by post at the address we have on file. Is there anything else I can help with today?"
+p049,20/10/2026 09:24,Sam,Customer,1:24,"No, that’s everything. Thanks for your help."
+p049,20/10/2026 09:24,Sam,Agent,1:27,"You’re very welcome, Ruairi. Thanks for calling Thistle Bank. Goodbye."
+p050,20/10/2026 16:37,Liam,Agent,0:00,"Good afternoon, Thistle Bank, Liam speaking. How can I help?"
+p050,20/10/2026 16:37,Liam,Customer,0:04,"Hi, I’m Imran Ellingham. The app was down yesterday and I couldn’t pay my electricity bill on time. I’m really fed up with the bank letting me down like this."
+p050,20/10/2026 16:37,Liam,Agent,0:16,"I’m sorry that happened, Imran. I’ll do my best to help. Before we discuss your account, could you tell me your full name and date of birth, please?"
+p050,20/10/2026 16:37,Liam,Customer,0:27,"Imran Ellingham, 14th February 1988."
+p050,20/10/2026 16:37,Liam,Agent,0:30,Thank you. And the first line of your address?
+p050,20/10/2026 16:37,Liam,Customer,0:34,"22 Beech Road, Leeds."
+p050,20/10/2026 16:37,Liam,Agent,0:36,"Thanks, that’s verified. I understand you couldn’t make the payment because the app wasn’t working. Don’t worry, we’ll get that charge refunded for you."
+p050,20/10/2026 16:37,Liam,Customer,0:45,I’ve already had a late-payment fee from the electricity company. I shouldn’t have to deal with this because your app failed.
+p050,20/10/2026 16:37,Liam,Agent,0:54,"I can see why you’re annoyed, and I’m sorry for the hassle. I’ll check what happened with the payment and make sure the fee is returned."
+p050,20/10/2026 16:37,Liam,Customer,1:04,So you’ll look into it and get back to me?
+p050,20/10/2026 16:37,Liam,Agent,1:09,"Yes. I’ll send this to our payments team today, and I’ll call you by Friday, 30th October, with an update. You’ll hear back within five working days."
+p050,20/10/2026 16:37,Liam,Customer,1:20,All right. I just want to know what’s happening and not have to chase it.
+p050,20/10/2026 16:37,Liam,Agent,1:26,"That’s fair. I’ll take ownership of it, and I’ll make the call myself by Friday, even if the team hasn’t finished looking into it."
+p050,20/10/2026 16:37,Liam,Agent,1:36,"Just to check I’ve explained it clearly: I’ll ask the payments team to investigate the failed payment and fee, then I’ll call you by Friday with an update. Does that make sense?"
+p050,20/10/2026 16:37,Liam,Customer,1:48,"Yes, that makes sense. Thanks."
+p050,20/10/2026 16:37,Liam,Agent,1:51,"You’re welcome, Imran. I’m sorry again for the trouble, and I’ll be in touch by Friday."
+p051,20/10/2026 15:50,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p051,20/10/2026 15:50,Priya,Customer,0:04,"Hi, I’m Harriet Sutherland. I’ve been charged unarranged overdraft fees and I’m really unhappy about it."
+p051,20/10/2026 15:50,Priya,Agent,0:11,"I can look into that. Before we discuss the account, can you confirm your full name and date of birth?"
+p051,20/10/2026 15:50,Priya,Customer,0:19,"Harriet Sutherland, 14th of February 1987."
+p051,20/10/2026 15:50,Priya,Agent,0:22,"And the first line of your address, please?"
+p051,20/10/2026 15:50,Priya,Customer,0:25,22 Meadow Lane.
+p051,20/10/2026 15:50,Priya,Agent,0:27,"Thanks. I’m sorry you’re unhappy. Those fees will be refunded, so we’ll get that sorted."
+p051,20/10/2026 15:50,Priya,Customer,0:33,"You can’t know that yet, though, can you? I want to know why they were charged."
+p051,20/10/2026 15:50,Priya,Agent,0:40,I’ll check the details. I’m logging this as a complaint. The reference is TB-604218.
+p051,20/10/2026 15:50,Priya,Customer,0:46,All right. I was charged £30 last month and I don’t think it’s fair.
+p051,20/10/2026 15:50,Priya,Agent,0:52,Understood. I’ll review the charges and the account history.
+p051,20/10/2026 15:50,Priya,Customer,0:55,What happens now?
+p051,20/10/2026 15:50,Priya,Agent,0:57,"I’ll own this and review it myself. I’ll call you by 4pm on Friday, 24 October, with an update."
+p051,20/10/2026 15:50,Priya,Agent,1:05,We’ll also send you a full written response within 8 weeks of today. That’ll explain our findings and what we’ve decided.
+p051,20/10/2026 15:50,Priya,Agent,1:14,"So, I’ve logged the complaint, I’ll call by Friday at 4pm, and you’ll get the full response within 8 weeks. Does that make sense?"
+p051,20/10/2026 15:50,Priya,Customer,1:23,"Yes, that’s clear. I’ll wait for your call."
+p051,20/10/2026 15:50,Priya,Agent,1:27,Fine. Thanks for calling.
+p052,21/10/2026 14:03,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p052,21/10/2026 14:03,Priya,Customer,0:04,"Hi, I’m Gareth Ndlovu. You’ve taken my direct debit twice. I’m really unhappy with the bank—this shouldn’t happen."
+p052,21/10/2026 14:03,Priya,Agent,0:11,"I’m sorry, Gareth. I can see two payments to Northstar Energy for £68.40 each came out on 21 October, and your balance is now £214.16. I’m sure we’ll get that second payment refunded for you."
+p052,21/10/2026 14:03,Priya,Customer,0:25,"Well, I’d expect it back. I only authorised one payment."
+p052,21/10/2026 14:03,Priya,Agent,0:30,"Of course. I’ll look into it for you. Before I access anything further, could I take your date of birth and the first line of your address, please?"
+p052,21/10/2026 14:03,Priya,Customer,0:41,"It’s 14 March 1982, and 27 Willow Road."
+p052,21/10/2026 14:03,Priya,Agent,0:44,Thank you. And your postcode?
+p052,21/10/2026 14:03,Priya,Customer,0:47,LS6 2QJ.
+p052,21/10/2026 14:03,Priya,Agent,0:49,"That’s all verified, thank you. I’ll put a note on the account and ask our payments team to check the duplicate debit. I’ll make sure they contact you within eight weeks."
+p052,21/10/2026 14:03,Priya,Customer,1:01,Eight weeks? That’s a long time when it’s your mistake.
+p052,21/10/2026 14:03,Priya,Agent,1:05,"I understand, and I’m sorry this has been frustrating. I’ll take ownership of it: I’ll send the case to our payments team today, and I’ll call you by 4 pm this Friday with an update, even if they haven’t finished their checks."
+p052,21/10/2026 14:03,Priya,Customer,1:22,All right. And you still think the second payment will come back?
+p052,21/10/2026 14:03,Priya,Agent,1:27,"Yes, I expect it will be returned once the team has checked it. To summarise, I’ve noted the duplicate £68.40 payment, I’m sending it to the payments team today, and I’ll call you by 4 pm Friday. They may take up to eight weeks to get back with their final response. Does that make sense?"
+p052,21/10/2026 14:03,Priya,Customer,1:49,"Yes, I understand. I’ll wait for your call Friday."
+p052,21/10/2026 14:03,Priya,Agent,1:53,"Thank you, Gareth. I’m sorry again for the trouble, and I’ll be in touch Friday."
+p053,21/10/2026 13:16,Liam,Agent,0:00,"Good morning, Thistle Bank, Liam speaking. How can I help?"
+p053,21/10/2026 13:16,Liam,Customer,0:04,"Hi Liam, could you tell me what time the High Street branch opens tomorrow?"
+p053,21/10/2026 13:16,Liam,Agent,0:10,Of course. The High Street branch opens at half past nine tomorrow and closes at four thirty.
+p053,21/10/2026 13:16,Liam,Customer,0:17,"Thanks. I was thinking of popping in to ask about getting a bit of help. I can't afford this, I've got nothing left until payday."
+p053,21/10/2026 13:16,Liam,Agent,0:27,"I'm sorry, that sounds really stressful. We can put you in touch with our Financial Support team, and they can talk through options such as extra time to pay."
+p053,21/10/2026 13:16,Liam,Customer,0:39,"That would be helpful. I'm not unhappy with the bank or anything, I just need some guidance."
+p053,21/10/2026 13:16,Liam,Agent,0:46,"I understand. Just so you know, bank fees can never be refunded, but the team can still explain what support might be available."
+p053,21/10/2026 13:16,Liam,Customer,0:55,"Right, okay. Could I speak to someone at the branch tomorrow?"
+p053,21/10/2026 13:16,Liam,Agent,1:00,Yes. I’ll contact the High Street branch today and ask them to arrange for someone from Financial Support to call you by 11 tomorrow. I’ll make sure they have your request.
+p053,21/10/2026 13:16,Liam,Customer,1:12,"Thanks, Liam. I appreciate you sorting that out."
+p053,21/10/2026 13:16,Liam,Agent,1:16,"You’re welcome. The branch opens at half past nine, and I’ll send that request over today."
+p054,21/10/2026 12:29,Marcus,Agent,0:00,"Good morning, Thistle Bank, Marcus speaking. How can I help?"
+p054,21/10/2026 12:29,Marcus,Customer,0:04,"I’ve got a card payment I don’t recognise, and I’m really unhappy that I’ve had to chase this."
+p054,21/10/2026 12:29,Marcus,Agent,0:11,"I’m sorry you’ve had that experience, and I’ll do what I can to help. Before we discuss your account, could you tell me your full name and date of birth, please?"
+p054,21/10/2026 12:29,Marcus,Customer,0:24,"Carys Pemberton, 14th of June 1988."
+p054,21/10/2026 12:29,Marcus,Agent,0:27,"Thank you, Carys. And could you confirm the first line of your address?"
+p054,21/10/2026 12:29,Marcus,Customer,0:32,"Flat 3, 18 Linton Road."
+p054,21/10/2026 12:29,Marcus,Agent,0:34,"Thanks, that’s verified. I’m sorry this has been frustrating. Can you tell me which payment you’re concerned about?"
+p054,21/10/2026 12:29,Marcus,Customer,0:42,It’s £86.40 to BrightCart on the 19th of October. I’ve never used them.
+p054,21/10/2026 12:29,Marcus,Agent,0:47,I understand. I’ll log this as a complaint about the unrecognised payment and the service you’ve received. I can’t promise what the outcome will be.
+p054,21/10/2026 12:29,Marcus,Customer,0:58,"Fine, but I don’t want it to just disappear into a queue."
+p054,21/10/2026 12:29,Marcus,Agent,1:03,"I hear you. I’ll take ownership of the complaint and send it to our complaints team today. Someone will be in touch about the next steps, though I can’t give you a timescale for their review."
+p054,21/10/2026 12:29,Marcus,Customer,1:17,And what will you do personally?
+p054,21/10/2026 12:29,Marcus,Agent,1:20,I’ll check that it’s been passed to the complaints team and call you by 3 pm tomorrow with an update on that. I can’t say what their decision will be.
+p054,21/10/2026 12:29,Marcus,Customer,1:32,"All right. So you’re logging a complaint today, and you’ll call tomorrow to tell me it’s been passed on. The team will contact me about what happens next?"
+p054,21/10/2026 12:29,Marcus,Agent,1:43,"That’s right. I’ll call by 3 pm tomorrow with that update, and someone from the team will be in touch about next steps. Does that make sense?"
+p054,21/10/2026 12:29,Marcus,Customer,1:54,"Yes, that makes sense. Thanks."
+p054,21/10/2026 12:29,Marcus,Agent,1:56,"You’re welcome, Carys. I’m sorry again for the trouble, and I’ll make sure I follow up tomorrow."
+p055,21/10/2026 11:42,Zara,Agent,0:00,"Good afternoon, Thistle Bank, Zara speaking. How can I help?"
+p055,21/10/2026 11:42,Zara,Customer,0:04,"Hi, I’m Niamh Haddad. There’s a card payment I don’t recognise, and honestly I’m fed up with the bank making it so hard to get help."
+p055,21/10/2026 11:42,Zara,Agent,0:14,"I’m sorry this has been frustrating, Niamh. I can look into it with you. Before we discuss your account, could you confirm your full name and date of birth, please?"
+p055,21/10/2026 11:42,Zara,Customer,0:26,"Niamh Haddad, 14th of February 1987."
+p055,21/10/2026 11:42,Zara,Agent,0:29,Thanks. And the first line of your address?
+p055,21/10/2026 11:42,Zara,Customer,0:33,22 Willow Road.
+p055,21/10/2026 11:42,Zara,Agent,0:35,"That’s all verified, thank you. Which payment are you concerned about?"
+p055,21/10/2026 11:42,Zara,Customer,0:39,It’s £186.40 to Northstar Online on the 18th of October. I’ve never bought anything from them.
+p055,21/10/2026 11:42,Zara,Agent,0:46,"I understand. I can see the payment you mean. I’ll put a note on the account that you don’t recognise it, and someone will be in touch about the next steps."
+p055,21/10/2026 11:42,Zara,Customer,0:58,"This is the last thing I need right now. I’m going through a divorce as well, and I’ve already spent ages trying to sort this out with you."
+p055,21/10/2026 11:42,Zara,Agent,1:10,"I’m sorry to hear you’re going through a divorce, Niamh. I’ll make sure the note about the payment is clear."
+p055,21/10/2026 11:42,Zara,Customer,1:18,So what actually happens now? I don’t want to be left chasing again.
+p055,21/10/2026 11:42,Zara,Agent,1:23,"I’ll take ownership of this and send you a secure message by 4 pm today confirming that I’ve passed the details on. Someone will be in touch about what happens next, though I can’t give you a timescale for that."
+p055,21/10/2026 11:42,Zara,Customer,1:39,All right. I just want to know you’ve got the right payment.
+p055,21/10/2026 11:42,Zara,Agent,1:44,"Yes, it’s the £186.40 Northstar Online payment dated 18 October. I’ll note that you don’t recognise it, and I’ll message you by 4 pm today to confirm I’ve passed it on. Someone will then be in touch about the next steps, with no timescale I can give you. Does that make sense?"
+p055,21/10/2026 11:42,Zara,Customer,2:05,"Yes, that makes sense."
+p055,21/10/2026 11:42,Zara,Agent,2:07,"Thank you, Niamh. I’m sorry this has been such a frustrating experience. Is there anything else I can help with today?"
+p056,22/10/2026 10:55,Marcus,Agent,0:00,"Good morning, Thistle Bank, Marcus speaking. How can I help?"
+p056,22/10/2026 10:55,Marcus,Customer,0:04,"Hi, I’m Rhys Sutherland. There’s a card payment I don’t recognise, and honestly I’m really unhappy with the bank about it."
+p056,22/10/2026 10:55,Marcus,Agent,0:12,"I’m sorry you’ve had to call about this, Rhys. Before we discuss any account details, could you confirm your full name and date of birth, please?"
+p056,22/10/2026 10:55,Marcus,Customer,0:23,"Rhys Sutherland, 14th of February 1991."
+p056,22/10/2026 10:55,Marcus,Agent,0:26,Thanks. And the first line of your address?
+p056,22/10/2026 10:55,Marcus,Customer,0:29,18 Willow Lane.
+p056,22/10/2026 10:55,Marcus,Agent,0:31,"Thank you, that’s all verified. Can you tell me the payment you’re concerned about?"
+p056,22/10/2026 10:55,Marcus,Customer,0:37,It’s £186.40 to Northstar Digital on Tuesday. I’ve never used them.
+p056,22/10/2026 10:55,Marcus,Agent,0:42,I can understand why that’s worrying. I’m logging this as a complaint as well as noting the payment you don’t recognise.
+p056,22/10/2026 10:55,Marcus,Customer,0:50,"Good, because I can’t afford this. I’ve got nothing left until payday."
+p056,22/10/2026 10:55,Marcus,Agent,0:55,"I’m really sorry, Rhys. That must be stressful. I can put you in touch with our Financial Support team, who can talk through options like extra time if you need it."
+p056,22/10/2026 10:55,Marcus,Agent,1:08,"And don’t worry, we’ll get that £186.40 back to you."
+p056,22/10/2026 10:55,Marcus,Customer,1:12,I hope so. What happens now?
+p056,22/10/2026 10:55,Marcus,Agent,1:15,"I’ll pass the details to our card team and someone will be in touch about it. I can’t give you a timescale just now, but I’ll keep ownership of this and call you by the end of tomorrow with an update."
+p056,22/10/2026 10:55,Marcus,Agent,1:31,"Just to summarise, I’ve logged your complaint and the unrecognised payment, I’ll refer it to the card team, and I’ll call you by the end of tomorrow. I can also arrange for Financial Support to speak with you. Does that make sense?"
+p056,22/10/2026 10:55,Marcus,Customer,1:48,"Yes, that’s clear. Thanks for listening."
+p056,22/10/2026 10:55,Marcus,Agent,1:51,"Of course, Rhys. I’m sorry again you’re dealing with this, and I’ll make sure you hear from me by tomorrow."
+p057,22/10/2026 09:08,Marcus,Agent,0:00,"Good afternoon, Thistle Bank, Marcus speaking. How can I help?"
+p057,22/10/2026 09:08,Marcus,Customer,0:04,"Hi, I’m Imran Ferreira. I transferred money to someone who said they were from your fraud team, and now I’m really unhappy with how this has been handled."
+p057,22/10/2026 09:08,Marcus,Agent,0:15,"I’m sorry that’s happened, Imran. I can understand why you’re unhappy, and I’ll take ownership of this with you. Before we discuss your account, could you confirm your full name and date of birth, please?"
+p057,22/10/2026 09:08,Marcus,Customer,0:29,"Imran Ferreira, 14 September 1988."
+p057,22/10/2026 09:08,Marcus,Agent,0:32,Thank you. And the first line of your address?
+p057,22/10/2026 09:08,Marcus,Customer,0:36,"22 Ash Grove, Bristol."
+p057,22/10/2026 09:08,Marcus,Agent,0:38,"Thanks, that’s verified. I’m logging this as a complaint about the transfer and the contact you received. I’ll make sure the money is returned to you."
+p057,22/10/2026 09:08,Marcus,Customer,0:48,"I hope so. They got me to send £2,450 on Monday, and then the number stopped working."
+p057,22/10/2026 09:08,Marcus,Agent,0:55,That sounds very upsetting. I’m sorry you’ve been put through this. I’ll record those details and make sure the complaint is handled properly.
+p057,22/10/2026 09:08,Marcus,Customer,1:04,I want to know what’s actually going to happen now.
+p057,22/10/2026 09:08,Marcus,Agent,1:09,"I’ll send the case to our fraud complaints team today. They’ll investigate the transfer and how the call was handled, and I’ll personally check it’s been assigned by tomorrow afternoon."
+p057,22/10/2026 09:08,Marcus,Customer,1:21,And when will I hear back?
+p057,22/10/2026 09:08,Marcus,Agent,1:24,You’ll receive a full written response within 15 business days. I’ll also call you by 5 pm tomorrow to confirm the team has picked it up and tell you how to contact me if you need an update.
+p057,22/10/2026 09:08,Marcus,Customer,1:39,All right.
+p057,22/10/2026 09:08,Marcus,Agent,1:40,"Just to summarise: I’ve logged your complaint, I’m sending it to the fraud complaints team today, and I’ll call you by 5 pm tomorrow. You’ll get a full written response within 15 business days. Does that all make sense?"
+p057,22/10/2026 09:08,Marcus,Customer,1:56,"Yes, that makes sense. Thank you."
+p057,22/10/2026 09:08,Marcus,Agent,1:59,"You’re welcome, Imran. I’m sorry again this has happened, and I’ll follow it up as promised."
+p058,22/10/2026 16:21,Owen,Agent,0:00,"Good morning, Thistle Bank, Owen speaking. How can I help?"
+p058,22/10/2026 16:21,Owen,Customer,0:04,"Hi, I’m Yasmin Kowalski. My mortgage payment’s been taken on the wrong date, and I’m really unhappy about how this has been handled."
+p058,22/10/2026 16:21,Owen,Agent,0:13,I’ll need to verify you first. What’s your date of birth and the first line of your address?
+p058,22/10/2026 16:21,Owen,Customer,0:21,"It’s 14 September 1987, and 26 Rosebery Road."
+p058,22/10/2026 16:21,Owen,Agent,0:24,Thanks. What date was the payment taken?
+p058,22/10/2026 16:21,Owen,Customer,0:27,"It came out on the 18th. It should have been the 25th. I didn’t agree to that, and this has caused a lot of hassle."
+p058,22/10/2026 16:21,Owen,Agent,0:38,"Right. It’ll be returned to your account, so that should sort it."
+p058,22/10/2026 16:21,Owen,Customer,0:43,You haven’t even checked what happened. I want someone to take this seriously.
+p058,22/10/2026 16:21,Owen,Agent,0:48,I can see the payment was collected on the 18th. I’ll put a note on the account.
+p058,22/10/2026 16:21,Owen,Customer,0:55,That’s all? I’ve already had to call about this once.
+p058,22/10/2026 16:21,Owen,Agent,1:00,The account shows the payment date was changed. I can’t see more here.
+p058,22/10/2026 16:21,Owen,Customer,1:05,I’m not satisfied with that. The bank has taken it on the wrong date and I’ve had no proper explanation.
+p058,22/10/2026 16:21,Owen,Agent,1:13,We’ll send a full written response within eight weeks explaining what happens next.
+p058,22/10/2026 16:21,Owen,Customer,1:19,"So I just wait for a letter, then?"
+p058,22/10/2026 16:21,Owen,Agent,1:22,"Yes, a full written response within eight weeks. Is there anything else?"
+p058,22/10/2026 16:21,Owen,Customer,1:27,No.
+p058,22/10/2026 16:21,Owen,Agent,1:29,All right. Goodbye.
+p059,22/10/2026 15:34,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p059,22/10/2026 15:34,Zara,Customer,0:04,"Hi, I’m Morag Pemberton. I’ve been charged unarranged overdraft fees and I’m really unhappy about it."
+p059,22/10/2026 15:34,Zara,Agent,0:11,"I’m sorry to hear that, Morag. I can look into it for you. Before we discuss the account, could you confirm your full name and date of birth, please?"
+p059,22/10/2026 15:34,Zara,Customer,0:22,"Morag Pemberton, 14 March 1962."
+p059,22/10/2026 15:34,Zara,Agent,0:25,Thank you. And the first line of your address?
+p059,22/10/2026 15:34,Zara,Customer,0:29,"22 Rowan Drive, Dundee."
+p059,22/10/2026 15:34,Zara,Agent,0:31,"That’s lovely, thank you. I can see the fees you mean. We’ll get that money refunded, don’t worry."
+p059,22/10/2026 15:34,Zara,Customer,0:38,"I hope so. It’s been a lot to deal with, and I’m having chemotherapy at the moment."
+p059,22/10/2026 15:34,Zara,Agent,0:45,"I’m really sorry you’re going through that, Morag. We can put you in touch with our Financial Support team, and I can also make sure you’re given extra time if you need it. Would either of those help?"
+p059,22/10/2026 15:34,Zara,Customer,1:00,"The extra time would help, thanks. I just want someone to take this seriously."
+p059,22/10/2026 15:34,Zara,Agent,1:06,"Of course. I’m logging this as a complaint now, and I’ll make sure it’s reviewed properly. Just so you know, our unarranged overdraft fees can never be refunded."
+p059,22/10/2026 15:34,Zara,Customer,1:17,But you just said you’d refund them.
+p059,22/10/2026 15:34,Zara,Agent,1:21,"You’re right, I did say that, and I’m sorry—I shouldn’t have promised an outcome before it’s been investigated. I’ll take ownership and make sure the complaint is looked at."
+p059,22/10/2026 15:34,Zara,Customer,1:32,All right. What happens next?
+p059,22/10/2026 15:34,Zara,Agent,1:35,"I’ll send this to our complaints team today. They’ll investigate the fees and send you a full written response within eight weeks. I’ll also call you by 30 October with an update, even if there’s no decision yet."
+p059,22/10/2026 15:34,Zara,Customer,1:50,"Okay, that sounds fair."
+p059,22/10/2026 15:34,Zara,Agent,1:52,"Just to summarise, I’ve logged your complaint about the overdraft fees, noted that extra time would help, and I’ll call by 30 October. The complaints team will send a full written response within eight weeks. Does that all make sense?"
+p059,22/10/2026 15:34,Zara,Customer,2:08,"Yes, it does. Thank you for listening."
+p059,22/10/2026 15:34,Zara,Agent,2:11,"You’re very welcome, Morag. I’m sorry this has added to what you’re already dealing with. Take care."
+p060,23/10/2026 14:47,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p060,23/10/2026 14:47,Priya,Customer,0:04,"Hi, I’m Siobhan MacLeod. I sent a transfer for my rent and it arrived days late. I missed the payment, and I’m really unhappy about it."
+p060,23/10/2026 14:47,Priya,Agent,0:14,"I can see the £1,250 transfer left your account on 14 October, and your balance is now £86.40. Can you give me your date of birth?"
+p060,23/10/2026 14:47,Priya,Customer,0:25,"It’s 9 March 1987. I’ve already had to explain this to my landlord. I’m having chemotherapy at the moment as well, so it’s been a lot."
+p060,23/10/2026 14:47,Priya,Agent,0:35,Right. Was the payment to your landlord’s usual account?
+p060,23/10/2026 14:47,Priya,Customer,0:39,"Yes, the same account I’ve paid before. It was meant to arrive on the 15th, but they didn’t get it until the 19th."
+p060,23/10/2026 14:47,Priya,Agent,0:49,Okay. I’m logging this as a complaint about the delayed transfer and the missed rent payment.
+p060,23/10/2026 14:47,Priya,Customer,0:55,"Thank you. I want to know why it took so long, and what you’re going to do about the rent charge."
+p060,23/10/2026 14:47,Priya,Agent,1:04,I can’t say what the outcome will be. I’ll take ownership of getting the complaint reviewed.
+p060,23/10/2026 14:47,Priya,Customer,1:11,All right. I’ve got a £40 late fee from the landlord now.
+p060,23/10/2026 14:47,Priya,Agent,1:16,"I’ll refer the transfer and that fee for review. I’ll send the complaint team the details today, and I’ll call you by 5pm tomorrow with an update."
+p060,23/10/2026 14:47,Priya,Customer,1:27,And when will I get a proper answer?
+p060,23/10/2026 14:47,Priya,Agent,1:30,"You’ll receive a full written response within 15 business days. The complaint team will review the transfer records and your account of the missed rent payment, then send the response to your address on file."
+p060,23/10/2026 14:47,Priya,Customer,1:44,"Okay. I’ll wait for your call tomorrow, then."
+p060,23/10/2026 14:47,Priya,Agent,1:48,Yes. That’s all I can do today.
+p061,23/10/2026 13:00,Jordan,Agent,0:00,"Good morning, Thistle Bank, Jordan speaking. How can I help?"
+p061,23/10/2026 13:00,Jordan,Customer,0:04,I sent money to someone pretending to be from your bank. I’m really unhappy with how this has been handled.
+p061,23/10/2026 13:00,Jordan,Agent,0:12,"I’m sorry you’ve had to deal with that, Rhys. Before we discuss anything about your account, could you tell me your full name and date of birth, please?"
+p061,23/10/2026 13:00,Jordan,Customer,0:23,"Rhys Oyelaran, 14th of February 1987."
+p061,23/10/2026 13:00,Jordan,Agent,0:26,Thank you. And the first line of your address?
+p061,23/10/2026 13:00,Jordan,Customer,0:30,26 Willow Road.
+p061,23/10/2026 13:00,Jordan,Agent,0:32,"That’s fine, thank you. I’m sorry someone impersonated the bank and that this has left you feeling let down. I’ll take ownership of this from here."
+p061,23/10/2026 13:00,Jordan,Customer,0:42,"I transferred £2,400 on Monday. I thought it was the fraud team calling."
+p061,23/10/2026 13:00,Jordan,Agent,0:48,"I’m sorry, Rhys. I can see why you’re upset. I’m logging this as a complaint about the transfer and how it’s been handled. The reference is TB-418672."
+p061,23/10/2026 13:00,Jordan,Customer,0:59,"I’m going through a divorce as well, and this is the last thing I needed."
+p061,23/10/2026 13:00,Jordan,Agent,1:05,"That sounds like a lot to manage at once. We can put you in touch with our Financial Support team, and I can ask them to allow extra time for any information they need from you."
+p061,23/10/2026 13:00,Jordan,Customer,1:19,"Yes, please. I don’t want to keep repeating everything."
+p061,23/10/2026 13:00,Jordan,Agent,1:23,Of course. I’ll include what you’ve told me so you don’t have to start again. I’ll send the complaint and request for Financial Support to the relevant teams today.
+p061,23/10/2026 13:00,Jordan,Customer,1:35,So what happens now?
+p061,23/10/2026 13:00,Jordan,Agent,1:37,"Someone will be in touch about the complaint and the Financial Support referral. I can’t say what the outcome will be, but I’ll make sure both requests are passed on."
+p061,23/10/2026 13:00,Jordan,Customer,1:49,All right.
+p061,23/10/2026 13:00,Jordan,Agent,1:51,"I’ll call you by 3 pm tomorrow to confirm that both have been referred. I’m sorry again that this has happened, Rhys."
+p062,23/10/2026 12:13,Jordan,Agent,0:00,"Good morning, Thistle Bank, Jordan speaking. How can I help?"
+p062,23/10/2026 12:13,Jordan,Customer,0:04,"Hi, I’m Tariq Ellingham. There’s a card payment I don’t recognise, and I’m really unhappy with how this has been handled."
+p062,23/10/2026 12:13,Jordan,Agent,0:12,"I’m sorry this has been frustrating, Tariq. Before I look at any account details, could you confirm your full name and date of birth, please?"
+p062,23/10/2026 12:13,Jordan,Customer,0:23,"Tariq Ellingham, 14th of March 1982."
+p062,23/10/2026 12:13,Jordan,Agent,0:25,Thank you. And could you confirm the first line of your address?
+p062,23/10/2026 12:13,Jordan,Customer,0:31,18 Willow Crescent.
+p062,23/10/2026 12:13,Jordan,Agent,0:32,"Thanks, that’s verified. I can see a card payment for £186.40 to Northstar Digital on 22 October. Is that the one you mean?"
+p062,23/10/2026 12:13,Jordan,Customer,0:42,"Yes. I’ve never used them. I’ve just come out of hospital, and I don’t need this stress on top of everything."
+p062,23/10/2026 12:13,Jordan,Agent,0:50,"I’m sorry to hear you’ve just come out of hospital, and that this has added stress. We can take this at your pace. I can also arrange for our Financial Support team to contact you, or give you extra time for any follow-up."
+p062,23/10/2026 12:13,Jordan,Customer,1:07,"Extra time would help, please. I’m unhappy because I reported it last week and didn’t hear anything."
+p062,23/10/2026 12:13,Jordan,Agent,1:14,I understand. I’m logging this as a complaint about the unrecognised payment and the delay in getting back to you. I’ll take ownership of it from here.
+p062,23/10/2026 12:13,Jordan,Customer,1:25,Thank you. What happens now?
+p062,23/10/2026 12:13,Jordan,Agent,1:28,I’ll send the complaint to our complaints team today and note that you need extra time. They’ll review what happened and send you a full written response within 15 business days. I can’t promise what the outcome will be.
+p062,23/10/2026 12:13,Jordan,Customer,1:43,Will you contact me before then?
+p062,23/10/2026 12:13,Jordan,Agent,1:46,Yes. I’ll call you by 5pm tomorrow to confirm the complaint has been passed on and check whether you need anything else. The complaints team will then provide that full written response within 15 business days.
+p062,23/10/2026 12:13,Jordan,Agent,2:00,"So, I’m logging your complaint today, I’ll call you by 5pm tomorrow with an update, and you’ll receive a full written response within 15 business days. You’d like extra time, and I’ll note that. Does that make sense?"
+p062,23/10/2026 12:13,Jordan,Customer,2:15,"Yes, that’s clear. Thanks for being patient."
+p062,23/10/2026 12:13,Jordan,Agent,2:18,"You’re welcome, Tariq. I’m sorry again you’ve had to chase this, and I’ll make sure I follow up tomorrow."
+p063,26/10/2026 11:26,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p063,26/10/2026 11:26,Zara,Customer,0:04,"Hi, I'm Ewan Ferreira. A transfer I sent arrived days late and I missed my rent payment. I'm really unhappy about it."
+p063,26/10/2026 11:26,Zara,Agent,0:13,"I'm sorry that's caused you so much trouble, Ewan. Before I look into anything on your account, could I check your full name, date of birth and the first line of your address?"
+p063,26/10/2026 11:26,Zara,Customer,0:26,"Ewan Ferreira, 14 March 1961, and 28 Meadow Lane."
+p063,26/10/2026 11:26,Zara,Agent,0:30,"Thank you, that's verified. I can see the transfer you mean; I understand it arrived late and you missed your rent payment. I’m logging this as a complaint now."
+p063,26/10/2026 11:26,Zara,Customer,0:42,Good. I had the rent money there. Now my landlord's charging me a late fee.
+p063,26/10/2026 11:26,Zara,Agent,0:48,"I can understand why you're upset. I can't promise what the outcome will be, but we'll look into what happened and consider the impact you've described."
+p063,26/10/2026 11:26,Zara,Customer,0:58,"I don't really understand online banking, to be honest. My son normally does it for me."
+p063,26/10/2026 11:26,Zara,Agent,1:05,"Thanks for telling me, and that's absolutely fine. I can arrange for our Financial Support team to talk through ways we can help, and we can allow extra time if you need it to go through things."
+p063,26/10/2026 11:26,Zara,Customer,1:20,That would help. I don't want to get muddled with it.
+p063,26/10/2026 11:26,Zara,Agent,1:25,"I'll ask the Financial Support team to contact you, and I'll personally call you by 4 pm tomorrow to check they've been in touch and explain any next steps. The complaint itself will be reviewed, and we'll send you a full written response within 15 business days."
+p063,26/10/2026 11:26,Zara,Customer,1:43,All right. What if you need anything else from me?
+p063,26/10/2026 11:26,Zara,Agent,1:47,"If we need more information, we'll get in touch during the review. Just to summarise: I've logged your complaint about the late transfer and missed rent payment, I'll refer you to Financial Support, and I'll call by 4 pm tomorrow. You'll receive the full written response within 15 business days. Does that make sense?"
+p063,26/10/2026 11:26,Zara,Customer,2:09,"Yes, that makes sense. Thanks for explaining it patiently."
+p063,26/10/2026 11:26,Zara,Agent,2:13,"You're welcome, Ewan. I'm sorry again for the stress this has caused, and I'll speak to you tomorrow."
+p064,26/10/2026 10:39,Marcus,Agent,0:00,"Good morning, Thistle Bank, Marcus speaking. How can I help?"
+p064,26/10/2026 10:39,Marcus,Customer,0:04,"Hi, I'm Rhys Oyelaran. I sent a transfer for my rent and it arrived days late. My landlord charged me for paying late, and honestly I'm really unhappy with how Thistle Bank has handled this."
+p064,26/10/2026 10:39,Marcus,Agent,0:18,"I'm sorry that's happened, Rhys. I can look into the transfer for you. Before we discuss the account, could you confirm your full name and date of birth, please?"
+p064,26/10/2026 10:39,Marcus,Customer,0:30,"Rhys Oyelaran, 14th of June 1991."
+p064,26/10/2026 10:39,Marcus,Agent,0:32,Thank you. And the first line of your address?
+p064,26/10/2026 10:39,Marcus,Customer,0:36,"Flat 3, 18 Willow Road, Bristol."
+p064,26/10/2026 10:39,Marcus,Agent,0:39,"Thanks, that's all verified. I appreciate how frustrating this must be. We'll get the transfer charge refunded for you, and I'll check what happened."
+p064,26/10/2026 10:39,Marcus,Customer,0:49,"It was £1,240, sent on the 3rd of October. It didn't reach my landlord until the 7th."
+p064,26/10/2026 10:39,Marcus,Agent,0:56,I understand. I'll put a note on your account about the delay and the rent charge. Do you know how much the landlord charged?
+p064,26/10/2026 10:39,Marcus,Customer,1:06,"£45. I want to know why it took so long, and I don't want this just brushed aside."
+p064,26/10/2026 10:39,Marcus,Agent,1:13,"Of course, Rhys. I'll take ownership of it. I'll send this to our payments team today, and I'll contact you by Friday the 24th of October with an update on the transfer and the £45 charge."
+p064,26/10/2026 10:39,Marcus,Customer,1:27,And what happens after that?
+p064,26/10/2026 10:39,Marcus,Agent,1:30,"We'll investigate the payment and send you a full written response within 15 business days. I'll make sure the payments team has the details you've given me, and I'll follow up with you by the 24th, even if the investigation isn't complete by then."
+p064,26/10/2026 10:39,Marcus,Customer,1:47,All right. I still think the delay was unacceptable.
+p064,26/10/2026 10:39,Marcus,Agent,1:51,"I understand, and I'm sorry you've had this experience. Just to summarise, I'll refer the late transfer and £45 charge to the payments team today, contact you by the 24th of October, and you'll receive a full written response within 15 business days. Does that make sense?"
+p064,26/10/2026 10:39,Marcus,Customer,2:10,"Yes, that's clear."
+p064,26/10/2026 10:39,Marcus,Agent,2:11,"Thank you, Rhys. I'll make sure it's followed up. Is there anything else I can help with today?"
+p065,26/10/2026 09:52,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p065,26/10/2026 09:52,Priya,Customer,0:04,"Hi, it’s Ewan MacLeod. I need to update my address, please."
+p065,26/10/2026 09:52,Priya,Agent,0:09,"Of course. Before I look at your account, could you confirm your full name and date of birth?"
+p065,26/10/2026 09:52,Priya,Customer,0:16,"Ewan MacLeod, 14 June 1987."
+p065,26/10/2026 09:52,Priya,Agent,0:18,Thanks. And what’s the first line of the address we currently have for you?
+p065,26/10/2026 09:52,Priya,Customer,0:24,"18 Rowan Drive, Dundee."
+p065,26/10/2026 09:52,Priya,Agent,0:26,"Thank you, that’s verified. What’s your new address?"
+p065,26/10/2026 09:52,Priya,Customer,0:30,"42 Hill Street, Perth, PH1 2AB."
+p065,26/10/2026 09:52,Priya,Agent,0:33,I can help with that. I can see there’s also a card payment due on the 28th. Is that something you wanted to talk about?
+p065,26/10/2026 09:52,Priya,Customer,0:43,"Yes, I can’t afford this. I’ve got nothing left until payday on the 30th."
+p065,26/10/2026 09:52,Priya,Agent,0:49,"I’m sorry, Ewan—that sounds really difficult. I can put you in touch with our Financial Support team, who can talk through options, or we can discuss whether extra time might be appropriate. I can’t promise what they’ll be able to offer."
+p065,26/10/2026 09:52,Priya,Customer,1:05,"Okay, I’d like to hear about extra time. I’m not unhappy with the bank, I’m just short until payday."
+p065,26/10/2026 09:52,Priya,Agent,1:13,"That’s understood. I’ll note that you’re asking about extra time, but I can’t guarantee an outcome. I’ve updated your address to 42 Hill Street, Perth, PH1 2AB."
+p065,26/10/2026 09:52,Priya,Agent,1:24,"So, your address is updated, and we can explore extra time for the payment, with no outcome guaranteed. Does that make sense?"
+p065,26/10/2026 09:52,Priya,Customer,1:33,"Yes, that makes sense. Thanks for being patient."
+p065,26/10/2026 09:52,Priya,Agent,1:36,"You’re welcome, Ewan. Is there anything else I can help with today?"
+p066,26/10/2026 16:05,Zara,Agent,0:00,"Good morning, Thistle Bank, Zara speaking. How can I help?"
+p066,26/10/2026 16:05,Zara,Customer,0:04,"Hi, I’m Niamh Whitlock. My loan application was declined and nobody’s explained why. I’m really unhappy about it."
+p066,26/10/2026 16:05,Zara,Agent,0:11,"I’m sorry you’ve been left without an explanation, Niamh. I’ll do my best to help. Before we discuss any account details, could you confirm your full name and date of birth, please?"
+p066,26/10/2026 16:05,Zara,Customer,0:24,"It’s Niamh Whitlock, and my date of birth is 14 June 1991."
+p066,26/10/2026 16:05,Zara,Agent,0:29,Thank you. And the first line of your address?
+p066,26/10/2026 16:05,Zara,Customer,0:33,22 Fern Road.
+p066,26/10/2026 16:05,Zara,Agent,0:35,"That’s verified, thank you. I can see why you’re frustrated. I’m sure we’ll get the loan money returned to you once I’ve looked into this."
+p066,26/10/2026 16:05,Zara,Customer,0:45,But I didn’t receive any money. I just want to know why you turned me down.
+p066,26/10/2026 16:05,Zara,Agent,0:52,"You’re right, I’m sorry—I shouldn’t have assumed that. I’ll take ownership and log this as a complaint about the decision and the lack of explanation."
+p066,26/10/2026 16:05,Zara,Customer,1:02,"Yes, please do. I want someone to actually look at it."
+p066,26/10/2026 16:05,Zara,Agent,1:07,"Of course. I’ll log it today, and I’ll personally check that it’s with our lending complaints team by the end of tomorrow. Our application fee can never be refunded, though."
+p066,26/10/2026 16:05,Zara,Customer,1:19,I don’t think I was charged an application fee. What happens now?
+p066,26/10/2026 16:05,Zara,Agent,1:24,"I’ll make sure the team reviews the application and your concerns. You’ll receive a full written response within 8 weeks, and I’ll call you by 5pm tomorrow to confirm it’s been passed on. Your complaint reference is TB-482761."
+p066,26/10/2026 16:05,Zara,Customer,1:39,"All right. So you’ll pass it to the team and call me tomorrow, then I’ll get a full response within eight weeks?"
+p066,26/10/2026 16:05,Zara,Agent,1:48,"That’s right. I’ll pass it on by the end of tomorrow and call you by 5pm, and the full written response will be within 8 weeks. Does that make sense?"
+p066,26/10/2026 16:05,Zara,Customer,2:00,"Yes, that’s clear. Thank you."
+p066,26/10/2026 16:05,Zara,Agent,2:02,"You’re welcome, Niamh. I’m sorry again for the frustration, and I’ll follow up tomorrow as agreed."
+p067,27/10/2026 15:18,Liam,Agent,0:00,"Good morning, Thistle Bank, Liam speaking. How can I help?"
+p067,27/10/2026 15:18,Liam,Customer,0:04,It's Kwame Oyelaran. I've had these unarranged overdraft fees taken and I'm really unhappy about it.
+p067,27/10/2026 15:18,Liam,Agent,0:11,"I can look into that. Before we discuss the account, can you give me your date of birth and the first line of your address?"
+p067,27/10/2026 15:18,Liam,Customer,0:21,"It's 14th June 1962, and 28 Willow Road."
+p067,27/10/2026 15:18,Liam,Agent,0:24,Thanks. I’ve verified you. How much have the fees been?
+p067,27/10/2026 15:18,Liam,Customer,0:29,"It's £90 over the last couple of months. I don't understand online banking, really. My son normally does it for me."
+p067,27/10/2026 15:18,Liam,Agent,0:37,"Right. I’ll log this as a complaint. And don’t worry, we’ll get that £90 refunded."
+p067,27/10/2026 15:18,Liam,Customer,0:43,"You can do that, then? I don't want any more taken."
+p067,27/10/2026 15:18,Liam,Agent,0:48,"I can’t confirm what happens with future fees yet. I’m logging your complaint about the £90. We have a Financial Support team who can help with banking, or we can allow extra time if you need it."
+p067,27/10/2026 15:18,Liam,Customer,1:03,Extra time would help. I don't want to have to rely on my son for everything.
+p067,27/10/2026 15:18,Liam,Agent,1:10,"Okay. I’ll note that. I’ll own this complaint and review the fees myself, then call you by Thursday, 29 October, with an update."
+p067,27/10/2026 15:18,Liam,Customer,1:19,All right. What happens after that?
+p067,27/10/2026 15:18,Liam,Agent,1:22,"I’ll investigate and contact you with that update. We’ll send you a full written response within 8 weeks of today. If you’re unhappy with that response, it’ll explain what you can do next."
+p067,27/10/2026 15:18,Liam,Customer,1:35,"So you’ll look into the fees, call me by Thursday, and send the full response within eight weeks?"
+p067,27/10/2026 15:18,Liam,Agent,1:42,"Yes. I’ll review it and call by Thursday, and the full written response will be within 8 weeks. Does that make sense?"
+p067,27/10/2026 15:18,Liam,Customer,1:51,"Yes, that makes sense. Thank you."
+p068,27/10/2026 14:31,Liam,Agent,0:00,"Thistle Bank, Liam speaking. How can I help?"
+p068,27/10/2026 14:31,Liam,Customer,0:03,"Hi. I'm Imran Varga. I've just realised the interest rate on my savings account has been cut, and I never saw a letter about it. I'm really unhappy."
+p068,27/10/2026 14:31,Liam,Agent,0:14,"I can look into that. First, for security, can you confirm your full name and date of birth?"
+p068,27/10/2026 14:31,Liam,Customer,0:22,"Imran Varga, 14th May 1987."
+p068,27/10/2026 14:31,Liam,Agent,0:24,"And the first line of your address, please?"
+p068,27/10/2026 14:31,Liam,Customer,0:28,"Flat 3, 18 Ashfield Road."
+p068,27/10/2026 14:31,Liam,Agent,0:30,Thanks. I can see the saver rate changed from 3.1% to 2.4% in August. We'll get the difference put back for you.
+p068,27/10/2026 14:31,Liam,Customer,0:39,"Well, that's what I want, but I don't understand why I wasn't told."
+p068,27/10/2026 14:31,Liam,Agent,0:45,Right. I'm logging this as a complaint. The reference is TB-684219.
+p068,27/10/2026 14:31,Liam,Customer,0:49,Okay. Can you check what happened with the letter?
+p068,27/10/2026 14:31,Liam,Agent,0:53,"I'll review the notification records and the rate change. I'll do that and call you by 4pm this Friday, 30 October."
+p068,27/10/2026 14:31,Liam,Customer,1:02,And what happens if it takes longer than that?
+p068,27/10/2026 14:31,Liam,Agent,1:06,You'll get a full written response within 8 weeks of today. I'll send it to your address on file.
+p068,27/10/2026 14:31,Liam,Customer,1:14,All right.
+p068,27/10/2026 14:31,Liam,Agent,1:15,"So, I'm checking the letter records and rate change, then I'll call by Friday at 4pm; the full written response will be within 8 weeks. Does that make sense?"
+p068,27/10/2026 14:31,Liam,Customer,1:27,"Yes, that makes sense."
+p068,27/10/2026 14:31,Liam,Agent,1:29,Fine. That's all for now.
+p069,27/10/2026 13:44,Owen,Agent,0:00,"Good afternoon, Thistle Bank, Owen speaking. How can I help?"
+p069,27/10/2026 13:44,Owen,Customer,0:04,"Hi, I’m Carys Whitlock. Your app was down yesterday, so I couldn’t pay my electricity bill on time. I’m really unhappy with the bank—it’s caused me a late-payment charge."
+p069,27/10/2026 13:44,Owen,Agent,0:16,"I’m sorry that happened, Carys. I’ll do my best to sort it out. Before I look at your account, could you confirm your full name and date of birth, please?"
+p069,27/10/2026 13:44,Owen,Customer,0:28,"Carys Ellen Whitlock, 14 June 1988."
+p069,27/10/2026 13:44,Owen,Agent,0:30,Thank you. And the first line of your address?
+p069,27/10/2026 13:44,Owen,Customer,0:34,27 Willow Crescent.
+p069,27/10/2026 13:44,Owen,Agent,0:36,"Thanks, that’s all verified. I’m sorry the app let you down. The late fee should be refunded, and we’ll get that put right for you."
+p069,27/10/2026 13:44,Owen,Customer,0:46,"I’ve already paid the bill today, but the supplier charged me £18 because it was late."
+p069,27/10/2026 13:44,Owen,Agent,0:53,I understand. Could you tell me which supplier it was and when the payment went through?
+p069,27/10/2026 13:44,Owen,Customer,0:59,North Vale Energy. I paid it at about nine this morning.
+p069,27/10/2026 13:44,Owen,Agent,1:04,"Right, thanks. I’ll ask our payments team to check what happened with the app and the charge. We’ll get back to you within five working days."
+p069,27/10/2026 13:44,Owen,Customer,1:15,I don’t think I should have to chase this when your app was the problem.
+p069,27/10/2026 13:44,Owen,Agent,1:21,"You’re right that it shouldn’t have been left to you to sort out. I’ll take ownership: I’ll send the details to our payments team today, and I’ll call you by 4 pm next Wednesday with an update on the £18 charge."
+p069,27/10/2026 13:44,Owen,Customer,1:37,"All right. I’d like to know what you’re doing about it, not just be told to wait."
+p069,27/10/2026 13:44,Owen,Agent,1:44,"Of course. Just to summarise, I’m asking the payments team to review the app issue and your £18 late fee, and I’ll call by 4 pm next Wednesday with an update. Does that make sense?"
+p069,27/10/2026 13:44,Owen,Customer,1:58,"Yes, that’s clear."
+p069,27/10/2026 13:44,Owen,Agent,2:00,"Thank you, Carys. I’m sorry for the trouble this has caused, and I’ll make sure you hear from me by then."
+p070,27/10/2026 12:57,Liam,Agent,0:00,"Thistle Bank, Liam speaking. How can I help?"
+p070,27/10/2026 12:57,Liam,Customer,0:03,"It’s Oskar Pemberton. Your app was down when I tried to pay my electricity bill, so I paid it late. I’m really unhappy that this has happened."
+p070,27/10/2026 12:57,Liam,Agent,0:14,"I can see the £68.40 late-payment fee on your account, and your balance is £1,246.17. What do you need?"
+p070,27/10/2026 12:57,Liam,Customer,0:22,"I want to know why your app stopped me paying on time, and what you’re going to do about the fee."
+p070,27/10/2026 12:57,Liam,Agent,0:30,I’ll need to check the app outage record. Can you give me your date of birth and address?
+p070,27/10/2026 12:57,Liam,Customer,0:38,"It’s 14 June 1988, and I’m at 22 Willow Lane, Leeds, LS6 2QJ."
+p070,27/10/2026 12:57,Liam,Agent,0:43,Right. The payment was due on the 18th and went out on the 20th. I can’t say what will happen with the fee.
+p070,27/10/2026 12:57,Liam,Customer,0:53,"That’s not good enough. I couldn’t pay because your app wasn’t working, and now I’ve been charged."
+p070,27/10/2026 12:57,Liam,Agent,1:00,"I’ve noted the app issue as a query. I’ll check the outage record and the fee, then contact you by Friday the 25th with what I find."
+p070,27/10/2026 12:57,Liam,Customer,1:11,And if you can’t sort it by then?
+p070,27/10/2026 12:57,Liam,Agent,1:14,I’ll still update you by Friday. A full written response will be sent within 8 weeks.
+p070,27/10/2026 12:57,Liam,Customer,1:21,"So you’ll check the outage and fee, get back to me by Friday, and send a full written response within 8 weeks. Is that right?"
+p070,27/10/2026 12:57,Liam,Agent,1:31,Yes. I’ll check those details and contact you by Friday. That’s the next step. Does that make sense?
+p070,27/10/2026 12:57,Liam,Customer,1:38,"Yes, but I’m still very unhappy about the way this has been handled."
+p070,27/10/2026 12:57,Liam,Agent,1:44,Understood. Anything else?
+p071,28/10/2026 11:10,Sam,Agent,0:00,"Good afternoon, Thistle Bank, Sam speaking. How can I help?"
+p071,28/10/2026 11:10,Sam,Customer,0:04,"Hi, I’m Niamh Varga. There’s a card payment I don’t recognise, and I’m really unhappy with how this has been handled."
+p071,28/10/2026 11:10,Sam,Agent,0:12,"I’m sorry this has been frustrating. I can see a payment for £186.40 to Northstar Travel on 22 October, and your current balance is £742.18. Is that the one you mean?"
+p071,28/10/2026 11:10,Sam,Customer,0:25,"Yes, that’s it. I’ve never used Northstar Travel."
+p071,28/10/2026 11:10,Sam,Agent,0:28,"I understand why that would concern you. Before I look at the payment any further, can I take your full date of birth and the first line of your address?"
+p071,28/10/2026 11:10,Sam,Customer,0:41,"It’s 14 March 1988, and 26 Alder Road, Leeds."
+p071,28/10/2026 11:10,Sam,Agent,0:44,"Thank you. I’m not able to complete the identity checks from those details, so I can’t make any changes to the account or discuss further account information."
+p071,28/10/2026 11:10,Sam,Customer,0:55,"That’s disappointing. I’ve already had to call twice, and I still don’t know what’s happening with the payment."
+p071,28/10/2026 11:10,Sam,Agent,1:03,"I’m sorry you’ve had to contact us more than once, Niamh. I’ll log this as a complaint about the handling of the unrecognised card payment and your experience contacting us."
+p071,28/10/2026 11:10,Sam,Customer,1:15,All right. What happens now?
+p071,28/10/2026 11:10,Sam,Agent,1:17,"The complaint will be reviewed, including the concerns you’ve raised about the payment and your previous calls. You’ll receive a full written response within 15 business days."
+p071,28/10/2026 11:10,Sam,Customer,1:28,Will you be able to tell me whether the payment is going to be refunded?
+p071,28/10/2026 11:10,Sam,Agent,1:34,I can’t promise an outcome. The written response will explain what we found and any decision made; I can’t discuss the account further today because the identity checks weren’t completed.
+p071,28/10/2026 11:10,Sam,Customer,1:46,"Okay. So it’s logged as a complaint, and I’ll get a full written response within 15 business days, but you can’t say whether I’ll get the money back."
+p071,28/10/2026 11:10,Sam,Agent,1:58,"That’s right. To summarise, the complaint is about the unrecognised Northstar Travel payment and your previous contact with us, and a full written response will be sent within 15 business days. Does that make sense?"
+p071,28/10/2026 11:10,Sam,Customer,2:12,"Yes, that makes sense."
+p071,28/10/2026 11:10,Sam,Agent,2:14,"Thank you for your patience, Niamh. Is there anything else I can help with today?"
+p071,28/10/2026 11:10,Sam,Customer,2:20,"No, that’s all."
+p071,28/10/2026 11:10,Sam,Agent,2:22,Thanks for calling Thistle Bank. Goodbye.
+p072,28/10/2026 10:23,Zara,Agent,0:00,"Good morning, you’re through to Zara at Thistle Bank. How can I help?"
+p072,28/10/2026 10:23,Zara,Customer,0:05,"Hi. I’m Amira Quigley. My loan application was declined, and nobody’s told me why. I’m really unhappy about it."
+p072,28/10/2026 10:23,Zara,Agent,0:13,"I’m sorry you’ve been left without an explanation, Amira. I’ll look into what I can. Before we discuss your application, could you confirm your full name and date of birth, please?"
+p072,28/10/2026 10:23,Zara,Customer,0:25,"Amira Quigley, and it’s the 14th of June 1989."
+p072,28/10/2026 10:23,Zara,Agent,0:29,Thank you. And the first line of your address?
+p072,28/10/2026 10:23,Zara,Customer,0:33,42 Alder Road.
+p072,28/10/2026 10:23,Zara,Agent,0:35,"Thanks, that’s verified. I understand why you’re frustrated. I’m logging this as a complaint about the declined loan application and the lack of explanation."
+p072,28/10/2026 10:23,Zara,Customer,0:45,Good. I just want someone to tell me what’s happened.
+p072,28/10/2026 10:23,Zara,Agent,0:49,"I’ll take ownership of making sure your complaint is recorded properly. I can’t promise what the outcome will be, but I’ll make sure the concerns you’ve raised are included."
+p072,28/10/2026 10:23,Zara,Customer,1:01,All right. What happens now?
+p072,28/10/2026 10:23,Zara,Agent,1:03,"I’ll submit the complaint today and send you a written acknowledgement within five working days. Our complaints team will review it, and you’ll receive a full written response within eight weeks."
+p072,28/10/2026 10:23,Zara,Customer,1:15,Will that response explain the decision?
+p072,28/10/2026 10:23,Zara,Agent,1:18,The team will address your complaint about the decision and the lack of explanation. I’ll check that your application details are attached to the complaint before I submit it today.
+p072,28/10/2026 10:23,Zara,Customer,1:30,"Okay, thanks."
+p072,28/10/2026 10:23,Zara,Agent,1:32,"Just to summarise: I’m logging this as a complaint today, I’ll check the application details are included before submitting it, and the complaints team will send you a full written response within eight weeks. Does that make sense?"
+p072,28/10/2026 10:23,Zara,Customer,1:47,"Yes, it does."
+p072,28/10/2026 10:23,Zara,Agent,1:49,"Thank you, Amira. I’m sorry again that you had to chase for an explanation, and I appreciate you speaking with me today."
+p073,28/10/2026 09:36,Jordan,Agent,0:00,"Good morning, you’re through to Jordan at Thistle Bank. How can I help?"
+p073,28/10/2026 09:36,Jordan,Customer,0:05,Hi. I’m Rhys Whitlock. I couldn’t pay my electricity bill on time because your mobile app was down. I’m really unhappy about it.
+p073,28/10/2026 09:36,Jordan,Agent,0:14,"I’m sorry the app being unavailable got in the way of paying your bill, Rhys. I’ll look into this with you. Before we discuss anything on your account, could you confirm your full name and date of birth, please?"
+p073,28/10/2026 09:36,Jordan,Customer,0:30,"Rhys Whitlock, 14 September 1988."
+p073,28/10/2026 09:36,Jordan,Agent,0:32,Thank you. And could you confirm the first line of your address?
+p073,28/10/2026 09:36,Jordan,Customer,0:37,18 Alder Road.
+p073,28/10/2026 09:36,Jordan,Agent,0:39,"Thanks, that’s verified. Can you tell me when you tried to use the app and what happened with the bill?"
+p073,28/10/2026 09:36,Jordan,Customer,0:47,"It was last Thursday, the 15th. I kept getting an error when I tried to make the payment, and the electricity company charged me a late fee."
+p073,28/10/2026 09:36,Jordan,Agent,0:58,"I understand why you’re upset. You tried to pay, but the app error stopped you, and you’ve been charged a late fee as a result."
+p073,28/10/2026 09:36,Jordan,Customer,1:08,Exactly. I shouldn’t have to deal with that because your app wasn’t working.
+p073,28/10/2026 09:36,Jordan,Agent,1:14,"I agree it’s frustrating. I’m logging this as a complaint about the app outage and the effect it had on your bill payment. I won’t be able to promise what the outcome will be, but I’ll make sure your concerns are recorded clearly."
+p073,28/10/2026 09:36,Jordan,Customer,1:31,All right. What happens now?
+p073,28/10/2026 09:36,Jordan,Agent,1:33,"I’ll send the complaint to our complaints team today, including the date you tried to pay and the late fee you mentioned. I’ll also contact you by phone by 30 October to confirm it’s been passed over and update you on its progress."
+p073,28/10/2026 09:36,Jordan,Agent,1:50,The complaints team will investigate and send you a full written response within 8 weeks. I’ll make sure the team has the details you’ve given me.
+p073,28/10/2026 09:36,Jordan,Customer,2:01,Okay.
+p073,28/10/2026 09:36,Jordan,Agent,2:03,"Just to summarise: I’m logging your complaint today, I’ll call you by 30 October with a progress update, and you’ll receive a full written response within 8 weeks. Does that make sense?"
+p073,28/10/2026 09:36,Jordan,Customer,2:15,"Yes, that makes sense."
+p073,28/10/2026 09:36,Jordan,Agent,2:17,"Thank you, Rhys. I’m sorry again for the trouble this has caused, and I’ll follow this up as agreed."
+p074,29/10/2026 16:49,Sam,Agent,0:00,"Good morning, Thistle Bank, Sam speaking. How can I help?"
+p074,29/10/2026 16:49,Sam,Customer,0:04,"Hi Sam, I’m Lucia Okonkwo. Could you tell me what time your High Street branch in Bristol opens on Saturdays?"
+p074,29/10/2026 16:49,Sam,Agent,0:12,"Of course, Lucia. I’ll check the latest branch information for you. Just a moment, please."
+p074,29/10/2026 16:49,Sam,Customer,0:18,"Thanks, no rush."
+p074,29/10/2026 16:49,Sam,Agent,0:20,Thanks for waiting. The information I can see says the branch is open on Saturdays from nine until one.
+p074,29/10/2026 16:49,Sam,Customer,0:28,That’s helpful. Is that definitely the opening time for this coming Saturday?
+p074,29/10/2026 16:49,Sam,Agent,0:33,"I can’t confirm the latest hours for a particular date from the information in front of me, so I don’t want to guess."
+p074,29/10/2026 16:49,Sam,Customer,0:42,Okay. What’s the best way to check?
+p074,29/10/2026 16:49,Sam,Agent,0:46,I’ll check with the branch team and get back to you by 3 pm today with the hours they’ve confirmed for this Saturday.
+p074,29/10/2026 16:49,Sam,Customer,0:55,"That would be great, thank you."
+p074,29/10/2026 16:49,Sam,Agent,0:58,You’re welcome. I’ll use the contact details you’ve already provided to us to follow up. Is that all right?
+p074,29/10/2026 16:49,Sam,Customer,1:05,"Yes, that’s fine."
+p074,29/10/2026 16:49,Sam,Agent,1:07,"Just to recap, the general information I’ve found is nine till one on Saturdays, and I’ll confirm this coming Saturday’s hours with the branch team and contact you by 3 pm today. Does that make sense?"
+p074,29/10/2026 16:49,Sam,Customer,1:22,"Yes, it does. Thanks for checking."
+p074,29/10/2026 16:49,Sam,Agent,1:24,"You’re very welcome, Lucia. Thanks for calling Thistle Bank, and enjoy the rest of your day."
+p075,29/10/2026 15:02,Hannah,Agent,0:00,"Good morning, Thistle Bank, Hannah speaking. How can I help?"
+p075,29/10/2026 15:02,Hannah,Customer,0:04,"Hi, I’m Isla Varga. I’ve just noticed the interest rate on my savings has been cut, and I never saw a letter about it. I’m really unhappy."
+p075,29/10/2026 15:02,Hannah,Agent,0:15,"I’m sorry to hear that. Before I look at the account, could you tell me your full name and date of birth, please?"
+p075,29/10/2026 15:02,Hannah,Customer,0:24,"Isla Varga, 14th of March 1972."
+p075,29/10/2026 15:02,Hannah,Agent,0:27,Thank you. And the first line of your address?
+p075,29/10/2026 15:02,Hannah,Customer,0:31,28 Willow Road.
+p075,29/10/2026 15:02,Hannah,Agent,0:33,"Thank you, that’s verified. I’ll check what I can see. Do you know roughly when you noticed the rate change?"
+p075,29/10/2026 15:02,Hannah,Customer,0:41,"Only this week. It’s gone from 4.1 per cent to 2.8, and I’ve had that account for years. My partner passed away recently, so I’ve had a lot on, but I’d still expect to be told."
+p075,29/10/2026 15:02,Hannah,Agent,0:55,I understand you’re unhappy about the rate change and that you didn’t notice a letter. I can log this as a complaint for you.
+p075,29/10/2026 15:02,Hannah,Customer,1:05,"Yes, please do. I want to know why it changed and why I wasn’t told."
+p075,29/10/2026 15:02,Hannah,Agent,1:11,I’ll record those concerns. You’ll hear back within five working days. That’s the timeframe I can give you today.
+p075,29/10/2026 15:02,Hannah,Customer,1:19,Will you be able to tell me what happened then?
+p075,29/10/2026 15:02,Hannah,Agent,1:23,"The complaint will be reviewed, but I can’t say what the outcome will be. I’m not able to confirm the reason for the change from what we’ve discussed so far."
+p075,29/10/2026 15:02,Hannah,Customer,1:35,All right.
+p075,29/10/2026 15:02,Hannah,Agent,1:37,"Just to summarise, I’m logging a complaint about the savings rate being reduced and your concern that you didn’t receive or notice a letter. You’ll hear back within five working days, though I can’t promise an outcome. Does that make sense?"
+p075,29/10/2026 15:02,Hannah,Customer,1:53,"Yes, that makes sense."
+p075,29/10/2026 15:02,Hannah,Agent,1:55,"Thank you for explaining that, Isla. Is there anything else you’d like me to note in the complaint?"
+p075,29/10/2026 15:02,Hannah,Customer,2:03,"No, that’s everything."
+p075,29/10/2026 15:02,Hannah,Agent,2:04,All right. Thank you for calling Thistle Bank. Goodbye.
+p076,29/10/2026 14:15,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p076,29/10/2026 14:15,Priya,Customer,0:04,"Hi, I'm Callum Ellingham. I couldn't pay my electricity bill because your app was down, and now I'm really unhappy about it."
+p076,29/10/2026 14:15,Priya,Agent,0:13,"I can look into that. First, can you give me your full name and date of birth, please?"
+p076,29/10/2026 14:15,Priya,Customer,0:20,"Callum Ellingham, 14th of June 1988."
+p076,29/10/2026 14:15,Priya,Agent,0:23,And the first line of your address?
+p076,29/10/2026 14:15,Priya,Customer,0:26,42 Ashfield Road.
+p076,29/10/2026 14:15,Priya,Agent,0:28,"Thanks, that's verified. I'm sorry the app stopped you paying. I'll get the late payment charge refunded, don't worry."
+p076,29/10/2026 14:15,Priya,Customer,0:36,You can do that? It hasn't even been looked into yet.
+p076,29/10/2026 14:15,Priya,Agent,0:41,"I'm logging this as a complaint now. We'll investigate it, but the charge will be returned."
+p076,29/10/2026 14:15,Priya,Customer,0:47,"Sorry, I'm a bit confused. Can you repeat what happens next?"
+p076,29/10/2026 14:15,Priya,Agent,0:52,"Yes, sorry. I know that's a lot to take in. I'll log the complaint, and our team will look at the app issue. If you need more time with the bill, I can put you through to our Financial Support team."
+p076,29/10/2026 14:15,Priya,Customer,1:08,Right. And when will I hear back?
+p076,29/10/2026 14:15,Priya,Agent,1:11,"Within five working days. I'll make sure the complaints team reviews it and contacts you by Friday, 30 October."
+p076,29/10/2026 14:15,Priya,Customer,1:19,"So you're sending it to the complaints team and they'll call by Friday, and the charge is coming back?"
+p076,29/10/2026 14:15,Priya,Agent,1:27,"Yes, that's it. I'll submit it today and the complaints team will contact you by Friday. Does that make sense?"
+p076,29/10/2026 14:15,Priya,Customer,1:35,"Yes, I think so. Thanks."
+p077,29/10/2026 13:28,Marcus,Agent,0:00,"Good morning, Thistle Bank, Marcus speaking. How can I help?"
+p077,29/10/2026 13:28,Marcus,Customer,0:04,"Hi, I’m Carys Ellingham. I’ve lost my debit card and need a replacement."
+p077,29/10/2026 13:28,Marcus,Agent,0:09,"I’m sorry to hear that. I can help with that. Before we discuss anything on your account, could you tell me your full name and date of birth, please?"
+p077,29/10/2026 13:28,Marcus,Customer,0:21,"Carys Ellingham, 14th of June 1991."
+p077,29/10/2026 13:28,Marcus,Agent,0:24,Thank you. And the first line of your address?
+p077,29/10/2026 13:28,Marcus,Customer,0:28,22 Willow Lane.
+p077,29/10/2026 13:28,Marcus,Agent,0:30,"Thanks, that’s verified. When did you last have the card?"
+p077,29/10/2026 13:28,Marcus,Customer,0:34,"Yesterday afternoon, I think. I’ve checked everywhere, so I’d like to get it stopped and replaced."
+p077,29/10/2026 13:28,Marcus,Agent,0:41,"Of course. I’ll block the lost card so it can’t be used, then arrange a replacement to be sent to your address. It usually arrives within five to seven working days."
+p077,29/10/2026 13:28,Marcus,Customer,0:53,"That’s fine. I’m already behind on a couple of bills, so I’m a bit worried about anything else going wrong."
+p077,29/10/2026 13:28,Marcus,Agent,1:01,"I’m sorry you’ve got that to deal with, Carys. We can put you in touch with our Financial Support team, who can talk through your circumstances, or I can explain how to ask a bill provider for extra time. Would either be helpful?"
+p077,29/10/2026 13:28,Marcus,Customer,1:18,"Maybe the Financial Support team, please. I’m not unhappy with the bank or anything; I’ve just had a tight month."
+p077,29/10/2026 13:28,Marcus,Agent,1:26,"Absolutely, and thanks for clarifying. I can give you their number, or arrange for them to contact you. I can’t say what support may be available until they’ve spoken with you."
+p077,29/10/2026 13:28,Marcus,Customer,1:39,Could you give me the number?
+p077,29/10/2026 13:28,Marcus,Agent,1:42,"Certainly. It’s 0800 555 0148. For your card, I’ll block the lost one now and order the replacement to 22 Willow Lane; you’ll need to use your PIN when the new card arrives to activate it."
+p077,29/10/2026 13:28,Marcus,Customer,1:56,Okay.
+p077,29/10/2026 13:28,Marcus,Agent,1:58,"So, to summarise, the old card will be blocked and a replacement sent out, usually within five to seven working days. You’ve also got the Financial Support team’s number if you want to discuss the bills. Does that all make sense?"
+p077,29/10/2026 13:28,Marcus,Customer,2:14,"Yes, that’s clear. Thanks for your help."
+p077,29/10/2026 13:28,Marcus,Agent,2:17,"You’re welcome, Carys. Take care."
+p078,30/10/2026 12:41,Owen,Agent,0:00,"Good morning, Thistle Bank, Owen speaking. How can I help?"
+p078,30/10/2026 12:41,Owen,Customer,0:04,"Hi. I’ve got a card payment I don’t recognise, and I’m really fed up with the bank. It’s happened before and I’m getting nowhere."
+p078,30/10/2026 12:41,Owen,Agent,0:14,"I’m sorry this has been so frustrating, Callum. Before I look at anything on the account, could you confirm your full name and date of birth, please?"
+p078,30/10/2026 12:41,Owen,Customer,0:25,Callum Thornbury. 14th of February 1988.
+p078,30/10/2026 12:41,Owen,Agent,0:27,Thank you. And the first line of your address?
+p078,30/10/2026 12:41,Owen,Customer,0:31,27 Ashfield Road.
+p078,30/10/2026 12:41,Owen,Agent,0:33,"Thanks, that’s all verified. I can see the payment you’re concerned about. Could you tell me which one you mean?"
+p078,30/10/2026 12:41,Owen,Customer,0:41,The one for £86.40 to Northstar Media on the 19th of October. I’ve never used them.
+p078,30/10/2026 12:41,Owen,Agent,0:48,I understand why that would worry you. I’ll log this as a complaint about the payment and your experience trying to get help.
+p078,30/10/2026 12:41,Owen,Customer,0:57,"Sorry, what are you doing? I didn’t catch that."
+p078,30/10/2026 12:41,Owen,Agent,1:01,"Of course. I’m logging a complaint for you, which means we’ll review what’s happened and send you a response. You’ll hear back within eight weeks."
+p078,30/10/2026 12:41,Owen,Customer,1:11,Eight weeks? And what happens with the money? I’m getting a bit confused by all this.
+p078,30/10/2026 12:41,Owen,Agent,1:18,"I’m sorry, I know there’s a lot to take in. I can slow down and go over it again, or give you extra time to think. We also have a Financial Support team if you’d like help with anything making this difficult."
+p078,30/10/2026 12:41,Owen,Customer,1:35,"Could you repeat what you’ve actually done, please?"
+p078,30/10/2026 12:41,Owen,Agent,1:38,"Certainly. I’ve logged your concern as a complaint. The response is due within eight weeks, and I can’t promise what the outcome will be. Does that make sense so far?"
+p078,30/10/2026 12:41,Owen,Customer,1:50,"I think so. You’ve logged a complaint, but you can’t tell me if I’ll get the money back."
+p078,30/10/2026 12:41,Owen,Agent,1:58,"That’s right. The complaint will be reviewed, but I can’t say what the decision will be. Is there anything else you’d like me to explain?"
+p079,30/10/2026 11:54,Priya,Agent,0:00,"Good morning, Thistle Bank, Priya speaking. How can I help?"
+p079,30/10/2026 11:54,Priya,Customer,0:04,"Hi. I'm Callum Okonkwo. I transferred money to someone pretending to be from your bank, and I'm really unhappy with how this has been handled."
+p079,30/10/2026 11:54,Priya,Agent,0:14,"I'm sorry this has happened, Callum. I can hear how frustrating it is. Before we discuss anything about your account, could you confirm your full name and date of birth, please?"
+p079,30/10/2026 11:54,Priya,Customer,0:26,"Callum Okonkwo, 14 February 1989."
+p079,30/10/2026 11:54,Priya,Agent,0:29,Thank you. And the first line of your address?
+p079,30/10/2026 11:54,Priya,Customer,0:33,"Flat 4, 28 Alder Road."
+p079,30/10/2026 11:54,Priya,Agent,0:35,"Thanks, that's verified. Can you tell me a little about what happened?"
+p079,30/10/2026 11:54,Priya,Customer,0:40,"Someone called saying they were from Thistle's fraud team and told me to move my money to a safe account. I sent £2,400. I contacted the bank afterwards, but I don't feel anyone's taken responsibility."
+p079,30/10/2026 11:54,Priya,Agent,0:54,I'm sorry you've been left feeling that way. I'll take ownership of this and I'm logging it as a complaint about the scam and how we've handled your report. The reference is TB-64182.
+p079,30/10/2026 11:54,Priya,Customer,1:08,All right. What happens now?
+p079,30/10/2026 11:54,Priya,Agent,1:10,"I'll make sure the complaint team has the details you've given me, and I'll personally contact you by Wednesday 28 October with an update on the review. I can't promise what the outcome will be."
+p079,30/10/2026 11:54,Priya,Agent,1:24,You'll also receive a full written response within 15 business days. That response will explain what we've looked into and our decision.
+p079,30/10/2026 11:54,Priya,Customer,1:33,"Okay, so you'll call me by Wednesday with an update, and I'll get the full response within 15 business days?"
+p079,30/10/2026 11:54,Priya,Agent,1:41,"That's right. I'll contact you by Wednesday 28 October, and the complaint team will send the full written response within 15 business days. Does that make sense?"
+p079,30/10/2026 11:54,Priya,Customer,1:52,"Yes, that makes sense. Thanks."
+p079,30/10/2026 11:54,Priya,Agent,1:54,"You're welcome, Callum. I'm sorry you've had to deal with this, and I'll make sure the follow-up happens."
+p080,30/10/2026 10:07,Jordan,Agent,0:00,"Good morning, Thistle Bank, Jordan speaking. How can I help?"
+p080,30/10/2026 10:07,Jordan,Customer,0:04,"Hi Jordan, could you tell me what time your High Street branch in York opens on Saturdays?"
+p080,30/10/2026 10:07,Jordan,Agent,0:11,Of course. The York High Street branch opens at nine on Saturdays and closes at one.
+p080,30/10/2026 10:07,Jordan,Customer,0:18,Thanks. Is that the same on weekdays?
+p080,30/10/2026 10:07,Jordan,Agent,0:21,"On weekdays, it’s open from nine until four. It’s closed on Sundays."
+p080,30/10/2026 10:07,Jordan,Customer,0:26,"Right, that’s helpful. Do I need to book an appointment just to visit?"
+p080,30/10/2026 10:07,Jordan,Agent,0:31,"For general enquiries, you can visit without booking. Some services may need an appointment, so it’s worth checking before you go if you have something specific in mind."
+p080,30/10/2026 10:07,Jordan,Customer,0:43,"I just want to ask about a service, so I’ll check first. Thanks for explaining."
+p080,30/10/2026 10:07,Jordan,Agent,0:49,"You’re welcome. Just to summarise: Saturday hours are nine until one, and weekday hours are nine until four. For a specific service, check whether you need an appointment. Does that make sense?"
+p080,30/10/2026 10:07,Jordan,Customer,1:02,"Yes, that’s clear. Thanks, Jordan."
+p080,30/10/2026 10:07,Jordan,Agent,1:04,"You’re very welcome, Tariq. Is there anything else I can help with today?"
+p080,30/10/2026 10:07,Jordan,Customer,1:10,"No, that’s all. Have a good day."
+p080,30/10/2026 10:07,Jordan,Agent,1:13,"Thanks, you too. Goodbye."

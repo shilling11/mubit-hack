@@ -1,6 +1,8 @@
 """Redress API. Run with: uvicorn app.main:app --port 8000   (no --reload when demoing)"""
 import os
+import re
 import time
+import uuid
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 
@@ -10,8 +12,8 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from app import db, demo
-from app.capture import ingest, stt
-from app.config import MUBIT_API_KEY, MUBIT_BASE_URL, MUBIT_MODEL, DEEPGRAM_API_KEY, REVIEW_REASONING_EFFORT
+from app.capture import importers, ingest, stt, tidy
+from app.config import MAX_PARALLEL, MUBIT_API_KEY, MUBIT_BASE_URL, MUBIT_MODEL, DEEPGRAM_API_KEY, REVIEW_REASONING_EFFORT
 from app.eval import runner
 from app.learning import corrections, playbook, test_on_archive
 from app.llm.mubit_client import MubitError
@@ -19,6 +21,8 @@ from app.review import service
 from app.review.spec import items_by_id, scorecard
 
 _work = ThreadPoolExecutor(max_workers=2, thread_name_prefix="call")
+# A monthly batch is scored several calls at a time, apart from live calls
+_batch = ThreadPoolExecutor(max_workers=MAX_PARALLEL, thread_name_prefix="batch")
 
 
 @asynccontextmanager
@@ -113,9 +117,18 @@ def _process_upload(call_id: str, mimetype: str, two_channel: bool = False) -> N
         db.update("calls", {"id": call_id}, {"status": "failed", "error": str(exc)[:500]})
 
 
+def _join_current_batch(call_id: str) -> None:
+    """A call taken live joins this month's batch (the latest import), so it's checked alongside the rest."""
+    latest = db.one("SELECT id FROM batches ORDER BY created_at DESC LIMIT 1")
+    if latest:
+        db.update("calls", {"id": call_id}, {"batch_id": latest["id"]})
+
+
 def _review_bg(call_id: str, version: int | None = None) -> None:
     try:
-        service.review_call(call_id, version)
+        review = service.review_call(call_id, version)
+        if review.get("error"):  # say why, instead of leaving the call "reviewing" forever
+            db.update("calls", {"id": call_id}, {"status": "failed", "error": f"Not scored: {review['error']}"[:500]})
     except Exception as exc:
         db.update("calls", {"id": call_id}, {"status": "failed", "error": str(exc)[:500]})
 
@@ -152,6 +165,7 @@ async def upload_call(audio: UploadFile = File(...), agent_name: str = Form(""),
         raise HTTPException(400, "empty recording")
     mimetype = audio.content_type or "audio/webm"
     call_id = ingest.save_recording(data, mimetype, agent_name, customer_name)
+    _join_current_batch(call_id)
     _work.submit(_process_upload, call_id, mimetype, two_channel)
     return {"call_id": call_id}
 
@@ -174,6 +188,7 @@ def load_demo_call(script_id: str, review: bool = True):
     """Load a demo script as a text call (rehearsal / fallback when audio fails)."""
     try:
         cid = demo.load_script(script_id)
+        _join_current_batch(cid)
     except StopIteration as exc:
         raise HTTPException(404, script_id) from exc
     if review:
@@ -252,6 +267,144 @@ def evaluate(call_id: str, body: EvaluationIn):
             raise HTTPException(502, f"rule induction failed: {exc}") from exc
     return {**result, "playbook_version": new_version or playbook.latest_version(),
             "rules": playbook.rules(playbook.latest_version())}
+
+
+# ── Monthly batches (the client's export: Excel/CSV, Amazon Connect JSON or pasted text) ─────
+_KIND_ORDER = {"breach": 0, "analyst": 1, "audit": 2, "auto": 3}
+
+
+def _check_order(r: dict) -> tuple:
+    """Calls taken live come first (newest first), then the riskiest and lowest-scoring imports."""
+    if r["source"] in ("live", "demo"):
+        return (0, -r["created_at"], 0)
+    return (1, _KIND_ORDER.get(r["queue_kind"], 4), r["score"] if r["score"] is not None else 100)
+
+
+@app.post("/api/batches")
+async def import_batch(files: list[UploadFile] = File(default=[]), text: str = Form(""), name: str = Form(""),
+                       review: bool = Form(True)):
+    """Import this month's calls and score them all. Files that can't be read are skipped with the reason."""
+    calls, agents, skipped, formats = [], {}, [], {}
+    for f in files:
+        try:
+            fmt, out = importers.parse(f.filename or "upload", await f.read())
+        except importers.ImportFailed as exc:
+            skipped.append({"file": f.filename, "reason": str(exc)})
+            continue
+        if fmt == "call list":
+            agents.update(out)
+            formats[fmt] = formats.get(fmt, 0) + 1
+        else:
+            calls += out
+            formats[fmt] = formats.get(fmt, 0) + len(out)
+    if text.strip():
+        try:
+            calls.append(importers.text_transcript(text, f"pasted-{uuid.uuid4().hex[:6]}"))
+            formats["pasted text"] = formats.get("pasted text", 0) + 1
+        except importers.ImportFailed as exc:
+            skipped.append({"file": "pasted text", "reason": str(exc)})
+    if not calls:
+        detail = "; ".join(f"{s['file']}: {s['reason']}" for s in skipped) or "no files"
+        raise HTTPException(400, f"Nothing to import ({detail})")
+    batch_id = f"batch_{uuid.uuid4().hex[:6]}"
+    db.insert("batches", {"id": batch_id, "name": name or f"{scorecard()['bank']} · {time.strftime('%B %Y')}",
+                          "formats": formats, "created_at": time.time()})
+    ids = []
+    for c in calls:
+        utts = [{**u, "text": tidy.dates(u["text"])} for u in c["utterances"] if u["text"].strip()]
+        if not utts:
+            skipped.append({"file": c["id"], "reason": "no lines"})
+            continue
+        cid = ingest.create_call(utts, source="import", split="practice", call_id=c["id"],
+                                 agent_name=c["agent_name"] or agents.get(c["id"], ""))
+        db.update("calls", {"id": cid}, {"batch_id": batch_id, "status": "reviewing" if review else "new"})
+        ids.append(cid)
+    if review:
+        for cid in ids:
+            _batch.submit(_review_bg, cid)
+    return {"batch_id": batch_id, "count": len(ids), "formats": formats, "skipped": skipped}
+
+
+def _batch_calls(batch_id: str) -> list[dict]:
+    return db.query(
+        "SELECT c.id, c.source, c.created_at, c.agent_name, c.status, c.error, q.kind AS queue_kind, q.audit, q.done, r.score, r.pass, "
+        "r.risk_tier, r.playbook_version, r.critical_fails, "
+        "(SELECT COUNT(*) FROM evaluations e WHERE e.call_id = c.id) AS checked "
+        "FROM calls c LEFT JOIN queue q ON q.call_id = c.id LEFT JOIN reviews r ON r.id = q.review_id "
+        "WHERE c.batch_id = ? ORDER BY c.id", (batch_id,))
+
+
+@app.get("/api/batches")
+def list_batches():
+    return db.query("SELECT b.*, (SELECT COUNT(*) FROM calls c WHERE c.batch_id = b.id) AS total "
+                    "FROM batches b ORDER BY b.created_at DESC")
+
+
+@app.get("/api/batches/{batch_id}")
+def get_batch(batch_id: str):
+    batch = db.one("SELECT * FROM batches WHERE id = ?", (batch_id,))
+    if not batch:
+        raise HTTPException(404, batch_id)
+    rows, latest = _batch_calls(batch_id), playbook.latest_version()
+    open_flags = [r for r in rows if r["queue_kind"] in ("breach", "analyst", "audit") and not r["done"] and not r["checked"]]
+    # Calls to check together first: the one just taken live, then the riskiest
+    suggested = sorted((r for r in rows if r["status"] == "scored" and not r["checked"]), key=_check_order)
+    return {
+        **batch, "playbook_version": latest, "rules": len(playbook.rules(latest)),
+        "stats": {
+            "total": len(rows),
+            "scored": sum(r["status"] == "scored" for r in rows),
+            "failed": sum(r["status"] == "failed" for r in rows),
+            "checked": sum(bool(r["checked"]) for r in rows),
+            "current": sum(r["status"] == "scored" and r["playbook_version"] == latest for r in rows),
+            "flagged": {k: sum(r["queue_kind"] == k for r in open_flags) for k in ("breach", "analyst", "audit")},
+            "auto": sum(r["queue_kind"] == "auto" and not r["checked"] for r in rows),
+        },
+        "suggested": suggested[:5],
+        "calls": rows,
+    }
+
+
+def _words(text: str) -> str:
+    return " ".join(re.findall(r"[a-z0-9]+", text.lower().replace("’", "'")))
+
+
+def _like_newest_correction(version: int) -> dict[str, int]:
+    """{call id: matches} for calls that look like the newest correction: the rule's keywords plus three-word
+    phrases from the quote the analyst corrected (the model's keywords don't always use the calls' words)."""
+    newest = max(playbook.rules(version), key=lambda r: r.get("correction_id") or 0, default=None)
+    if not newest:
+        return {}
+    phrases = {_words(k) for k in newest.get("keywords", []) if k.strip()}
+    fixed = db.one("SELECT c.item_id, r.items_json FROM corrections c JOIN reviews r ON r.id = c.review_id "
+                   "WHERE c.id = ?", (newest.get("correction_id"),))
+    for ev in ((fixed or {}).get("items_json") or {}).get((fixed or {}).get("item_id"), {}).get("evidence", []):
+        w = _words(ev.get("quote", "")).split()
+        phrases |= {" ".join(w[i:i + 3]) for i in range(len(w) - 2)}
+    hits: dict[str, int] = {}
+    for u in db.query("SELECT call_id, text_redacted FROM utterances"):
+        text = _words(u["text_redacted"])
+        n = sum(p in text for p in phrases if p)
+        if n:
+            hits[u["call_id"]] = hits.get(u["call_id"], 0) + n
+    return hits
+
+
+@app.post("/api/batches/{batch_id}/finish")
+def finish_batch(batch_id: str):
+    """Score every call nobody has checked yet with the latest playbook (what the analyst's corrections taught it)."""
+    if not db.one("SELECT id FROM batches WHERE id = ?", (batch_id,)):
+        raise HTTPException(404, batch_id)
+    latest = playbook.latest_version()
+    todo = [r["id"] for r in _batch_calls(batch_id) if not r["checked"]
+            and (r["status"] == "failed" or r["playbook_version"] != latest)]  # != so a demo reset can go back to v0
+    # Re-mark the calls the newest rule is about first, so its effect shows within seconds
+    hits = _like_newest_correction(latest)
+    todo.sort(key=lambda cid: -hits.get(cid, 0))
+    for cid in todo:
+        db.update("calls", {"id": cid}, {"status": "reviewing", "error": None})
+        _batch.submit(_review_bg, cid)
+    return {"queued": len(todo), "playbook_version": latest}
 
 
 # ── Wall and queue ───────────────────────────────────────────────────────────
@@ -358,6 +511,7 @@ def reset(keep_synthetic: bool = True):
     db.execute("DELETE FROM reviews WHERE run_id IN ('compare', 'archive')")
     for t in ("agreement", "evaluations"):
         db.execute(f"DELETE FROM {t}")
+    db.execute("UPDATE queue SET done = 0")  # with the checks gone, every call is open again
     if not keep_synthetic:
         for t in ("utterances", "reviews", "queue", "calls", "runs", "traces", "corrections", "playbook_versions"):
             db.execute(f"DELETE FROM {t}")

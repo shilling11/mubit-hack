@@ -308,6 +308,9 @@ export default function LiveCall() {
           {call && review && (
             <Link href={`/dashboard/calls/${call.id}`} className="btn primary mt-5">Open the evaluation form →</Link>
           )}
+          {call?.batch_id && (
+            <Link href="/dashboard/batch" className="btn ghost mt-5 ml-2">See it in this month&apos;s batch →</Link>
+          )}
           <div className="mt-6 border-t border-line pt-4">
             <div className="lab mb-2">Rehearse without audio</div>
             <div className="flex gap-2">
