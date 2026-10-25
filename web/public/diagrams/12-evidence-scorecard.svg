@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<rect x="0" y="0" width="1600" height="900" fill="#050906"/>
+<defs>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+.t{font-family:'Inter Tight',sans-serif}
+.m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.c{font-family:'JetBrains Mono',monospace}
+</style>
+<radialGradient id="glow" cx="50%" cy="55%" r="60%">
+<stop offset="0%" stop-color="#0f1d11"/><stop offset="100%" stop-color="#050906"/>
+</radialGradient>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5d685f"/></marker>
+<marker id="ahl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7CFF4F"/></marker>
+</defs>
+<rect x="0" y="0" width="1600" height="900" fill="url(#glow)"/>
+<text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ EVIDENCE ]</text>
+<text class="t" x="80" y="165" font-size="54" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">Every answer points to the second it was said.</text>
+<rect x="450" y="262" width="700" height="500" rx="22" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="486" y="312" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >C2 · Critical</text>
+<rect x="1018" y="286" width="96" height="38" rx="19" fill="rgba(255,122,107,0.14)" stroke="#ff7a6b" stroke-opacity="0.8" stroke-width="1.5"/>
+<text class="m" x="1066" y="312" font-size="18" font-weight="500" fill="#ff7a6b" text-anchor="middle" >Fail</text>
+<text class="t" x="486" y="362" font-size="28" font-weight="500" fill="#eef3ec" text-anchor="start" >Vulnerable customer spotted and supported</text>
+<line x1="486" y1="390" x2="1114" y2="390" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
+<text class="m" x="486" y="428" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >Evidence</text>
+<rect x="486" y="446" width="628" height="118" rx="14" fill="rgba(124,255,79,0.05)" stroke="#7CFF4F" stroke-opacity="0.75" stroke-width="2"/>
+<text class="t" x="512" y="496" font-size="28" font-weight="400" fill="#eef3ec" text-anchor="start"><tspan x="512" dy="0">“I was in hospital for two weeks</tspan><tspan x="512" dy="38">and couldn't sort my account out.”</tspan></text>
+<text class="t" x="486" y="614" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >AI confidence (example)</text>
+<text class="t" x="700" y="614" font-size="22" font-weight="500" fill="#7CFF4F" text-anchor="start" >0.9</text>
+<text class="t" x="1056" y="614" font-size="22" font-weight="400" fill="#eef3ec" text-anchor="end" >customer · 0:23</text>
+<circle cx="1092" cy="607" r="22" fill="#7CFF4F"/>
+<path d="M1085,595 L1103,607 L1085,619 z" fill="#050906"/>
+<line x1="486" y1="650" x2="1114" y2="650" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
+<rect x="486" y="676" width="130" height="48" rx="24" fill="rgba(124,255,79,0.14)" stroke="#7CFF4F" stroke-opacity="0.8" stroke-width="1.5"/>
+<text class="t" x="551" y="707" font-size="20" font-weight="500" fill="#7CFF4F" text-anchor="middle" >Agree</text>
+<rect x="636" y="676" width="210" height="48" rx="24" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+<text class="t" x="741" y="707" font-size="20" font-weight="500" fill="#eef3ec" text-anchor="middle" >Change + reason</text>
+<text class="t" x="404" y="332" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="end" >The scorecard item</text>
+<text class="t" x="404" y="362" font-size="18" font-weight="400" fill="#8b968d" text-anchor="end"><tspan x="404" dy="0">the bank's own question</tspan></text>
+<line x1="414" y1="354" x2="472" y2="354" stroke="#5d685f" stroke-width="1.5" />
+<circle cx="472" cy="354" r="4.5" fill="#7CFF4F"/>
+<text class="t" x="404" y="486" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="end" >The exact quote</text>
+<text class="t" x="404" y="516" font-size="18" font-weight="400" fill="#8b968d" text-anchor="end"><tspan x="404" dy="0">checked by our code: it</tspan><tspan x="404" dy="24">really is in the transcript</tspan></text>
+<line x1="414" y1="504" x2="478" y2="504" stroke="#5d685f" stroke-width="1.5" />
+<circle cx="478" cy="504" r="4.5" fill="#7CFF4F"/>
+<text class="t" x="404" y="670" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="end" >The analyst decides</text>
+<text class="t" x="404" y="700" font-size="18" font-weight="400" fill="#8b968d" text-anchor="end"><tspan x="404" dy="0">Agree, or Change with a</tspan><tspan x="404" dy="24">one-line reason, which</tspan><tspan x="404" dy="24">becomes a rule</tspan></text>
+<line x1="414" y1="700" x2="478" y2="700" stroke="#5d685f" stroke-width="1.5" />
+<circle cx="478" cy="700" r="4.5" fill="#7CFF4F"/>
+<text class="t" x="1196" y="312" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >The AI's answer</text>
+<text class="t" x="1196" y="342" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="1196" dy="0">Fail, on a critical item</tspan></text>
+<line x1="1186" y1="305" x2="1122" y2="305" stroke="#5d685f" stroke-width="1.5" />
+<circle cx="1122" cy="305" r="4.5" fill="#7CFF4F"/>
+<text class="t" x="1196" y="608" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >The timestamp</text>
+<text class="t" x="1196" y="638" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="1196" dy="0">press play to hear</tspan><tspan x="1196" dy="24">that moment of the call</tspan></text>
+<line x1="1186" y1="607" x2="1122" y2="607" stroke="#5d685f" stroke-width="1.5" />
+<circle cx="1122" cy="607" r="4.5" fill="#7CFF4F"/>
+<g>
+<circle cx="1391" cy="843" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="1407" cy="843" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+<text class="t" x="1428" y="850" font-size="20" font-weight="600" letter-spacing="1"><tspan fill="#eef3ec">RE</tspan><tspan fill="#7CFF4F">DRESS</tspan></text>
+</g>
+</svg>

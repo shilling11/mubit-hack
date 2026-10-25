@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<rect x="0" y="0" width="1600" height="900" fill="#050906"/>
+<defs>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+.t{font-family:'Inter Tight',sans-serif}
+.m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.c{font-family:'JetBrains Mono',monospace}
+</style>
+<radialGradient id="glow" cx="50%" cy="55%" r="60%">
+<stop offset="0%" stop-color="#0f1d11"/><stop offset="100%" stop-color="#050906"/>
+</radialGradient>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5d685f"/></marker>
+<marker id="ahl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7CFF4F"/></marker>
+</defs>
+<rect x="0" y="0" width="1600" height="900" fill="url(#glow)"/>
+<text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ ARCHITECTURE ]</text>
+<text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">What runs where.</text>
+<rect x="80" y="250" width="360" height="545" rx="24" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" stroke-dasharray="6 7"/>
+<text class="m" x="110" y="292" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >Phones</text>
+<rect x="520" y="250" width="1000" height="230" rx="24" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" stroke-dasharray="6 7"/>
+<text class="m" x="550" y="292" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >Cloud services</text>
+<rect x="520" y="565" width="1000" height="230" rx="24" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" stroke-dasharray="6 7"/>
+<text class="m" x="550" y="607" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >The laptop</text>
+<rect x="110" y="316" width="300" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="134" y="360" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Ellen's phone</text>
+<text class="c" x="134" y="396" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >/call/customer</text>
+<rect x="110" y="456" width="300" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="134" y="500" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Sam's phone</text>
+<text class="c" x="134" y="536" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >/call/agent</text>
+<rect x="110" y="600" width="300" height="170" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="134" y="642" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Vercel</text>
+<text class="t" x="134" y="676" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="134" dy="0">hosts both pages over</tspan><tspan x="134" dy="25">HTTPS, which phones</tspan><tspan x="134" dy="25">need for the microphone</tspan></text>
+<rect x="550" y="318" width="260" height="140" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="574" y="360" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >LiveKit Cloud</text>
+<text class="t" x="574" y="394" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="574" dy="0">one WebRTC room</tspan><tspan x="574" dy="25">for the call</tspan></text>
+<rect x="870" y="318" width="260" height="140" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="894" y="360" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Deepgram</text>
+<text class="t" x="894" y="394" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="894" dy="0">speech to text, each</tspan><tspan x="894" dy="25">channel separately</tspan></text>
+<rect x="1190" y="318" width="300" height="140" rx="18" fill="rgba(255,255,255,0.04)" stroke="#7CFF4F" stroke-opacity="0.6" stroke-width="1.5"/>
+<text class="t" x="1214" y="360" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Mubit gateway</text>
+<text class="t" x="1214" y="394" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >OpenAI-compatible API</text>
+<text class="t" x="1214" y="433" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >routes to</text>
+<path d="M1298,427 L1344,427" fill="none" stroke="#7CFF4F" stroke-width="2" stroke-linejoin="round"  marker-end="url(#ahl)" />
+<rect x="1352" y="410" width="86" height="34" rx="17" fill="rgba(124,255,79,0.10)" stroke="#7CFF4F" stroke-opacity="0.5"/>
+<text class="t" x="1395" y="433" font-size="18" font-weight="400" fill="#eef3ec" text-anchor="middle" >model</text>
+<rect x="550" y="632" width="260" height="140" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="574" y="674" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Next.js dashboard</text>
+<text class="t" x="574" y="708" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="574" dy="0">localhost, also the</tspan><tspan x="574" dy="25">silent call recorder</tspan></text>
+<rect x="950" y="632" width="300" height="140" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="974" y="674" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >FastAPI backend</text>
+<text class="t" x="974" y="708" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="974" dy="0">Python + SQLite</tspan><tspan x="974" dy="25">clean-up, redaction, scoring</tspan></text>
+<rect x="1310" y="632" width="180" height="140" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="1334" y="674" font-size="24" font-weight="500" fill="#eef3ec" text-anchor="start" >Audio files</text>
+<text class="t" x="1334" y="708" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start"><tspan x="1334" dy="0">stereo WAV,</tspan><tspan x="1334" dy="22">redacted words</tspan><tspan x="1334" dy="22">silenced</tspan></text>
+<path d="M410,374 L550,374" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" marker-start="url(#ah)"/>
+<path d="M410,514 L550,430" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t" x="480" y="362" font-size="18" font-weight="400" fill="#8b968d" text-anchor="middle" >audio</text>
+<path d="M760,458 L760,632" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" />
+<text class="t" x="774" y="528" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >audio</text>
+<path d="M810,678 L950,678" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" />
+<text class="t" x="880" y="666" font-size="18" font-weight="400" fill="#8b968d" text-anchor="middle" >stereo upload</text>
+<path d="M810,738 L950,738" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t" x="880" y="726" font-size="18" font-weight="400" fill="#8b968d" text-anchor="middle" >polling</text>
+<path d="M1000,632 L1000,458" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t" x="1014" y="528" font-size="18" font-weight="400" fill="#8b968d" text-anchor="start" >speech to text</text>
+<path d="M1225,632 L1225,458" fill="none" stroke="#7CFF4F" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ahl)" marker-start="url(#ahl)"/>
+<text class="t" x="1240" y="518" font-size="18" font-weight="400" fill="#7CFF4F" text-anchor="start"><tspan x="1240" dy="0">every model call,</tspan><tspan x="1240" dy="24">one base URL</tspan></text>
+<path d="M1250,702 L1310,702" fill="none" stroke="#5d685f" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#ah)" />
+<g>
+<circle cx="1391" cy="843" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="1407" cy="843" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+<text class="t" x="1428" y="850" font-size="20" font-weight="600" letter-spacing="1"><tspan fill="#eef3ec">RE</tspan><tspan fill="#7CFF4F">DRESS</tspan></text>
+</g>
+</svg>

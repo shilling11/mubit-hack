@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<rect width="1600" height="900" fill="#050906"/>
+<defs>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+.t{font-family:'Inter Tight',sans-serif}
+.m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}</style>
+<radialGradient id="glow" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#0f1d11"/><stop offset="1" stop-color="#050906"/></radialGradient>
+<marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#5d685f"/></marker>
+<marker id="ahl" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#7CFF4F"/></marker>
+</defs>
+<rect width="1600" height="900" fill="url(#glow)"/>
+<text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ WHO SEES WHAT ]</text>
+<text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">People check what matters.</text>
+<text class="t" x="80" y="210" font-size="22" fill="#8b968d">Routing is plain code. Each scored call lands in one of four lanes.</text>
+<rect x="80" y="252" width="360" height="488" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="108" y="298" font-size="18" fill="#8b968d">One scored call</text>
+<text class="t" x="108" y="330" font-size="20" fill="#5d685f">Thistle Bank scorecard, fictional</text>
+<text class="m" x="108" y="380" font-size="18" fill="#5d685f">Critical</text>
+<text class="m" x="108" y="420" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">C1</text>
+<text class="t" x="152" y="420" font-size="21" fill="#eef3ec">Complaint handled</text>
+<text class="m" x="108" y="458" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">C2</text>
+<text class="t" x="152" y="458" font-size="21" fill="#eef3ec">Vulnerable customer</text>
+<text class="m" x="108" y="496" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">C3</text>
+<text class="t" x="152" y="496" font-size="21" fill="#eef3ec">No promised outcome</text>
+<text class="m" x="108" y="534" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">C4</text>
+<text class="t" x="152" y="534" font-size="21" fill="#eef3ec">Identity checked</text>
+<text class="m" x="108" y="604" font-size="18" fill="#5d685f">Scored</text>
+<text class="m" x="108" y="644" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">S1-S5</text>
+<text class="t" x="176" y="644" font-size="21" fill="#eef3ec">e.g. clear next steps</text>
+<line x1="108" y1="672" x2="412" y2="672" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="108" y="712" font-size="21" fill="#8b968d">Pass mark</text>
+<text class="t" x="412" y="714" font-size="30" font-weight="500" fill="#eef3ec" text-anchor="end">80</text>
+<circle cx="440" cy="496.0" r="6" fill="#7CFF4F"/>
+<rect x="640" y="252" width="880" height="104" rx="18" fill="rgba(255,255,255,0.04)" stroke="#ff7a6b" stroke-opacity="0.55" stroke-width="1.5"/>
+<rect x="670" y="289.0" width="30" height="30" rx="6" fill="#ff7a6b"/>
+<text class="t" x="724" y="297" font-size="28" font-weight="500" fill="#eef3ec">Escalate now</text>
+<text class="t" x="724" y="330" font-size="20" fill="#8b968d">A critical item fails, with high confidence</text>
+<text class="t" x="1488" y="312.0" font-size="22" font-weight="500" fill="#ff7a6b" text-anchor="end">A person, today</text>
+<path d="M446,496.0 C550,496.0 530,304.0 630,304.0" fill="none" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="640" y="380" width="880" height="104" rx="18" fill="rgba(255,255,255,0.04)" stroke="#ffb25e" stroke-opacity="0.55" stroke-width="1.5"/>
+<rect x="670" y="417.0" width="30" height="30" rx="6" fill="#ffb25e"/>
+<text class="t" x="724" y="425" font-size="28" font-weight="500" fill="#eef3ec">To an analyst</text>
+<text class="t" x="724" y="458" font-size="20" fill="#8b968d">The AI is unsure, or its confidence is low</text>
+<text class="t" x="1488" y="440.0" font-size="22" font-weight="500" fill="#ffb25e" text-anchor="end">A person checks</text>
+<path d="M446,496.0 C550,496.0 530,432.0 630,432.0" fill="none" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="640" y="508" width="880" height="104" rx="18" fill="rgba(255,255,255,0.04)" stroke="#7CFF4F" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="8 6"/>
+<rect x="671.25" y="546.25" width="27.5" height="27.5" rx="6" fill="none" stroke="#7CFF4F" stroke-width="2.5"/>
+<text class="t" x="724" y="553" font-size="28" font-weight="500" fill="#eef3ec">Audit sample</text>
+<text class="t" x="724" y="586" font-size="20" fill="#8b968d">A random 5% of calls</text>
+<text class="t" x="1488" y="568.0" font-size="22" font-weight="500" fill="#7CFF4F" text-anchor="end">Keeps the AI honest</text>
+<path d="M446,496.0 C550,496.0 530,560.0 630,560.0" fill="none" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="640" y="636" width="880" height="104" rx="18" fill="rgba(255,255,255,0.04)" stroke="#2f8a12" stroke-opacity="0.55" stroke-width="1.5"/>
+<rect x="670" y="673.0" width="30" height="30" rx="6" fill="#2f8a12"/>
+<text class="t" x="724" y="681" font-size="28" font-weight="500" fill="#eef3ec">Auto-accepted</text>
+<text class="t" x="724" y="714" font-size="20" fill="#8b968d">Everything else</text>
+<text class="t" x="1488" y="696.0" font-size="22" font-weight="500" fill="#8b968d" text-anchor="end">No human time</text>
+<path d="M446,496.0 C550,496.0 530,688.0 630,688.0" fill="none" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M80,783 L96,792 L80,801 z" fill="#7CFF4F"/>
+<text class="t" x="108" y="800" font-size="22" fill="#eef3ec">Every answer carries the quote and timestamp that prove it, <tspan fill="#8b968d">and a play button to hear that moment.</tspan></text>
+<g transform="translate(1382,850)">
+<circle cx="11" cy="-7" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="27" cy="-7" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+<text class="t" x="48" y="0" font-size="20" font-weight="600" fill="#eef3ec">RE<tspan fill="#7CFF4F">DRESS</tspan></text>
+</g>
+</svg>

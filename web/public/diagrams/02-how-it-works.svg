@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<rect width="1600" height="900" fill="#050906"/>
+<defs>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+.t{font-family:'Inter Tight',sans-serif}
+.m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}</style>
+<radialGradient id="glow" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#0f1d11"/><stop offset="1" stop-color="#050906"/></radialGradient>
+<marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#5d685f"/></marker>
+<marker id="ahl" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#7CFF4F"/></marker>
+</defs>
+<rect width="1600" height="900" fill="url(#glow)"/>
+<text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ HOW IT WORKS ]</text>
+<text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">From phone call to scorecard, <tspan fill="#8b968d">in seconds.</tspan></text>
+<text class="t" x="80" y="210" font-size="22" fill="#8b968d">One call through Redress, start to finish. All data in the demo is synthetic.</text>
+<rect x="80" y="252" width="298" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="108" y="298" font-size="18" fill="#5d685f">01</text>
+<text class="t" x="108" y="346" font-size="30" font-weight="500" fill="#eef3ec">Call</text>
+<text class="t" x="108" y="388" font-size="20" fill="#8b968d"><tspan x="108" dy="0">Two phones. Each</tspan><tspan x="108" dy="28">speaker is recorded on</tspan><tspan x="108" dy="28">their own channel.</tspan></text>
+<rect x="434" y="252" width="298" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="462" y="298" font-size="18" fill="#5d685f">02</text>
+<text class="m" x="706" y="298" font-size="18" fill="#8b968d" text-anchor="end">Deepgram</text>
+<text class="t" x="462" y="346" font-size="30" font-weight="500" fill="#eef3ec">Transcript</text>
+<text class="t" x="462" y="388" font-size="20" fill="#8b968d"><tspan x="462" dy="0">Text about 3 s</tspan><tspan x="462" dy="28">after hang-up.</tspan></text>
+<rect x="788" y="252" width="298" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="816" y="298" font-size="18" fill="#5d685f">03</text>
+<text class="m" x="1060" y="298" font-size="18" fill="#8b968d" text-anchor="end">In code</text>
+<text class="t" x="816" y="346" font-size="30" font-weight="500" fill="#eef3ec">Clean &amp; redact</text>
+<text class="t" x="816" y="388" font-size="20" fill="#8b968d"><tspan x="816" dy="0">Echo removed.</tspan><tspan x="816" dy="28">Dates written clearly.</tspan><tspan x="816" dy="28">Personal data removed.</tspan></text>
+<rect x="1142" y="252" width="298" height="222" rx="18" fill="rgba(124,255,79,0.05)" stroke="#7CFF4F" stroke-width="1.5" stroke-opacity="0.6"/>
+<text class="m" x="1170" y="298" font-size="18" fill="#7CFF4F">04</text>
+<text class="m" x="1414" y="298" font-size="18" fill="#8b968d" text-anchor="end">Mubit</text>
+<text class="t" x="1170" y="346" font-size="30" font-weight="500" fill="#eef3ec">Review</text>
+<text class="t" x="1170" y="388" font-size="20" fill="#8b968d"><tspan x="1170" dy="0">The scorecard, about 15 s.</tspan><tspan x="1170" dy="28">Every answer has its</tspan><tspan x="1170" dy="28">quote and timestamp.</tspan></text>
+<rect x="1142" y="572" width="298" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="1170" y="618" font-size="18" fill="#5d685f">05</text>
+<text class="m" x="1414" y="618" font-size="18" fill="#8b968d" text-anchor="end">In code</text>
+<text class="t" x="1170" y="666" font-size="30" font-weight="500" fill="#eef3ec">Route</text>
+<text class="t" x="1170" y="708" font-size="20" fill="#8b968d"><tspan x="1170" dy="0">Escalate, to an analyst,</tspan><tspan x="1170" dy="28">audit sample or</tspan><tspan x="1170" dy="28">auto-accepted.</tspan></text>
+<rect x="788" y="572" width="298" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="816" y="618" font-size="18" fill="#5d685f">06</text>
+<text class="t" x="816" y="666" font-size="30" font-weight="500" fill="#eef3ec">Analyst checks</text>
+<text class="t" x="816" y="708" font-size="20" fill="#8b968d"><tspan x="816" dy="0">Agrees, or corrects</tspan><tspan x="816" dy="28">one item with a</tspan><tspan x="816" dy="28">one-line reason.</tspan></text>
+<rect x="434" y="572" width="298" height="222" rx="18" fill="rgba(124,255,79,0.05)" stroke="#7CFF4F" stroke-width="1.5" stroke-opacity="0.6"/>
+<text class="m" x="462" y="618" font-size="18" fill="#7CFF4F">07</text>
+<text class="m" x="706" y="618" font-size="18" fill="#8b968d" text-anchor="end">Mubit</text>
+<text class="t" x="462" y="666" font-size="30" font-weight="500" fill="#eef3ec">Learns</text>
+<text class="t" x="462" y="708" font-size="20" fill="#8b968d"><tspan x="462" dy="0">A rule straight away.</tspan><tspan x="462" dy="28">A model trained</tspan><tspan x="462" dy="28">over time.</tspan></text>
+<line x1="386" y1="363.0" x2="424" y2="363.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="740" y1="363.0" x2="778" y2="363.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="1094" y1="363.0" x2="1132" y2="363.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M1448,363.0 H1474 Q1490,363.0 1490,379.0 V667.0 Q1490,683.0 1474,683.0 H1450" fill="none" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="1134" y1="683.0" x2="1096" y2="683.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="780" y1="683.0" x2="742" y2="683.0" stroke="#7CFF4F" stroke-width="2.5" marker-end="url(#ahl)"/>
+<path d="M583.0,566 V529.0 H1291.0 V484" fill="none" stroke="#7CFF4F" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#ahl)"/>
+<text class="m" x="937.0" y="515.0" font-size="18" fill="#7CFF4F" text-anchor="middle">Every correction feeds the next review</text>
+<rect x="80" y="572" width="298" height="222" rx="18" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text class="m" x="108" y="618" font-size="18" fill="#8b968d">What the AI sees</text>
+<rect x="108" y="642" width="96" height="38" rx="9" fill="rgba(124,255,79,0.06)" stroke="#2f8a12" stroke-width="1.5"/>
+<text class="m" x="121" y="667" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">[NAME]</text>
+<rect x="215.6" y="642" width="84" height="38" rx="9" fill="rgba(124,255,79,0.06)" stroke="#2f8a12" stroke-width="1.5"/>
+<text class="m" x="228.6" y="667" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">[DOB]</text>
+<rect x="108" y="692" width="96" height="38" rx="9" fill="rgba(124,255,79,0.06)" stroke="#2f8a12" stroke-width="1.5"/>
+<text class="m" x="121" y="717" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">[CARD]</text>
+<rect x="215.6" y="692" width="130" height="38" rx="9" fill="rgba(124,255,79,0.06)" stroke="#2f8a12" stroke-width="1.5"/>
+<text class="m" x="228.6" y="717" font-size="18" fill="#7CFF4F" style="letter-spacing:.04em">[ADDRESS]</text>
+<text class="t" x="108" y="762" font-size="20" fill="#8b968d"><tspan x="108" dy="0">Real details never reach it.</tspan></text>
+<g transform="translate(1382,850)">
+<circle cx="11" cy="-7" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="27" cy="-7" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+<text class="t" x="48" y="0" font-size="20" font-weight="600" fill="#eef3ec">RE<tspan fill="#7CFF4F">DRESS</tspan></text>
+</g>
+</svg>

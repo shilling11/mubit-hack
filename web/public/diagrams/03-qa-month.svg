@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<rect width="1600" height="900" fill="#050906"/>
+<defs>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+.t{font-family:'Inter Tight',sans-serif}
+.m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}</style>
+<radialGradient id="glow" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#0f1d11"/><stop offset="1" stop-color="#050906"/></radialGradient>
+<marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#5d685f"/></marker>
+<marker id="ahl" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#7CFF4F"/></marker>
+</defs>
+<rect width="1600" height="900" fill="url(#glow)"/>
+<text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ THE QA MONTH ]</text>
+<text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">Check a few. <tspan fill="#8b968d">Redress does the rest.</tspan></text>
+<text class="t" x="80" y="210" font-size="22" fill="#8b968d">The Batch page: a whole month of calls, and people only see what is flagged.</text>
+<rect x="80" y="252" width="324" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="108" y="298" font-size="18" fill="#5d685f">01</text>
+<text class="t" x="108" y="346" font-size="28" font-weight="500" fill="#eef3ec">Import the month</text>
+<text class="t" x="108" y="388" font-size="20" fill="#8b968d"><tspan x="108" dy="0">The bank's export: Excel,</tspan><tspan x="108" dy="28">CSV or Amazon Connect</tspan><tspan x="108" dy="28">transcript files.</tspan></text>
+<line x1="411" y1="363.0" x2="443" y2="363.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="452" y="252" width="324" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="480" y="298" font-size="18" fill="#5d685f">02</text>
+<text class="t" x="480" y="346" font-size="28" font-weight="500" fill="#eef3ec">Score every call</text>
+<text class="t" x="480" y="388" font-size="20" fill="#8b968d"><tspan x="480" dy="0">Redress scores 100% of</tspan><tspan x="480" dy="28">calls against the bank's</tspan><tspan x="480" dy="28">scorecard.</tspan></text>
+<line x1="783" y1="363.0" x2="815" y2="363.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="824" y="252" width="324" height="222" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="852" y="298" font-size="18" fill="#5d685f">03</text>
+<text class="t" x="852" y="346" font-size="28" font-weight="500" fill="#eef3ec">Check a few together</text>
+<text class="t" x="852" y="388" font-size="20" fill="#8b968d"><tspan x="852" dy="0">The analyst checks a</tspan><tspan x="852" dy="28">few calls with Redress.</tspan><tspan x="852" dy="28">This is calibration.</tspan></text>
+<line x1="1155" y1="363.0" x2="1187" y2="363.0" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="1196" y="252" width="324" height="222" rx="18" fill="rgba(124,255,79,0.05)" stroke="#7CFF4F" stroke-width="1.5" stroke-opacity="0.6"/>
+<text class="m" x="1224" y="298" font-size="18" fill="#7CFF4F">04</text>
+<text class="t" x="1224" y="346" font-size="28" font-weight="500" fill="#eef3ec">Let Redress finish</text>
+<text class="t" x="1224" y="388" font-size="20" fill="#8b968d"><tspan x="1224" dy="0">Every other call is</tspan><tspan x="1224" dy="28">re-marked with what it</tspan><tspan x="1224" dy="28">just learned.</tspan></text>
+<rect x="80" y="512" width="1440" height="290" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="m" x="112" y="560" font-size="18" fill="#8b968d">From our rehearsal: an October batch</text>
+<text class="t" x="112.0" y="650" font-size="60" font-weight="500" letter-spacing="-1" fill="#eef3ec">80</text>
+<text class="t" x="112.0" y="686" font-size="20" fill="#8b968d"><tspan x="112.0" dy="0">calls in the batch</tspan></text>
+<line x1="368.0" y1="600" x2="368.0" y2="708" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="400.0" y="650" font-size="60" font-weight="500" letter-spacing="-1" fill="#eef3ec">56</text>
+<text class="t" x="400.0" y="686" font-size="20" fill="#8b968d"><tspan x="400.0" dy="0">escalated by the</tspan><tspan x="400.0" dy="26">untrained reviewer</tspan></text>
+<line x1="656.0" y1="600" x2="656.0" y2="708" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="688.0" y="650" font-size="60" font-weight="500" letter-spacing="-1" fill="#7CFF4F">1</text>
+<text class="t" x="688.0" y="686" font-size="20" fill="#8b968d"><tspan x="688.0" dy="0">correction by the analyst,</tspan><tspan x="688.0" dy="26">rule written in 9 s</tspan></text>
+<line x1="944.0" y1="600" x2="944.0" y2="708" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="976.0" y="650" font-size="60" font-weight="500" letter-spacing="-1" fill="#eef3ec">50</text>
+<text class="t" x="976.0" y="686" font-size="20" fill="#8b968d"><tspan x="976.0" dy="0">escalated after</tspan><tspan x="976.0" dy="26">re-marking</tspan></text>
+<line x1="1232.0" y1="600" x2="1232.0" y2="708" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="1264.0" y="650" font-size="60" font-weight="500" letter-spacing="-1" fill="#7CFF4F"><tspan font-size="24" fill="#8b968d" font-weight="400">about </tspan>2 min</text>
+<text class="t" x="1264.0" y="686" font-size="20" fill="#8b968d"><tspan x="1264.0" dy="0">to re-mark the</tspan><tspan x="1264.0" dy="26">whole month</tspan></text>
+<line x1="112" y1="734" x2="1488" y2="734" stroke="rgba(255,255,255,0.10)" stroke-width="1.5"/>
+<text class="t" x="112" y="772" font-size="20" fill="#8b968d">The one correction: <tspan fill="#eef3ec">"any fee the bank charges can never be refunded"</tspan> is information, not a promised outcome.</text>
+<g transform="translate(1382,850)">
+<circle cx="11" cy="-7" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="27" cy="-7" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+<text class="t" x="48" y="0" font-size="20" font-weight="600" fill="#eef3ec">RE<tspan fill="#7CFF4F">DRESS</tspan></text>
+</g>
+</svg>

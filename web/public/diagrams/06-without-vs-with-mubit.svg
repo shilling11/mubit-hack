@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect x="0" y="0" width="1600" height="900" fill="#050906"/>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+      .t{font-family:'Inter Tight',sans-serif}
+      .m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+    </style>
+    <radialGradient id="glow" cx="70%" cy="60%" r="60%">
+      <stop offset="0%" stop-color="#0f1d11"/>
+      <stop offset="100%" stop-color="#050906"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#glow)"/>
+
+  <!-- header -->
+  <text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ CONFIGURED VS TRAINED ]</text>
+  <text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">Today's AI QA is configured.<tspan fill="#8b968d"> Redress is trained.</tspan></text>
+
+  <!-- cards -->
+  <rect x="360" y="240" width="565" height="565" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <rect x="955" y="240" width="565" height="565" rx="18" fill="rgba(124,255,79,0.035)" stroke="#7CFF4F" stroke-opacity="0.6"/>
+
+  <!-- card headers -->
+  <circle cx="392" cy="283" r="6" fill="#ff7a6b"/>
+  <text class="m" x="410" y="290" font-size="20" fill="#8b968d">Without Mubit</text>
+  <circle cx="987" cy="283" r="6" fill="#7CFF4F"/>
+  <text class="m" x="1005" y="290" font-size="20" fill="#7CFF4F">With Mubit</text>
+
+  <!-- row dividers -->
+  <g stroke="rgba(255,255,255,0.08)" stroke-width="1">
+    <line x1="80" y1="320" x2="1520" y2="320"/>
+    <line x1="80" y1="417" x2="1520" y2="417"/>
+    <line x1="80" y1="514" x2="1520" y2="514"/>
+    <line x1="80" y1="611" x2="1520" y2="611"/>
+    <line x1="80" y1="708" x2="1520" y2="708"/>
+  </g>
+
+  <!-- row labels -->
+  <g class="m" font-size="18" fill="#8b968d">
+    <text x="80" y="375" class="m">Who teaches it</text>
+    <text x="80" y="461" class="m">What a<tspan x="80" dy="26">disagreement does</tspan></text>
+    <text x="80" y="558" class="m">One model<tspan x="80" dy="26">or many</tspan></text>
+    <text x="80" y="655" class="m">Cost of checking<tspan x="80" dy="26">every call</tspan></text>
+    <text x="80" y="763" class="m">Trust</text>
+  </g>
+
+  <!-- left column: without Mubit -->
+  <g class="t">
+    <text class="t" x="392" y="361" font-size="24" fill="#eef3ec">Someone rewrites the prompt</text>
+    <text class="t" x="392" y="391" font-size="19" fill="#8b968d">guidelines and rules for a rented model</text>
+
+    <text class="t" x="392" y="458" font-size="24" fill="#eef3ec">A prompt rewrite</text>
+    <text class="t" x="392" y="488" font-size="19" fill="#ff7a6b">the model itself never learns</text>
+
+    <text class="t" x="392" y="555" font-size="24" fill="#eef3ec">One rented model for everyone</text>
+    <text class="t" x="392" y="585" font-size="19" fill="#8b968d">the same big model for every client</text>
+
+    <text class="t" x="392" y="652" font-size="24" fill="#eef3ec">Big-model price on every call</text>
+    <text class="t" x="392" y="682" font-size="19" fill="#ff7a6b">so checking 100% is expensive</text>
+
+    <text class="t" x="392" y="764" font-size="24" fill="#eef3ec">Changes go in untested</text>
+  </g>
+
+  <!-- right column: with Mubit -->
+  <g class="t">
+    <text class="t" x="987" y="361" font-size="24" fill="#eef3ec">Your analysts, every day</text>
+    <text class="t" x="987" y="391" font-size="19" fill="#8b968d">the people who already check the calls</text>
+
+    <text class="t" x="987" y="458" font-size="24" fill="#eef3ec">Training data</text>
+    <text class="t" x="987" y="488" font-size="19" fill="#7CFF4F">every correction is a training example</text>
+
+    <text class="t" x="987" y="555" font-size="24" fill="#eef3ec">One model per bank</text>
+    <text class="t" x="987" y="585" font-size="19" fill="#8b968d">trained only on its own calls</text>
+
+    <text class="t" x="987" y="652" font-size="24" fill="#eef3ec">A small model you own</text>
+    <text class="t" x="987" y="682" font-size="19" fill="#7CFF4F">so scoring 100% is affordable</text>
+
+    <text class="t" x="987" y="764" font-size="24" fill="#eef3ec">Versions tested before use</text>
+  </g>
+
+  <!-- logo -->
+  <g transform="translate(1380,856)">
+    <circle cx="0" cy="-7" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="16" cy="-7" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+    <text class="t" x="38" y="0" font-size="20" font-weight="600"><tspan fill="#eef3ec">RE</tspan><tspan fill="#7CFF4F">DRESS</tspan></text>
+  </g>
+</svg>

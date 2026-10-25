@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redress diagrams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #050906; --text: #eef3ec; --mute: #8b968d; --lime: #7cff4f; --line: rgba(255,255,255,.08); }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.5 "Inter Tight", system-ui, sans-serif; padding: 48px clamp(16px, 4vw, 56px) 80px; }
+  .lab { font: 12px "JetBrains Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--lime); }
+  h1 { font-weight: 400; font-size: clamp(32px, 4vw, 52px); letter-spacing: -.03em; margin: 10px 0 8px; }
+  p.sub { color: var(--mute); max-width: 70ch; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 22px; margin-top: 36px; }
+  .card { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: rgba(255,255,255,.03); }
+  .card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0a120b; cursor: zoom-in; }
+  .meta { padding: 14px 18px 16px; display: grid; gap: 4px; }
+  .meta b { font-weight: 500; font-size: 16px; }
+  .meta span { color: var(--mute); font-size: 13.5px; }
+  .meta a { color: var(--lime); font: 12px "JetBrains Mono", monospace; text-decoration: none; margin-right: 14px; }
+  dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; }
+  dialog img { width: min(96vw, 1600px); border-radius: 12px; }
+  dialog::backdrop { background: rgba(0,0,0,.85); }
+</style>
+</head>
+<body>
+  <div class="lab">[ Redress · pitch diagrams ]</div>
+  <h1>Pick the ones that help the story</h1>
+  <p class="sub">1600 × 900, the product's colours. Click a picture to see it full size. PNG for slides and the video, SVG if you want to edit the words.</p>
+  <div class="grid" id="grid"></div>
+  <dialog id="zoom"><img alt=""></dialog>
+<script>
+  const D = [
+    ["01-problem-one-in-twenty", "The problem: 1 call in 20", "Opening, right after Ellen's story"],
+    ["02-how-it-works", "How it works, call to scorecard", "The 'how it works' beat on Home"],
+    ["03-qa-month", "The QA month: check a few, Redress does the rest", "Before or after the Batch page"],
+    ["04-routing", "Who sees what: the four lanes", "Explaining Escalate / Analyst / Audit / Auto"],
+    ["05-why-mubit-loop", "Why Mubit: every correction makes it better", "The Mubit beat, the judges' main criterion"],
+    ["06-without-vs-with-mubit", "Configured vs trained", "Answering 'AI QA already exists'"],
+    ["07-one-model-per-bank", "One model per bank", "Answering 'why Mubit' and data separation"],
+    ["08-why-small-model", "100% coverage needs a small model", "The money argument"],
+    ["09-demo-call-architecture", "The live call, technically", "Technical judges, README"],
+    ["10-system-architecture", "What runs where", "Technical judges, README"],
+    ["11-privacy-redaction", "The AI never sees who the customer is", "Answering 'is this safe / real data?'"],
+    ["12-evidence-scorecard", "Every answer points to the second it was said", "The hero moment, evaluation form"],
+    ["13-two-channels", "Speaker labels from the channel", "Technical detail, optional"],
+  ];
+  const grid = document.getElementById("grid"), zoom = document.getElementById("zoom");
+  for (const [f, title, use] of D) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<img src="${f}.png?v=${Date.now()}" alt="${title}">
+      <div class="meta"><b>${title}</b><span>Use for: ${use}</span>
+      <div><a href="${f}.png" download>PNG</a><a href="${f}.svg" target="_blank">SVG</a></div></div>`;
+    const img = card.querySelector("img");
+    img.onerror = () => card.remove();  // not drawn (yet)
+    img.onclick = () => { zoom.querySelector("img").src = img.src; zoom.showModal(); };
+    grid.appendChild(card);
+  }
+  zoom.onclick = () => zoom.close();
+</script>
+</body>
+</html>

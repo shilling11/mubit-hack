@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect x="0" y="0" width="1600" height="900" fill="#050906"/>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+      .t{font-family:'Inter Tight',sans-serif}
+      .m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+    </style>
+    <radialGradient id="glow" cx="50%" cy="58%" r="55%">
+      <stop offset="0%" stop-color="#0f1d11"/>
+      <stop offset="100%" stop-color="#050906"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7CFF4F" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#7CFF4F" stop-opacity="0.02"/>
+    </radialGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b968d"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#glow)"/>
+
+  <!-- header -->
+  <text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ WHY MUBIT ]</text>
+  <text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">Every correction makes it better.</text>
+  <text class="t" x="80" y="210" font-size="22" fill="#8b968d">One fix from an analyst becomes a rule straight away, and training data for that bank's own model.</text>
+
+  <!-- loop arrows -->
+  <g fill="none" stroke="#8b968d" stroke-width="2.5" marker-end="url(#ah)">
+    <path d="M 988 318 Q 1250 318 1250 402"/>
+    <path d="M 1300 536 Q 1300 712 1255 712"/>
+    <path d="M 877 712 Q 800 742 725 712"/>
+    <path d="M 347 712 Q 300 712 300 538"/>
+    <path d="M 350 404 Q 350 318 610 318"/>
+  </g>
+
+  <!-- centre: Mubit -->
+  <circle cx="800" cy="530" r="92" fill="url(#core)" stroke="#7CFF4F" stroke-width="2.5"/>
+  <text class="m" x="800" y="514" font-size="24" font-weight="500" fill="#7CFF4F" text-anchor="middle">MUBIT</text>
+  <text class="t" x="800" y="550" font-size="19" fill="#eef3ec" text-anchor="middle">records, groups</text>
+  <text class="t" x="800" y="575" font-size="19" fill="#eef3ec" text-anchor="middle">and trains</text>
+
+  <!-- node 1: top -->
+  <rect x="620" y="260" width="360" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <text class="m" x="644" y="294" font-size="18" fill="#7CFF4F">01</text>
+  <text class="t" x="644" y="330" font-size="25" font-weight="500" fill="#eef3ec">Analyst corrects one item</text>
+  <text class="t" x="644" y="358" font-size="20" fill="#8b968d">with a one-line reason</text>
+
+  <!-- node 2: right -->
+  <rect x="1070" y="412" width="360" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <text class="m" x="1094" y="446" font-size="18" fill="#7CFF4F">02</text>
+  <text class="t" x="1094" y="482" font-size="25" font-weight="500" fill="#eef3ec">A rule, straight away</text>
+  <text class="t" x="1094" y="510" font-size="20" fill="#8b968d">the next call uses it</text>
+
+  <!-- node 3: bottom right -->
+  <rect x="885" y="654" width="360" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="#7CFF4F" stroke-opacity="0.6"/>
+  <text class="m" x="909" y="688" font-size="18" fill="#7CFF4F">03</text>
+  <text class="t" x="909" y="724" font-size="25" font-weight="500" fill="#eef3ec">A training example</text>
+  <text class="t" x="909" y="752" font-size="20" fill="#8b968d">recorded through Mubit</text>
+
+  <!-- node 4: bottom left -->
+  <rect x="355" y="654" width="360" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="#7CFF4F" stroke-opacity="0.6"/>
+  <text class="m" x="379" y="688" font-size="18" fill="#7CFF4F">04</text>
+  <text class="t" x="379" y="724" font-size="25" font-weight="500" fill="#eef3ec">The bank's own model</text>
+  <text class="t" x="379" y="752" font-size="20" fill="#8b968d">an adapter, tested before use</text>
+
+  <!-- node 5: left -->
+  <rect x="170" y="412" width="360" height="116" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <text class="m" x="194" y="446" font-size="18" fill="#7CFF4F">05</text>
+  <text class="t" x="194" y="482" font-size="25" font-weight="500" fill="#eef3ec">Better first answers</text>
+  <text class="t" x="194" y="510" font-size="20" fill="#8b968d">fewer corrections needed</text>
+
+  <!-- footnote -->
+  <text class="m" x="80" y="850" font-size="18" fill="#7CFF4F">From our rehearsal</text>
+  <text class="t" x="330" y="850" font-size="20" fill="#8b968d">one correction became a rule in 9 s; re-marking the month with it cut escalations from 56 to 50.</text>
+
+  <!-- logo -->
+  <g transform="translate(1380,850)">
+    <circle cx="0" cy="-7" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="16" cy="-7" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+    <text class="t" x="38" y="0" font-size="20" font-weight="600"><tspan fill="#eef3ec">RE</tspan><tspan fill="#7CFF4F">DRESS</tspan></text>
+  </g>
+</svg>

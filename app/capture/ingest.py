@@ -2,6 +2,7 @@
 import re
 import time
 import uuid
+import wave
 
 from app import db
 from app.config import AUDIO_DIR
@@ -71,8 +72,24 @@ def save_recording(audio: bytes, mimetype: str, agent_name: str = "", customer_n
     return call_id
 
 
+def is_stereo(path: str) -> bool:
+    """A two-channel recording, like a phone-line call saved earlier and uploaded again."""
+    try:
+        if path.lower().endswith(".wav"):
+            with wave.open(path) as w:
+                return w.getnchannels() == 2
+        with open(path, "rb") as f:
+            head = f.read(65536)
+        i = head.find(b"OpusHead")  # WebM/Ogg Opus: the channel count is the byte after the version
+        return i >= 0 and head[i + 9] == 2
+    except (OSError, wave.Error, EOFError, IndexError):
+        return False
+
+
 def transcribe_call(call_id: str, mimetype: str, *, two_channel: bool = False) -> None:
     call = db.one("SELECT * FROM calls WHERE id = ?", (call_id,))
+    # Our phone-line recordings are stereo, customer left and colleague right, even when uploaded as a file
+    two_channel = two_channel or is_stereo(call["audio_path"])
     audio = open(call["audio_path"], "rb").read()
     result = stt.transcribe(audio, mimetype, multichannel=two_channel)
     if not result["utterances"]:

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect x="0" y="0" width="1600" height="900" fill="#050906"/>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+      .t{font-family:'Inter Tight',sans-serif}
+      .m{font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+    </style>
+    <radialGradient id="glow" cx="45%" cy="65%" r="55%">
+      <stop offset="0%" stop-color="#0f1d11"/>
+      <stop offset="100%" stop-color="#050906"/>
+    </radialGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5d685f"/>
+    </marker>
+    <marker id="ahl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7CFF4F"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#glow)"/>
+
+  <!-- header -->
+  <text class="m" x="80" y="90" font-size="18" fill="#7CFF4F">[ 100% COVERAGE ]</text>
+  <text class="t" x="80" y="165" font-size="56" font-weight="400" letter-spacing="-1.5" fill="#eef3ec">Checking every call only pays on a small model.</text>
+  <text class="t" x="80" y="210" font-size="22" fill="#8b968d">Running every long call through a big model costs real money. That is why specialist QA vendors build small models.</text>
+
+  <!-- left: coverage -->
+  <text class="m" x="80" y="296" font-size="18" fill="#8b968d">Share of calls checked</text>
+
+  <text class="t" x="80" y="372" font-size="26" fill="#eef3ec">Checked today: <tspan fill="#8b968d">about 5%</tspan></text>
+  <rect x="80" y="392" width="660" height="48" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="80" y="392" width="33" height="48" rx="10" fill="#8b968d"/>
+  <text class="t" x="80" y="474" font-size="19" fill="#8b968d">the rest go unchecked</text>
+
+  <text class="t" x="80" y="632" font-size="26" fill="#eef3ec">Scored with Redress: <tspan fill="#7CFF4F">100%</tspan></text>
+  <rect x="80" y="652" width="660" height="48" rx="10" fill="#7CFF4F"/>
+  <text class="t" x="80" y="734" font-size="19" fill="#8b968d">every regulated call, against the bank's scorecard</text>
+
+  <!-- connectors -->
+  <path d="M 752 416 L 806 416" fill="none" stroke="#5d685f" stroke-width="2.5" marker-end="url(#ah)"/>
+  <path d="M 752 676 L 806 676" fill="none" stroke="#7CFF4F" stroke-width="2.5" marker-end="url(#ahl)"/>
+
+  <!-- right: card A -->
+  <rect x="820" y="290" width="700" height="230" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <text class="m" x="852" y="334" font-size="18" fill="#8b968d">Today</text>
+  <text class="t" x="852" y="384" font-size="30" font-weight="500" fill="#eef3ec">A big rented model on every call</text>
+  <text class="t" x="852" y="428" font-size="21" fill="#8b968d">Costly per call, so teams only sample.</text>
+  <circle cx="860" cy="473" r="5" fill="#ff7a6b"/>
+  <text class="t" x="876" y="480" font-size="21" fill="#ff7a6b">Most calls are never checked.</text>
+
+  <!-- right: card B -->
+  <rect x="820" y="550" width="700" height="250" rx="18" fill="rgba(124,255,79,0.035)" stroke="#7CFF4F" stroke-opacity="0.6"/>
+  <text class="m" x="852" y="594" font-size="18" fill="#7CFF4F">Redress with Mubit</text>
+  <text class="t" x="852" y="644" font-size="30" font-weight="500" fill="#eef3ec">The bank's own small model</text>
+  <text class="t" x="852" y="686" font-size="21" fill="#8b968d">Trained through Mubit on its analysts' corrections.</text>
+  <circle cx="860" cy="726" r="5" fill="#7CFF4F"/>
+  <text class="t" x="876" y="733" font-size="21" fill="#eef3ec">Cheap enough to score every call.</text>
+  <circle cx="860" cy="764" r="5" fill="#7CFF4F"/>
+  <text class="t" x="876" y="771" font-size="21" fill="#eef3ec">No ML team needed.</text>
+
+  <!-- logo -->
+  <g transform="translate(1380,856)">
+    <circle cx="0" cy="-7" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="16" cy="-7" r="11" fill="none" stroke="#7CFF4F" stroke-width="3"/>
+    <text class="t" x="38" y="0" font-size="20" font-weight="600"><tspan fill="#eef3ec">RE</tspan><tspan fill="#7CFF4F">DRESS</tspan></text>
+  </g>
+</svg>
