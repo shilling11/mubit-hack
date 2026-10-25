@@ -202,7 +202,7 @@ Base (v0) and held-out calls are sent with record=metadata → never training da
 
 | | Demo setup | Fidelity | Speaker labels |
 |---|---|---|---|
-| **A (recommended)** | Two people on two laptops (or a laptop and a phone browser) in a **call room** (LiveKit, WebRTC). Redress joins as a silent recorder and records **each track separately** | Best: each voice on its own clean track, headsets recommended | Exact, from the track |
+| **A (recommended, built, free)** | Two phones on a **LiveKit** call (free Build plan). The laptop opens the line on the Live call page; Ellen's phone opens `https://redress-three.vercel.app/call/customer` and rings, Sam's opens `/call/agent` and answers (Vercel gives the phones HTTPS, which the mic needs). The laptop joins the room and records **one stereo file, Ellen left and Sam right**; hang-up uploads it ([web/lib/line-server.ts](web/lib/line-server.ts), [web/lib/line.ts](web/lib/line.ts)) | Good: each phone's own mic, one clean channel per speaker. Phones to the ear, a few metres apart | Exact, from the channel |
 | **B** (what we use) | An ordinary phone call on **speaker next to the laptop mic**; the caller stays out of the mic's range | Lower: one mixed track, room noise | Deepgram diarisation (turns split at 0.5s pauses) + **Swap speakers**, or click one line's speaker label to flip just that line, then **Re-score** |
 | **Fallback** | A pre-recorded file of the same script, uploaded | Same as recorded | As recorded |
 
@@ -358,8 +358,8 @@ Styled after Abdul's HTML references in `design/`: the corridor background with 
 | Layer | Choice | Notes |
 |---|---|---|
 | LLM gateway | **Mubit**, OpenAI SDK, one base URL | `review.call`, `rule.induce`; strict JSON; one fixed model |
-| Speech-to-text | **Deepgram** pre-recorded (+ optional streaming captions) | Timestamps, confidence, diarisation for setup B |
-| Call room (demo setup A) | **LiveKit** (Cloud free tier), WebRTC | A silent recorder participant records each track. `TODO(verify)`: LiveKit Agents API for a non-publishing participant and track recording |
+| Speech-to-text | **Deepgram** pre-recorded (+ optional streaming captions) | Timestamps, confidence; multichannel for setup A, diarisation for setup B |
+| Phone line (demo setup A) | **LiveKit** Cloud (free Build plan): `livekit-client` in the browser, `livekit-server-sdk` in two Next route handlers (`app/api/line`) | The line's state is who is in the LiveKit room, so the phone pages run on Vercel with no link to the laptop. Only the laptop's local server issues the listening token. The laptop mixes the two remote tracks into stereo with Web Audio and `MediaRecorder` (no egress, no agents) |
 | Backend | Python 3.11, FastAPI, Pydantic, SQLite, httpx | Single laptop; polled by the UI |
 | Frontend | Next.js 16.4.3, React 19, Tailwind 4 | Styled after `design/` (dark, lime accent, Inter Tight, animated background) |
 
@@ -373,7 +373,7 @@ mubit-hack/
 │   ├── llm/mubit_client.py       # ONLY model gateway (pattern in §3.6)
 │   ├── llm/prompts/              # review_call.md, rule_induce.md (frozen early)
 │   ├── llm/schemas/              # call_review.json (strict)
-│   ├── capture/                  # upload, LiveKit recorder hook, Deepgram transcription, speaker labelling
+│   ├── capture/                  # upload, Deepgram transcription (multichannel for the phone line), speaker labelling
 │   ├── privacy/redact.py         # PII scrubbing
 │   ├── review/                   # spec.py (user message, evidence check, score), route.py (§4.5), safety_net.py
 │   ├── learning/                 # corrections.py, playbook.py, test_on_archive.py

@@ -186,6 +186,15 @@ export interface Run {
   created_at: number;
 }
 
+/** The phone line (lib/line-server.ts): closed → waiting (laptop listening) → calling (Ellen rang) → connected */
+export interface Line {
+  state: "closed" | "waiting" | "calling" | "connected";
+  room?: string;
+  url?: string;
+  token?: string;
+  error?: string;
+}
+
 export interface Trace {
   id: number;
   ts: number;
@@ -203,8 +212,8 @@ export interface Trace {
   error: string | null;
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${API}${path}`, {
+async function request<T>(path: string, init?: RequestInit, base = API): Promise<T> {
+  const res = await fetch(`${base}${path}`, {
     ...init,
     headers: init?.body && !(init.body instanceof FormData) ? { "Content-Type": "application/json" } : undefined,
   });
@@ -229,11 +238,12 @@ export const api = {
   queue: () => request<QueueRow[]>("/api/queue"),
   call: (id: string) => request<Call>(`/api/calls/${id}`),
   audioUrl: (id: string) => `${API}/api/calls/${id}/audio`,
-  upload: (audio: Blob, filename: string, agentName: string, customerName = "") => {
+  upload: (audio: Blob, filename: string, agentName: string, customerName = "", twoChannel = false) => {
     const fd = new FormData();
     fd.append("audio", audio, filename);
     fd.append("agent_name", agentName);
     fd.append("customer_name", customerName);
+    fd.append("two_channel", String(twoChannel));
     return request<{ call_id: string }>("/api/calls", { method: "POST", body: fd });
   },
   loadScript: (id: string) => post<{ call_id: string }>(`/api/demo/scripts/${id}`),
@@ -256,7 +266,14 @@ export const api = {
   reset: () => post<{ cleared_live_calls: number }>("/api/demo/reset"),
 };
 
-export const pct = (v: number | null | undefined, d = 0) => (v == null ? "—" : `${(v * 100).toFixed(d)}%`);
+/** The phone line: this web app's own route handlers (app/api/line), so it works for phones on Vercel too. */
+export const lineApi = {
+  line: () => request<Line>("/api/line", undefined, ""),
+  join: (role: "customer" | "agent" | "recorder") =>
+    request<Line>("/api/line/join", { method: "POST", body: JSON.stringify({ role }) }, ""),
+};
+
+export const pct =(v: number | null | undefined, d = 0) => (v == null ? "—" : `${(v * 100).toFixed(d)}%`);
 export const secs = (ms: number | null | undefined) => (ms == null ? "—" : `${(ms / 1000).toFixed(1)}s`);
 export const ts = (s: number) => {
   const m = Math.floor(s / 60);

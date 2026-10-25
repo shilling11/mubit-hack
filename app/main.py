@@ -103,10 +103,12 @@ def _call_view(call_id: str) -> dict:
     }
 
 
-def _process_upload(call_id: str, mimetype: str) -> None:
+def _process_upload(call_id: str, mimetype: str, two_channel: bool = False) -> None:
     try:
-        ingest.transcribe_call(call_id, mimetype)
-        service.review_call(call_id)
+        ingest.transcribe_call(call_id, mimetype, two_channel=two_channel)
+        review = service.review_call(call_id)
+        if review.get("error"):  # the transcript is stored; say why there's no scorecard instead of waiting forever
+            db.update("calls", {"id": call_id}, {"status": "failed", "error": f"Transcribed, but not scored: {review['error']}"[:500]})
     except (stt.STTError, MubitError, ValueError) as exc:
         db.update("calls", {"id": call_id}, {"status": "failed", "error": str(exc)[:500]})
 
@@ -142,13 +144,15 @@ def get_scorecard():
 
 # ── Calls ────────────────────────────────────────────────────────────────────
 @app.post("/api/calls")
-async def upload_call(audio: UploadFile = File(...), agent_name: str = Form(""), customer_name: str = Form("")):
+async def upload_call(audio: UploadFile = File(...), agent_name: str = Form(""), customer_name: str = Form(""),
+                      two_channel: bool = Form(False)):
+    """two_channel: a stereo recording with the customer on the left and the colleague on the right."""
     data = await audio.read()
     if not data:
         raise HTTPException(400, "empty recording")
     mimetype = audio.content_type or "audio/webm"
     call_id = ingest.save_recording(data, mimetype, agent_name, customer_name)
-    _work.submit(_process_upload, call_id, mimetype)
+    _work.submit(_process_upload, call_id, mimetype, two_channel)
     return {"call_id": call_id}
 
 

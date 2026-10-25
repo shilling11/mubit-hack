@@ -5,7 +5,7 @@ import uuid
 
 from app import db
 from app.config import AUDIO_DIR
-from app.capture import stt
+from app.capture import stt, tidy
 from app.privacy import audio as audio_privacy
 from app.privacy.redact import redact
 
@@ -71,14 +71,19 @@ def save_recording(audio: bytes, mimetype: str, agent_name: str = "", customer_n
     return call_id
 
 
-def transcribe_call(call_id: str, mimetype: str) -> None:
+def transcribe_call(call_id: str, mimetype: str, *, two_channel: bool = False) -> None:
     call = db.one("SELECT * FROM calls WHERE id = ?", (call_id,))
     audio = open(call["audio_path"], "rb").read()
-    result = stt.transcribe(audio, mimetype)
+    result = stt.transcribe(audio, mimetype, multichannel=two_channel)
     if not result["utterances"]:
         raise stt.STTError("no speech found in the recording")
-    agent = agent_speaker(result["utterances"])
-    utts = [{**u, "speaker": "agent" if u["speaker"] == agent else "customer"} for u in result["utterances"]]
+    if two_channel:
+        # Phone calls (web/lib/line.ts): the customer is the left channel (0), the colleague the right (1)
+        utts = [{**u, "speaker": "agent" if u["channel"] == 1 else "customer"} for u in tidy.drop_echo(result["utterances"])]
+    else:
+        agent = agent_speaker(result["utterances"])
+        utts = [{**u, "speaker": "agent" if u["speaker"] == agent else "customer"} for u in result["utterances"]]
+    utts = [{**u, "text": tidy.dates(u["text"])} for u in tidy.merge_turns(utts)]
     store_utterances(call_id, utts)
     # Silence the redacted words (DOB, card, name, address…) in the stored recording
     # (-1 means the upload isn't WAV, so its audio couldn't be edited)
