@@ -63,9 +63,9 @@ The laptop must use **localhost**, not the Vercel site: only the laptop can open
 
 | Time | Page | Do | Say (gist) |
 |---|---|---|---|
-| 0:00 | Home, top | — | "Ellen Hart spent two weeks in hospital… Banks hear one call in twenty." |
+| 0:00 | Home, top | - | "Ellen Hart spent two weeks in hospital… Banks hear one call in twenty." |
 | 0:20 | Home, how it works | Scroll the steps | One line per step. "It'll make sense in a minute." |
-| 0:40 | **Live call** | Colleague "Sam", Customer "Ellen Hart" → **Open the line** → Sultan taps **Call Thistle Bank** → Abdul taps **Answer** → the 30-second script → **End call** | — |
+| 0:40 | **Live call** | **Open the line** → Sultan taps **Call Thistle Bank** → Abdul taps **Answer** → the 30-second script → **End call** | - |
 | ~1:15 | Live call | Scorecard appears: **FAIL · C1, C2, C3** | Hold 3 seconds. Say nothing |
 | 1:20 | **Evaluation form** (Open the evaluation form →) | Click ▶ on the C2 quote: Sultan's voice, "I was in hospital for two weeks" → **Submit** with no changes | "Every finding points to the second she said it." The AI is right here, so Priya just confirms |
 | 1:40 | **Batch** (See it in this month's batch →) | Ellen's call is first in "check these first", tagged *just taken* | "That call is one of 81 Thistle sent this month. Redress escalated 55." |
