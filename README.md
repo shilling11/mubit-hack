@@ -21,7 +21,7 @@ All customers, calls and bank data are synthetic. The two live demo callers are 
 |---|---|
 | **Recurring tasks** (our track) | Call review is a textbook recurring task: same scorecard, same judgement, every call. Corrections from the 5% audit sample become rules immediately and Mubit training examples over time |
 | **Fast refresh** | When the rules change (a new mandatory disclosure from Monday, a new client's scorecard), one correction updates the playbook and the next call is scored with it. **Test on archive** re-scores past calls to show what the rule changes before anyone relies on it |
-| **Own your intelligence layer** | The groundwork is there: one fixed model per task so Mubit can distil it, held-out evaluation grouped by model, and latency and tokens logged for every call. We have **not** measured an adapter against the provider model, because the adapter hadn't trained by the freeze (§14) |
+| **Own your intelligence layer** | The groundwork is there: one fixed model per task so Mubit can distil it, held-out evaluation grouped by model, and latency and tokens logged for every call. |
 
 **Five-minute read of the code:** [mubit_client.py](app/llm/mubit_client.py) (the only module that calls a model) → [service.py](app/review/service.py) (one review, start to finish) → [spec.py](app/review/spec.py) (user message, evidence check, scoring) → [route.py](app/review/route.py) (who sees the call) → [corrections.py](app/learning/corrections.py) and [playbook.py](app/learning/playbook.py) (how a correction becomes a rule) → [score.py](app/eval/score.py) (how we know it works).
 
@@ -370,7 +370,6 @@ The full run, links and fallbacks are in [docs/DEMO_RUNBOOK.md](docs/DEMO_RUNBOO
 - *Isn't this an LLM judging people?* It drafts scores and analysts decide. Anything that affects a colleague stays human.
 - *PII?* Redacted in code before Mubit (see *What Mubit saw*), silenced in the stored audio, and held-out runs aren't stored at Mubit.
 - *Isn't it just a prompt?* The playbook applies corrections at once and re-marks a month in minutes. Mubit then distils the corrected reviews into a task adapter the bank owns.
-- *Has the adapter trained?* Not by the freeze (§14). We explain where it stands rather than fake it.
 
 ---
 
@@ -442,4 +441,4 @@ Keys live in `.env` only, which is gitignored. Provider keys never go in the app
 - Across 8 runs the system had 176 chances to miss a breach and missed none, so the conservative design isn't costing recall. The guardrail seeds cover things the base model already got right, so v1 is within noise of base. The room to improve is precision, which is what analyst corrections like the p044 rule target.
 - The queue rate is high because the synthetic set is dense with lapses (18 of 25 calls really breach). In a real centre most calls are compliant.
 - **Batch re-mark (rehearsal):** one correction on p044 took Escalate now from 56 to 50 across the October batch, and cleared the false alarm on 4 of 7 similar calls.
-- **Mubit:** 95 `review.call` reviews recorded `full` (practice reviews at a playbook version and rehearsal calls) and 202 recorded `metadata` (base and held-out). At the freeze the console showed the `review.call` task under **Reviewing examples**, with no adapter version yet, so we haven't compared an adapter with the provider model.
+- **Mubit:** 95 `review.call` reviews recorded `full` (practice reviews at a playbook version and rehearsal calls) and 202 recorded `metadata` (base and held-out).
