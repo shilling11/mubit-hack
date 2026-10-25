@@ -71,6 +71,7 @@ export interface Review {
 }
 
 export interface Utterance {
+  idx: number;
   speaker: "agent" | "customer";
   text: string;
   raw: string;
@@ -97,6 +98,8 @@ export interface Call {
   audio_path: string | null;
   duration_s: number | null;
   stt_confidence: number | null;
+  customer_name?: string | null;
+  audio_muted?: number | null;
   status: string;
   error: string | null;
   created_at: number;
@@ -226,16 +229,18 @@ export const api = {
   queue: () => request<QueueRow[]>("/api/queue"),
   call: (id: string) => request<Call>(`/api/calls/${id}`),
   audioUrl: (id: string) => `${API}/api/calls/${id}/audio`,
-  upload: (audio: Blob, filename: string, agentName: string) => {
+  upload: (audio: Blob, filename: string, agentName: string, customerName = "") => {
     const fd = new FormData();
     fd.append("audio", audio, filename);
     fd.append("agent_name", agentName);
+    fd.append("customer_name", customerName);
     return request<{ call_id: string }>("/api/calls", { method: "POST", body: fd });
   },
   loadScript: (id: string) => post<{ call_id: string }>(`/api/demo/scripts/${id}`),
   rereview: (id: string, version?: number) =>
     post<Review>(`/api/calls/${id}/review${version === undefined ? "" : `?playbook_version=${version}`}`),
   swap: (id: string) => post<{ swapped: boolean }>(`/api/calls/${id}/swap-speakers`),
+  flip: (id: string, idx: number) => post<{ idx: number; speaker: "agent" | "customer" }>(`/api/calls/${id}/utterances/${idx}/flip`),
   evaluate: (id: string, body: { review_id: number; items: { id: string; answer: Answer; reason: string }[]; comments?: string }) =>
     post<{ corrections: Correction[]; playbook_version: number; rules: Rule[] }>(`/api/calls/${id}/evaluation`, { analyst: "analyst", ...body }),
   learning: () => request<Learning>("/api/learning"),

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnswerTag, QueueTag, SectionHead, Spinner } from "@/components/bits";
 import { Glass, Glyph } from "@/components/fx";
 import { api, secs, ts, type Call } from "@/lib/api";
+import { WavRecorder } from "@/lib/wav";
 
 type Phase = "idle" | "recording" | "uploading" | "processing" | "scored" | "failed";
 
@@ -14,14 +15,13 @@ export default function LiveCall() {
   const [elapsed, setElapsed] = useState(0);
   const [level, setLevel] = useState(0);
   const [agent, setAgent] = useState("Sam");
+  const [customer, setCustomer] = useState("Ellen Hart");
   const [callId, setCallId] = useState<string | null>(null);
   const [call, setCall] = useState<Call | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [scoredIn, setScoredIn] = useState<number | null>(null);
-  const rec = useRef<MediaRecorder | null>(null);
-  const chunks = useRef<Blob[]>([]);
+  const rec = useRef<WavRecorder | null>(null);
   const stream = useRef<MediaStream | null>(null);
-  const audioCtx = useRef<AudioContext | null>(null);
   const started = useRef(0);
   const stoppedAt = useRef(0);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -58,8 +58,7 @@ export default function LiveCall() {
 
   function stopTracks() {
     stream.current?.getTracks().forEach((t) => t.stop());
-    audioCtx.current?.close().catch(() => {});
-    audioCtx.current = null;
+    stream.current = null;
   }
 
   async function start() {
@@ -68,23 +67,13 @@ export default function LiveCall() {
     try {
       const s = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true } });
       stream.current = s;
-      const mime = MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? "audio/webm;codecs=opus" : "";
-      const r = new MediaRecorder(s, mime ? { mimeType: mime } : undefined);
-      chunks.current = [];
-      r.ondataavailable = (e) => e.data.size && chunks.current.push(e.data);
-      r.onstop = () => upload(new Blob(chunks.current, { type: "audio/webm" }), "call.webm");
-      r.start(1000);
+      const r = new WavRecorder(s);
       rec.current = r;
-      // level meter
-      const ctx = new AudioContext();
-      const an = ctx.createAnalyser();
-      an.fftSize = 512;
-      ctx.createMediaStreamSource(s).connect(an);
-      audioCtx.current = ctx;
-      const buf = new Uint8Array(an.fftSize);
+      // level meter (drives the pixel equaliser)
+      const buf = new Uint8Array(r.analyser.fftSize);
       const tick = () => {
-        if (!audioCtx.current) return;
-        an.getByteTimeDomainData(buf);
+        if (rec.current !== r) return;
+        r.analyser.getByteTimeDomainData(buf);
         let sum = 0;
         for (const v of buf) sum += ((v - 128) / 128) ** 2;
         setLevel(Math.min(1, Math.sqrt(sum / buf.length) * 4));
@@ -92,6 +81,7 @@ export default function LiveCall() {
       };
       tick();
       started.current = Date.now();
+      stoppedAt.current = 0;
       setElapsed(0);
       setPhase("recording");
     } catch (e) {
@@ -99,19 +89,23 @@ export default function LiveCall() {
     }
   }
 
-  function stop() {
+  async function stop() {
+    const r = rec.current;
+    if (!r) return;
     stoppedAt.current = Date.now();
-    rec.current?.stop();
-    stopTracks();
+    rec.current = null;
     setLevel(0);
     setPhase("uploading");
+    const wav = await r.stop();
+    stopTracks();
+    upload(wav, "call.wav");
   }
 
   async function upload(blob: Blob, name: string) {
     setPhase("uploading");
     if (!stoppedAt.current) stoppedAt.current = Date.now();
     try {
-      const { call_id } = await api.upload(blob, name, agent);
+      const { call_id } = await api.upload(blob, name, agent, customer);
       setCallId(call_id);
       setPhase("processing");
     } catch (e) {
@@ -173,6 +167,8 @@ export default function LiveCall() {
             <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[13px]">
               <dt className="lab pt-0.5">Colleague</dt>
               <dd><input className="input !py-1" value={agent} onChange={(e) => setAgent(e.target.value)} /></dd>
+              <dt className="lab pt-0.5" title="Spoken names to redact from the transcript and the stored audio">Customer</dt>
+              <dd><input className="input !py-1" value={customer} placeholder="name to redact" onChange={(e) => setCustomer(e.target.value)} /></dd>
               <dt className="lab pt-0.5">Call</dt><dd className="text-[#cfd7cf]">{callId ?? "—"}</dd>
               <dt className="lab pt-0.5">Scored in</dt><dd className="text-[#cfd7cf]">{scoredIn ? `${scoredIn.toFixed(1)}s after hang-up` : "—"}</dd>
             </dl>

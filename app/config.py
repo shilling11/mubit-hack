@@ -26,6 +26,9 @@ REVIEW_REASONING_EFFORT = os.getenv("REVIEW_REASONING_EFFORT", "low") or None
 
 DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY", "")
 DEEPGRAM_MODEL = os.getenv("DEEPGRAM_MODEL", "nova-3")
+# Seconds of silence that end an utterance (Deepgram default 0.8). Shorter splits quick turn-taking
+# into separate lines, which helps diarisation on a single mixed track.
+DEEPGRAM_UTT_SPLIT = os.getenv("DEEPGRAM_UTT_SPLIT", "0.5")
 
 # Conservative routing (README §4.5). Tune on practice calls, never on held-out ones.
 AUDIT_RATE = float(os.getenv("REDRESS_AUDIT_RATE", "0.05"))

@@ -5,7 +5,7 @@ Deepgram's diarisation to separate the two speakers.
 """
 import httpx
 
-from app.config import DEEPGRAM_API_KEY, DEEPGRAM_MODEL
+from app.config import DEEPGRAM_API_KEY, DEEPGRAM_MODEL, DEEPGRAM_UTT_SPLIT
 
 URL = "https://api.deepgram.com/v1/listen"
 PARAMS = {
@@ -13,6 +13,7 @@ PARAMS = {
     "language": "en",
     "diarize": "true",
     "utterances": "true",
+    "utt_split": DEEPGRAM_UTT_SPLIT,
     "smart_format": "true",
     "punctuate": "true",
 }
@@ -27,7 +28,10 @@ def _parse(body: dict) -> dict:
     utts = [
         {"speaker": int(u.get("speaker", 0)), "text": u.get("transcript", "").strip(),
          "start_s": float(u.get("start", 0)), "end_s": float(u.get("end", 0)),
-         "confidence": float(u.get("confidence", 0))}
+         "confidence": float(u.get("confidence", 0)),
+         # per-word timestamps, used to silence redacted words in the stored audio
+         "words": [{"word": w.get("word", ""), "punctuated_word": w.get("punctuated_word", ""),
+                    "start": float(w.get("start", 0)), "end": float(w.get("end", 0))} for w in u.get("words", [])]}
         for u in results.get("utterances", []) if u.get("transcript", "").strip()
     ]
     alt = (results.get("channels") or [{}])[0].get("alternatives") or [{}]

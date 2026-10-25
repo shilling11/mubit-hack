@@ -154,9 +154,20 @@ def tx() -> Iterator[sqlite3.Connection]:
             conn.close()
 
 
+MIGRATIONS = [
+    "ALTER TABLE calls ADD COLUMN customer_name TEXT",  # names to redact for this call
+    "ALTER TABLE calls ADD COLUMN audio_muted INTEGER",  # redacted words silenced in the audio (-1: not WAV)
+]
+
+
 def init() -> None:
     with tx() as c:
         c.executescript(SCHEMA)
+        for m in MIGRATIONS:
+            try:
+                c.execute(m)
+            except sqlite3.OperationalError:
+                pass  # already applied
 
 
 def _encode(v: Any) -> Any:

@@ -142,12 +142,12 @@ def get_scorecard():
 
 # ── Calls ────────────────────────────────────────────────────────────────────
 @app.post("/api/calls")
-async def upload_call(audio: UploadFile = File(...), agent_name: str = Form("")):
+async def upload_call(audio: UploadFile = File(...), agent_name: str = Form(""), customer_name: str = Form("")):
     data = await audio.read()
     if not data:
         raise HTTPException(400, "empty recording")
     mimetype = audio.content_type or "audio/webm"
-    call_id = ingest.save_recording(data, mimetype, agent_name)
+    call_id = ingest.save_recording(data, mimetype, agent_name, customer_name)
     _work.submit(_process_upload, call_id, mimetype)
     return {"call_id": call_id}
 
@@ -214,6 +214,12 @@ def rereview(call_id: str, playbook_version: int | None = None):
     if r.get("error"):
         raise HTTPException(502, r["error"])
     return r
+
+
+@app.post("/api/calls/{call_id}/utterances/{idx}/flip")
+def flip_line(call_id: str, idx: int):
+    """Fix one mislabelled line. Re-score afterwards with POST /api/calls/{id}/review."""
+    return {"idx": idx, "speaker": _404(ingest.flip_speaker, call_id, idx)}
 
 
 @app.post("/api/calls/{call_id}/swap-speakers")

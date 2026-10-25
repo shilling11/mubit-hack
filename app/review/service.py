@@ -11,7 +11,7 @@ from app.review import spec
 
 def utterances(call_id: str) -> list[dict]:
     rows = db.query("SELECT * FROM utterances WHERE call_id = ? ORDER BY idx", (call_id,))
-    return [{"speaker": r["speaker"], "text": r["text_redacted"], "raw": r["text_raw"],
+    return [{"idx": r["idx"], "speaker": r["speaker"], "text": r["text_redacted"], "raw": r["text_raw"],
              "start_s": r["start_s"], "end_s": r["end_s"], "confidence": r["confidence"]} for r in rows]
 
 

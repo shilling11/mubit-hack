@@ -28,6 +28,7 @@ export default function CallReview() {
   const [result, setResult] = useState<{ corrections: Correction[]; rules: Rule[]; playbook_version: number } | null>(null);
   const [tested, setTested] = useState<Awaited<ReturnType<typeof api.testRule>> | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [speakersChanged, setSpeakersChanged] = useState(false);
   const audio = useRef<HTMLAudioElement>(null);
 
   // Poll until the call has a review
@@ -70,7 +71,14 @@ export default function CallReview() {
 
   async function rescore() {
     setBusy("rescore");
-    try { await api.rereview(id); setCall(await api.call(id)); setCompare(null); setResult(null); } catch (e) { setError((e as Error).message); } finally { setBusy(null); }
+    try { await api.rereview(id); setCall(await api.call(id)); setCompare(null); setResult(null); setSpeakersChanged(false); } catch (e) { setError((e as Error).message); } finally { setBusy(null); }
+  }
+
+  async function flip(idx: number) {
+    if (!call) return;
+    const r = await api.flip(call.id, idx);
+    setCall({ ...call, utterances: call.utterances.map((u) => (u.idx === idx ? { ...u, speaker: r.speaker } : u)) });
+    setSpeakersChanged(true);
   }
 
   if (!call) return <p className="text-mute">{error ?? "Loading…"}</p>;
@@ -130,12 +138,29 @@ export default function CallReview() {
               <button className={clsx(showRedacted && "on")} onClick={() => setShowRedacted(true)}>What Mubit saw</button>
             </div>
           </div>
-          {call.audio_path && <audio ref={audio} controls src={api.audioUrl(call.id)} className="mt-4 w-full opacity-80" />}
+          {call.audio_path && (
+            <>
+              <audio ref={audio} controls preload="auto" src={api.audioUrl(call.id)} className="mt-4 w-full opacity-80" />
+              <p className="mt-1 text-[11px] text-mute">
+                {call.audio_muted == null ? "" : call.audio_muted >= 0
+                  ? `${call.audio_muted} redacted moment${call.audio_muted === 1 ? "" : "s"} silenced in this recording (DOB, card, name, address).`
+                  : "Uploaded in a compressed format: the audio itself isn't redacted (record in the app for WAV)."}
+              </p>
+            </>
+          )}
+          {speakersChanged && (
+            <div className="enter mt-3 flex items-center gap-3 rounded-xl border border-amber/40 bg-amber/[.06] px-3 py-2 text-[12.5px]">
+              Speaker labels changed: re-score so the review uses them.
+              <button className="btn primary sm ml-auto" onClick={rescore} disabled={!!busy}>{busy === "rescore" && <Spinner />} Re-score</button>
+            </div>
+          )}
           <div className="scroll mt-4 flex max-h-[640px] flex-col gap-3 pr-1">
             {call.utterances.map((u, i) => (
               <div key={i} id={`u-${u.start_s}`} className={clsx("msg", u.speaker, cited.has(u.start_s) && "flagged")}>
                 <small>
-                  <span>{u.speaker === "agent" ? "COLLEAGUE" : "CUSTOMER"}</span>
+                  <button className="hover:text-white" title="Wrong speaker? Click to flip this line" onClick={() => flip(u.idx)}>
+                    {u.speaker === "agent" ? "COLLEAGUE" : "CUSTOMER"} ⇄
+                  </button>
                   <button className="hover:text-lime" onClick={() => seek(u.start_s)}>▶ {ts(u.start_s)}</button>
                 </small>
                 {showRedacted ? u.text : u.raw}

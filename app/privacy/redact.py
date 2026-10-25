@@ -41,23 +41,50 @@ def _known_names() -> list[re.Pattern]:
     """Customer names from the (synthetic) customer records, longest first."""
     if not CUSTOMERS_PATH.exists():
         return []
-    names = set()
-    for c in json.loads(CUSTOMERS_PATH.read_text(encoding="utf-8")):
-        full = c.get("name", "").strip()
-        if full:
-            names.add(full)
-            names.update(p for p in full.split() if len(p) > 2)
     # Case-sensitive, so a first name like "Will" doesn't hit the word "will".
-    return [re.compile(rf"\b{re.escape(n)}\b") for n in sorted(names, key=len, reverse=True)]
+    return _name_patterns([c.get("name", "") for c in json.loads(CUSTOMERS_PATH.read_text(encoding="utf-8"))])
 
 
-def redact(text: str) -> str:
-    out = text
+def _name_patterns(names: list[str]) -> list[re.Pattern]:
+    parts = set()
+    for full in names:
+        full = (full or "").strip()
+        if full:
+            parts.add(full)
+            parts.update(p for p in full.split() if len(p) > 2)
+    return [re.compile(rf"\b{re.escape(n)}\b") for n in sorted(parts, key=len, reverse=True)]
+
+
+def spans(text: str, extra_names: list[str] | None = None) -> list[tuple[int, int, str]]:
+    """Character spans to redact in the original text, as (start, end, token), non-overlapping.
+
+    Earlier patterns win over later ones. Used for the text sent to Mubit and to
+    find which spoken words to silence in the stored audio.
+    """
+    found: list[tuple[int, int, str]] = []
+
+    def free(a: int, b: int) -> bool:
+        return all(b <= s or a >= e for s, e, _ in found)
+
     for token, pat in _PATTERNS:
-        if token == "[CARD]":
-            out = pat.sub(lambda m: "[CARD]" if _luhn_ok(re.sub(r"\D", "", m.group(0))) else m.group(0), out)
-        else:
-            out = pat.sub(token, out)
-    for pat in _known_names():
-        out = pat.sub("[NAME]", out)
-    return out
+        for m in pat.finditer(text):
+            if token == "[CARD]" and not _luhn_ok(re.sub(r"\D", "", m.group(0))):
+                continue
+            if free(m.start(), m.end()):
+                found.append((m.start(), m.end(), token))
+    for pat in _name_patterns(extra_names or []) + _known_names():
+        for m in pat.finditer(text):
+            if free(m.start(), m.end()):
+                found.append((m.start(), m.end(), "[NAME]"))
+    return sorted(found)
+
+
+def redact(text: str, extra_names: list[str] | None = None) -> str:
+    """extra_names: names known for this call (e.g. the customer typed on the Live call page)."""
+    out, last = [], 0
+    for s, e, token in spans(text, extra_names):
+        out.append(text[last:s])
+        out.append(token)
+        last = e
+    out.append(text[last:])
+    return "".join(out)
