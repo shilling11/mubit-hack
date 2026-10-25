@@ -75,7 +75,7 @@ export default function PhoneCall() {
       if (leaving.current) return;
       dropped.current = reason === DisconnectReason.DUPLICATE_IDENTITY
         ? `This ${isAgent ? "colleague" : "customer"} link was opened on another phone or tab, which took the call over. Open /call/customer on one phone and /call/agent on the other.`
-        : "The call dropped: the connection was lost. Check the signal and try again.";
+        : "The call dropped because the connection was lost. Check the signal and try again.";
       setError(dropped.current);
       setConnected(false);
       setPhase("ended");

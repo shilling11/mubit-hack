@@ -19,14 +19,14 @@ const ROWS: { key: keyof CompareGroup["metrics"]; label: string; kind: "pct" | "
 ];
 
 function fmt(r: Range | null | undefined, kind: "pct" | "num" | "ms") {
-  if (!r) return "—";
+  if (!r) return "-";
   const f = (v: number) => (kind === "pct" ? pct(v) : kind === "ms" ? secs(v) : Number.isInteger(v) ? String(v) : v.toFixed(1));
   return r.min === r.max ? f(r.mean) : `${f(r.mean)}`;
 }
 function range(r: Range | null | undefined, kind: "pct" | "num" | "ms") {
   if (!r || r.min === r.max) return "";
   const f = (v: number) => (kind === "pct" ? pct(v) : kind === "ms" ? secs(v) : String(v));
-  return `${f(r.min)}–${f(r.max)}`;
+  return `${f(r.min)} to ${f(r.max)}`;
 }
 
 export default function Proof() {
@@ -40,8 +40,8 @@ export default function Proof() {
     <div className="grid gap-6">
       <SectionHead
         lab="Proof · held-out calls"
-        title={<>Never seen in training. <em>Scored against gold labels.</em></>}
-        sub="25 held-out calls with gold labels written before any run. Held-out reviews are sent with x-middleware-record: metadata, so Mubit never trains on them. Numbers are means over repeated runs; ranges show min–max."
+        title={<>Calls the model has never seen, <em>scored against labels written by hand</em></>}
+        sub="These 25 held-out calls were labelled by hand before any run, and their reviews are sent with x-middleware-record: metadata so Mubit never trains on them. Each figure is an average over repeated runs, with the range underneath."
         right={
           <button className="btn primary" disabled={busy || running.length > 0}
             onClick={async () => { setBusy(true); try { await api.startEval(3); } finally { setBusy(false); } }}>
@@ -101,7 +101,7 @@ export default function Proof() {
             </div>
           ))}
         </div>
-        <p className="lab mt-4">lit = at least 8 of 9 items match gold · red = a missed breach · hover for detail</p>
+        <p className="lab mt-4">A bar lights up when at least 8 of the 9 items match the gold label and turns red when a breach was missed. Hover over one for details.</p>
       </Glass>
     </div>
   );

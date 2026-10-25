@@ -333,8 +333,8 @@ export const lineApi = {
     request<Line>("/api/line/join", { method: "POST", body: JSON.stringify({ role }) }, ""),
 };
 
-export const pct =(v: number | null | undefined, d = 0) => (v == null ? "—" : `${(v * 100).toFixed(d)}%`);
-export const secs = (ms: number | null | undefined) => (ms == null ? "—" : `${(ms / 1000).toFixed(1)}s`);
+export const pct =(v: number | null | undefined, d = 0) => (v == null ? "-" : `${(v * 100).toFixed(d)}%`);
+export const secs = (ms: number | null | undefined) => (ms == null ? "-" : `${(ms / 1000).toFixed(1)}s`);
 export const ts = (s: number) => {
   const m = Math.floor(s / 60);
   return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;

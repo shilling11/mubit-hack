@@ -60,8 +60,8 @@ export default function BatchPage() {
     <div className="grid gap-6">
       <SectionHead
         lab="Batch · this month's calls"
-        title={<>The client&apos;s calls for the month, <em>scored before you open them.</em></>}
-        sub="Import the client's export. Check a few calls together and Redress learns from every correction, then it scores the rest and flags the ones a person needs to see."
+        title={<>The client&apos;s calls for the month, <em>scored before you open them</em></>}
+        sub="Import the client's monthly export and check a few calls together. Redress learns from each correction, then scores the rest and flags the ones a person should look at."
         right={
           batches && batches.length > 1 ? (
             <select className="input !w-auto" value={current ?? ""} onChange={(e) => setPicked(e.target.value)}>
@@ -138,7 +138,7 @@ export default function BatchPage() {
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-baseline gap-x-2">
                         <b className="text-[14px] font-medium">{c.id}</b>
-                        <span className="truncate text-[12px] text-mute">{c.agent_name || "—"}</span>
+                        <span className="truncate text-[12px] text-mute">{c.agent_name || "-"}</span>
                         {(c.source === "live" || c.source === "demo") && <span className="tag">just taken</span>}
                       </div>
                       <div className="mt-2 flex flex-wrap gap-1.5">
@@ -200,7 +200,7 @@ export default function BatchPage() {
           <div className="mt-5 grid gap-[6px]" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(22px, 1fr))" }}>
             {batch.calls.map((c) => (
               <Link key={c.id} href={`/dashboard/calls/${c.id}`}
-                title={`${c.id} · ${c.agent_name || "—"} · ${c.checked ? "checked" : c.risk_tier ?? c.status}`}
+                title={`${c.id} · ${c.agent_name || "-"} · ${c.checked ? "checked" : c.risk_tier ?? c.status}`}
                 className={clsx("tile", c.risk_tier ?? "dark", c.audit && "sampled", c.checked && "outline outline-1 outline-lime")} />
             ))}
           </div>

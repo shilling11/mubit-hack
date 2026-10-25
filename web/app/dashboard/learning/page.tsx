@@ -20,8 +20,8 @@ export default function LearningPage() {
     <div className="grid gap-6">
       <SectionHead
         lab="Learning · playbook"
-        title={<>Every correction becomes a rule. <em>Then a model.</em></>}
-        sub="Rules go into every later review straight away. Reviews made with them on practice and live calls are sent to Mubit in full, so its task adapter learns how this bank scores calls."
+        title={<>Every correction becomes a rule, <em>and over time a model</em></>}
+        sub="A new rule is added to every review from then on. Reviews that use it are sent to Mubit in full, which is how the adapter learns the way this bank scores its calls."
         right={<button className="btn ghost" disabled={busy !== null} onClick={async () => { setBusy("seed"); try { await api.seed(); await refresh(); } finally { setBusy(null); } }}>{busy === "seed" && <Spinner />} Load guardrail seeds</button>}
       />
 
@@ -64,7 +64,7 @@ export default function LearningPage() {
               )}
             </Glass>
           ))}
-          {!latest?.rules_json.length && <p className="text-sm text-mute">No rules yet. Load the guardrail seeds or correct a call.</p>}
+          {!latest?.rules_json.length && <p className="text-sm text-mute">There are no rules yet. Load the guardrail seeds or correct a call to add one.</p>}
         </div>
       </div>
 
@@ -94,13 +94,13 @@ export default function LearningPage() {
           <div className="grid gap-3">
             {(data?.agreement ?? []).map((a) => (
               <div key={a.item_id}>
-                <div className="mb-1 flex justify-between text-[12.5px]"><span className="mono">{a.item_id}</span><span>{a.pct == null ? "—" : `${Math.round(a.pct * 100)}%`} <span className="text-mute">of {a.n}</span></span></div>
+                <div className="mb-1 flex justify-between text-[12.5px]"><span className="mono">{a.item_id}</span><span>{a.pct == null ? "-" : `${Math.round(a.pct * 100)}%`} <span className="text-mute">of {a.n}</span></span></div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-white/5">
                   <div className="h-full rounded-full bg-gradient-to-r from-lime-2 to-lime" style={{ width: `${(a.pct ?? 0) * 100}%`, boxShadow: "0 0 10px rgba(124,255,79,.5)" }} />
                 </div>
               </div>
             ))}
-            {!data?.agreement.length && <p className="text-sm text-mute">Filled in as analysts submit evaluations.</p>}
+            {!data?.agreement.length && <p className="text-sm text-mute">This fills in as analysts submit their evaluations.</p>}
           </div>
         </Glass>
       </div>

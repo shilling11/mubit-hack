@@ -16,8 +16,6 @@ export default function LiveCall() {
   const [phase, setPhase] = useState<Phase>("idle");
   const [elapsed, setElapsed] = useState(0);
   const [level, setLevel] = useState(0);
-  const [agent, setAgent] = useState("Sam");
-  const [customer, setCustomer] = useState("Ellen Hart");
   const [callId, setCallId] = useState<string | null>(null);
   const [call, setCall] = useState<Call | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -169,7 +167,7 @@ export default function LiveCall() {
     setPhase("uploading");
     if (!stoppedAt.current) stoppedAt.current = Date.now();
     try {
-      const { call_id } = await api.upload(blob, name, agent, customer, twoChannel);
+      const { call_id } = await api.upload(blob, name, "", "", twoChannel);
       setCallId(call_id);
       setPhase("processing");
     } catch (e) {
@@ -191,10 +189,10 @@ export default function LiveCall() {
   const fails = review?.critical_fails ?? [];
   const out = review?.output_json;
   const cards = [
-    { k: "Complaint", on: !!out?.complaint.expressed, h: out?.complaint.expressed ? out.complaint.category || "Complaint" : "—", p: out?.complaint.quote },
-    { k: "Vulnerable", on: !!out?.vulnerability.length, h: out?.vulnerability.map((v) => v.driver.replace("_", " ")).join(", ") || "—", p: out?.vulnerability[0]?.quote },
-    { k: "Critical fails", on: fails.length > 0, h: fails.length ? fails.join(" · ") : review ? "None" : "—", p: review ? `Score ${review.score} · ${review.pass ? "pass" : "fail"}` : undefined, amber: true },
-    { k: "Routed", on: !!call?.queue, h: call?.queue ? { breach: "Escalate now", analyst: "To an analyst", audit: "Audit sample", auto: "Auto-scored" }[call.queue.kind] : "—", p: call?.queue?.reasons_json?.[0] },
+    { k: "Complaint", on: !!out?.complaint.expressed, h: out?.complaint.expressed ? out.complaint.category || "Complaint" : "-", p: out?.complaint.quote },
+    { k: "Vulnerable", on: !!out?.vulnerability.length, h: out?.vulnerability.map((v) => v.driver.replace("_", " ")).join(", ") || "-", p: out?.vulnerability[0]?.quote },
+    { k: "Critical fails", on: fails.length > 0, h: fails.length ? fails.join(" · ") : review ? "None" : "-", p: review ? `Score ${review.score} · ${review.pass ? "pass" : "fail"}` : undefined, amber: true },
+    { k: "Routed", on: !!call?.queue, h: call?.queue ? { breach: "Escalate now", analyst: "To an analyst", audit: "Audit sample", auto: "Auto-scored" }[call.queue.kind] : "-", p: call?.queue?.reasons_json?.[0] },
   ];
 
   return (
@@ -202,7 +200,6 @@ export default function LiveCall() {
       <SectionHead
         lab="Live call · recording"
         title={<>Redress is <em>listening</em></>}
-        sub="Open the line and call from the two phones, or put a phone on speaker next to the laptop and record. Hang up, and the scorecard appears with every quote and timestamp."
         right={
           <div className="text-right">
             <span className={clsx("live", phase !== "recording" && !onCall && "off")}>
@@ -238,14 +235,10 @@ export default function LiveCall() {
                 : phase === "processing" || phase === "uploading" ? "TRANSCRIBING · SCORING" : "WAITING FOR THE CALL"}
             </span>
             <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[13px]">
-              <dt className="lab pt-0.5">Colleague</dt>
-              <dd><input className="input !py-1" value={agent} onChange={(e) => setAgent(e.target.value)} /></dd>
-              <dt className="lab pt-0.5" title="Spoken names to redact from the transcript and the stored audio">Customer</dt>
-              <dd><input className="input !py-1" value={customer} placeholder="name to redact" onChange={(e) => setCustomer(e.target.value)} /></dd>
               <dt className="lab pt-0.5">Phones</dt><dd className="mono text-[11.5px] text-[#cfd7cf]">/call/customer · /call/agent</dd>
-              <dt className="lab pt-0.5">Call</dt><dd className="text-[#cfd7cf]">{callId ?? "—"}</dd>
-              <dt className="lab pt-0.5">Transcript in</dt><dd className="text-[#cfd7cf]">{transcribedIn ? `${transcribedIn.toFixed(1)}s after hang-up` : "—"}</dd>
-              <dt className="lab pt-0.5">Scored in</dt><dd className="text-[#cfd7cf]">{scoredIn ? `${scoredIn.toFixed(1)}s after hang-up` : "—"}</dd>
+              <dt className="lab pt-0.5">Call</dt><dd className="text-[#cfd7cf]">{callId ?? "-"}</dd>
+              <dt className="lab pt-0.5">Transcript in</dt><dd className="text-[#cfd7cf]">{transcribedIn ? `${transcribedIn.toFixed(1)}s after hang-up` : "-"}</dd>
+              <dt className="lab pt-0.5">Scored in</dt><dd className="text-[#cfd7cf]">{scoredIn ? `${scoredIn.toFixed(1)}s after hang-up` : "-"}</dd>
             </dl>
           </div>
           <div className={clsx("beam", (phase === "processing" || phase === "uploading" || phase === "recording" || phase === "calling") && "run")} />
@@ -260,7 +253,7 @@ export default function LiveCall() {
           </div>
         </div>
         {(phase === "uploading" || phase === "processing") && (
-          <p className="mt-6 flex items-center gap-2 text-sm text-mute"><Spinner /> Deepgram is transcribing, then Mubit scores the call…</p>
+          <p className="mt-6 flex items-center gap-2 text-sm text-mute"><Spinner /> Transcribing with Deepgram, then scoring through Mubit…</p>
         )}
         {error && <p className="mt-6 text-sm text-red">{error}</p>}
       </Glass>
@@ -268,21 +261,20 @@ export default function LiveCall() {
       <div className="grid gap-4 md:grid-cols-[1.3fr_1fr]">
         <Glass className="p-6">
           <div className="lab">[ Transcript ]</div>
-          <h3 className="mb-4 mt-2 text-[22px]">Every word, both speakers</h3>
+          {!call?.utterances?.length && <h3 className="mb-4 mt-2 text-[22px]">The transcript appears after the call</h3>}
           {call?.audio_path && (
             <div className="mb-4">
               <div className="lab mb-2">Recording · phone calls: customer left, colleague right</div>
               <audio controls src={api.audioUrl(call.id)} className="w-full" />
             </div>
           )}
-          <div className="scroll flex max-h-[420px] flex-col gap-3 pr-1">
+          <div className="scroll mt-3 flex max-h-[420px] flex-col gap-3 pr-1">
             {(call?.utterances ?? []).map((u, i) => (
               <div key={i} className={clsx("msg enter", u.speaker)}>
                 <small><span>{u.speaker === "agent" ? "COLLEAGUE" : "CUSTOMER"}</span><span>{ts(u.start_s)}</span></small>
                 {u.raw}
               </div>
             ))}
-            {!call?.utterances?.length && <p className="text-sm text-mute">The transcript appears after the call.</p>}
           </div>
           {call?.utterances?.length ? (
             <button className="btn ghost sm mt-4" onClick={async () => { prevReview.current = call.review?.id ?? null; stoppedAt.current = Date.now(); await api.swap(call.id); setPhase("processing"); }}>Swap speakers</button>
@@ -290,7 +282,7 @@ export default function LiveCall() {
         </Glass>
         <Glass className="p-6">
           <div className="lab">[ Scorecard ]</div>
-          <h3 className="mb-4 mt-2 text-[22px]">{review ? `Score ${review.score} · ${review.pass ? "pass" : "fail"}` : "Waiting for the review"}</h3>
+          <h3 className="mb-4 mt-2 text-[22px]">{review ? `Score ${review.score} · ${review.pass ? "pass" : "fail"}` : "The scorecard shows up once the call is reviewed"}</h3>
           <div className="grid gap-2">
             {(review?.items ?? []).map((it) => (
               <div key={it.id} className="flex items-center justify-between gap-3 border-b border-line pb-2 text-[13px]">
@@ -312,7 +304,7 @@ export default function LiveCall() {
             <Link href="/dashboard/batch" className="btn ghost mt-5 ml-2">See it in this month&apos;s batch →</Link>
           )}
           <div className="mt-6 border-t border-line pt-4">
-            <div className="lab mb-2">Rehearse without audio</div>
+            <div className="lab mb-2">No audio? Load a scripted call</div>
             <div className="flex gap-2">
               <button className="btn ghost sm" onClick={() => loadScript("demo_call1")}>Demo call 1 (text)</button>
               <button className="btn ghost sm" onClick={() => loadScript("demo_call2")}>Demo call 2 (text)</button>

@@ -15,17 +15,17 @@ const CRITICAL = [
   { id: "C1", title: "Complaint recognised", text: "Unhappy and out of pocket is a complaint, even if nobody says the word." },
   { id: "C2", title: "Vulnerability supported", text: "“I was in hospital” needs support offered, not just sympathy." },
   { id: "C3", title: "No promised outcome", text: "“I’m sure we’ll refund that” is a commitment the bank hasn’t made." },
-  { id: "C4", title: "Identity first", text: "No account detail before two pieces of ID." },
+  { id: "C4", title: "Identity first", text: "Nothing about the account is discussed until two pieces of ID have been checked." },
 ];
 
 const PIPELINE = [
   { k: "01", t: "Record", d: "The colleague takes the call as normal" },
-  { k: "02", t: "Transcribe", d: "Deepgram, both speakers, timestamps" },
-  { k: "03", t: "Scrub", d: "Card, DOB, address and names removed in code" },
-  { k: "04", t: "Score", d: "review.call on Mubit: every item, with the quote" },
-  { k: "05", t: "Route", d: "Breach now · unsure to a human · 5% audit" },
-  { k: "06", t: "Correct", d: "The analyst fixes one item, in one line" },
-  { k: "07", t: "Learn", d: "A rule straight away, a Mubit model over time" },
+  { k: "02", t: "Transcribe", d: "Deepgram writes out both speakers with timestamps" },
+  { k: "03", t: "Scrub", d: "Card numbers, dates of birth, addresses and names are removed" },
+  { k: "04", t: "Score", d: "Mubit marks every item and quotes the evidence" },
+  { k: "05", t: "Route", d: "Breaches are escalated and anything uncertain goes to a person" },
+  { k: "06", t: "Correct", d: "An analyst fixes an item and says why in a sentence" },
+  { k: "07", t: "Learn", d: "It becomes a rule now and part of a Mubit model later" },
 ];
 
 export default function Landing() {
@@ -100,9 +100,9 @@ export default function Landing() {
           </InView>
           <div className="absolute bottom-[14vh] left-1/2 grid w-[min(1080px,88vw)] -translate-x-1/2 grid-cols-1 gap-8 md:grid-cols-3">
             {[
-              ["01", "We listen", "Every call recorded and transcribed, with personal data scrubbed."],
-              ["02", "We score", "Every scorecard item, with the quote and timestamp that prove it."],
-              ["03", "We learn", "Each analyst fix becomes a rule straight away, then a model you own."],
+              ["01", "We listen", "Each call is recorded and transcribed, and personal details are stripped out first."],
+              ["02", "We score", "Every item on the scorecard is marked, with the quote and timestamp behind it."],
+              ["03", "We learn", "When an analyst fixes something, it becomes a rule right away and, over time, a model you own."],
             ].map(([k, t, d]) => (
               <InView key={k}>
                 <div className="lab">[ {k} ]</div>
@@ -119,18 +119,18 @@ export default function Landing() {
             <InView>
               <div className="lab g">[ The problem ]</div>
               <h2 className="mb-5 mt-3 text-[clamp(38px,4.4vw,64px)] leading-none">
-                <Words text="Banks hear one call in twenty." /> <em><Words text="The rest go unheard." start={6} /></em>
+                <Words text="Banks listen to about one call in twenty" /> <em><Words text="and never check the rest" start={7} /></em>
               </h2>
               <p className="max-w-[46ch] text-[15px] leading-relaxed text-[#b9c2ba]">
-                QA analysts listen to a small random sample of calls and fill in a compliance scorecard by hand. It&apos;s slow, analysts
-                disagree with each other, and every breach on the other calls is never found.
+                QA analysts listen to a small random sample and fill in a compliance scorecard by hand. It takes a long time, two
+                analysts can score the same call differently, and whatever goes wrong on the other calls never comes to light.
               </p>
               <div className="mt-8 grid max-w-[520px] grid-cols-3 gap-6">
                 <div><div className="text-4xl font-light tracking-tight">1–2%</div><p className="mt-1 text-[11.5px] text-mute">of calls sampled in UK contact centres*</p></div>
                 <div><div className="text-4xl font-light tracking-tight">~5%</div><p className="mt-1 text-[11.5px] text-mute">our example: one call in twenty</p></div>
                 <div><div className="text-4xl font-light tracking-tight text-lime">100%</div><p className="mt-1 text-[11.5px] text-mute">scored by Redress</p></div>
               </div>
-              <p className="lab mt-6">* team research (ContactBabel, Recordsure), verify before quoting</p>
+              <p className="lab mt-6">* from our research (ContactBabel, Recordsure), worth checking before quoting</p>
             </InView>
             <Glass className="p-6">
               <div className="flex items-center justify-between">
@@ -155,7 +155,7 @@ export default function Landing() {
                     <span className="flex items-center gap-2"><i className="tile low inline-block h-3 w-3" />compliant</span>
                   </>
                 ) : (
-                  <span>5 calls heard by an analyst. 95 never checked.</span>
+                  <span>An analyst hears 5 of these 100 calls, and nobody checks the other 95.</span>
                 )}
               </div>
             </Glass>
@@ -167,7 +167,7 @@ export default function Landing() {
           <InView className="text-center">
             <div className="lab g">[ How it works ]</div>
             <h2 className="mx-auto mt-3 max-w-[22ch] text-[clamp(34px,3.8vw,56px)] leading-[1.04]">
-              <Words text="Scored like your best analyst." /> <em><Words text="Checked by a human when it matters." start={5} /></em>
+              <Words text="Scored the way your best analyst would" /> <em><Words text="with a person checking whenever it matters" start={6} /></em>
             </h2>
           </InView>
           <div className="mx-auto mt-10 w-full max-w-[1180px]">
@@ -193,7 +193,7 @@ export default function Landing() {
               ))}
             </div>
             <p className="mt-6 text-center text-[13px] text-mute">
-              Missing a breach is far worse than an extra review: critical items pass only with a quote that proves it, and anything unsure goes to a person.
+              Missing a breach is far worse than an extra review, so a critical item only passes when a quote proves it, and anything uncertain goes to a person.
             </p>
           </div>
         </section>
@@ -203,10 +203,10 @@ export default function Landing() {
           <InView className="text-center">
             <div className="lab g">[ Held-out calls · never seen in training ]</div>
             <h2 className="mt-3 text-[clamp(32px,3.8vw,54px)] leading-[1.05]">
-              <Words text="Every breach caught." /> <em><Words text="Fewer false alarms." start={3} /></em>
+              <Words text="Every breach was caught" /> <em><Words text="on calls it had never seen" start={4} /></em>
             </h2>
             <p className="mt-3 text-[12.5px] leading-relaxed text-mute">
-              {latest?.per_call.length ?? 25} held-out calls with gold labels written before any run · never recorded for training · live from the evaluation runs
+              {latest?.per_call.length ?? 25} held-out calls, labelled by hand before any run and never used for training. These figures come straight from the evaluation runs.
             </p>
           </InView>
           <div className="mt-8 grid w-[min(1000px,88vw)] grid-cols-2 gap-8 md:grid-cols-4">
@@ -235,7 +235,7 @@ export default function Landing() {
             })}
             {!compare?.length && <p className="text-center text-sm text-mute">Run the held-out evaluation to fill this in.</p>}
           </div>
-          <p className="lab mt-5 text-center">each bar is one held-out call · lit = scored like the gold label (≥ 8 of 9 items) · red = a missed breach</p>
+          <p className="lab mt-5 text-center">Each bar is one held-out call. It lights up when at least 8 of the 9 items match the gold label, and turns red if a breach was missed.</p>
         </section>
 
         {/* 5 · MUBIT + CLOSE */}
@@ -252,9 +252,9 @@ export default function Landing() {
               </h2>
             </InView>
             <p className="mt-4 text-[13px] text-mute">
-              {stage === 0 && <>Collecting examples: <b className="text-text">{examples}</b> corrected-behaviour reviews sent to Mubit · playbook v{status?.playbook_version ?? 0}</>}
-              {stage === 1 && <>{examples} kept examples · Mubit trains a small adapter on how this bank scores calls</>}
-              {stage === 2 && <>Adapter passed its tests in the Mubit console · the 95% of unheard calls run on a model the bank owns</>}
+              {stage === 0 && <>So far <b className="text-text">{examples}</b> reviews that use the analysts&apos; rules have gone to Mubit as training examples (playbook v{status?.playbook_version ?? 0}).</>}
+              {stage === 1 && <>Mubit has enough examples and is training a small adapter on how this bank scores its calls.</>}
+              {stage === 2 && <>The adapter passed Mubit&apos;s tests, so the calls nobody listens to can be scored by a model the bank owns.</>}
             </p>
             <div className="mt-4 flex flex-wrap justify-center gap-2">
               <span className={clsx("ver", stage >= 0 && "on")}>Collecting · {Math.min(examples, 25)}/25</span>
@@ -269,7 +269,7 @@ export default function Landing() {
             <div className="mt-8 flex justify-center">
               <Link href="/dashboard" className="btn primary px-6 py-3 text-[14px]">Open the dashboard <Arrow /></Link>
             </div>
-            <p className="lab mt-8">Built with Mubit · Deepgram · FastAPI · Next.js · 100% synthetic data · every score checked by a person</p>
+            <p className="lab mt-8">Built with Mubit, Deepgram, FastAPI and Next.js. All the data is synthetic, and a person signs off every decision.</p>
           </div>
         </section>
       </div>

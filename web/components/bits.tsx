@@ -4,7 +4,7 @@ import clsx from "clsx";
 import type { Answer, QueueKind, Tier } from "@/lib/api";
 
 export function AnswerTag({ a, className }: { a: Answer | null | undefined; className?: string }) {
-  if (!a) return <span className="tag grey">—</span>;
+  if (!a) return <span className="tag grey">-</span>;
   const cls = { yes: "", no: "red", na: "grey", unsure: "amber" }[a];
   const label = { yes: "pass", no: "fail", na: "n/a", unsure: "unsure" }[a];
   return <span className={clsx("tag", cls, className)}>{label}</span>;
@@ -17,7 +17,7 @@ export function TierTag({ t }: { t: Tier | null | undefined }) {
 }
 
 export function QueueTag({ k }: { k: QueueKind | null | undefined }) {
-  if (!k) return <span className="tag grey">—</span>;
+  if (!k) return <span className="tag grey">-</span>;
   const cls = { breach: "red", analyst: "amber", audit: "", auto: "grey" }[k];
   const label = { breach: "breach · escalate", analyst: "to an analyst", audit: "audit sample", auto: "auto-scored" }[k];
   return <span className={clsx("tag", cls)}>{label}</span>;

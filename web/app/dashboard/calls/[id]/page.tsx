@@ -118,7 +118,7 @@ export default function CallReview() {
         <Glass className="flex flex-wrap items-center gap-x-6 gap-y-2 p-4 text-[12.5px]">
           <span className="lab g">[ Why it was routed ]</span>
           {(call.queue?.reasons_json ?? []).map((r, i) => <span key={i} className="text-[#d3dad3]">{r}</span>)}
-          {!call.queue?.reasons_json?.length && <span className="text-mute">Nothing uncertain: auto-scored.</span>}
+          {!call.queue?.reasons_json?.length && <span className="text-mute">Nothing here was uncertain, so the call was scored automatically.</span>}
           <span className="mono ml-auto text-[10.5px] text-mute-2">
             review.call · {review.model} · {secs(review.latency_ms)} · v{review.playbook_version} · {review.record_mode} · {review.request_id?.slice(0, 18)}…
           </span>
@@ -144,13 +144,13 @@ export default function CallReview() {
               <p className="mt-1 text-[11px] text-mute">
                 {call.audio_muted == null ? "" : call.audio_muted >= 0
                   ? `${call.audio_muted} redacted moment${call.audio_muted === 1 ? "" : "s"} silenced in this recording (DOB, card, name, address).`
-                  : "Uploaded in a compressed format: the audio itself isn't redacted (record in the app for WAV)."}
+                  : "This file was uploaded in a compressed format, so the audio itself isn't redacted. Recordings made in the app are."}
               </p>
             </>
           )}
           {speakersChanged && (
             <div className="enter mt-3 flex items-center gap-3 rounded-xl border border-amber/40 bg-amber/[.06] px-3 py-2 text-[12.5px]">
-              Speaker labels changed: re-score so the review uses them.
+              You changed some speaker labels. Re-score the call so the review uses them.
               <button className="btn primary sm ml-auto" onClick={rescore} disabled={!!busy}>{busy === "rescore" && <Spinner />} Re-score</button>
             </div>
           )}
@@ -180,7 +180,7 @@ export default function CallReview() {
         <Glass className="p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <div className="lab">[ AI scorecard · check, then correct ]</div>
+              <div className="lab">[ AI scorecard ]</div>
               <h3 className="mt-2 text-[22px]">Agree, or change it and say why</h3>
             </div>
             <div className="flex items-center gap-2">
@@ -217,7 +217,7 @@ export default function CallReview() {
             <div className="enter mt-5 rounded-2xl border border-lime/40 bg-lime/[.06] p-4">
               {result.corrections.length ? (
                 <>
-                  <div className="text-[14px]"><b className="font-medium">Rule added → playbook v{result.playbook_version}.</b> The next calls are scored with it straight away, and those reviews become Mubit training examples.</div>
+                  <div className="text-[14px]"><b className="font-medium">Added a rule, so the playbook is now v{result.playbook_version}.</b> The next calls are scored with it, and those reviews become training examples for Mubit.</div>
                   {result.corrections.map((c) => {
                     const rule = result.rules.find((r) => r.correction_id === c.id);
                     return (
@@ -247,7 +247,7 @@ export default function CallReview() {
                   )}
                 </>
               ) : (
-                <div className="text-[14px]">Agreed with every item. Agreement is tracked per item; nothing to learn from this call.</div>
+                <div className="text-[14px]">You agreed with every item. That still counts towards agreement, there just isn&apos;t anything new to learn from this call.</div>
               )}
             </div>
           )}

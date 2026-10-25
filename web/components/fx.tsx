@@ -137,7 +137,7 @@ export function CountUp({ value, decimals = 0, suffix = "" }: { value: number | 
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
   }, [value]);
-  if (value == null) return <span className="text-mute-2">—</span>;
+  if (value == null) return <span className="text-mute-2">-</span>;
   return (
     <span>
       {shown.toFixed(decimals)}

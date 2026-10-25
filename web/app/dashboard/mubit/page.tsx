@@ -35,7 +35,7 @@ export default function MubitPage() {
             <span className={clsx("ver", shape === 2 && "pass")}>Adapter passed ✓</span>
           </div>
           <p className="mt-3 text-[12.5px] text-mute">
-            {examples} corrected-behaviour reviews sent in full. The adapter&apos;s status lives in the Mubit console (Tasks → Adapters), and a passing version is compared in Try models.
+            {examples} reviews that use the analysts&apos; rules have been sent in full. You can follow the adapter in the Mubit console under Tasks → Adapters, and compare a passing version in Try models.
           </p>
           <a href="https://app.mubit.ai/console/" target="_blank" rel="noreferrer" className="btn ghost sm mt-4">Open the Mubit console ↗</a>
         </Glass>
@@ -53,7 +53,7 @@ export default function MubitPage() {
               ["Playbook", `v${status?.playbook_version ?? 0}`],
               ["Deepgram", status?.deepgram_key_set ? "key set" : "missing"],
             ].map(([k, v]) => (
-              <div key={k as string} className="field"><span>{k}</span><span className="mono text-[12.5px]">{v ?? "—"}</span></div>
+              <div key={k as string} className="field"><span>{k}</span><span className="mono text-[12.5px]">{v ?? "-"}</span></div>
             ))}
           </div>
         </Glass>
@@ -76,10 +76,10 @@ export default function MubitPage() {
                 <td className="mono py-2">{t.task}</td>
                 <td className="py-2"><span className={clsx("tag !text-[9px]", t.record_mode === "full" ? "" : "grey")}>{t.record_mode === "full" ? "trains" : t.record_mode}</span></td>
                 <td className="mono py-2 text-mute">{t.request_id ? `${t.request_id.slice(0, 20)}…` : t.error?.slice(0, 40)}</td>
-                <td className="py-2">{t.served_by ?? "—"}</td>
+                <td className="py-2">{t.served_by ?? "-"}</td>
                 <td className="py-2">{secs(t.latency_ms)}</td>
-                <td className="py-2 text-mute">{(t.tokens_in ?? 0) + (t.tokens_out ?? 0) || "—"}</td>
-                <td className="py-2 text-mute">{t.call_id ?? "—"}</td>
+                <td className="py-2 text-mute">{(t.tokens_in ?? 0) + (t.tokens_out ?? 0) || "-"}</td>
+                <td className="py-2 text-mute">{t.call_id ?? "-"}</td>
               </tr>
             ))}
           </tbody>
